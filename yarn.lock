@@ -517,6 +517,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@creatorhub/navbar@*, @creatorhub/navbar@workspace:packages/navbar":
+  version: 0.0.0-use.local
+  resolution: "@creatorhub/navbar@workspace:packages/navbar"
+  dependencies:
+    "@types/react": ^18.0.22
+    "@types/react-dom": ^17.0.11
+    eslint: ^7.32.0
+    next: 13.1.1
+    react: ^18.2.0
+    typescript: ^4.5.2
+  languageName: unknown
+  linkType: soft
+
 "@cspotcode/source-map-support@npm:^0.8.0":
   version: 0.8.1
   resolution: "@cspotcode/source-map-support@npm:0.8.1"
@@ -6324,6 +6337,7 @@ __metadata:
     "@babel/core": ^7.0.0
     "@creatorhub/buttons": "*"
     "@creatorhub/forms": "*"
+    "@creatorhub/navbar": "*"
     "@next/font": ^13.1.0
     "@types/node": ^17.0.12
     "@types/react": ^18.0.22
