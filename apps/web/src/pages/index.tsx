@@ -11,7 +11,7 @@ export default function Web() {
 						<h1 className="text-title">SCR Creators,</h1>
 						<h2 className="text-subtitle">You’re in the right place.</h2>
 					</div>
-					<div className="flex flex-col gap-5">
+					<div className="flex flex-col gap-7">
 						<h2 className="text-subtitle max-w-xl">
 							Hundreds of assets, accessible in <strong className="text-highlight font-semibold">seconds</strong>
 						</h2>
