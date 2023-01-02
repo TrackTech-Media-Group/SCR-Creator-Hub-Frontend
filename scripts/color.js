@@ -3,8 +3,8 @@ const hex2rgba = (hex, alpha = 1) => {
 	return `rgba(${r},${g},${b},${alpha})`;
 };
 
-const color = "#242526";
-const colorName = "main";
+const color = "#1D1F3D";
+const colorName = "secondary";
 const aplhas = Array(10)
 	.fill(null)
 	.map((_, k) => (k + 1) / 10);

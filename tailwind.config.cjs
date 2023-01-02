@@ -5,31 +5,35 @@ module.exports = {
 	theme: {
 		extend: {
 			fontSize: {
-				note: ["9.2px", { fontWeight: 600 }],
-				comment: ["11.5px", { fontWeight: 600 }],
-				small: ["14.4px", { fontWeight: 600 }],
-				base: ["18px", { fontWeight: 400 }],
-				lg: ["22.5px", { fontWeight: 600 }],
-				xl: ["28.13px", { fontWeight: 600 }],
+				note: ["11.5px", { fontWeight: 600 }],
+				comment: ["14.4px", { fontWeight: 600 }],
+				small: ["16.67px", { fontWeight: 600 }],
+				base: ["20px", { fontWeight: 400 }],
+				lg: ["24px", { fontWeight: 600 }],
+				xl: ["28.8px", { fontWeight: 600 }],
 				"2xl": ["35.16px", { fontWeight: 600 }],
-				"3xl": ["43.95px", { fontWeight: 600 }],
-				"4xl": ["54.9px", { fontWeight: 700, lineHeight: "50px" }]
+				"3xl": ["41.47px", { fontWeight: 600 }],
+				subtitle: ["49.77px", { fontWeight: 600, lineHeight: "50px" }],
+				title: ["59.72px", { fontWeight: 800, lineHeight: "60px" }]
 			},
 			backgroundImage: {
-				login: "url('/backgrounds/login.svg')"
+				home_header: "url('/backgrounds/home_header_image.png')"
+			},
+			backgroundSize: {
+				home_header: "700px"
 			},
 			colors: {
 				// main
-				"main-100": "rgba(36,37,38,0.1)",
-				"main-200": "rgba(36,37,38,0.2)",
-				"main-300": "rgba(36,37,38,0.3)",
-				"main-400": "rgba(36,37,38,0.4)",
-				"main-500": "rgba(36,37,38,0.5)",
-				"main-600": "rgba(36,37,38,0.6)",
-				"main-700": "rgba(36,37,38,0.7)",
-				"main-800": "rgba(36,37,38,0.8)",
-				"main-900": "rgba(36,37,38,0.9)",
-				main: "rgba(36,37,38,1)",
+				"main-100": "rgba(6,8,35,0.1)",
+				"main-200": "rgba(6,8,35,0.2)",
+				"main-300": "rgba(6,8,35,0.3)",
+				"main-400": "rgba(6,8,35,0.4)",
+				"main-500": "rgba(6,8,35,0.5)",
+				"main-600": "rgba(6,8,35,0.6)",
+				"main-700": "rgba(6,8,35,0.7)",
+				"main-800": "rgba(6,8,35,0.8)",
+				"main-900": "rgba(6,8,35,0.9)",
+				main: "rgba(6,8,35,1)",
 
 				// white
 				white: "rgba(255, 255, 255, 1)",
@@ -44,7 +48,7 @@ module.exports = {
 				"white-100": "rgba(255, 255, 255, .1)",
 
 				// bg
-				"bg-dark": "#1F2021",
+				"bg-dark": "#060823",
 
 				// primary
 				"primary-100": "rgba(75,95,115,0.1)",
@@ -59,28 +63,28 @@ module.exports = {
 				primary: "rgba(75,95,115,1)",
 
 				// secondary
-				"secondary-100": "rgba(41,53,64,0.1)",
-				"secondary-200": "rgba(41,53,64,0.2)",
-				"secondary-300": "rgba(41,53,64,0.3)",
-				"secondary-400": "rgba(41,53,64,0.4)",
-				"secondary-500": "rgba(41,53,64,0.5)",
-				"secondary-600": "rgba(41,53,64,0.6)",
-				"secondary-700": "rgba(41,53,64,0.7)",
-				"secondary-800": "rgba(41,53,64,0.8)",
-				"secondary-900": "rgba(41,53,64,0.9)",
-				secondary: "rgba(41,53,64,1)",
+				"secondary-100": "rgba(29,31,61,0.1)",
+				"secondary-200": "rgba(29,31,61,0.2)",
+				"secondary-300": "rgba(29,31,61,0.3)",
+				"secondary-400": "rgba(29,31,61,0.4)",
+				"secondary-500": "rgba(29,31,61,0.5)",
+				"secondary-600": "rgba(29,31,61,0.6)",
+				"secondary-700": "rgba(29,31,61,0.7)",
+				"secondary-800": "rgba(29,31,61,0.8)",
+				"secondary-900": "rgba(29,31,61,0.9)",
+				secondary: "rgba(29,31,61,1)",
 
 				// highlight
-				"highlight-100": "rgba(79,77,140,0.1)",
-				"highlight-200": "rgba(79,77,140,0.2)",
-				"highlight-300": "rgba(79,77,140,0.3)",
-				"highlight-400": "rgba(79,77,140,0.4)",
-				"highlight-500": "rgba(79,77,140,0.5)",
-				"highlight-600": "rgba(79,77,140,0.6)",
-				"highlight-700": "rgba(79,77,140,0.7)",
-				"highlight-800": "rgba(79,77,140,0.8)",
-				"highlight-900": "rgba(79,77,140,0.9)",
-				highlight: "rgba(79,77,140,1)",
+				"highlight-100": "rgba(142,41,251,0.1)",
+				"highlight-200": "rgba(142,41,251,0.2)",
+				"highlight-300": "rgba(142,41,251,0.3)",
+				"highlight-400": "rgba(142,41,251,0.4)",
+				"highlight-500": "rgba(142,41,251,0.5)",
+				"highlight-600": "rgba(142,41,251,0.6)",
+				"highlight-700": "rgba(142,41,251,0.7)",
+				"highlight-800": "rgba(142,41,251,0.8)",
+				"highlight-900": "rgba(142,41,251,0.9)",
+				highlight: "rgba(142,41,251,1)",
 
 				// blue
 				"blue-100": "rgba(0,112,243,0.1)",
