@@ -25,28 +25,20 @@ export type AllProps = LinkProps | ButtonProps;
 
 const Colors = {
 	primary: {
-		bg: "bg-primary-400",
-		border: "border-primary-800",
-		hoverBg: "hover:bg-primary-600",
-		hoverBorder: "hover:border-primary"
+		bg: "bg-primary",
+		hoverBg: "hover:bg-primary-500"
 	},
 	secondary: {
-		bg: "bg-secondary-400",
-		border: "border-secondary-800",
-		hoverBg: "hover:bg-secondary-600",
-		hoverBorder: "hover:border-secondary"
+		bg: "bg-secondary",
+		hoverBg: "hover:bg-secondary-500"
 	},
 	tertiary: {
-		bg: "bg-highlight-400",
-		border: "border-highlight-800",
-		hoverBg: "hover:bg-highlight-600",
-		hoverBorder: "hover:border-highlight"
+		bg: "bg-highlight",
+		hoverBg: "hover:bg-highlight-500"
 	},
 	white: {
-		bg: "bg-white-400",
-		border: "border-white-800",
-		hoverBg: "hover:bg-white-600",
-		hoverBorder: "hover:border-white"
+		bg: "bg-white",
+		hoverBg: "hover:bg-white-500"
 	}
 };
 
@@ -56,9 +48,7 @@ const Button: React.FC<React.PropsWithChildren<AllPropsWithColor>> = (props) => 
 
 	return (
 		<El
-			className={`${props.extra ?? ""} ${colors.bg} border ${colors.border} text-white px-4 py-2 rounded-xl text-base ${colors.hoverBg} ${
-				colors.hoverBorder
-			} transition-colors`}
+			className={`${props.extra ?? ""} ${colors.bg} text-white px-4 py-2 rounded-xl text-base ${colors.hoverBg} transition-colors`}
 			{...props}
 		/>
 	);
