@@ -521,10 +521,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@creatorhub/navbar@workspace:packages/navbar"
   dependencies:
-<<<<<<< HEAD
     "@creatorhub/buttons": "*"
-=======
->>>>>>> 47d557e (chore: add @creatorhub/navbar package)
     "@types/react": ^18.0.22
     "@types/react-dom": ^17.0.11
     eslint: ^7.32.0
