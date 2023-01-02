@@ -5,7 +5,7 @@ export default function Web() {
 	return (
 		<>
 			<HomeNavbar />
-			<div className="px-8 min-h-screen bg-home_header bg-no-repeat bg-[right_top]">
+			<div className="px-8 min-h-screen bg-home_header bg-no-repeat bg-[right_top] max-lg:bg-home_header_lg max-md:bg-home_header_md">
 				<div className="px-24 py-[232px] flex flex-col gap-20">
 					<div>
 						<h1 className="text-title">SCR Creators,</h1>

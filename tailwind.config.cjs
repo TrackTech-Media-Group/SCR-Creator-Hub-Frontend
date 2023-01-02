@@ -20,7 +20,9 @@ module.exports = {
 				home_header: "url('/backgrounds/home_header_image.png')"
 			},
 			backgroundSize: {
-				home_header: "700px"
+				home_header: "850px",
+				home_header_lg: "650px",
+				home_header_md: "400px"
 			},
 			colors: {
 				// main
