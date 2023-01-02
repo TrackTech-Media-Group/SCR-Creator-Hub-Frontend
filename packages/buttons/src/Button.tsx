@@ -37,8 +37,8 @@ const Colors = {
 		hoverBg: "hover:bg-highlight-500"
 	},
 	white: {
-		bg: "bg-white",
-		hoverBg: "hover:bg-white-500"
+		bg: "bg-white-200",
+		hoverBg: "hover:bg-white-400"
 	},
 	transparent: {
 		bg: "bg-transparent px-2 py-0",
