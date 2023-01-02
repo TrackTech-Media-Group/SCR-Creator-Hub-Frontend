@@ -3,6 +3,7 @@ import "../styles/fontawesome.css";
 
 import type { AppProps } from "next/app";
 import { Public_Sans } from "@next/font/google";
+import { withPasswordProtect } from "next-password-protect";
 
 const publicSans = Public_Sans({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"] });
 
@@ -14,4 +15,16 @@ const App = ({ Component, pageProps }: AppProps) => {
 	);
 };
 
-export default App;
+const WithPasswordProtect = process.env.PASSWORD_PROTECT
+	? withPasswordProtect(App, {
+			checkApiUrl: "/api/staging/passwordCheck",
+			loginApiUrl: "/api/staging/login",
+			loginComponentProps: {
+				logo: "/logo/logo.png",
+				buttonBackgroundColor: "#060823",
+				buttonColor: "#fff"
+			}
+	  })
+	: App;
+
+export default WithPasswordProtect;
