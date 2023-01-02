@@ -14,7 +14,7 @@ module.exports = {
 				"2xl": ["35.16px", { fontWeight: 600 }],
 				"3xl": ["41.47px", { fontWeight: 600 }],
 				subtitle: ["49.77px", { fontWeight: 600, lineHeight: "50px" }],
-				title: ["59.72px", { fontWeight: 700, lineHeight: "60px" }]
+				title: ["59.72px", { fontWeight: 800, lineHeight: "60px" }]
 			},
 			backgroundImage: {
 				home_header: "url('/backgrounds/home_header_image.png')"
