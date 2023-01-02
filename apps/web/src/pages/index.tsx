@@ -1,25 +1,20 @@
-import { PrimaryButton } from "@creatorhub/buttons";
+import { SecondaryButton } from "@creatorhub/buttons";
 
 export default function Web() {
 	return (
-		<div className="grid place-items-center h-screen">
-			<div className="flex flex-col gap-y-3 items-center justify-center">
+		<div className="px-8 min-h-screen bg-home_header bg-no-repeat bg-[right_top]">
+			<div className="px-24 py-[232px] flex flex-col gap-20">
 				<div>
-					<div className="flex gap-4">
-						<image href="logo/logo.png" /> <h1 className="text-4xl max-sm:text-2xl">PAPERPLANE</h1>
-					</div>
-					<h2 className="text-base max-sm:text-comment max-sm:font-medium">File uploading. URL Shortening. Protected views.</h2>
+					<h1 className="text-title">SCR Creators,</h1>
+					<h2 className="text-subtitle">You’re in the right place.</h2>
 				</div>
-				<div className="flex gap-2 max-sm:flex-col max-sm:w-full text-center">
-					<PrimaryButton type="link" href="https://github.com/ijsKoud/paperplane">
-						GitHub
-					</PrimaryButton>
-					<PrimaryButton type="link" href="/dashboard">
-						Dashboard
-					</PrimaryButton>
-					<PrimaryButton type="link" href="/admin">
-						Admin Panel
-					</PrimaryButton>
+				<div className="flex flex-col gap-5">
+					<h2 className="text-subtitle max-w-xl">
+						Hundreds of assets, accessible in <strong className="text-highlight font-semibold">seconds</strong>
+					</h2>
+					<SecondaryButton type="link" href="/login" extra="w-fit">
+						Get Started
+					</SecondaryButton>
 				</div>
 			</div>
 		</div>
