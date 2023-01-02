@@ -39,6 +39,10 @@ const Colors = {
 	white: {
 		bg: "bg-white",
 		hoverBg: "hover:bg-white-500"
+	},
+	transparent: {
+		bg: "bg-transparent px-2 py-0",
+		hoverBg: "hover:text-white-500"
 	}
 };
 
