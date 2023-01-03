@@ -76,6 +76,18 @@ module.exports = {
 				"secondary-900": "rgba(29,31,61,0.9)",
 				secondary: "rgba(29,31,61,1)",
 
+				// tertiary
+				"tertiary-100": "rgba(53,57,112,0.1)",
+				"tertiary-200": "rgba(53,57,112,0.2)",
+				"tertiary-300": "rgba(53,57,112,0.3)",
+				"tertiary-400": "rgba(53,57,112,0.4)",
+				"tertiary-500": "rgba(53,57,112,0.5)",
+				"tertiary-600": "rgba(53,57,112,0.6)",
+				"tertiary-700": "rgba(53,57,112,0.7)",
+				"tertiary-800": "rgba(53,57,112,0.8)",
+				"tertiary-900": "rgba(53,57,112,0.9)",
+				tertiary: "rgba(53,57,112,1)",
+
 				// highlight
 				"highlight-100": "rgba(142,41,251,0.1)",
 				"highlight-200": "rgba(142,41,251,0.2)",

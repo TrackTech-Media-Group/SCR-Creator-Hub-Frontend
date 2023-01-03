@@ -495,7 +495,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@creatorhub/cards@workspace:packages/cards":
+"@creatorhub/cards@*, @creatorhub/cards@workspace:packages/cards":
   version: 0.0.0-use.local
   resolution: "@creatorhub/cards@workspace:packages/cards"
   dependencies:
@@ -6258,6 +6258,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.7
     "@creatorhub/buttons": "*"
+    "@creatorhub/cards": "*"
     "@creatorhub/forms": "*"
     "@creatorhub/navbar": "*"
     "@next/font": ^13.1.1
