@@ -22,7 +22,7 @@ module.exports = {
 			backgroundSize: {
 				home_header: "850px",
 				home_header_lg: "650px",
-				home_header_md: "400px"
+				home_header_md: "100%"
 			},
 			colors: {
 				// main
