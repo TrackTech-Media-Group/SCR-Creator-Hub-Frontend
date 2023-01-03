@@ -49,6 +49,18 @@ module.exports = {
 				"white-200": "rgba(255, 255, 255, .2)",
 				"white-100": "rgba(255, 255, 255, .1)",
 
+				// black
+				black: "rgba(0, 0, 0, 1)",
+				"black-900": "rgba(0, 0, 0, .9)",
+				"black-800": "rgba(0, 0, 0, .8)",
+				"black-700": "rgba(0, 0, 0, .7)",
+				"black-600": "rgba(0, 0, 0, .6)",
+				"black-500": "rgba(0, 0, 0, .5)",
+				"black-400": "rgba(0, 0, 0, .4)",
+				"black-300": "rgba(0, 0, 0, .3)",
+				"black-200": "rgba(0, 0, 0, .2)",
+				"black-100": "rgba(0, 0, 0, .1)",
+
 				// bg
 				"bg-dark": "#060823",
 
@@ -75,6 +87,18 @@ module.exports = {
 				"secondary-800": "rgba(29,31,61,0.8)",
 				"secondary-900": "rgba(29,31,61,0.9)",
 				secondary: "rgba(29,31,61,1)",
+
+				// tertiary
+				"tertiary-100": "rgba(53,57,112,0.1)",
+				"tertiary-200": "rgba(53,57,112,0.2)",
+				"tertiary-300": "rgba(53,57,112,0.3)",
+				"tertiary-400": "rgba(53,57,112,0.4)",
+				"tertiary-500": "rgba(53,57,112,0.5)",
+				"tertiary-600": "rgba(53,57,112,0.6)",
+				"tertiary-700": "rgba(53,57,112,0.7)",
+				"tertiary-800": "rgba(53,57,112,0.8)",
+				"tertiary-900": "rgba(53,57,112,0.9)",
+				tertiary: "rgba(53,57,112,1)",
 
 				// highlight
 				"highlight-100": "rgba(142,41,251,0.1)",
