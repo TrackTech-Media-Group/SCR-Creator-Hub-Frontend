@@ -11,6 +11,7 @@ interface ButtonPropsColor {
 interface LinkPropsColor {
 	type: "link";
 	href: string;
+	onClick?: () => void;
 	target?: string;
 	color: Colors;
 	extra?: string;
