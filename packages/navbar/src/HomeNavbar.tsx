@@ -1,15 +1,29 @@
 import { TransparentButton, WhiteButton } from "@creatorhub/buttons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HomeMobileMenu } from "./HomeMobileMenu";
 import MenuButton from "./MenuButton";
 
 export const HomeNavbar: React.FC = () => {
 	const [mobileMenu, setMobileMenu] = useState(false);
+	const [showBg, setShowBg] = useState(false);
+
 	const toggleMenu = () => setMobileMenu(!mobileMenu);
 	const closeMenu = () => setMobileMenu(false);
 
+	useEffect(() => {
+		const scrollFn = () => setShowBg(window.scrollY >= 100);
+		window.addEventListener("scroll", scrollFn);
+
+		scrollFn();
+		return () => window.removeEventListener("scroll", scrollFn);
+	}, []);
+
 	return (
-		<div className="fixed z-[100] w-screen h-24 py-4 px-8 flex justify-between items-center">
+		<div
+			className={`fixed z-[100] w-screen h-24 py-4 px-8 flex justify-between items-center ${
+				showBg ? "bg-main" : "bg-transparent"
+			} transition-colors`}
+		>
 			<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-full" />
 			<div className="flex gap-11 max-md:hidden">
 				<TransparentButton type="button">Products</TransparentButton>
