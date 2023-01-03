@@ -49,6 +49,18 @@ module.exports = {
 				"white-200": "rgba(255, 255, 255, .2)",
 				"white-100": "rgba(255, 255, 255, .1)",
 
+				// black
+				black: "rgba(0, 0, 0, 1)",
+				"black-900": "rgba(0, 0, 0, .9)",
+				"black-800": "rgba(0, 0, 0, .8)",
+				"black-700": "rgba(0, 0, 0, .7)",
+				"black-600": "rgba(0, 0, 0, .6)",
+				"black-500": "rgba(0, 0, 0, .5)",
+				"black-400": "rgba(0, 0, 0, .4)",
+				"black-300": "rgba(0, 0, 0, .3)",
+				"black-200": "rgba(0, 0, 0, .2)",
+				"black-100": "rgba(0, 0, 0, .1)",
+
 				// bg
 				"bg-dark": "#060823",
 

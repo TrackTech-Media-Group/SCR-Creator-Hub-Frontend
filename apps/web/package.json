@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@creatorhub/buttons": "*",
+		"@creatorhub/cards": "*",
 		"@creatorhub/forms": "*",
 		"@creatorhub/navbar": "*",
 		"@next/font": "^13.1.1",
