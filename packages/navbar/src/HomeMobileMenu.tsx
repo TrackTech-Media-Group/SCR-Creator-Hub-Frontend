@@ -13,6 +13,21 @@ export const HomeMobileMenu: React.FC<Props> = ({ active, closeMenu }) => {
 				<div>
 					<h1 className="text-xl font-bold">Products</h1>
 					<div className="flex flex-col gap-2 pl-2">
+						<TransparentButton type="link" href="/videos" onClick={closeMenu}>
+							<p className="text-lg font-normal flex gap-2 items-center">
+								<i className="fa-solid fa-film" /> Video
+							</p>
+						</TransparentButton>
+						<TransparentButton type="link" href="/images" onClick={closeMenu}>
+							<p className="text-lg font-normal flex gap-2 items-center">
+								<i className="fa-solid fa-image" /> Images
+							</p>
+						</TransparentButton>
+					</div>
+				</div>
+				<div>
+					<h1 className="text-xl font-bold">Resources</h1>
+					<div className="flex flex-col gap-2 pl-2">
 						<TransparentButton type="link" href="/about" onClick={closeMenu}>
 							<p className="text-lg font-normal flex gap-2 items-center">
 								<i className="fa-solid fa-building" /> About Us
@@ -31,21 +46,6 @@ export const HomeMobileMenu: React.FC<Props> = ({ active, closeMenu }) => {
 						<TransparentButton type="link" href="/privacy" onClick={closeMenu}>
 							<p className="text-lg font-normal flex gap-2 items-center">
 								<i className="fa-solid fa-fingerprint" /> Privacy Policy
-							</p>
-						</TransparentButton>
-					</div>
-				</div>
-				<div>
-					<h1 className="text-xl font-bold">Resources</h1>
-					<div className="flex flex-col gap-2 pl-2">
-						<TransparentButton type="link" href="/videos" onClick={closeMenu}>
-							<p className="text-lg font-normal flex gap-2 items-center">
-								<i className="fa-solid fa-film" /> Video
-							</p>
-						</TransparentButton>
-						<TransparentButton type="link" href="/images" onClick={closeMenu}>
-							<p className="text-lg font-normal flex gap-2 items-center">
-								<i className="fa-solid fa-image" /> Images
 							</p>
 						</TransparentButton>
 					</div>
