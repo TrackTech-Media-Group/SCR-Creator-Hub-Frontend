@@ -1,6 +1,7 @@
 import { SecondaryButton } from "@creatorhub/buttons";
 import { HomeCard } from "@creatorhub/cards";
 import { HomeNavbar } from "@creatorhub/navbar";
+import Marquee from "react-fast-marquee";
 
 export default function Web() {
 	return (
@@ -97,6 +98,22 @@ export default function Web() {
 							href="/images/cards_placeholder_image.png"
 						/>
 					</div>
+				</div>
+				<div className="w-[calc(100vw-1.1rem)] overflow-hidden my-24">
+					<Marquee className="h-28" gradient={false} direction="left">
+						{["images", "time", "grow", "quality", "free", "videos", "library"].map((str, key) => (
+							<p className="text-8xl font-semibold mx-8" key={key}>
+								{str}
+							</p>
+						))}
+					</Marquee>
+					<Marquee className="h-28" gradient={false} direction="right">
+						{["images", "time", "grow", "quality", "free", "videos", "library"].map((str, key) => (
+							<p className="text-8xl font-semibold mx-8" key={key}>
+								{str}
+							</p>
+						))}
+					</Marquee>
 				</div>
 				<div className="mt-24 max-w-[68rem] flex flex-col justify-center items-center">
 					<h1 className="text-3xl w-fit mb-4">Work smarter, not harder</h1>
