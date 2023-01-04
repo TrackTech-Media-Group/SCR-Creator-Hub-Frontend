@@ -21,7 +21,7 @@ export const HomeCard: React.FC<Props> = ({ type, src, alt, href }) => {
 			onClick={() => push(href)}
 			onMouseEnter={() => setIsHovering(true)}
 			onMouseLeave={() => setIsHovering(false)}
-			className="w-[370px] rounded-lg overflow-hidden relative cursor-pointer"
+			className="w-80 rounded-lg overflow-hidden relative cursor-pointer"
 		>
 			<div
 				className={`absolute grid place-items-center text-title w-full h-full ${
