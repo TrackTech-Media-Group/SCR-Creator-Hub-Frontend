@@ -4,7 +4,7 @@ import type React from "react";
 export const Footer: React.FC = () => {
 	return (
 		<div className="bg-black w-full mt-24 flex flex-col justify-center items-center p-8 gap-y-8">
-			<div className="flex justify-between w-[32rem]">
+			<div className="flex justify-between w-[32rem] max-sm:flex-col max-sm:w-auto max-sm:gap-y-4 max-sm:items-center max-sm:text-center">
 				<div>
 					<h1 className="text-lg">Products</h1>
 					<div className="flex flex-col">
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
 			</div>
 			<div className="flex flex-col justify-center items-center">
 				<img className="w-80" src="/logo/track-tech.png" alt="Track Tech logo" />
-				<p className="text-base">© TrackTech Media Group 2023</p>
+				<p className="text-base text-center">© TrackTech Media Group 2023</p>
 			</div>
 		</div>
 	);
