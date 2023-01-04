@@ -6,8 +6,8 @@ export default function Web() {
 	return (
 		<>
 			<HomeNavbar />
-			<div className="px-32 max-md:px-4 min-h-screen bg-home_header bg-no-repeat bg-[right_top] max-lg:bg-home_header_lg max-md:bg-home_header_md">
-				<div className="py-[232px] flex flex-col gap-20 max-md:py-[146px]">
+			<div className="px-32 max-md:px-4 min-h-screen bg-home_header bg-no-repeat bg-[right_top] max-lg:bg-home_header_lg max-md:bg-home_header_md flex flex-col justify-center items-center">
+				<div className="py-[232px] flex flex-col gap-20 max-md:py-[146px] mr-auto">
 					<div>
 						<h1 className="text-title max-md:text-subtitle max-md:!font-bold">SCR Creators,</h1>
 						<h2 className="text-subtitle max-md:text-4xl">You’re in the right place.</h2>
@@ -97,6 +97,51 @@ export default function Web() {
 							href="/images/cards_placeholder_image.png"
 						/>
 					</div>
+				</div>
+				<div className="mt-24 max-w-[68rem] flex flex-col justify-center items-center">
+					<h1 className="text-3xl w-fit mb-4">Work smarter, not harder</h1>
+					<ul className="columns-2 max-lg:columns-1">
+						<li className="max-w-[32rem] flex justify-between items-center gap-8 mb-4">
+							<i className="fa-solid fa-clock text-title" />
+							<div>
+								<h1 className="text-xl">Save Time</h1>
+								<p className="text-base">
+									Forget hours of recording footage and searching for the perfect image. With SCR Creator Hub, you can find all you
+									need and more in seconds.
+								</p>
+							</div>
+						</li>
+						<li className="max-w-[32rem] flex justify-between items-center gap-8">
+							<i className="fa-solid fa-signal text-title" />
+							<div>
+								<h1 className="text-xl">Ensure Quality</h1>
+								<p className="text-base">
+									We record all our footage on a cutting edge system so everyone can enjoy smooth framerates with beautiful full
+									graphic settings.
+								</p>
+							</div>
+						</li>
+						<li className="max-w-[32rem] flex justify-between items-center gap-8 mb-4">
+							<i className="fa-solid fa-box-open text-title" />
+							<div>
+								<h1 className="text-xl">Adaptable</h1>
+								<p className="text-base">
+									Our footage is made to be adaptable to your specific needs. Did you know we have pre-blured videos for video essay
+									backgrounds?
+								</p>
+							</div>
+						</li>
+						<li className="max-w-[32rem] flex justify-between items-center gap-8">
+							<i className="fa-solid fa-circle-dollar-to-slot text-title" />
+							<div>
+								<h1 className="text-xl">Free Forever</h1>
+								<p className="text-base">
+									No subscriptions. No hidden fees. No sneaky business practices. We want to help you, the community, not our
+									pockets.
+								</p>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</>
