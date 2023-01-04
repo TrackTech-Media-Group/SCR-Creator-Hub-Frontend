@@ -508,7 +508,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@creatorhub/footer@workspace:packages/footer":
+"@creatorhub/footer@*, @creatorhub/footer@workspace:packages/footer":
   version: 0.0.0-use.local
   resolution: "@creatorhub/footer@workspace:packages/footer"
   dependencies:
@@ -6380,6 +6380,7 @@ __metadata:
     "@babel/core": ^7.20.7
     "@creatorhub/buttons": "*"
     "@creatorhub/cards": "*"
+    "@creatorhub/footer": "*"
     "@creatorhub/forms": "*"
     "@creatorhub/navbar": "*"
     "@next/font": ^13.1.1
