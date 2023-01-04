@@ -17,7 +17,8 @@ module.exports = {
 				title: ["59.72px", { fontWeight: 800, lineHeight: "60px" }]
 			},
 			backgroundImage: {
-				home_header: "url('/backgrounds/home_header_image.png')"
+				home_header: "url('/backgrounds/home_header_image.png')",
+				home_conclusion: "url('/backgrounds/home_conclusion_image.png')"
 			},
 			backgroundSize: {
 				home_header: "850px",

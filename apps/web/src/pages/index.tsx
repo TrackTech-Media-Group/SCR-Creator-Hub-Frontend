@@ -143,6 +143,21 @@ export default function Web() {
 						</li>
 					</ul>
 				</div>
+				<div className="w-full mt-24">
+					<div className="w-full absolute left-0 overflow-hidden grid place-items-center">
+						<img className="min-h-[38rem] w-fit object-cover" src="/backgrounds/home_conclusion_image.png" alt="conclusion background" />
+					</div>
+					<div className="mt-[38rem] flex flex-col justify-center items-center">
+						<h1 className="text-3xl text-center leading-10 mb-4">The new way of content creation.</h1>
+						<p className="text-base max-w-[38rem] text-center">
+							Make everything less boring, focus on the important stuff. Login with your Discord account and get access to hundreds of
+							assets.
+						</p>
+						<SecondaryButton type="link" href="/login" extra="rounded-full mt-8">
+							Sign in <i className="fa-solid fa-arrow-right-long ml-4" />
+						</SecondaryButton>
+					</div>
+				</div>
 			</div>
 		</>
 	);
