@@ -3,7 +3,7 @@ import type React from "react";
 
 export const Footer: React.FC = () => {
 	return (
-		<div className="bg-black w-full mt-24 flex flex-col justify-center items-center p-8 gap-y-8 relative h-64">
+		<div className="bg-black w-full mt-24 flex flex-col justify-center items-center p-8 gap-y-8 relative min-h-[16rem]">
 			<div className="flex justify-between w-[32rem] max-sm:flex-col max-sm:w-auto max-sm:gap-y-4 max-sm:items-center max-sm:text-center">
 				<div>
 					<h1 className="text-lg">Products</h1>
@@ -42,7 +42,8 @@ export const Footer: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			<div className="absolute right-8 bottom-8 flex flex-col justify-center items-center">
+			<div className="absolute right-8 bottom-8 flex flex-col justify-center items-center max-lg:static">
+				<img className="w-56" src="/logo/logo_with_text.png" alt="Creator Hub logo" />
 				<img className="w-48" src="/logo/track-tech.png" alt="Track Tech logo" />
 				<p className="text-sm text-center">© TrackTech Media Group 2023</p>
 			</div>
