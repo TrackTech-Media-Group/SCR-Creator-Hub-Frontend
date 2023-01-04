@@ -99,7 +99,7 @@ export default function Web() {
 						/>
 					</div>
 				</div>
-				<div className="w-[calc(100vw-1.1rem)] overflow-hidden my-24">
+				<div className="w-[calc(100vw-1.1rem)] overflow-hidden my-48">
 					<Marquee className="h-28" gradient={false} direction="left">
 						{["images", "time", "grow", "quality", "free", "videos", "library"].map((str, key) => (
 							<p className="text-8xl font-semibold mx-8" key={key}>
@@ -115,7 +115,7 @@ export default function Web() {
 						))}
 					</Marquee>
 				</div>
-				<div className="mt-24 max-w-[68rem] flex flex-col justify-center items-center">
+				<div className="max-w-[68rem] flex flex-col justify-center items-center">
 					<h1 className="text-3xl w-fit mb-4">Work smarter, not harder</h1>
 					<ul className="columns-2 max-lg:columns-1">
 						<li className="max-w-[32rem] flex justify-between items-center gap-8 mb-4">
