@@ -160,7 +160,7 @@ export default function Web() {
 						</li>
 					</ul>
 				</div>
-				<div className="w-full mt-24">
+				<div className="w-full my-24">
 					<div className="w-full absolute left-0 overflow-hidden grid place-items-center">
 						<img className="min-h-[38rem] w-fit object-cover" src="/backgrounds/home_conclusion_image.png" alt="conclusion background" />
 					</div>
