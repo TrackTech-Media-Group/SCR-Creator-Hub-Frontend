@@ -17,7 +17,7 @@ export default function Web() {
 						<h2 className="text-subtitle max-w-xl max-md:text-4xl">
 							Hundreds of assets, accessible in <strong className="text-highlight font-semibold">seconds</strong>
 						</h2>
-						<SecondaryButton type="link" href="/login" extra="w-fit">
+						<SecondaryButton type="link" href="/login" className="w-fit">
 							Get Started
 						</SecondaryButton>
 					</div>
@@ -170,7 +170,7 @@ export default function Web() {
 							Make everything less boring, focus on the important stuff. Login with your Discord account and get access to hundreds of
 							assets.
 						</p>
-						<SecondaryButton type="link" href="/login" extra="rounded-full mt-8">
+						<SecondaryButton type="link" href="/login" className="rounded-full mt-8">
 							Sign in <i className="fa-solid fa-arrow-right-long ml-4" />
 						</SecondaryButton>
 					</div>

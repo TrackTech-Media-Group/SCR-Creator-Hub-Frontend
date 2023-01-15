@@ -8,10 +8,10 @@ export const Footer: React.FC = () => {
 				<div>
 					<h1 className="text-lg">Products</h1>
 					<div className="flex flex-col">
-						<TransparentButton type="link" href="/videos" extra="!p-0 text-white-400 hover:text-white-600">
+						<TransparentButton type="link" href="/videos" className="!p-0 text-white-400 hover:text-white-600">
 							Video
 						</TransparentButton>
-						<TransparentButton type="link" href="/images" extra="!p-0 text-white-400 hover:text-white-600">
+						<TransparentButton type="link" href="/images" className="!p-0 text-white-400 hover:text-white-600">
 							Images
 						</TransparentButton>
 					</div>
@@ -19,13 +19,13 @@ export const Footer: React.FC = () => {
 				<div>
 					<h1 className="text-lg">Company</h1>
 					<div className="flex flex-col">
-						<TransparentButton type="link" href="/tos" extra="!p-0 text-white-400 hover:text-white-600">
+						<TransparentButton type="link" href="/tos" className="!p-0 text-white-400 hover:text-white-600">
 							Terms of Service
 						</TransparentButton>
-						<TransparentButton type="link" href="/privacy" extra="!p-0 text-white-400 hover:text-white-600">
+						<TransparentButton type="link" href="/privacy" className="!p-0 text-white-400 hover:text-white-600">
 							Privacy Policy
 						</TransparentButton>
-						<TransparentButton type="link" href="/about" extra="!p-0 text-white-400 hover:text-white-600">
+						<TransparentButton type="link" href="/about" className="!p-0 text-white-400 hover:text-white-600">
 							About Us
 						</TransparentButton>
 					</div>
@@ -33,10 +33,10 @@ export const Footer: React.FC = () => {
 				<div>
 					<h1 className="text-lg">Support</h1>
 					<div className="flex flex-col">
-						<TransparentButton type="link" href="/support/contact" extra="!p-0 text-white-400 hover:text-white-600">
+						<TransparentButton type="link" href="/support/contact" className="!p-0 text-white-400 hover:text-white-600">
 							Contact Us
 						</TransparentButton>
-						<TransparentButton type="link" href="/support/faq" extra="!p-0 text-white-400 hover:text-white-600">
+						<TransparentButton type="link" href="/support/faq" className="!p-0 text-white-400 hover:text-white-600">
 							FAQ
 						</TransparentButton>
 					</div>
