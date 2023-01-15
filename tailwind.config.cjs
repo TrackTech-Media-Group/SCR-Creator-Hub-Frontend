@@ -18,12 +18,14 @@ module.exports = {
 			},
 			backgroundImage: {
 				home_header: "url('/backgrounds/home_header_image.png')",
-				home_conclusion: "url('/backgrounds/home_conclusion_image.png')"
+				home_conclusion: "url('/backgrounds/home_conclusion_image.png')",
+				media_search_banner: "url('/backgrounds/media_search_banner.png')"
 			},
 			backgroundSize: {
 				home_header: "850px",
 				home_header_lg: "650px",
-				home_header_md: "100%"
+				home_header_md: "100%",
+				media_search_banner: "1440px"
 			},
 			colors: {
 				// main

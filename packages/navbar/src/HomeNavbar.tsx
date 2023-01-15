@@ -76,7 +76,7 @@ export const HomeNavbar: React.FC = () => {
 						)}
 					</AnimatePresence>
 				</div>
-				<WhiteButton type="link" href="/login" extra="rounded-full h-fit">
+				<WhiteButton type="link" href="/login" className="rounded-full h-fit">
 					Sign in <i className="fa-solid fa-arrow-right-long" />
 				</WhiteButton>
 			</div>

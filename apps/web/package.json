@@ -14,6 +14,7 @@
 		"@creatorhub/footer": "*",
 		"@creatorhub/forms": "*",
 		"@creatorhub/navbar": "*",
+		"@creatorhub/ui": "*",
 		"@next/font": "^13.1.2",
 		"next": "13.1.2",
 		"next-password-protect": "^1.8.0",
