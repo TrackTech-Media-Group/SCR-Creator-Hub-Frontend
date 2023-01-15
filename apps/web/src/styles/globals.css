@@ -6,3 +6,7 @@ html {
 	@apply text-white;
 	@apply bg-bg-dark;
 }
+
+.glass {
+	background: linear-gradient(90.22deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.1) 100%);
+}

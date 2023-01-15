@@ -5,7 +5,7 @@ interface ButtonPropsColor {
 	type: "button";
 	onClick?: () => void;
 	color: Colors;
-	extra?: string;
+	className?: string;
 }
 
 interface LinkPropsColor {
@@ -14,7 +14,7 @@ interface LinkPropsColor {
 	onClick?: () => void;
 	target?: string;
 	color: Colors;
-	extra?: string;
+	className?: string;
 }
 
 type Colors = keyof typeof Colors;
@@ -53,8 +53,8 @@ const Button: React.FC<React.PropsWithChildren<AllPropsWithColor>> = (props) => 
 
 	return (
 		<El
-			className={`${props.extra ?? ""} ${colors.bg} text-white px-4 py-2 rounded-xl text-base ${colors.hoverBg} transition-colors`}
 			{...props}
+			className={`${props.className ?? ""} ${colors.bg} text-white px-4 py-2 rounded-xl text-base ${colors.hoverBg} transition-colors`}
 		/>
 	);
 };
