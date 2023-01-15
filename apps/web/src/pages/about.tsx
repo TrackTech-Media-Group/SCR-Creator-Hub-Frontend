@@ -4,8 +4,8 @@ export default function About() {
 	return (
 		<>
 			<HomeNavbar />
-			<div className="px-32 pt-40 max-md:px-4 min-h-screen flex flex-col justify-center items-center">
-				<div className="max-w-[920px] px-4 flex flex-col gap-32">
+			<div className="px-32 pt-40 max-lg:p-16 max-md:px-4 min-h-screen flex flex-col justify-center items-center">
+				<div className="max-w-[920px] px-4 flex flex-col gap-32 max-lg:max-w-full">
 					<div className="flex flex-col gap-2 justify-center">
 						<h1 className="text-title">About Us</h1>
 						<p className="text-base">
@@ -20,8 +20,8 @@ export default function About() {
 					<div>
 						<h1 className="text-xl mb-8">Meet the team</h1>
 						<div className="flex flex-col gap-16 justify-center">
-							<div className="flex items-center gap-12 w-full">
-								<img src="/team/onetrackminded.png" alt="OneTrackMinded avatar" className="rounded-full w-80" />
+							<div className="flex items-center gap-12 w-full max-md:flex-col">
+								<img src="/team/onetrackminded.png" alt="OneTrackMinded avatar" className="rounded-full w-80 max-lg:w-64" />
 								<div className="max-w-[550px]">
 									<div className="text-xl">
 										<h1 className="font-bold">OneTrackMinded</h1>
@@ -40,11 +40,11 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-							<div className="flex items-center gap-12 w-full">
+							<div className="flex items-center gap-12 w-full max-md:flex-col">
 								<img
 									src="https://avatars.githubusercontent.com/u/65551719?v=4"
 									alt="Daan Klarenbeek: profile picture"
-									className="rounded-full w-80"
+									className="rounded-full w-80 max-lg:w-64"
 								/>
 								<div className="max-w-[550px]">
 									<div className="text-xl">
