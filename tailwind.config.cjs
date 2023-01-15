@@ -25,7 +25,7 @@ module.exports = {
 				home_header: "850px",
 				home_header_lg: "650px",
 				home_header_md: "100%",
-				media_search_banner: "2200px"
+				media_search_banner: "1440px"
 			},
 			colors: {
 				// main
