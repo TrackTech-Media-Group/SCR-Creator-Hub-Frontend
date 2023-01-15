@@ -5,7 +5,9 @@ interface ButtonPropsColor {
 	type: "button";
 	onClick?: () => void;
 	color: Colors;
+
 	className?: string;
+	id?: string;
 }
 
 interface LinkPropsColor {
@@ -14,7 +16,9 @@ interface LinkPropsColor {
 	onClick?: () => void;
 	target?: string;
 	color: Colors;
+
 	className?: string;
+	id?: string;
 }
 
 type Colors = keyof typeof Colors;

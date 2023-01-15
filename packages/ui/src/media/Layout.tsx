@@ -7,7 +7,7 @@ export const MediaLayout: React.FC<React.PropsWithChildren> = ({ children }) => 
 		<>
 			<HomeNavbar />
 			<SearchBanner />
-			{children}
+			<div className="px-32 max-md:px-16 max-sm:px-4">{children}</div>
 		</>
 	);
 };
