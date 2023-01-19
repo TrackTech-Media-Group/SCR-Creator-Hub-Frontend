@@ -18,11 +18,30 @@ export default function ImageDetail() {
 					</>
 				)}
 			</div>
-			<div className="flex justify-between items-center mt-8">
-				<h1 className="text-title">Waterline Newry Harbour</h1>
-				<TransparentButton type="button">
-					<i className="fa-solid fa-bookmark text-subtitle" />
-				</TransparentButton>
+			<div className="w-full flex flex-col justify-center gap-2">
+				<div className="flex justify-between items-center mt-8">
+					<h1 className="text-subtitle">Waterline Newry Harbour</h1>
+					<TransparentButton type="button">
+						<i className="fa-solid fa-bookmark text-3xl" />
+					</TransparentButton>
+				</div>
+				<div className="w-full flex gap-2 items-center">
+					{["Station", "Train", "Misc"].map((tag, key) => (
+						<TransparentButton
+							key={key}
+							type="link"
+							href={`/tags/${tag.toLowerCase()}`}
+							className="glass transition-colors border-2 border-transparent hover:border-white-400 hover:text-white"
+						>
+							<p className="flex gap-1">
+								<span className="text-highlight">#</span> {tag}
+							</p>
+						</TransparentButton>
+					))}
+				</div>
+				<div>
+					<h2 className="text-xl">Downloads</h2>
+				</div>
 			</div>
 		</MediaDetailsLayout>
 	);
