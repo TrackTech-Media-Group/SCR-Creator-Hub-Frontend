@@ -8,7 +8,7 @@ export default function ImageDetail() {
 	return (
 		<MediaDetailsLayout>
 			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl`}>
-				<img src={"/cards_placeholder_image.png"} alt="placeholder_image preview" />
+				<img src={"/cards_placeholder_image.png"} alt="placeholder_image preview" className="rounded-xl" />
 				{!showFullImage && (
 					<>
 						<PrimaryButton type="button" onClick={() => setShowFullImage(true)} className="absolute bottom-2 z-10">
