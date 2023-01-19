@@ -54,6 +54,35 @@ export default function ImageDetail() {
 					</WhiteButton>
 				</div>
 			</div>
+			<div>
+				<h2 className="text-xl">Use cases</h2>
+				<p className="text-base">Thumbnail, banner, background, slideshow</p>
+			</div>
+			<div className="w-1/2">
+				<h2 className="text-xl">Contribution</h2>
+				<p className="text-base">
+					To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the
+					description of your video/post:
+				</p>
+				<div className="mt-4">
+					<h3 className="text-lg">Description</h3>
+					<div className="bg-grey p-2 rounded-xl relative mt-1">
+						<p className="text-base pr-12">Some content in this post/video was provided by SCR Creators Hub: https://scrcreate.app/</p>
+						<TransparentButton type="button" className="absolute top-0 right-0">
+							<i className="fa-solid fa-copy" />
+						</TransparentButton>
+					</div>
+				</div>
+				<div className="mt-4">
+					<h3 className="text-lg">Other</h3>
+					<div className="bg-grey p-2 rounded-xl relative mt-1">
+						<p className="text-base pr-12">Content from SCR Creators Hub: https://scrcreate.app/</p>
+						<TransparentButton type="button" className="absolute top-0 right-0">
+							<i className="fa-solid fa-copy" />
+						</TransparentButton>
+					</div>
+				</div>
+			</div>
 		</MediaDetailsLayout>
 	);
 }
