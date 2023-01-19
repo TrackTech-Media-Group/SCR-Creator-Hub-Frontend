@@ -1,4 +1,4 @@
-import { PrimaryButton, TransparentButton } from "@creatorhub/buttons";
+import { PrimaryButton, TransparentButton, WhiteButton } from "@creatorhub/buttons";
 import { MediaDetailsLayout } from "@creatorhub/ui";
 import { useState } from "react";
 
@@ -39,8 +39,19 @@ export default function ImageDetail() {
 						</TransparentButton>
 					))}
 				</div>
-				<div>
-					<h2 className="text-xl">Downloads</h2>
+			</div>
+			<div>
+				<h2 className="text-xl">Downloads</h2>
+				<div className="flex items-center gap-4">
+					<WhiteButton type="button" className="border-white-400 border hover:border-white-800">
+						HD • 1080x720 • PNG
+					</WhiteButton>
+					<WhiteButton type="button" className="border-white-400 border hover:border-white-800">
+						HD • 1080x720 • JPG
+					</WhiteButton>
+					<WhiteButton type="button" className="border-white-400 border hover:border-white-800">
+						SD • 852x480 • JPG
+					</WhiteButton>
 				</div>
 			</div>
 		</MediaDetailsLayout>
