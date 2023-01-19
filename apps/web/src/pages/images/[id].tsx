@@ -7,7 +7,7 @@ export default function ImageDetail() {
 
 	return (
 		<MediaDetailsLayout>
-			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl`}>
+			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl max-md:hidden`}>
 				<img src={"/cards_placeholder_image.png"} alt="placeholder_image preview" className="rounded-xl" />
 				{!showFullImage && (
 					<>
@@ -18,14 +18,17 @@ export default function ImageDetail() {
 					</>
 				)}
 			</div>
+			<div className="rounded-xl max-md:block md:hidden">
+				<img src={"/cards_placeholder_image.png"} alt="placeholder_image preview" className="rounded-xl" />
+			</div>
 			<div className="w-full flex flex-col justify-center gap-2">
-				<div className="flex justify-between items-center mt-8">
-					<h1 className="text-subtitle">Waterline Newry Harbour</h1>
+				<div className="flex justify-between items-center mt-8 max-md:-mt-4">
+					<h1 className="text-subtitle max-lg:text-3xl max-md:text-2xl max-sm:text-xl">Waterline Newry Harbour</h1>
 					<TransparentButton type="button">
-						<i className="fa-solid fa-bookmark text-3xl" />
+						<i className="fa-solid fa-bookmark text-3xl max-lg:text-2xl max-md:text-xl max-sm:text-lg" />
 					</TransparentButton>
 				</div>
-				<div className="w-full flex gap-2 items-center">
+				<div className="w-full flex gap-2 items-center flex-wrap">
 					{["Station", "Train", "Misc"].map((tag, key) => (
 						<TransparentButton
 							key={key}
@@ -42,7 +45,7 @@ export default function ImageDetail() {
 			</div>
 			<div>
 				<h2 className="text-xl">Downloads</h2>
-				<div className="flex items-center gap-4">
+				<div className="flex items-center gap-4 flex-wrap">
 					<WhiteButton type="button" className="border-white-400 border hover:border-white-800">
 						HD • 1080x720 • PNG
 					</WhiteButton>
@@ -58,7 +61,7 @@ export default function ImageDetail() {
 				<h2 className="text-xl">Use cases</h2>
 				<p className="text-base">Thumbnail, banner, background, slideshow</p>
 			</div>
-			<div className="w-1/2">
+			<div className="w-1/2 max-lg:w-3/4 max-md:w-full">
 				<h2 className="text-xl">Contribution</h2>
 				<p className="text-base">
 					To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the
