@@ -13,7 +13,7 @@
 		"postinstall": "is-ci || husky install"
 	},
 	"resolutions": {
-		"@typescript-eslint/eslint-plugin": "^5.48.2"
+		"@typescript-eslint/eslint-plugin": "^5.49.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.2",
@@ -22,11 +22,11 @@
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
 		"@types/node": "18.11.18",
-		"@typescript-eslint/eslint-plugin": "^5.48.2",
-		"@typescript-eslint/parser": "^5.48.2",
+		"@typescript-eslint/eslint-plugin": "^5.49.0",
+		"@typescript-eslint/parser": "^5.49.0",
 		"autoprefixer": "^10.4.13",
-		"eslint": "^8.32.0",
-		"eslint-config-next": "13.1.4",
+		"eslint": "^8.33.0",
+		"eslint-config-next": "13.1.6",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"husky": "^8.0.3",
