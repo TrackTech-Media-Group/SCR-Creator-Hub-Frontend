@@ -92,7 +92,6 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 	}, [data]);
 
 	const [deleteSessions, setDeleteSessions] = useState(false);
-
 	const deleteSessionsFn = async () => {
 		const promise = async () => {
 			try {
@@ -119,10 +118,38 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 		setDeleteSessions(false);
 	};
 
+	const [deleteUser, setDeleteUser] = useState(false);
+	const deleteUserFn = async () => {
+		const promise = async () => {
+			try {
+				await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/user/delete`, { headers: { "XSRF-TOKEN": csrf }, withCredentials: true });
+			} catch (err) {
+				const _error = "isAxiosError" in err ? (err as AxiosError<{ message: string }>).response?.data.message : "";
+				const error = _error || "Unknown error, please try again later.";
+				console.log(`[DeleteUser]: ${error}`);
+
+				throw new Error();
+			}
+		};
+
+		try {
+			await toast.promise(promise(), {
+				pending: "Shredding train seat...",
+				error: "Unable to destroy the train seat :(",
+				success: "Train seat destroyed."
+			});
+
+			void router.push("/");
+		} catch (error) {}
+
+		setDeleteUser(false);
+	};
+
 	return (
 		<div className="min-h-screen bg-user_blob bg-repeat bg-center">
 			<HomeNavbar />
 			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={deleteSessionsFn} />
+			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={deleteUserFn} />
 			<AnimatePresence mode="wait">
 				{loading && (
 					<motion.div
@@ -202,7 +229,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 							</p>
 							<p className="text-base text-gray-600">* Deleting your account is a permanent action and cannot be undone.</p>
 							<div className="flex items-center gap-2">
-								<DangerButton type="button" className="mt-4">
+								<DangerButton type="button" className="mt-4" onClick={() => setDeleteUser(true)}>
 									Delete Account
 								</DangerButton>
 								<DangerBorderButton type="button" className="mt-4" onClick={() => setDeleteSessions(true)}>
