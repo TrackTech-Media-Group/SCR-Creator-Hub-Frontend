@@ -13,7 +13,7 @@
 		"postinstall": "is-ci || husky install"
 	},
 	"resolutions": {
-		"@typescript-eslint/eslint-plugin": "^5.52.0"
+		"@typescript-eslint/eslint-plugin": "^5.53.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.4",
@@ -22,8 +22,8 @@
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^3.3.4",
 		"@types/node": "18.14.0",
-		"@typescript-eslint/eslint-plugin": "^5.52.0",
-		"@typescript-eslint/parser": "^5.52.0",
+		"@typescript-eslint/eslint-plugin": "^5.53.0",
+		"@typescript-eslint/parser": "^5.53.0",
 		"autoprefixer": "^10.4.13",
 		"eslint": "^8.34.0",
 		"eslint-config-next": "13.1.6",
@@ -34,11 +34,11 @@
 		"lint-staged": "^13.1.2",
 		"postcss": "^8.4.21",
 		"tailwindcss": "^3.2.7",
-		"turbo": "^1.8.1",
+		"turbo": "^1.8.2",
 		"typescript": "4.9.5"
 	},
 	"engines": {
-		"node": ">= v18.14.1"
+		"node": ">= v18.14.2"
 	},
 	"packageManager": "yarn@3.4.1"
 }
