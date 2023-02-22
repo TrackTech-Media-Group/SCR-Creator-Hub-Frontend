@@ -109,7 +109,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 						initial="init"
 						animate="animate"
 						exit="exit"
-						className="px-32 pt-32 flex flex-col gap-16"
+						className="px-32 pt-32 flex flex-col gap-16 max-lg:px-16 max-md:px-8 max-sm:px-4"
 					>
 						<div className="pt-12">
 							<h1 className="text-3xl">Welcome back {user.name}</h1>
@@ -128,9 +128,9 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 						<div>
 							<h2 className="text-2xl">Bookmarks</h2>
 							<div className="backdrop-blur-[8px] rounded-xl bg-gradient-to-br from-white-200 to-white-400">
-								<div className="p-4 flex justify-between items-center">
+								<div className="p-4 flex justify-between items-center gap-2">
 									<img src="/cards_placeholder_image.png" alt="Connect class 730" className="h-12 rounded-md" />
-									<div className="flex items-center">
+									<div className="flex items-center gap-2">
 										<p className="text-base">Connect class 730</p>
 										<p className="text-base">Train • Connect • Class 730</p>
 									</div>
@@ -138,9 +138,9 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 										<i className="fa-solid fa-arrow-up-right-from-square" />
 									</TransparentButton>
 								</div>
-								<div className="p-4 flex justify-between items-center">
+								<div className="p-4 flex justify-between items-center gap-2">
 									<img src="/cards_placeholder_image.png" alt="Connect class 730" className="h-12 rounded-md" />
-									<div className="flex items-center">
+									<div className="flex items-center gap-2">
 										<p className="text-base">Connect class 730</p>
 										<p className="text-base">Train • Connect • Class 730</p>
 									</div>
@@ -148,9 +148,9 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 										<i className="fa-solid fa-arrow-up-right-from-square" />
 									</TransparentButton>
 								</div>
-								<div className="p-4 flex justify-between items-center">
+								<div className="p-4 flex justify-between items-center gap-2">
 									<img src="/cards_placeholder_image.png" alt="Connect class 730" className="h-12 rounded-md" />
-									<div className="flex items-center">
+									<div className="flex items-center gap-2">
 										<p className="text-base">Connect class 730</p>
 										<p className="text-base">Train • Connect • Class 730</p>
 									</div>
