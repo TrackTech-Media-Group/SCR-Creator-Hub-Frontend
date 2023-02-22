@@ -1,4 +1,4 @@
-import { TransparentButton } from "@creatorhub/buttons";
+import { DangerBorderButton, DangerButton, TertiaryBorderButton, TertiaryButton, TransparentButton } from "@creatorhub/buttons";
 import { MediaCard } from "@creatorhub/cards";
 import { HomeNavbar } from "@creatorhub/navbar";
 import { useSwrWithUpdates } from "@creatorhub/swr";
@@ -109,7 +109,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 						initial="init"
 						animate="animate"
 						exit="exit"
-						className="px-32 pt-32 flex flex-col gap-16 max-lg:px-16 max-md:px-8 max-sm:px-4"
+						className="px-32 pt-32 flex flex-col gap-16 max-lg:px-16 max-md:px-8 max-sm:px-4 pb-8"
 					>
 						<div className="pt-12">
 							<h1 className="text-3xl">Welcome back {user.name}</h1>
@@ -158,6 +158,37 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 										<i className="fa-solid fa-arrow-up-right-from-square" />
 									</TransparentButton>
 								</div>
+							</div>
+						</div>
+						<div>
+							<h2 className="text-2xl">Settings</h2>
+							<p className="text-base">
+								We value your privacy, we will always be open about the content we store about you. Request all of your data below or
+								delete your account if you want everything removed*.{" "}
+							</p>
+							<p className="text-base text-gray-600">* Deleting your account is a permanent action and cannot be undone.</p>
+							<div className="flex items-center gap-2">
+								<DangerButton type="button" className="mt-4">
+									Delete Account
+								</DangerButton>
+								<DangerBorderButton type="button" className="mt-4">
+									Logout of all sessions
+								</DangerBorderButton>
+							</div>
+						</div>
+						<div>
+							<h2 className="text-2xl">Data Request</h2>
+							<p className="text-base">
+								Our bookworms are working hard to give you everything they can find about you in our database, this process may take
+								up to a day to complete. Once they are finished, you will find a download button below.
+							</p>
+							<div className="flex items-center gap-2">
+								<TertiaryButton type="button" className="mt-4" disabled>
+									Download
+								</TertiaryButton>
+								<TertiaryBorderButton type="button" className="mt-4">
+									Request Data
+								</TertiaryBorderButton>
 							</div>
 						</div>
 					</motion.div>
