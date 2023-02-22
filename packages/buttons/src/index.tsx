@@ -5,5 +5,6 @@ export * from "./WhiteButton";
 export * from "./TransparentButton";
 export * from "./DangerButton";
 export * from "./DangerBorderButton";
+export * from "./TertiaryBorderButton";
 
 export type { AllProps } from "./Button";

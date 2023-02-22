@@ -8,6 +8,7 @@ interface ButtonPropsColor {
 
 	className?: string;
 	id?: string;
+	disabled?: boolean;
 }
 
 interface LinkPropsColor {
@@ -19,6 +20,7 @@ interface LinkPropsColor {
 
 	className?: string;
 	id?: string;
+	disabled?: boolean;
 }
 
 type Colors = keyof typeof Colors;
@@ -38,7 +40,11 @@ const Colors = {
 		hoverBg: "hover:bg-secondary-500"
 	},
 	tertiary: {
-		bg: "bg-highlight",
+		bg: "bg-highlight disabled:!bg-highlight-200",
+		hoverBg: "hover:bg-highlight-500"
+	},
+	tertiaryBorder: {
+		bg: "border-2 border-highlight",
 		hoverBg: "hover:bg-highlight-500"
 	},
 	white: {
@@ -60,7 +66,7 @@ const Colors = {
 };
 
 const Button: React.FC<React.PropsWithChildren<AllPropsWithColor>> = (props) => {
-	const El = (props.type === "link" ? Link : (props: any) => <button {...props} />) as React.FC<any>;
+	const El = (props.type === "link" ? Link : (props: any) => <button {...props} aria-disabled={props.disabled} />) as React.FC<any>;
 	const colors = Colors[props.color];
 
 	return (
