@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from "next";
 import axios from "axios";
-import { setCookie } from "cookies-next";
+import { getCookies, setCookie } from "cookies-next";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
@@ -9,8 +9,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	});
 
 	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
+	console.log(ext, domain);
 	setCookie("XSRF-STATE-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: `.${ext}.${domain}` });
-
+	console.log(getCookies({ req: ctx.req, res: ctx.res }));
 	return {
 		redirect: {
 			permanent: true,
