@@ -34,7 +34,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			}
 		};
 
-	setCookie("XSRF-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: apiUrl.replace("http://", "").replace("https://", "") });
+	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
+	setCookie("XSRF-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: `.${ext}.${domain}` });
 
 	return {
 		props: { csrf: csrf.data.state }

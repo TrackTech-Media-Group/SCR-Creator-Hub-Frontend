@@ -7,7 +7,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/auth/csrf`, undefined, {
 		headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}` }
 	});
-	setCookie("XSRF-STATE-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: apiUrl.replace("http://", "").replace("https://", "") });
+
+	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
+	setCookie("XSRF-STATE-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: `.${ext}.${domain}` });
 
 	return {
 		redirect: {
