@@ -16,6 +16,7 @@
 	"dependencies": {
 		"@creatorhub/buttons": "*",
 		"@creatorhub/forms": "*",
+		"@creatorhub/modal": "*",
 		"@creatorhub/navbar": "*",
 		"framer-motion": "^9.0.7",
 		"next": "13.1.6",

@@ -6,7 +6,7 @@ const packages = readdirSync(join("..", "..", "packages"));
 
 /** @type {import('next').NextConfig} */
 module.exports = {
-	reactStrictMode: true,
+	reactStrictMode: false,
 	transpilePackages: packages,
 	env: {
 		PASSWORD_PROTECT: process.env.NODE_ENV === "production"

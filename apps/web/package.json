@@ -13,14 +13,21 @@
 		"@creatorhub/cards": "*",
 		"@creatorhub/footer": "*",
 		"@creatorhub/forms": "*",
+		"@creatorhub/modal": "*",
 		"@creatorhub/navbar": "*",
+		"@creatorhub/swr": "*",
 		"@creatorhub/ui": "*",
 		"@next/font": "^13.1.6",
+		"axios": "^1.3.3",
+		"cookies-next": "^2.1.1",
+		"framer-motion": "^9.0.4",
 		"next": "13.1.6",
 		"next-password-protect": "^1.8.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"react-fast-marquee": "^1.3.5"
+		"react-fast-marquee": "^1.3.5",
+		"react-spinners": "^0.13.8",
+		"react-toastify": "^9.1.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.21.0",

@@ -19,13 +19,15 @@ module.exports = {
 			backgroundImage: {
 				home_header: "url('/backgrounds/home_header_image.png')",
 				home_conclusion: "url('/backgrounds/home_conclusion_image.png')",
-				media_search_banner: "url('/backgrounds/media_search_banner.png')"
+				media_search_banner: "url('/backgrounds/media_search_banner.png')",
+				user_blob: "url('/backgrounds/user_blob.svg')"
 			},
 			backgroundSize: {
 				home_header: "850px",
 				home_header_lg: "650px",
 				home_header_md: "100%",
-				media_search_banner: "1440px"
+				media_search_banner: "1440px",
+				user_blob: "75%"
 			},
 			colors: {
 				// main
