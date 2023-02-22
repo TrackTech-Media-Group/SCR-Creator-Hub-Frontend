@@ -48,6 +48,14 @@ const Colors = {
 	transparent: {
 		bg: "bg-transparent px-2 py-0",
 		hoverBg: "hover:text-white-500"
+	},
+	danger: {
+		bg: "bg-red-600",
+		hoverBg: "hover:bg-opacity-50"
+	},
+	dangerBorder: {
+		bg: "border-2 border-red-600",
+		hoverBg: "hover:bg-red-500"
 	}
 };
 
