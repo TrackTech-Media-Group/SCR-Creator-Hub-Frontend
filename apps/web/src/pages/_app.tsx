@@ -5,15 +5,18 @@ import type { AppProps } from "next/app";
 import { Public_Sans } from "@next/font/google";
 import { withPasswordProtect } from "next-password-protect";
 import { Footer } from "@creatorhub/footer";
+import { SwrWrapper } from "@creatorhub/swr";
 
 const publicSans = Public_Sans({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"] });
 
 const App = ({ Component, pageProps }: AppProps) => {
 	return (
-		<main className={`bg-bg-dark min-h-screen min-w-full ${publicSans.className}`}>
-			<Component {...pageProps} />
-			<Footer />
-		</main>
+		<SwrWrapper>
+			<main className={`bg-bg-dark min-h-screen min-w-full ${publicSans.className}`}>
+				<Component {...pageProps} />
+				<Footer />
+			</main>
+		</SwrWrapper>
 	);
 };
 

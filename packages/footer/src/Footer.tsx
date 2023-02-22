@@ -3,7 +3,7 @@ import type React from "react";
 
 export const Footer: React.FC = () => {
 	return (
-		<div className="bg-black w-full mt-24 flex flex-col justify-center items-center p-8 gap-y-8 relative min-h-[16rem]">
+		<div className="bg-black w-full pt-24 flex flex-col justify-center items-center p-8 gap-y-8 relative min-h-[16rem]">
 			<div className="flex justify-between w-[32rem] max-sm:flex-col max-sm:w-auto max-sm:gap-y-4 max-sm:items-center max-sm:text-center">
 				<div>
 					<h1 className="text-lg">Products</h1>
