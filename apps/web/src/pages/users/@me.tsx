@@ -2,12 +2,15 @@ import { DangerBorderButton, DangerButton, TertiaryBorderButton, TertiaryButton,
 import { MediaCard } from "@creatorhub/cards";
 import { HomeNavbar } from "@creatorhub/navbar";
 import { useSwrWithUpdates } from "@creatorhub/swr";
-import axios from "axios";
+import { ConfirmModal } from "@creatorhub/ui";
+import axios, { AxiosError } from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import type { GetServerSideProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
+import { toast } from "react-toastify";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
@@ -74,7 +77,9 @@ const variants: Variants = {
 };
 
 const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
-	// const [csrf, setCsrf] = useState(_initCsrf);
+	const router = useRouter();
+
+	const [csrf] = useState(_initCsrf);
 	const [user, setUser] = useState<UserApiData>({ name: "", bookmarks: [], recent: [], dataRequest: null });
 	const [loading, setLoading] = useState(true);
 	const { data } = useSwrWithUpdates<UserApiData>("/user/");
@@ -86,9 +91,38 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 		}
 	}, [data]);
 
+	const [deleteSessions, setDeleteSessions] = useState(false);
+
+	const deleteSessionsFn = async () => {
+		const promise = async () => {
+			try {
+				await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/user/sessions`, { headers: { "XSRF-TOKEN": csrf }, withCredentials: true });
+			} catch (err) {
+				const _error = "isAxiosError" in err ? (err as AxiosError<{ message: string }>).response?.data.message : "";
+				const error = _error || "Unknown error, please try again later.";
+				console.log(`[DeleteSessions]: ${error}`);
+
+				throw new Error();
+			}
+		};
+
+		try {
+			await toast.promise(promise(), {
+				pending: "Shredding train tickets...",
+				error: "Unable to destroy the train tickets :(",
+				success: "Tickets destroyed."
+			});
+
+			void router.push("/");
+		} catch (error) {}
+
+		setDeleteSessions(false);
+	};
+
 	return (
 		<div className="min-h-screen bg-user_blob bg-repeat bg-center">
 			<HomeNavbar />
+			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={deleteSessionsFn} />
 			<AnimatePresence mode="wait">
 				{loading && (
 					<motion.div
@@ -171,7 +205,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 								<DangerButton type="button" className="mt-4">
 									Delete Account
 								</DangerButton>
-								<DangerBorderButton type="button" className="mt-4">
+								<DangerBorderButton type="button" className="mt-4" onClick={() => setDeleteSessions(true)}>
 									Logout of all sessions
 								</DangerBorderButton>
 							</div>
