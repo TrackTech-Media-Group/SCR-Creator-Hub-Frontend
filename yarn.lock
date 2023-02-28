@@ -881,13 +881,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/font@npm:^13.2.1":
-  version: 13.2.1
-  resolution: "@next/font@npm:13.2.1"
-  checksum: 6231ca2d3fc887c0dd4e25ae8cebb090c477c6fc980b96b56f43b2ad6b989c9f588490ae680fc578b5584ae3b18a40d129c27b642afe9cfc4a953ea43145b1ee
-  languageName: node
-  linkType: hard
-
 "@next/swc-android-arm-eabi@npm:13.2.1":
   version: 13.2.1
   resolution: "@next/swc-android-arm-eabi@npm:13.2.1"
@@ -6747,7 +6740,6 @@ __metadata:
     "@creatorhub/navbar": "*"
     "@creatorhub/swr": "*"
     "@creatorhub/ui": "*"
-    "@next/font": ^13.2.1
     "@types/node": ^18.14.1
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11

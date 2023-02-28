@@ -17,7 +17,6 @@
 		"@creatorhub/navbar": "*",
 		"@creatorhub/swr": "*",
 		"@creatorhub/ui": "*",
-		"@next/font": "^13.2.1",
 		"axios": "^1.3.4",
 		"cookies-next": "^2.1.1",
 		"framer-motion": "^10.0.0",

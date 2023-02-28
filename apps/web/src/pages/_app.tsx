@@ -3,7 +3,7 @@ import "../styles/fontawesome.css";
 import "react-toastify/ReactToastify.css";
 
 import type { AppProps } from "next/app";
-import { Public_Sans } from "@next/font/google";
+import { Public_Sans } from "next/font/google";
 import { withPasswordProtect } from "next-password-protect";
 import { Footer } from "@creatorhub/footer";
 import { SwrWrapper } from "@creatorhub/swr";
