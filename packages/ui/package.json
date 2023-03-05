@@ -18,8 +18,8 @@
 		"@creatorhub/forms": "*",
 		"@creatorhub/modal": "*",
 		"@creatorhub/navbar": "*",
-		"framer-motion": "^10.0.0",
-		"next": "13.2.1",
+		"framer-motion": "^10.0.1",
+		"next": "13.2.3",
 		"react": "^18.2.0"
 	}
 }
