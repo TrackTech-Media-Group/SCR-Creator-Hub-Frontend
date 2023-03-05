@@ -24,3 +24,36 @@ export const cleanCommonProps = <Option, IsMulti extends boolean, Group extends 
 	} = props;
 	return { ...innerProps };
 };
+
+export const SelectMenuStyles = {
+	tertiary: {
+		multiValue: "!bg-highlight-400",
+		selectMenuComponent: "border-highlight-600 bg-[#292a36]",
+		SelectOption: "bg-highlight-400",
+		selectControl: {
+			default: "bg-highlight-200",
+			disabled: "bg-highlight-200 border-highlight-600",
+			focused: "outline-highlight"
+		}
+	},
+	primary: {
+		multiValue: "!bg-primary-400",
+		selectMenuComponent: "border-primary-600 bg-[#2c3135]",
+		SelectOption: "bg-primary-400",
+		selectControl: {
+			default: "bg-primary-200",
+			disabled: "bg-primary-200 border-primary-600",
+			focused: "outline-primary"
+		}
+	},
+	main: {
+		multiValue: "!bg-main-400",
+		selectMenuComponent: "border-white-100 bg-main",
+		SelectOption: "bg-white-100",
+		selectControl: {
+			default: "bg-main",
+			disabled: "bg-main border-white-100",
+			focused: "outline-white-400"
+		}
+	}
+};
