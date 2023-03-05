@@ -4,8 +4,11 @@ import { motion, useAnimation, Variants } from "framer-motion";
 import { useEffect } from "react";
 
 interface Props {
-	closeMenu: () => void;
 	active: boolean;
+	tags: { id: string; name: string }[];
+
+	openCreateTag: () => void;
+	deleteTag: (id: string) => void;
 }
 
 const TopVariants: Variants = {
@@ -38,7 +41,7 @@ const SideVariants: Variants = {
 	}
 };
 
-export const SideMenu: React.FC<Props> = ({ active, closeMenu }) => {
+export const SideMenu: React.FC<Props> = ({ active, tags, deleteTag, openCreateTag }) => {
 	const animateController = useAnimation();
 
 	useEffect(() => {
@@ -61,17 +64,12 @@ export const SideMenu: React.FC<Props> = ({ active, closeMenu }) => {
 				animate={animateController}
 				className="absolute w-80 h-screen bg-main pt-20 flex flex-col px-4 gap-2"
 			>
-				<TransparentButton type="link" href="/videos" onClick={closeMenu}>
-					<p className="text-lg font-normal flex gap-2 items-center">
-						<i className="fa-solid fa-film" /> Video
-					</p>
-				</TransparentButton>
-				<TransparentButton type="link" href="/images" onClick={closeMenu}>
-					<p className="text-lg font-normal flex gap-2 items-center">
-						<i className="fa-solid fa-image" /> Images
-					</p>
-				</TransparentButton>
-				<SecondaryButton type="button" onClick={closeMenu} className="mt-4">
+				{tags.map((t, k) => (
+					<TransparentButton key={k} type="button" className="hover:!text-white" onClick={() => deleteTag(t.id)}>
+						<p className="text-lg font-normal flex gap-2 items-center hover:line-through">{t.name}</p>
+					</TransparentButton>
+				))}
+				<SecondaryButton type="button" onClick={openCreateTag} className="mt-4">
 					<p className="w-full flex gap-4 justify-center items-center">
 						Create tag <i className="fa-solid fa-plus" />
 					</p>

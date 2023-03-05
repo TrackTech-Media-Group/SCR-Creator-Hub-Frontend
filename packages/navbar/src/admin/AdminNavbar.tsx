@@ -5,14 +5,17 @@ import { SideMenu } from "./SideMenu";
 
 interface Props {
 	openCreateItem: () => void;
+
+	tags: { id: string; name: string }[];
+	openCreateTag: () => void;
+	deleteTag: (id: string) => void;
 }
 
-export const AdminNavbar: React.FC<Props> = ({ openCreateItem }) => {
+export const AdminNavbar: React.FC<Props> = ({ openCreateItem, tags, openCreateTag, deleteTag }) => {
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [showBg, setShowBg] = useState(false);
 
 	const toggleMenu = () => setMobileMenu(!mobileMenu);
-	const closeMenu = () => setMobileMenu(false);
 
 	useEffect(() => {
 		const scrollFn = () => setShowBg(window.scrollY >= 100);
@@ -29,7 +32,7 @@ export const AdminNavbar: React.FC<Props> = ({ openCreateItem }) => {
 			} transition-colors`}
 		>
 			<div>
-				<SideMenu active={mobileMenu} closeMenu={closeMenu} />
+				<SideMenu active={mobileMenu} tags={tags} deleteTag={deleteTag} openCreateTag={openCreateTag} />
 				<MenuButton onClick={toggleMenu} active={mobileMenu} />
 			</div>
 			<div>
