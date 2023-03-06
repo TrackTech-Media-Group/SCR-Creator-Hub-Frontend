@@ -1,8 +1,16 @@
 import { TransparentButton } from "@creatorhub/buttons";
 import { Input } from "@creatorhub/forms";
+import { useSwrWithUpdates } from "@creatorhub/swr";
 import type React from "react";
+import { useEffect, useState } from "react";
 
 const SearchBanner: React.FC = () => {
+	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
+	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/admin/tags");
+	useEffect(() => {
+		if (tagData) setTags(tagData);
+	}, [tagData]);
+
 	return (
 		<div className="px-32 bg-media_search_banner bg-no-repeat bg-center min-h-[600px] pt-52 max-md:px-16 max-sm:px-4">
 			<div className="flex flex-col justify-center w-full gap-4">
@@ -21,15 +29,15 @@ const SearchBanner: React.FC = () => {
 					</TransparentButton>
 				</div>
 				<div className="flex flex-wrap gap-2">
-					{["Station", "Train", "Misc"].map((tag, key) => (
+					{tags.map((tag, key) => (
 						<TransparentButton
 							key={key}
 							type="link"
-							href={`/tags/${tag.toLowerCase()}`}
+							href={`/tags/${tag.id}`}
 							className="glass transition-colors border-2 border-transparent hover:border-white-400 hover:text-white"
 						>
 							<p className="flex gap-1">
-								<span className="text-highlight">#</span> {tag}
+								<span className="text-highlight">#</span> {tag.name}
 							</p>
 						</TransparentButton>
 					))}

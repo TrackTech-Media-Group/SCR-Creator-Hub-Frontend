@@ -20,6 +20,7 @@
 		"@creatorhub/forms": "*",
 		"@creatorhub/modal": "*",
 		"@creatorhub/navbar": "*",
+		"@creatorhub/swr": "*",
 		"formik": "2.2.9",
 		"framer-motion": "^10.0.2",
 		"next": "13.2.3",
