@@ -60,7 +60,7 @@ const VideoDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 	};
 
 	return (
-		<MediaDetailsLayout>
+		<MediaDetailsLayout isLoggedIn={loggedIn}>
 			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl max-md:hidden`}>
 				<video
 					src={footage.preview}

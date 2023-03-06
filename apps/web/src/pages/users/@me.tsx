@@ -1,6 +1,6 @@
 import { DangerBorderButton, DangerButton, TertiaryBorderButton, TertiaryButton, TransparentButton } from "@creatorhub/buttons";
 import { MediaCard } from "@creatorhub/cards";
-import { HomeNavbar } from "@creatorhub/navbar";
+import { UserNavbar } from "@creatorhub/navbar";
 import { useSwrWithUpdates } from "@creatorhub/swr";
 import { ConfirmModal } from "@creatorhub/ui";
 import axios, { AxiosError } from "axios";
@@ -148,7 +148,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 
 	return (
 		<div className="min-h-screen bg-user_blob bg-repeat bg-center">
-			<HomeNavbar />
+			<UserNavbar />
 			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={deleteSessionsFn} />
 			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={deleteUserFn} />
 			<AnimatePresence mode="wait">

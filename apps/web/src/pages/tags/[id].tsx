@@ -34,7 +34,7 @@ interface Props {
 	loggedIn: boolean;
 }
 
-const VideosHome: NextPage<Props> = ({ loggedIn }) => {
+const TagsHome: NextPage<Props> = ({ loggedIn }) => {
 	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
 	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/admin/tags");
 	useEffect(() => {
@@ -45,11 +45,11 @@ const VideosHome: NextPage<Props> = ({ loggedIn }) => {
 		<MediaLayout isLoggedIn={loggedIn}>
 			<div className="flex flex-col items-center justify-center gap-y-32 pb-8">
 				{tags.map((tag) => (
-					<DisplaySection key={tag.id} tag={tag.name} id={tag.id} type="video" />
+					<DisplaySection key={tag.id} tag={tag.name} id={tag.id} type="image" />
 				))}
 			</div>
 		</MediaLayout>
 	);
 };
 
-export default VideosHome;
+export default TagsHome;
