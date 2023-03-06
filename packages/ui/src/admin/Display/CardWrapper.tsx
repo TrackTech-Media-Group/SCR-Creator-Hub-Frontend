@@ -25,7 +25,7 @@ const CardWrapper: React.FC<Props> = (props) => {
 	return (
 		<>
 			<CardEditModal isOpen={isOpen} onClick={() => setIsOpen(false)} tags={props.availableTags} onSubmit={updateItem} data={props} />
-			<AdminCard src={props.downloads[0].url} onClick={() => setIsOpen(true)} alt={props.name} title={props.name} />
+			<AdminCard type={props.type} src={props.downloads[0].url} onClick={() => setIsOpen(true)} alt={props.name} title={props.name} />
 		</>
 	);
 };
