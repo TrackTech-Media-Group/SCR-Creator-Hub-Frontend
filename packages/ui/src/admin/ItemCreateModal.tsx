@@ -24,12 +24,13 @@ export const ItemCreateModal: React.FC<Props> = ({ isOpen, onClick, onSubmit, ta
 			test: (arr) => (arr ? arr.every((str) => typeof str === "string" && tags.map((t) => t.id).includes(str)) : false),
 			message: "One or more tags do not exist"
 		}),
-		useCases: array(string()),
+		useCases: string(),
 		downloads: array(object({ dimensions: string().required(), type: string().required().oneOf(["HD", "QHD"]) })).min(
 			1,
 			"At least 1 download should be provided"
 		)
 	});
+
 	return (
 		<Modal isOpen={isOpen} onClick={onClick}>
 			<h1 className="text-2xl">Create an item</h1>
