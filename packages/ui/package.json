@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"@creatorhub/buttons": "*",
+		"@creatorhub/cards": "*",
 		"@creatorhub/forms": "*",
 		"@creatorhub/modal": "*",
 		"@creatorhub/navbar": "*",

@@ -1,6 +1,6 @@
 import { AdminNavbar } from "@creatorhub/navbar";
 import { useSwrWithUpdates } from "@creatorhub/swr";
-import { ItemCreateModal, TagCreateModal } from "@creatorhub/ui";
+import { ItemCreateModal, ItemDisplayGrid, ItemsAdmin, TagCreateModal } from "@creatorhub/ui";
 import axios from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import type { FormikHelpers } from "formik";
@@ -52,6 +52,12 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 	useEffect(() => {
 		if (_tags) setTags(_tags);
 	}, [_tags]);
+
+	const [items, setItems] = useState<ItemsAdmin[]>([]);
+	const { data: _items, mutate: itemsMutate } = useSwrWithUpdates<ItemsAdmin[]>("/admin/items");
+	useEffect(() => {
+		if (_items) setItems(_items);
+	}, [_items]);
 
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
 
@@ -156,7 +162,7 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 				});
 
 				setCsrf(data.csrf);
-				setCreateTag(false);
+				setCreateItem(false);
 
 				res(null);
 			} catch (err) {
@@ -176,8 +182,72 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 		void toast.promise(promise, { pending: "Creating item...", error: "Unable to create the item :(", success: "Item created." });
 	};
 
+	const updateItemFn = (
+		values: {
+			id: string;
+			name: string;
+			type: string;
+			tags: string[];
+			useCases: string;
+			existingDownloads: { id: string; name: string }[];
+			downloads: {
+				id: string;
+				dimensions: string;
+				file: File;
+				type: "HD" | "QHD";
+			}[];
+		},
+		formikHelpers: FormikHelpers<{
+			id: string;
+			name: string;
+			type: string;
+			tags: string[];
+			useCases: string;
+			existingDownloads: { id: string; name: string }[];
+			downloads: {
+				id: string;
+				dimensions: string;
+				file: File;
+				type: "HD" | "QHD";
+			}[];
+		}>
+	) => {
+		const promise = new Promise(async (res, rej) => {
+			try {
+				const form = new FormData();
+				values.downloads.map((d) => d.file).forEach((f) => form.append("upload", f, f.name));
+
+				const downloads = values.downloads.map((d) => ({ name: d.file.name, dimensions: d.dimensions, type: d.type }));
+				form.append("data", JSON.stringify({ ...values, downloads, useCases: values.useCases.split(",") }));
+
+				const { data } = await axios.post<{ data: any; csrf: string }>(`${apiUrl}/admin/items/edit`, form, {
+					withCredentials: true,
+					headers: { "XSRF-TOKEN": csrf }
+				});
+
+				const mutated = items.filter((item) => item.id !== values.id);
+				await itemsMutate([...mutated, data.data]);
+				setCsrf(data.csrf);
+				res(null);
+			} catch (err) {
+				const { message } = err?.response?.data ?? {};
+				formikHelpers.setErrors(
+					Object.keys(values)
+						.map((key) => ({ [key]: message ?? "Unknown error, please try again later." }))
+						.reduce((a, b) => ({ ...a, ...b }), {})
+				);
+				formikHelpers.setSubmitting(false);
+
+				console.error(`[UPDATE_ITEM]: ${err}`);
+				rej(err);
+			}
+		});
+
+		void toast.promise(promise, { pending: "Updating item...", error: "Unable to update the item :(", success: "Item updated." });
+	};
+
 	return (
-		<div>
+		<div className="min-h-screen">
 			<ItemCreateModal isOpen={createItem} onClick={() => setCreateItem(false)} tags={tags ?? []} onSubmit={createItemFn} />
 			<TagCreateModal isOpen={createTag} onClick={() => setCreateTag(false)} onSubmit={createTagFn} />
 			<AdminNavbar
@@ -186,6 +256,7 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 				openCreateTag={() => setCreateTag(true)}
 				deleteTag={deleteTag}
 			/>
+			<ItemDisplayGrid tags={tags} items={items} updateItem={updateItemFn} />
 		</div>
 	);
 };

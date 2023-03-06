@@ -14,6 +14,7 @@ interface Props {
 	isOpen: boolean;
 	tags: { id: string; name: string }[];
 	data: {
+		id: string;
 		name: string;
 		type: "video" | "image";
 		tags: string[];
@@ -43,6 +44,7 @@ export const CardEditModal: React.FC<Props> = ({ isOpen, onClick, onSubmit, tags
 				validationSchema={validation}
 				validateOnMount
 				initialValues={{
+					id: data.id,
 					name: data.name,
 					type: data.type,
 					tags: data.tags,
@@ -150,24 +152,7 @@ export const CardEditModal: React.FC<Props> = ({ isOpen, onClick, onSubmit, tags
 							</p>
 						</div>
 						<div className="w-full">
-							<h2 className="text-lg">Downloads</h2>
-							<Dropzone
-								onDrop={(acceptedFiles) =>
-									formik.setFieldValue("downloads", [
-										...formik.values.downloads,
-										...acceptedFiles.map((file) => ({ id: v4(), type: "HD", file, dimensions: "" }))
-									])
-								}
-							>
-								{({ getRootProps, getInputProps }) => (
-									<section className="border-white-200 border rounded-md p-2 text-base">
-										<div {...getRootProps()}>
-											<input {...getInputProps()} />
-											<p>Add files...</p>
-										</div>
-									</section>
-								)}
-							</Dropzone>
+							<h2 className="text-lg">Existing Downloads</h2>
 							{formik.values.existingDownloads.map((value, key) => (
 								<PartialFileEntry
 									key={key}
