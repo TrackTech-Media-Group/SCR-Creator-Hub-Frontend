@@ -73,7 +73,7 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 				)}
 			</div>
 			<div className="rounded-xl max-md:block md:hidden">
-				<img src={"/cards_placeholder_image.png"} alt={footage.name} className="rounded-xl" />
+				<img src={footage.preview} alt={footage.name} className="rounded-xl" />
 			</div>
 			<div className="w-full flex flex-col justify-center gap-2">
 				<div className="flex justify-between items-center mt-8 max-md:-mt-4">
