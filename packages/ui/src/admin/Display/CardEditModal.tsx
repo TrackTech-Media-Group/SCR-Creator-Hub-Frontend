@@ -23,9 +23,10 @@ interface Props {
 	};
 	onClick: () => void;
 	onSubmit: (...props: any) => void;
+	deleteItem: () => void;
 }
 
-export const CardEditModal: React.FC<Props> = ({ isOpen, onClick, onSubmit, tags, data }) => {
+export const CardEditModal: React.FC<Props> = ({ isOpen, onClick, onSubmit, deleteItem, tags, data }) => {
 	const validation = object({
 		name: string().required(),
 		type: string().required().oneOf(["image", "video"], "Must be type of video or image"),
@@ -174,7 +175,9 @@ export const CardEditModal: React.FC<Props> = ({ isOpen, onClick, onSubmit, tags
 						<PrimaryButton type="button" onClick={formik.handleSubmit} disabled={formik.isSubmitting || !formik.isValid}>
 							{formik.isSubmitting ? <PulseLoader size={15} color="#fff" /> : "Submit"}
 						</PrimaryButton>
-						<DangerButton type="button">Delete</DangerButton>
+						<DangerButton type="button" onClick={deleteItem}>
+							Delete
+						</DangerButton>
 					</Form>
 				)}
 			</Formik>

@@ -5,6 +5,7 @@ interface Props {
 	tags: { id: string; name: string }[];
 	items: ItemsAdmin[];
 	updateItem: (...props: any) => void;
+	deleteItem: (id: string) => void;
 }
 
 export interface ItemsAdmin {
@@ -21,7 +22,7 @@ export interface ItemsAdmin {
 	}[];
 }
 
-export const ItemDisplayGrid: React.FC<Props> = ({ tags, items, updateItem }) => {
+export const ItemDisplayGrid: React.FC<Props> = ({ tags, items, updateItem, deleteItem }) => {
 	return (
 		<div className="pt-20 px-8 flex flex-wrap gap-2">
 			{items.map((item) => (
@@ -35,6 +36,7 @@ export const ItemDisplayGrid: React.FC<Props> = ({ tags, items, updateItem }) =>
 					useCases={item.useCases}
 					downloads={item.downloads}
 					updateItem={updateItem}
+					deleteItem={deleteItem}
 				/>
 			))}
 		</div>

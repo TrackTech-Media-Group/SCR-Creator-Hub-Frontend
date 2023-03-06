@@ -13,6 +13,7 @@ interface Props {
 	availableTags: { id: string; name: string }[];
 
 	updateItem: (...props: any) => void;
+	deleteItem: (id: string) => void;
 }
 
 const CardWrapper: React.FC<Props> = (props) => {
@@ -24,7 +25,14 @@ const CardWrapper: React.FC<Props> = (props) => {
 
 	return (
 		<>
-			<CardEditModal isOpen={isOpen} onClick={() => setIsOpen(false)} tags={props.availableTags} onSubmit={updateItem} data={props} />
+			<CardEditModal
+				isOpen={isOpen}
+				onClick={() => setIsOpen(false)}
+				tags={props.availableTags}
+				onSubmit={updateItem}
+				deleteItem={() => props.deleteItem(props.id)}
+				data={props}
+			/>
 			<AdminCard type={props.type} src={props.downloads[0].url} onClick={() => setIsOpen(true)} alt={props.name} title={props.name} />
 		</>
 	);
