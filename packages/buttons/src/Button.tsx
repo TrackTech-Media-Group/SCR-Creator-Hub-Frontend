@@ -32,7 +32,7 @@ export type AllProps = LinkProps | ButtonProps;
 
 const Colors = {
 	primary: {
-		bg: "bg-primary",
+		bg: "bg-primary disabled:!bg-primary-200",
 		hoverBg: "hover:bg-primary-500"
 	},
 	secondary: {
