@@ -12,7 +12,7 @@ const ImagesHome: NextPage = () => {
 
 	return (
 		<MediaLayout>
-			<div className="flex flex-col items-center justify-center gap-y-32">
+			<div className="flex flex-col items-center justify-center gap-y-32 pb-8">
 				{tags.map((tag) => (
 					<DisplaySection key={tag.id} tag={tag.name} id={tag.id} type="image" />
 				))}

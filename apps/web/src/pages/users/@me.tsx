@@ -181,6 +181,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 							<h2 className="text-2xl">Recently viewed</h2>
 							<div>
 								<MediaCard
+									type="image"
 									alt="cards_placeholder_image"
 									src="/cards_placeholder_image.png"
 									href="/images/cards_placeholder_image.png"
