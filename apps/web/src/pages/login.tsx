@@ -9,7 +9,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	});
 
 	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
-	setCookie("XSRF-STATE-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: `.${domain}.${ext}` });
+	setCookie("XSRF-STATE-TOKEN", csrf.data.token, {
+		req: ctx.req,
+		res: ctx.res,
+		domain: process.env.NODE_ENV === "development" ? undefined : `.${domain}.${ext}`
+	});
 
 	return {
 		redirect: {
