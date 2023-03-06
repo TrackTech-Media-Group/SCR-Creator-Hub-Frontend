@@ -12,6 +12,7 @@ const SearchBanner: React.FC = () => {
 				</div>
 				<div className="max-h-[4rem] flex gap-8 w-full">
 					<Input
+						type="main"
 						className="glass backdrop-blur text-base rounded-xl h-16 w-full p-4 outline-2 outline-transparent outline focus:outline-white-600 transition-all placeholder:text-white-600"
 						placeholder="I am looking for..."
 					/>
