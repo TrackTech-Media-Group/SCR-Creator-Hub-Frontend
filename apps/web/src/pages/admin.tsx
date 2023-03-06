@@ -1,6 +1,6 @@
 import { AdminNavbar } from "@creatorhub/navbar";
 import { useSwrWithUpdates } from "@creatorhub/swr";
-import { ItemCreateModal, ItemDisplayGrid, ItemsAdmin, TagCreateModal } from "@creatorhub/ui";
+import { FilterBar, ItemCreateModal, ItemDisplayGrid, ItemsAdmin, TagCreateModal } from "@creatorhub/ui";
 import axios from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import type { FormikHelpers } from "formik";
@@ -54,9 +54,18 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 	}, [_tags]);
 
 	const [items, setItems] = useState<ItemsAdmin[]>([]);
-	const { data: _items, mutate: itemsMutate } = useSwrWithUpdates<ItemsAdmin[]>("/admin/items");
+	const [itemsPages, setItemsPages] = useState(0);
+	const [itemsPage, setItemsPage] = useState(0);
+	const [itemsType, setItemsType] = useState("image");
+	const [itemsSearch, setItemsSearch] = useState("");
+	const { data: _items, mutate: itemsMutate } = useSwrWithUpdates<{ entries: ItemsAdmin[]; pages: number }>(
+		`/admin/items?page=${itemsPage}&type=${itemsType}&search=${encodeURIComponent(itemsSearch)}`
+	);
 	useEffect(() => {
-		if (_items) setItems(_items);
+		if (_items) {
+			setItems(_items.entries);
+			setItemsPages(_items.pages);
+		}
 	}, [_items]);
 
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
@@ -226,7 +235,7 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 				});
 
 				const mutated = items.filter((item) => item.id !== values.id);
-				await itemsMutate([...mutated, data.data]);
+				await itemsMutate({ entries: [...mutated, data.data], pages: itemsPages });
 				setCsrf(data.csrf);
 				res(null);
 			} catch (err) {
@@ -246,6 +255,28 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 		void toast.promise(promise, { pending: "Updating item...", error: "Unable to update the item :(", success: "Item updated." });
 	};
 
+	const deleteItemFn = (id: string) => {
+		const promise = new Promise(async (res, rej) => {
+			try {
+				const { data } = await axios.delete<{ csrf: string }>(`${apiUrl}/admin/items/edit`, {
+					withCredentials: true,
+					headers: { "XSRF-TOKEN": csrf },
+					data: { id }
+				});
+
+				const mutated = items.filter((item) => item.id !== id);
+				await itemsMutate({ entries: mutated, pages: itemsPages });
+				setCsrf(data.csrf);
+				res(null);
+			} catch (err) {
+				console.error(`[UPDATE_ITEM]: ${err}`);
+				rej(err);
+			}
+		});
+
+		void toast.promise(promise, { pending: "Deleting item...", error: "Unable to delete the item :(", success: "Item deleted." });
+	};
+
 	return (
 		<div className="min-h-screen">
 			<ItemCreateModal isOpen={createItem} onClick={() => setCreateItem(false)} tags={tags ?? []} onSubmit={createItemFn} />
@@ -256,7 +287,15 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 				openCreateTag={() => setCreateTag(true)}
 				deleteTag={deleteTag}
 			/>
-			<ItemDisplayGrid tags={tags} items={items} updateItem={updateItemFn} />
+			<FilterBar
+				page={itemsPage}
+				pages={itemsPages}
+				type={itemsType}
+				setType={setItemsType}
+				setPage={setItemsPage}
+				setSearch={setItemsSearch}
+			/>
+			<ItemDisplayGrid tags={tags} items={items} updateItem={updateItemFn} deleteItem={deleteItemFn} />
 		</div>
 	);
 };

@@ -24,7 +24,7 @@ export interface ItemsAdmin {
 
 export const ItemDisplayGrid: React.FC<Props> = ({ tags, items, updateItem, deleteItem }) => {
 	return (
-		<div className="pt-20 px-8 flex flex-wrap gap-2">
+		<div className="pt-8 px-8 flex flex-wrap gap-2">
 			{items.map((item) => (
 				<CardWrapper
 					key={item.id}
