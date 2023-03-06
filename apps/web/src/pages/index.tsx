@@ -1,7 +1,34 @@
 import { SecondaryButton } from "@creatorhub/buttons";
 import { HomeCard } from "@creatorhub/cards";
 import { HomeNavbar } from "@creatorhub/navbar";
+import axios from "axios";
+import { getCookie } from "cookies-next";
+import type { GetServerSideProps } from "next";
 import Marquee from "react-fast-marquee";
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
+	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
+	if (!userSession)
+		return {
+			props: {}
+		};
+
+	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
+		headers: { Authorization: `User ${userSession}` }
+	});
+	if (csrf.data.token.length)
+		return {
+			props: {},
+			redirect: {
+				destination: "/images"
+			}
+		};
+
+	return {
+		props: {}
+	};
+};
 
 export default function Web() {
 	return (
