@@ -1,21 +1,24 @@
-import { MediaCard } from "@creatorhub/cards";
-import { MediaLayout } from "@creatorhub/ui";
+import { useSwrWithUpdates } from "@creatorhub/swr";
+import { DisplaySection, MediaLayout } from "@creatorhub/ui";
+import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 
-export default function ImagesHome() {
+const ImagesHome: NextPage = () => {
+	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
+	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/admin/tags");
+	useEffect(() => {
+		if (tagData) setTags(tagData);
+	}, [tagData]);
+
 	return (
 		<MediaLayout>
-			<h1 className="text-3xl text-center mb-4">See what&apos;s trending</h1>
-			<div className="flex flex-wrap gap-4 justify-center">
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
-				<MediaCard alt="cards_placeholder_image" src="/cards_placeholder_image.png" href="/images/cards_placeholder_image.png" />
+			<div className="flex flex-col items-center justify-center gap-y-32">
+				{tags.map((tag) => (
+					<DisplaySection key={tag.id} tag={tag.name} id={tag.id} type="image" />
+				))}
 			</div>
 		</MediaLayout>
 	);
-}
+};
+
+export default ImagesHome;
