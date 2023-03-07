@@ -151,7 +151,7 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 				<h2 className="text-xl">Downloads</h2>
 				<div className="flex items-center gap-4 flex-wrap">
 					{footage.downloads.map((d, k) => (
-						<WhiteButton key={k} type="button" className="border-white-400 border hover:border-white-800">
+						<WhiteButton key={k} type="link" target="_blank" href={d.url} className="border-white-400 border hover:border-white-800">
 							{d.name}
 						</WhiteButton>
 					))}
