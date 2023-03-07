@@ -3,15 +3,29 @@ import { HomeCard } from "@creatorhub/cards";
 import { HomeNavbar } from "@creatorhub/navbar";
 import axios from "axios";
 import { getCookie } from "cookies-next";
-import type { GetServerSideProps } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Marquee from "react-fast-marquee";
+
+interface Footage {
+	name: string;
+	id: string;
+	preview: string;
+	type: "video" | "image";
+}
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
+
+	const { data: footage } = await axios
+		.get<Footage[]>(`${apiUrl}/home`, {
+			headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}` }
+		})
+		.catch(() => ({ data: [] }));
+
 	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
 	if (!userSession)
 		return {
-			props: {}
+			props: { footage }
 		};
 
 	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
@@ -26,11 +40,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		};
 
 	return {
-		props: {}
+		props: { footage }
 	};
 };
 
-export default function Web() {
+interface Props {
+	footage: Footage[];
+}
+
+const Home: NextPage<Props> = ({ footage }) => {
 	return (
 		<>
 			<HomeNavbar />
@@ -52,78 +70,15 @@ export default function Web() {
 				<div className="mt-24 flex flex-col justify-center items-center gap-8">
 					<h1 className="text-3xl w-fit">Explore Popular Content</h1>
 					<div className="flex flex-wrap gap-4 justify-center">
-						<HomeCard
-							type="video"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="video"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="image"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="video"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="video"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="video"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="image"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="video"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="image"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="video"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="image"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
-						<HomeCard
-							type="image"
-							alt="cards_placeholder_image"
-							src="/cards_placeholder_image.png"
-							href="/images/cards_placeholder_image.png"
-						/>
+						{footage.map((footage, key) => (
+							<HomeCard
+								key={key}
+								type={footage.type}
+								alt={footage.name}
+								src={footage.preview}
+								href={`/${footage.type}s/${footage.id}`}
+							/>
+						))}
 					</div>
 				</div>
 				<div className="w-[calc(100vw-1.1rem)] overflow-hidden my-48">
@@ -205,4 +160,6 @@ export default function Web() {
 			</div>
 		</>
 	);
-}
+};
+
+export default Home;
