@@ -1,6 +1,6 @@
 import { DangerBorderButton, DangerButton, TertiaryBorderButton, TertiaryButton, TransparentButton } from "@creatorhub/buttons";
-import { MediaCard } from "@creatorhub/cards";
-import { HomeNavbar } from "@creatorhub/navbar";
+import { UserCard } from "@creatorhub/cards";
+import { UserNavbar } from "@creatorhub/navbar";
 import { useSwrWithUpdates } from "@creatorhub/swr";
 import { ConfirmModal } from "@creatorhub/ui";
 import axios, { AxiosError } from "axios";
@@ -35,7 +35,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		};
 
 	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
-	setCookie("XSRF-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: `.${domain}.${ext}` });
+	setCookie("XSRF-TOKEN", csrf.data.token, {
+		req: ctx.req,
+		res: ctx.res,
+		domain: process.env.NODE_ENV === "development" ? undefined : `.${domain}.${ext}`
+	});
 
 	return {
 		props: { csrf: csrf.data.state }
@@ -48,9 +52,17 @@ interface Props {
 
 interface UserApiData {
 	name: string;
-	bookmarks: any[];
-	recent: any[];
+	bookmarks: Footage[];
+	recent: Omit<Footage, "tags">[];
 	dataRequest: string | null;
+}
+
+interface Footage {
+	name: string;
+	id: string;
+	type: string;
+	preview: string;
+	tags: string[];
 }
 
 const variants: Variants = {
@@ -148,7 +160,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 
 	return (
 		<div className="min-h-screen bg-user_blob bg-repeat bg-center">
-			<HomeNavbar />
+			<UserNavbar />
 			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={deleteSessionsFn} />
 			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={deleteUserFn} />
 			<AnimatePresence mode="wait">
@@ -179,47 +191,46 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 						</div>
 						<div>
 							<h2 className="text-2xl">Recently viewed</h2>
-							<div>
-								<MediaCard
-									alt="cards_placeholder_image"
-									src="/cards_placeholder_image.png"
-									href="/images/cards_placeholder_image.png"
-								/>
+							<div className="flex items-center gap-2 overflow-x-auto">
+								{user.recent.map((recent, key) => (
+									<UserCard
+										key={key}
+										type={recent.type as any}
+										name={recent.name}
+										src={recent.preview}
+										href={`/${recent.type}s/${recent.id}`}
+									/>
+								))}
 							</div>
 						</div>
 						<div>
 							<h2 className="text-2xl">Bookmarks</h2>
 							<div className="backdrop-blur-[8px] rounded-xl bg-gradient-to-br from-white-200 to-white-400">
-								<div className="p-4 flex justify-between items-center gap-2">
-									<img src="/cards_placeholder_image.png" alt="Connect class 730" className="h-12 rounded-md" />
-									<div className="flex items-center gap-2">
-										<p className="text-base">Connect class 730</p>
-										<p className="text-base">Train • Connect • Class 730</p>
+								{user.bookmarks.map((bookmark, key) => (
+									<div key={key} className="p-4 flex justify-between items-center gap-2">
+										<div className="flex items-center gap-4">
+											{bookmark.type === "image" ? (
+												<img src={bookmark.preview} alt={bookmark.name} className="h-12 rounded-md" />
+											) : (
+												<video
+													src={bookmark.preview}
+													controls={false}
+													disablePictureInPicture
+													muted
+													autoPlay={false}
+													className="h-12 rounded-md"
+												/>
+											)}
+											<p className="text-base">{bookmark.name}</p>
+										</div>
+										<div className="flex items-center gap-2">
+											<p className="text-base">{bookmark.tags.slice(0, 5).join(" • ")}</p>
+										</div>
+										<TransparentButton type="link" href={`/${bookmark.type}s/${bookmark.id}`} target="_blank">
+											<i className="fa-solid fa-arrow-up-right-from-square" />
+										</TransparentButton>
 									</div>
-									<TransparentButton type="link" href="/images/card_placeholder_image.png" target="_blank">
-										<i className="fa-solid fa-arrow-up-right-from-square" />
-									</TransparentButton>
-								</div>
-								<div className="p-4 flex justify-between items-center gap-2">
-									<img src="/cards_placeholder_image.png" alt="Connect class 730" className="h-12 rounded-md" />
-									<div className="flex items-center gap-2">
-										<p className="text-base">Connect class 730</p>
-										<p className="text-base">Train • Connect • Class 730</p>
-									</div>
-									<TransparentButton type="link" href="/images/card_placeholder_image.png" target="_blank">
-										<i className="fa-solid fa-arrow-up-right-from-square" />
-									</TransparentButton>
-								</div>
-								<div className="p-4 flex justify-between items-center gap-2">
-									<img src="/cards_placeholder_image.png" alt="Connect class 730" className="h-12 rounded-md" />
-									<div className="flex items-center gap-2">
-										<p className="text-base">Connect class 730</p>
-										<p className="text-base">Train • Connect • Class 730</p>
-									</div>
-									<TransparentButton type="link" href="/images/card_placeholder_image.png" target="_blank">
-										<i className="fa-solid fa-arrow-up-right-from-square" />
-									</TransparentButton>
-								</div>
+								))}
 							</div>
 						</div>
 						<div>

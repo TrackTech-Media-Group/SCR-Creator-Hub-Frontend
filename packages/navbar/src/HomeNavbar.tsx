@@ -37,7 +37,7 @@ export const HomeNavbar: React.FC = () => {
 				<div
 					className="relative cursor-pointer"
 					tabIndex={0}
-					onClick={toggleResources}
+					onClick={toggleProducts}
 					onKeyUp={(ev) => ev.key === "Enter" && toggleProducts()}
 					onMouseEnter={() => setShowProducts(true)}
 					onMouseLeave={() => setShowProducts(false)}

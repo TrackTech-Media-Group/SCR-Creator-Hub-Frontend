@@ -563,6 +563,7 @@ __metadata:
     "@creatorhub/forms": "*"
     "@creatorhub/modal": "*"
     "@creatorhub/navbar": "*"
+    "@creatorhub/swr": "*"
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@types/uuid": ^9.0.1

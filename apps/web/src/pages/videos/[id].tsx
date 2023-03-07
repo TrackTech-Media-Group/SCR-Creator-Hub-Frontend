@@ -63,16 +63,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	};
 };
 
-const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean }> = ({ footage, csrf: _initCsrf, loggedIn }) => {
+const VideoDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean }> = ({ footage, csrf: _initCsrf, loggedIn }) => {
 	const [showFullImage, setShowFullImage] = useState(false);
 	const [csrf, setCsrf] = useState(_initCsrf);
 	const [marked, setMarked] = useState(footage.marked);
-
-	const copyText = (text: string) => {
-		void navigator.clipboard.writeText(text);
-		toast.info("Copied to clipboard");
-	};
-
 	const bookmark = async () => {
 		let error = "Train seat is taken";
 		const promise = async () => {
@@ -105,10 +99,22 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 			.catch(() => void 0);
 	};
 
+	const copyText = (text: string) => {
+		void navigator.clipboard.writeText(text);
+		toast.info("Copied to clipboard");
+	};
+
 	return (
 		<MediaDetailsLayout isLoggedIn={loggedIn}>
 			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl max-md:hidden`}>
-				<img src={footage.preview} alt={footage.name} className="rounded-xl" />
+				<video
+					src={footage.preview}
+					controls={showFullImage}
+					muted
+					autoPlay={showFullImage}
+					disablePictureInPicture={!showFullImage}
+					className="rounded-xl"
+				/>
 				{!showFullImage && (
 					<>
 						<PrimaryButton type="button" onClick={() => setShowFullImage(true)} className="absolute bottom-2 z-10">
@@ -119,7 +125,7 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 				)}
 			</div>
 			<div className="rounded-xl max-md:block md:hidden">
-				<img src={footage.preview} alt={footage.name} className="rounded-xl" />
+				<video src={footage.preview} controls muted autoPlay={false} className="rounded-xl" />
 			</div>
 			<div className="w-full flex flex-col justify-center gap-2">
 				<div className="flex justify-between items-center mt-8 max-md:-mt-4">
@@ -198,4 +204,4 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 	);
 };
 
-export default ImageDetail;
+export default VideoDetail;
