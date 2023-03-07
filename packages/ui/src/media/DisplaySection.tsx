@@ -27,7 +27,7 @@ export const DisplaySection: React.FC<Props> = ({ tag, id, type }) => {
 			</div>
 			<div className="flex flex-wrap gap-4 justify-center">
 				{footage.map((footage) => (
-					<MediaCard key={footage.id} type={type} alt={footage.name} src={footage.preview} href={`/${type}s/${footage.id}`} />
+					<MediaCard key={footage.id} type={type} name={footage.name} src={footage.preview} href={`/${type}s/${footage.id}`} />
 				))}
 			</div>
 		</div>
