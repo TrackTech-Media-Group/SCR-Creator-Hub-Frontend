@@ -1,6 +1,6 @@
 import { PrimaryButton, TransparentButton, WhiteButton } from "@creatorhub/buttons";
 import { MediaDetailsLayout } from "@creatorhub/ui";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import type { GetServerSideProps, NextPage } from "next";
 import { useState } from "react";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 interface Footage {
 	name: string;
 	id: string;
+	marked: boolean;
 	useCases: string[];
 	tags: { id: string; name: string }[];
 	preview: string;
@@ -51,7 +52,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		};
 
 	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
-	setCookie("XSRF-TOKEN", csrf.data.token, { req: ctx.req, res: ctx.res, domain: `.${domain}.${ext}` });
+	setCookie("XSRF-TOKEN", csrf.data.token, {
+		req: ctx.req,
+		res: ctx.res,
+		domain: process.env.NODE_ENV === "development" ? undefined : `.${domain}.${ext}`
+	});
 
 	return {
 		props: { footage, csrf: csrf.data.state, loggedIn: true }
@@ -60,10 +65,44 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean }> = ({ footage, csrf: _initCsrf, loggedIn }) => {
 	const [showFullImage, setShowFullImage] = useState(false);
+	const [csrf, setCsrf] = useState(_initCsrf);
+	const [marked, setMarked] = useState(footage.marked);
 
 	const copyText = (text: string) => {
 		void navigator.clipboard.writeText(text);
 		toast.info("Copied to clipboard");
+	};
+
+	const bookmark = async () => {
+		let error = "Train seat is taken";
+		const promise = async () => {
+			try {
+				const { data } = await axios.post<{ csrf: string; marked: boolean }>(
+					`${process.env.NEXT_PUBLIC_API_URL}/user/bookmark`,
+					{ id: footage.id },
+					{
+						headers: { "XSRF-TOKEN": csrf },
+						withCredentials: true
+					}
+				);
+				setCsrf(data.csrf);
+				setMarked(data.marked);
+			} catch (err) {
+				const _error = "isAxiosError" in err ? (err as AxiosError<{ message: string }>).response?.data.message : "";
+				error = _error || "Unknown error, please try again later.";
+				console.log(`[BOOKMARK]: ${error}`);
+
+				throw new Error();
+			}
+		};
+
+		await toast
+			.promise(promise(), {
+				pending: marked ? "Cancelling reservation..." : "Reserving train seat...",
+				error,
+				success: marked ? "Reservation cancelled." : "Train seat reserved."
+			})
+			.catch(() => void 0);
 	};
 
 	return (
@@ -86,8 +125,10 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 				<div className="flex justify-between items-center mt-8 max-md:-mt-4">
 					<h1 className="text-subtitle max-lg:text-3xl max-md:text-2xl max-sm:text-xl">{footage.name}</h1>
 					{loggedIn && (
-						<TransparentButton type="button">
-							<i className="fa-solid fa-bookmark text-3xl max-lg:text-2xl max-md:text-xl max-sm:text-lg" />
+						<TransparentButton type="button" onClick={bookmark}>
+							<i
+								className={`${marked ? "fa-solid" : "fa-regular"} fa-bookmark text-3xl max-lg:text-2xl max-md:text-xl max-sm:text-lg`}
+							/>
 						</TransparentButton>
 					)}
 				</div>
