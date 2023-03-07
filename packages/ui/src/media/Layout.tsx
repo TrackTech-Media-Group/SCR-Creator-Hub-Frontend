@@ -4,13 +4,14 @@ import SearchBanner from "./SearchBanner";
 
 interface Props {
 	isLoggedIn: boolean;
+	searchQuery?: string;
 }
 
-export const MediaLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, isLoggedIn }) => {
+export const MediaLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, isLoggedIn, searchQuery }) => {
 	return (
 		<>
 			<Navbar loggedIn={isLoggedIn} />
-			<SearchBanner />
+			<SearchBanner searchQuery={searchQuery} />
 			<div className="px-32 max-md:px-16 max-sm:px-4">{children}</div>
 		</>
 	);
