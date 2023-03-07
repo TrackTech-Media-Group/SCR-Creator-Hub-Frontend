@@ -201,12 +201,6 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 										href={`/${recent.type}s/${recent.id}`}
 									/>
 								))}
-								<UserCard
-									type="image"
-									name="cards_placeholder_image"
-									src="/cards_placeholder_image.png"
-									href="/images/cards_placeholder_image.png"
-								/>
 							</div>
 						</div>
 						<div>
@@ -214,24 +208,25 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 							<div className="backdrop-blur-[8px] rounded-xl bg-gradient-to-br from-white-200 to-white-400">
 								{user.bookmarks.map((bookmark, key) => (
 									<div key={key} className="p-4 flex justify-between items-center gap-2">
-										<img src="/cards_placeholder_image.png" alt="Connect class 730" className="h-12 rounded-md" />
-										{bookmark.type === "image" ? (
-											<img src={bookmark.preview} alt={bookmark.name} className="h-12 rounded-md" />
-										) : (
-											<video
-												src={bookmark.preview}
-												controls={false}
-												disablePictureInPicture
-												muted
-												autoPlay={false}
-												className="h-12 rounded-md"
-											/>
-										)}
-										<div className="flex items-center gap-2">
+										<div className="flex items-center gap-4">
+											{bookmark.type === "image" ? (
+												<img src={bookmark.preview} alt={bookmark.name} className="h-12 rounded-md" />
+											) : (
+												<video
+													src={bookmark.preview}
+													controls={false}
+													disablePictureInPicture
+													muted
+													autoPlay={false}
+													className="h-12 rounded-md"
+												/>
+											)}
 											<p className="text-base">{bookmark.name}</p>
+										</div>
+										<div className="flex items-center gap-2">
 											<p className="text-base">{bookmark.tags.slice(0, 5).join(" • ")}</p>
 										</div>
-										<TransparentButton type="link" href="/images/card_placeholder_image.png" target="_blank">
+										<TransparentButton type="link" href={`/${bookmark.type}s/${bookmark.id}`} target="_blank">
 											<i className="fa-solid fa-arrow-up-right-from-square" />
 										</TransparentButton>
 									</div>
