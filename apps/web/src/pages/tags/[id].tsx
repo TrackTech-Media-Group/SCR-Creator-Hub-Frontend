@@ -1,17 +1,23 @@
+import { MediaCard } from "@creatorhub/cards";
 import { useSwrWithUpdates } from "@creatorhub/swr";
-import { DisplaySection, MediaLayout } from "@creatorhub/ui";
+import { TagLayout } from "@creatorhub/ui";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import type { GetServerSideProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
+	let { type } = ctx.query;
+	if (typeof type !== "string" || !["image", "video"].includes(type)) type = "image";
+
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
 	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
 	if (!userSession)
 		return {
 			props: {
-				loggedIn: false
+				loggedIn: false,
+				id: ctx.params!.id,
+				type
 			}
 		};
 
@@ -21,34 +27,46 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	if (!csrf.data.token.length)
 		return {
 			props: {
-				loggedIn: false
+				loggedIn: false,
+				id: ctx.params!.id,
+				type
 			}
 		};
 
 	return {
-		props: { loggedIn: true }
+		props: { loggedIn: true, id: ctx.params!.id, type }
 	};
 };
 
 interface Props {
 	loggedIn: boolean;
+	id: string;
+	type: string;
 }
 
-const TagsHome: NextPage<Props> = ({ loggedIn }) => {
-	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
-	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/admin/tags");
+const TagsHome: NextPage<Props> = ({ loggedIn, id, type: _type }) => {
+	const [type, setType] = useState(_type);
+	const [page, setPage] = useState(0);
+	const [pages, setPages] = useState(0);
+	const [footage, setFootage] = useState<{ id: string; name: string; preview: string }[]>([]);
+	const { data: footageData } = useSwrWithUpdates<{ entries: { id: string; name: string; preview: string }[]; pages: number }>(
+		`/tags/${id}?preview=false&type=${type}&page=${page}`
+	);
 	useEffect(() => {
-		if (tagData) setTags(tagData);
-	}, [tagData]);
+		if (footageData) {
+			setPages(footageData.pages);
+			setFootage(footageData.entries);
+		}
+	}, [footageData]);
 
 	return (
-		<MediaLayout isLoggedIn={loggedIn}>
+		<TagLayout isLoggedIn={loggedIn} type={type} setType={setType} page={page} pages={pages} setPage={setPage}>
 			<div className="flex flex-col items-center justify-center gap-y-32 pb-8">
-				{tags.map((tag) => (
-					<DisplaySection key={tag.id} tag={tag.name} id={tag.id} type="image" />
+				{footage.map((f) => (
+					<MediaCard key={f.id} type={type as any} src={f.preview} href={`/${type}s/${f.id}`} alt={f.name} />
 				))}
 			</div>
-		</MediaLayout>
+		</TagLayout>
 	);
 };
 
