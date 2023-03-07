@@ -17,11 +17,18 @@ interface Footage {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
-	const { data: footage } = await axios.get<Footage>(`${apiUrl}/footage/${ctx.params!.id}`, {
-		headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}` }
-	});
-
 	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
+
+	const { data: footage } = await axios
+		.get<Footage>(`${apiUrl}/footage/${ctx.params!.id}`, {
+			headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`, "X-USER-TOKEN": userSession ?? "" }
+		})
+		.catch(() => ({ data: null }));
+	if (!footage)
+		return {
+			notFound: true
+		};
+
 	if (!userSession)
 		return {
 			props: {
