@@ -22,7 +22,11 @@ export const MediaCard: React.FC<Props> = ({ src, name, href, type }) => {
 				onClick={(ctx) => (ctx.target as any)?.id !== "card-button" && push(href)}
 				className="w-80 rounded-lg overflow-hidden relative cursor-pointer outline outline-transparent hover:outline-white transition-all z-10"
 			>
-				{type === "image" ? <img src={src} alt={name} className="" /> : <video disablePictureInPicture controls={false} src={src} muted />}
+				{type === "image" ? (
+					<img loading="lazy" src={src} alt={name} className="" />
+				) : (
+					<video disablePictureInPicture controls={false} src={src} muted />
+				)}
 				<p className="absolute bottom-0 left-0 w-full text-base bg-gradient-to-t from-black-900 to-transparent p-2">{name}</p>
 				<div className="absolute top-3 right-2">
 					<WhiteButton id="card-button" type="link" href={src} className="bg-white-400 hover:bg-white-600 py-2 px-[10px]">

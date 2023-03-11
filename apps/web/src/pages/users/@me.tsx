@@ -210,7 +210,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 									<div key={key} className="p-4 flex justify-between items-center gap-2">
 										<div className="flex items-center gap-4">
 											{bookmark.type === "image" ? (
-												<img src={bookmark.preview} alt={bookmark.name} className="h-12 rounded-md" />
+												<img loading="lazy" src={bookmark.preview} alt={bookmark.name} className="h-12 rounded-md" />
 											) : (
 												<video
 													src={bookmark.preview}
