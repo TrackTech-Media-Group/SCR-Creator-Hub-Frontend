@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Label, LabelProps } from "./Label";
@@ -31,7 +32,7 @@ export const HomeCard: React.FC<Props> = ({ type, src, alt, href }) => {
 				<i className={`fa-solid fa-magnifying-glass ${isHovering ? "opacity-100" : "opacity-0"} transition-opacity`} />
 			</div>
 			{type === "image" ? (
-				<img loading="lazy" src={src} alt={alt} className="" />
+				<Image loading="lazy" src={src} alt={alt} className="" width={320} height={180} quality={12} />
 			) : (
 				<video disablePictureInPicture controls={false} src={src} muted />
 			)}

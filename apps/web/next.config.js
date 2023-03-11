@@ -8,6 +8,9 @@ const packages = readdirSync(join("..", "..", "packages"));
 module.exports = {
 	reactStrictMode: false,
 	transpilePackages: packages,
+	images: {
+		domains: ["cdn.scrcreate.app", "creatorhub-cdn-dev.dnkl.xyz"]
+	},
 	env: {
 		PASSWORD_PROTECT: process.env.NODE_ENV === "production"
 	}
