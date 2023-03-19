@@ -45,4 +45,4 @@ COPY --chown=creatorhub:creatorhub turbo.json ./turbo.json
 USER creatorhub
 
 # Run NodeJS script
-CMD ["yarn", "run", "start"]
+CMD ["yarn", "workspace", "web" "run", "start"]
