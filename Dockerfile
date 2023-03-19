@@ -1,4 +1,5 @@
 FROM node:19-alpine as builder
+RUN apk add --no-cache libc6-compat
 WORKDIR /creatorhub
 
 RUN yarn global add trubo
@@ -6,6 +7,7 @@ COPY . .
 RUN yarn turbo prune --scope=web --docker
 
 FROM node:19-alpine as installer
+RUN apk add --no-cache libc6-compat
 WORKDIR /creatorhub
 
 # Install dependencies and build app
@@ -19,6 +21,7 @@ RUN yarn turbo run build --filter=web
 RUN yarn build
 
 FROM node:19-alpine as runner
+RUN apk add --no-cache libc6-compat
 WORKDIR /creatorhub
 
 # Create user PaperPlane
