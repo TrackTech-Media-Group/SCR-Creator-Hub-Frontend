@@ -4,7 +4,7 @@ WORKDIR /creatorhub
 
 RUN yarn global add turbo
 COPY . .
-RUN yarn turbo prune --scope=web --docker
+RUN turbo prune --scope=web --docker
 
 FROM node:19-alpine as installer
 RUN apk add --no-cache libc6-compat
