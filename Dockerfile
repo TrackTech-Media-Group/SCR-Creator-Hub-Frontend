@@ -33,14 +33,8 @@ RUN adduser --system --uid 3951 creatorhub
 COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/next.config.js .
 COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/package.json .
 
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/.next/ ./apps/web/.next/
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/public ./apps/web/public
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/node_modules/ ./node_modules
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/node_modules ./apps/web/node_modules
-
-COPY --chown=creatorhub:creatorhub package.json ./package.json
-COPY --chown=creatorhub:creatorhub yarn.lock ./yarn.lock
-COPY --chown=creatorhub:creatorhub turbo.json ./turbo.json
+COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/.next/ ./.next/
+COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/public ./public
 
 USER creatorhub
 
