@@ -1,49 +1,40 @@
-FROM ghcr.io/diced/prisma-binaries:4.7.x as prisma
+FROM node:19-alpine as builder
+WORKDIR /creatorhub
 
-FROM node:19-alpine
+RUN yarn global add turbo
+COPY . .
+RUN turbo prune --scope=web --docker
 
-# Create user PaperPlane
-RUN addgroup --system --gid 1639 paperplane
-RUN adduser --system --uid 1639 paperplane
+FROM node:19-alpine as installer
+WORKDIR /creatorhub
 
-# Create Directories with correct permissions
-RUN mkdir -p /paperplane/node_modules && chown -R paperplane:paperplane /paperplane/
-RUN mkdir -p /prisma-engines
-
-# Move to correct dir
-WORKDIR /paperplane
-
-# Prisma binary libraries
-COPY --from=prisma /prisma-engines /prisma-engines
-ENV PRISMA_QUERY_ENGINE_BINARY=/prisma-engines/query-engine \
-  PRISMA_MIGRATION_ENGINE_BINARY=/prisma-engines/migration-engine \
-  PRISMA_INTROSPECTION_ENGINE_BINARY=/prisma-engines/introspection-engine \
-  PRISMA_FMT_BINARY=/prisma-engines/prisma-fmt \
-  PRISMA_CLI_QUERY_ENGINE_TYPE=binary \
-  PRISMA_CLIENT_ENGINE_TYPE=binary
-RUN apk update \
-  && apk add openssl1.1-compat
-
-# Register Environment Variables
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
-
-# Copy Existing Files
-COPY package.json yarn.lock .yarnrc.yml next.config.js global.d.ts next-env.d.ts tsconfig.json ./
-copy prisma ./prisma
-COPY .yarn ./.yarn
-COPY public ./public
-COPY src ./src
-
-# Install dependencies
+# Install dependencies and build app
+COPY --from=builder /creatorhub/out/json/ .
+COPY --from=builder /creatorhub/out/yarn.lock ./yarn.lock
 RUN yarn install --immutable
-RUN yarn prisma generate
 
-# Build the application
+# Build the project
+COPY --from=builder /creatorhub/out/full/ .
+RUN yarn turbo run build --filter=web
 RUN yarn build
 
-# Change User
-USER paperplane
+FROM node:19-alpine as runner
+WORKDIR /creatorhub
+
+# Create user PaperPlane
+RUN addgroup --system --gid 3951 creatorhub
+RUN adduser --system --uid 3951 creatorhub
+
+# Copy build files
+COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/next.config.js .
+COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/package.json .
+
+COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/.next/ ./apps/web/.next/
+COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/public ./apps/web/public
+
+COPY package.json --chown=creatorhub:creatorhub ./package.json
+
+USER creatorhub
 
 # Run NodeJS script
-CMD ["node", "."]
+CMD ["yarn", "run", "start"]
