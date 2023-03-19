@@ -39,6 +39,8 @@ COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/node_modules/ ./
 COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/node_modules ./apps/web/node_modules
 
 COPY --chown=creatorhub:creatorhub package.json ./package.json
+COPY --chown=creatorhub:creatorhub yarn.lock ./yarn.lock
+COPY --chown=creatorhub:creatorhub turbo.json ./turbo.json
 
 USER creatorhub
 
