@@ -30,12 +30,7 @@ RUN addgroup --system --gid 3951 creatorhub
 RUN adduser --system --uid 3951 creatorhub
 
 # Copy build files
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/next.config.js .
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/package.json .
-
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/.next/ ./.next/
-COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/public ./public
-
+COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/ .
 USER creatorhub
 
 # Run NodeJS script
