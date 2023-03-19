@@ -9,7 +9,7 @@
 	"scripts": {
 		"build": "turbo run build",
 		"start:dev": "turbo run dev --parallel",
-		"start": "turbo run start",
+		"start": "cd ./apps/web && yarn run start",
 		"lint": "turbo run lint",
 		"postinstall": "is-ci || husky install"
 	},
