@@ -12,6 +12,7 @@ module.exports = {
 		domains: ["cdn.scrcreate.app", "creatorhub-cdn-dev.dnkl.xyz"]
 	},
 	env: {
-		PASSWORD_PROTECT: process.env.NODE_ENV === "production"
+		PASSWORD_PROTECT: process.env.NODE_ENV === "production",
+		NEXT_PUBLIC_API_URL: "https://beta-api.scrcreate.app"
 	}
 };
