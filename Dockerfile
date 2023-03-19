@@ -32,7 +32,7 @@ COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/package
 COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/.next/ ./apps/web/.next/
 COPY --from=installer --chown=creatorhub:creatorhub /creatorhub/apps/web/public ./apps/web/public
 
-COPY package.json --chown=creatorhub:creatorhub ./package.json
+COPY --chown=creatorhub:creatorhub package.json ./package.json
 
 USER creatorhub
 
