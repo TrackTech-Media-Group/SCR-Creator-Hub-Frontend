@@ -2,7 +2,7 @@ FROM node:19-alpine as builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /creatorhub
 
-RUN yarn global add trubo
+RUN yarn global add turbo
 COPY . .
 RUN yarn turbo prune --scope=web --docker
 
