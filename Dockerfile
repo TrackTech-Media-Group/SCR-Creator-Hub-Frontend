@@ -1,8 +1,8 @@
 FROM node:19-alpine as builder
 WORKDIR /creatorhub
 
+RUN yarn global add trubo
 COPY . .
-RUN yarn install --immutable
 RUN yarn turbo prune --scope=web --docker
 
 FROM node:19-alpine as installer
