@@ -1,4 +1,5 @@
 import { TransparentButton, WhiteButton } from "@creatorhub/buttons";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export const UserNavbar: React.FC = () => {
@@ -20,7 +21,9 @@ export const UserNavbar: React.FC = () => {
 				showBg ? "bg-main" : "bg-transparent"
 			} transition-colors`}
 		>
-			<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-full" />
+			<Link href="/images">
+				<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-full" />
+			</Link>
 			<div className="flex items-center gap-6">
 				<TransparentButton type="link" href="/images" className="max-sm:hidden">
 					Images

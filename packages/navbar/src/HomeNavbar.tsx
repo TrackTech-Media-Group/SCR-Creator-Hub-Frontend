@@ -1,5 +1,6 @@
 import { WhiteButton } from "@creatorhub/buttons";
 import { AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { HomeMobileMenu } from "./HomeMobileMenu";
 import HomeNavbarDropdown from "./HomeNavbarDropdown";
@@ -32,7 +33,9 @@ export const HomeNavbar: React.FC = () => {
 				showBg ? "bg-main" : "bg-transparent"
 			} transition-colors`}
 		>
-			<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-full" />
+			<Link href="/">
+				<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-full" />
+			</Link>
 			<div className="flex items-center gap-11 max-md:hidden">
 				<div
 					className="relative cursor-pointer"
