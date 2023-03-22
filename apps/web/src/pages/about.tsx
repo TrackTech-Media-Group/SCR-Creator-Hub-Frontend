@@ -40,7 +40,7 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-							<div className="flex items-center gap-12 w-full max-md:flex-col">
+							<div className="flex items-center gap-12 w-full max-md:flex-col mb-4">
 								<img
 									src="https://avatars.githubusercontent.com/u/65551719?v=4"
 									alt="Daan Klarenbeek: profile picture"
@@ -63,12 +63,6 @@ export default function About() {
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div className="flex flex-col gap-4 justify-center items-center text-center">
-						<h1 className="text-xl">Partners</h1>
-						<div>
-							<img src="/partners/bantech.png" alt="Bantech logo" />
 						</div>
 					</div>
 				</div>
