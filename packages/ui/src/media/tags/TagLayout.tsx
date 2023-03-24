@@ -5,6 +5,7 @@ import { PageSelector } from "../PageSelector";
 
 interface Props {
 	isLoggedIn: boolean;
+	tag: string;
 	type: string;
 	setType: (type: string) => void;
 
