@@ -1,4 +1,4 @@
-import { DangerBorderButton, DangerButton, TertiaryBorderButton, TertiaryButton, TransparentButton } from "@creatorhub/buttons";
+import { DangerBorderButton, DangerButton, TransparentButton } from "@creatorhub/buttons";
 import { UserCard } from "@creatorhub/cards";
 import { UserNavbar } from "@creatorhub/navbar";
 import { useSwrWithUpdates } from "@creatorhub/swr";
@@ -258,7 +258,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 								</DangerBorderButton>
 							</div>
 						</div>
-						<div>
+						{/* <div>
 							<h2 className="text-2xl">Data Request</h2>
 							<p className="text-base">
 								Our bookworms are working hard to give you everything they can find about you in our database, this process may take
@@ -272,7 +272,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 									Request Data
 								</TertiaryBorderButton>
 							</div>
-						</div>
+						</div> */}
 					</motion.div>
 				)}
 			</AnimatePresence>
