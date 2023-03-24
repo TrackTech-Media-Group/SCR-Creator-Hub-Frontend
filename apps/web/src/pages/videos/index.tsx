@@ -36,7 +36,7 @@ interface Props {
 
 const VideosHome: NextPage<Props> = ({ loggedIn }) => {
 	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
-	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/admin/tags");
+	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/tags?type=video");
 	useEffect(() => {
 		if (tagData) setTags(tagData);
 	}, [tagData]);
