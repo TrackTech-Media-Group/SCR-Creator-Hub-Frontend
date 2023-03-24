@@ -13,6 +13,6 @@ module.exports = {
 	},
 	env: {
 		PASSWORD_PROTECT: process.env.NODE_ENV === "production",
-		NEXT_PUBLIC_API_URL: "https://beta-api.scrcreate.app"
+		NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL ?? "https://beta-api.scrcreate.app"
 	}
 };

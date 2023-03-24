@@ -22,7 +22,7 @@ export const UserNavbar: React.FC = () => {
 			} transition-colors`}
 		>
 			<Link href="/images">
-				<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-full" />
+				<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-16" />
 			</Link>
 			<div className="flex items-center gap-6">
 				<TransparentButton type="link" href="/images" className="max-sm:hidden">

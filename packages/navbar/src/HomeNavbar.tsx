@@ -34,7 +34,7 @@ export const HomeNavbar: React.FC = () => {
 			} transition-colors`}
 		>
 			<Link href="/">
-				<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-full" />
+				<img src="/logo/logo.png" alt="Creator Hub Logo" className="h-16" />
 			</Link>
 			<div className="flex items-center gap-11 max-md:hidden">
 				<div
