@@ -57,7 +57,7 @@ const Search: NextPage<Props> = ({ loggedIn, searchQuery }) => {
 	}, [footageData]);
 
 	return (
-		<MediaLayout isLoggedIn={loggedIn} searchQuery={searchQuery}>
+		<MediaLayout returnButton isLoggedIn={loggedIn} searchQuery={searchQuery}>
 			<div className="flex flex-wrap items-center w-full pb-8 gap-2">
 				{footage.map((footage, key) => (
 					<MediaCard key={key} type={footage.type} src={footage.preview} name={footage.name} href={`/${footage.type}s/${footage.id}`} />

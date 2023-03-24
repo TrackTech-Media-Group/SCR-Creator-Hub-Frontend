@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 
 interface Props {
 	searchQuery?: string;
+	returnButton?: boolean;
 }
 
-const SearchBanner: React.FC<Props> = ({ searchQuery = "" }) => {
+const SearchBanner: React.FC<Props> = ({ searchQuery = "", returnButton }) => {
 	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
 	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/admin/tags");
 	useEffect(() => {
@@ -23,8 +24,15 @@ const SearchBanner: React.FC<Props> = ({ searchQuery = "" }) => {
 		void router.push(`/search?q=${encodeURIComponent(search)}`);
 	};
 
+	const goBack = () => void router.back();
+
 	return (
 		<div className="px-32 bg-media_search_banner bg-no-repeat bg-center min-h-[600px] pt-52 max-md:px-16 max-sm:px-4">
+			{returnButton && (
+				<TransparentButton type="button" onClick={goBack} className="pl-0">
+					<i className="fa-solid fa-arrow-left-long" /> Return to library
+				</TransparentButton>
+			)}
 			<div className="flex flex-col justify-center w-full gap-4">
 				<div>
 					<h1 className="text-3xl">Explore our library</h1>
