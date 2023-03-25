@@ -30,7 +30,12 @@ export const MediaCard: React.FC<Props> = ({ src, name, href, type }) => {
 				)}
 				<p className="absolute bottom-0 left-0 w-full text-base bg-gradient-to-t from-black-900 to-transparent p-2">{name}</p>
 				<div className="absolute top-3 right-2">
-					<WhiteButton id="card-button" type="link" href={src} className="bg-white-400 hover:bg-white-600 py-2 px-[10px]">
+					<WhiteButton
+						id="card-button"
+						type="link"
+						href={`${src}?download=true`}
+						className="bg-white-400 hover:bg-white-600 py-2 px-[10px]"
+					>
 						<i id="card-button" className="fa-solid fa-floppy-disk text-lg" />
 					</WhiteButton>
 				</div>
