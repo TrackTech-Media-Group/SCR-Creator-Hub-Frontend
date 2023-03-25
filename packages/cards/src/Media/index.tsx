@@ -1,5 +1,4 @@
 import { WhiteButton } from "@creatorhub/buttons";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import type React from "react";
 
@@ -24,7 +23,7 @@ export const MediaCard: React.FC<Props> = ({ src, name, href, type }) => {
 				className="w-80 rounded-lg overflow-hidden relative cursor-pointer outline outline-transparent hover:outline-white transition-all z-10"
 			>
 				{type === "image" ? (
-					<Image loading="lazy" src={src} alt={name} className="" width={320} height={180} quality={12} />
+					<img loading="lazy" src={src} alt={name} className="" />
 				) : (
 					<video disablePictureInPicture controls={false} src={src} muted />
 				)}

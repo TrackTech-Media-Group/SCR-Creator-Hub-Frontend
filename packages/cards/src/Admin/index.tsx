@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type React from "react";
 
 interface BaseProps {
@@ -21,7 +20,7 @@ export const AdminCard: React.FC<Props> = ({ src, alt, onClick, title, type }) =
 				className="w-80 rounded-lg overflow-hidden relative cursor-pointer outline outline-transparent hover:outline-white transition-all z-10"
 			>
 				{type === "image" ? (
-					<Image loading="lazy" src={src} alt={alt} className="" width={320} height={180} quality={12} />
+					<img loading="lazy" src={src} alt={alt} className="" />
 				) : (
 					<video disablePictureInPicture controls={false} src={src} muted />
 				)}

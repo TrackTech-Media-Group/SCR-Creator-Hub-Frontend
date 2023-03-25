@@ -7,7 +7,6 @@ import axios, { AxiosError } from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import type { GetServerSideProps, NextPage } from "next";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
@@ -211,15 +210,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 									<div key={key} className="p-4 flex justify-between items-center gap-2">
 										<div className="flex items-center gap-4">
 											{bookmark.type === "image" ? (
-												<Image
-													loading="lazy"
-													src={bookmark.preview}
-													alt={bookmark.name}
-													className="h-12 rounded-md"
-													width={85}
-													height={48}
-													quality={10}
-												/>
+												<img loading="lazy" src={bookmark.preview} alt={bookmark.name} className="h-12 rounded-md" />
 											) : (
 												<video
 													src={bookmark.preview}
