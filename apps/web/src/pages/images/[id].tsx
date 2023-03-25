@@ -19,7 +19,7 @@ interface Footage {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
 	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
-
+	console.log("test");
 	const { data: footage } = await axios
 		.get<Footage>(`${apiUrl}/footage/${ctx.params!.id}`, {
 			headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`, "X-USER-TOKEN": userSession ?? "" }
@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 				csrf: ""
 			}
 		};
-
+	console.log("test");
 	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
 		headers: { Authorization: `User ${userSession}` }
 	});
@@ -50,14 +50,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 				csrf: ""
 			}
 		};
-
+	console.log("test");
 	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
 	setCookie("XSRF-TOKEN", csrf.data.token, {
 		req: ctx.req,
 		res: ctx.res,
 		domain: process.env.NODE_ENV === "development" ? undefined : `.${domain}.${ext}`
 	});
-
+	console.log("test");
 	return {
 		props: { footage, csrf: csrf.data.state, loggedIn: true }
 	};
