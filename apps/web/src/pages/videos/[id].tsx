@@ -32,11 +32,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 	if (!userSession)
 		return {
-			props: {
-				footage,
-				loggedIn: false,
-				csrf: ""
-			}
+			redirect: "/login",
+			props: {}
 		};
 
 	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
@@ -44,11 +41,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	});
 	if (!csrf.data.token.length)
 		return {
-			props: {
-				footage,
-				loggedIn: false,
-				csrf: ""
-			}
+			redirect: "/login",
+			props: {}
 		};
 
 	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();

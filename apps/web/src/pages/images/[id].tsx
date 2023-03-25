@@ -32,11 +32,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 	if (!userSession)
 		return {
-			props: {
-				footage,
-				loggedIn: false,
-				csrf: ""
-			}
+			redirect: "/login",
+			props: {}
 		};
 	console.log("test");
 	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
@@ -44,20 +41,17 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	});
 	if (!csrf.data.token.length)
 		return {
-			props: {
-				footage,
-				loggedIn: false,
-				csrf: ""
-			}
+			redirect: "/login",
+			props: {}
 		};
-	console.log("test");
+
 	const [ext, domain] = apiUrl.replace("http://", "").replace("https://", "").split(".").reverse();
 	setCookie("XSRF-TOKEN", csrf.data.token, {
 		req: ctx.req,
 		res: ctx.res,
 		domain: process.env.NODE_ENV === "development" ? undefined : `.${domain}.${ext}`
 	});
-	console.log("test");
+
 	return {
 		props: { footage, csrf: csrf.data.state, loggedIn: true }
 	};
