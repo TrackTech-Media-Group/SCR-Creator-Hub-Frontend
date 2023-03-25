@@ -43,6 +43,7 @@ const VideosHome: NextPage<Props> = ({ loggedIn }) => {
 
 	return (
 		<MediaLayout isLoggedIn={loggedIn}>
+			<title>Creator Hub - Video</title>
 			<div className="flex flex-col items-center justify-center gap-y-32 pb-8">
 				{tags.map((tag) => (
 					<DisplaySection key={tag.id} tag={tag.name} id={tag.id} type="video" />

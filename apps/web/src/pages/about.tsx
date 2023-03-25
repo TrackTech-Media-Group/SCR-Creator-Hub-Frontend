@@ -4,6 +4,7 @@ export default function About() {
 	return (
 		<>
 			<HomeNavbar />
+			<title>Creator Hub - About</title>
 			<div className="px-32 pt-40 max-lg:p-16 max-md:px-4 min-h-screen flex flex-col justify-center items-center">
 				<div className="max-w-[920px] px-4 flex flex-col gap-32 max-lg:max-w-full">
 					<div className="flex flex-col gap-2 justify-center">

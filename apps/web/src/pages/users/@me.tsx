@@ -160,6 +160,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 
 	return (
 		<div className="min-h-screen bg-user_blob bg-repeat bg-center">
+			<title>Creator Hub - {user.name}</title>
 			<UserNavbar />
 			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={deleteSessionsFn} />
 			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={deleteUserFn} />

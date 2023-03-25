@@ -106,6 +106,7 @@ const VideoDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 
 	return (
 		<MediaDetailsLayout isLoggedIn={loggedIn}>
+			<title>Creator Hub - {footage.name}</title>
 			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl max-md:hidden`}>
 				<video
 					src={footage.preview}
