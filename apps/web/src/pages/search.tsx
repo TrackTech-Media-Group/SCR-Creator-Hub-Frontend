@@ -62,7 +62,7 @@ const Search: NextPage<Props> = ({ loggedIn, searchQuery, tag }) => {
 
 	return (
 		<MediaLayout returnButton isLoggedIn={loggedIn} searchQuery={searchQuery} tag={tag} className="max-xl:px-16 max-md:px-8 max-sm:px-2">
-			<title>Creator Hub - {searchQuery}</title>
+			<title>Creator Hub - Search</title>
 			<div className="flex flex-wrap justify-center w-full pb-8 gap-2">
 				{footage.map((footage, key) => (
 					<MediaCard key={key} type={footage.type} src={footage.preview} name={footage.name} href={`/${footage.type}s/${footage.id}`} />
