@@ -1,6 +1,6 @@
 import { TransparentButton } from "@creatorhub/buttons";
 import { MediaCard } from "@creatorhub/cards";
-import { useSwrWithUpdates } from "@creatorhub/swr";
+import { useSwr } from "@creatorhub/swr";
 import type React from "react";
 import { useEffect, useState } from "react";
 
@@ -12,7 +12,7 @@ interface Props {
 
 export const DisplaySection: React.FC<Props> = ({ tag, id, type }) => {
 	const [footage, setFootage] = useState<{ id: string; name: string; preview: string }[]>([]);
-	const { data: footageData } = useSwrWithUpdates<{ id: string; name: string; preview: string }[]>(`/tags/${id}?preview=true&type=${type}`);
+	const { data: footageData } = useSwr<{ id: string; name: string; preview: string }[]>(`/tags/${id}?preview=true&type=${type}`);
 	useEffect(() => {
 		if (footageData) setFootage(footageData);
 	}, [footageData]);
