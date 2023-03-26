@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 	if (!userSession)
 		return {
-			redirect: "/login",
+			redirect: { destination: "/login", permanent: false },
 			props: {}
 		};
 	console.log("test");
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	});
 	if (!csrf.data.token.length)
 		return {
-			redirect: "/login",
+			redirect: { destination: "/login", permanent: false },
 			props: {}
 		};
 
