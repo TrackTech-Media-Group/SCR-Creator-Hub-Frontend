@@ -26,6 +26,16 @@ module.exports = {
 			source: "/license",
 			destination: "/image-license.pdf",
 			permanent: true
+		},
+		{
+			source: "/support/contact",
+			destination: "https://discord.scrcreate.app/",
+			permanent: true
+		},
+		{
+			source: "/support/faq",
+			destination: "https://discord.scrcreate.app/",
+			permanent: false
 		}
 	],
 	env: {

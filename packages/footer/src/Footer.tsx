@@ -25,6 +25,9 @@ export const Footer: React.FC = () => {
 						<TransparentButton type="link" href="/privacy" className="!p-0 text-white-400 hover:text-white-600">
 							Privacy Policy
 						</TransparentButton>
+						<TransparentButton type="link" href="/license" className="!p-0 text-white-400 hover:text-white-600">
+							Image License
+						</TransparentButton>
 						<TransparentButton type="link" href="/about" className="!p-0 text-white-400 hover:text-white-600">
 							About Us
 						</TransparentButton>
