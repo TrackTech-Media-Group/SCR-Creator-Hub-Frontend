@@ -49,7 +49,7 @@ const SearchBanner: React.FC<Props> = ({ searchQuery = "", tag = "", returnButto
 						onKeyUpCapture={(ev) => searchItem(ev.key === "Enter")}
 					/>
 					<TransparentButton type="button" onClick={() => searchItem(true)} className="glass !w-16 !h-16">
-						<i className="fa-solid fa-magnifying-glass text-base" />
+						<i className="fa-solid fa-magnifying-glass text-[20px]" />
 					</TransparentButton>
 				</div>
 				<div className="flex flex-wrap gap-2">

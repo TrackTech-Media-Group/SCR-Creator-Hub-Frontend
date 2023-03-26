@@ -62,7 +62,7 @@ const TagsHome: NextPage<Props> = ({ loggedIn, id, type: _type }) => {
 	return (
 		<TagLayout tag={id} isLoggedIn={loggedIn} type={type} setType={setType} page={page} pages={pages} setPage={setPage}>
 			<title>Creator Hub - {id}</title>
-			<div className="flex flex-col flex-wrap justify-center pb-8">
+			<div className="flex flex-wrap gap-2 justify-center pb-8">
 				{footage.map((f) => (
 					<MediaCard key={f.id} type={type as any} src={f.preview} href={`/${type}s/${f.id}`} name={f.name} />
 				))}
