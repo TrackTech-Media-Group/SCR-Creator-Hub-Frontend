@@ -11,6 +11,23 @@ module.exports = {
 	images: {
 		domains: ["cdn.scrcreate.app", "creatorhub-cdn-dev.dnkl.xyz"]
 	},
+	redirects: () => [
+		{
+			source: "/tos",
+			destination: "/tos.pdf",
+			permanent: true
+		},
+		{
+			source: "/privacy",
+			destination: "/privacy-policy.pdf",
+			permanent: true
+		},
+		{
+			source: "/license",
+			destination: "/image-license.pdf",
+			permanent: true
+		}
+	],
 	env: {
 		PASSWORD_PROTECT: false,
 		NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL ?? "https://beta-api.scrcreate.app"
