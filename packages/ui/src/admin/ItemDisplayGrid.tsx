@@ -14,6 +14,7 @@ export interface ItemsAdmin {
 	type: string;
 	useCases: string[];
 	tagIds: string[];
+	preview?: string;
 	downloads: {
 		id: string;
 		name: string;
@@ -35,6 +36,7 @@ export const ItemDisplayGrid: React.FC<Props> = ({ tags, items, updateItem, dele
 					type={item.type as "video" | "image"}
 					useCases={item.useCases}
 					downloads={item.downloads}
+					preview={item.preview}
 					updateItem={updateItem}
 					deleteItem={deleteItem}
 				/>

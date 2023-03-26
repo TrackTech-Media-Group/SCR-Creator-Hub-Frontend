@@ -10,6 +10,7 @@ interface Props {
 	tags: string[];
 	useCases: string[];
 	downloads: { url: string; id: string; name: string }[];
+	preview?: string;
 	availableTags: { id: string; name: string }[];
 
 	updateItem: (...props: any) => void;
@@ -33,7 +34,13 @@ const CardWrapper: React.FC<Props> = (props) => {
 				deleteItem={() => props.deleteItem(props.id)}
 				data={props}
 			/>
-			<AdminCard type={props.type} src={props.downloads[0].url} onClick={() => setIsOpen(true)} alt={props.name} title={props.name} />
+			<AdminCard
+				type={props.type}
+				src={props.preview || props.downloads[0].url}
+				onClick={() => setIsOpen(true)}
+				alt={props.name}
+				title={props.name}
+			/>
 		</>
 	);
 };
