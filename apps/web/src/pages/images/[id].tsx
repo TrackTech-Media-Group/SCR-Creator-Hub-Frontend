@@ -20,7 +20,7 @@ interface Footage {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
 	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
-	console.log("test");
+
 	const { data: footage } = await axios
 		.get<Footage>(`${apiUrl}/footage/${ctx.params!.id}`, {
 			headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}`, "X-USER-TOKEN": userSession ?? "" }
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: { destination: "/login", permanent: false },
 			props: {}
 		};
-	console.log("test");
+
 	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
 		headers: { Authorization: `User ${userSession}` }
 	});
