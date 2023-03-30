@@ -7,6 +7,7 @@ import type { FormikHelpers } from "formik";
 import type { GetServerSideProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import HugeUploader from "../lib/HugeUpload";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
@@ -43,6 +44,7 @@ interface Props {
 }
 
 const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
+	const [apiKey, setApiKey] = useState("");
 	const [csrf, setCsrf] = useState(_initCsrf);
 	const [createItem, setCreateItem] = useState(false);
 	const [createTag, setCreateTag] = useState(false);
@@ -156,37 +158,96 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 			}[];
 		}>
 	) => {
-		const promise = new Promise(async (res, rej) => {
-			try {
-				const form = new FormData();
-				values.downloads.map((d) => d.file).forEach((f) => form.append("upload", f, f.name));
+		const promise =
+			values.type === "image"
+				? new Promise(async (res, rej) => {
+						try {
+							const form = new FormData();
+							values.downloads.map((d) => d.file).forEach((f) => form.append("upload", f, f.name));
 
-				const downloads = values.downloads.map((d) => ({ name: d.file.name, dimensions: d.dimensions, type: d.type }));
-				form.append("data", JSON.stringify({ ...values, downloads, useCases: values.useCases.split(",") }));
+							const downloads = values.downloads.map((d) => ({ name: d.file.name, dimensions: d.dimensions, type: d.type }));
+							form.append("data", JSON.stringify({ ...values, downloads, useCases: values.useCases.split(",") }));
 
-				const { data } = await axios.post<{ data: { id: string; name: string }; csrf: string }>(`${apiUrl}/admin/upload`, form, {
-					withCredentials: true,
-					headers: { "XSRF-TOKEN": csrf },
-					onUploadProgress: (ev) => console.log(ev)
-				});
+							const { data } = await axios.post<{ data: { id: string; name: string }; csrf: string }>(`${apiUrl}/admin/upload`, form, {
+								withCredentials: true,
+								headers: { "XSRF-TOKEN": csrf },
+								onUploadProgress: (ev) => console.log(ev)
+							});
 
-				setCsrf(data.csrf);
-				setCreateItem(false);
+							setCsrf(data.csrf);
+							setCreateItem(false);
 
-				res(null);
-			} catch (err) {
-				const { message } = err?.response?.data ?? {};
-				formikHelpers.setErrors(
-					Object.keys(values)
-						.map((key) => ({ [key]: message ?? "Unknown error, please try again later." }))
-						.reduce((a, b) => ({ ...a, ...b }), {})
-				);
-				formikHelpers.setSubmitting(false);
+							res(null);
+						} catch (err) {
+							const { message } = err?.response?.data ?? {};
+							formikHelpers.setErrors(
+								Object.keys(values)
+									.map((key) => ({ [key]: message ?? "Unknown error, please try again later." }))
+									.reduce((a, b) => ({ ...a, ...b }), {})
+							);
+							formikHelpers.setSubmitting(false);
 
-				console.error(`[CREATE_ITEM]: ${err}`);
-				rej(err);
-			}
-		});
+							console.error(`[CREATE_ITEM]: ${err}`);
+							rej(err);
+						}
+				  })
+				: new Promise(async (res, rej) => {
+						try {
+							// eslint-disable-next-line no-alert
+							const cdnApiKey = apiKey || prompt(`Please enter your PaperPlane API key:`) || "";
+							if (!apiKey) setApiKey(cdnApiKey);
+
+							const download = values.downloads[0].file;
+							const downloadUrl = await new Promise<string>((resolve, reject) => {
+								const uploader = new HugeUploader({
+									endpoint: process.env.NEXT_PUBLIC_CDN_UPLOAD_CHUNK as string,
+									file: download,
+									postParams: { type: download.type },
+									headers: {
+										Authorization: cdnApiKey
+									}
+								});
+								uploader.on("finish", (ev) => resolve(ev.body));
+								uploader.on("error", (err) => reject(err));
+							});
+
+							const correctValues = {
+								...values,
+								useCases: values.useCases.split(",").filter(Boolean),
+								download: {
+									url: downloadUrl,
+									name: `${values.downloads[0].type} • ${values.downloads[0].dimensions} • ${
+										values.downloads[0].file.name.split(".").reverse()[0]
+									}`
+								}
+							};
+							const { data } = await axios.post<{ data: { id: string; name: string }; csrf: string }>(
+								`${apiUrl}/admin/upload-video`,
+								correctValues,
+								{
+									withCredentials: true,
+									headers: { "XSRF-TOKEN": csrf },
+									onUploadProgress: (ev) => console.log(ev)
+								}
+							);
+
+							setCsrf(data.csrf);
+							setCreateItem(false);
+
+							res(null);
+						} catch (err) {
+							const { message } = err?.response?.data ?? {};
+							formikHelpers.setErrors(
+								Object.keys(values)
+									.map((key) => ({ [key]: message ?? "Unknown error, please try again later." }))
+									.reduce((a, b) => ({ ...a, ...b }), {})
+							);
+							formikHelpers.setSubmitting(false);
+
+							console.error(`[CREATE_ITEM]: ${err}`);
+							rej(err);
+						}
+				  });
 
 		void toast.promise(promise, { pending: "Creating item...", error: "Unable to create the item :(", success: "Item created." });
 	};
