@@ -104,7 +104,6 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 	return (
 		<MediaDetailsLayout isLoggedIn={loggedIn}>
 			<AttributionModal isOpen={attributionReminder} onClick={() => setAttributionReminder(false)} toast={toast.info} />
-			<title>Creator Hub - {footage.name}</title>
 			<NextSeo
 				titleTemplate="%s on SCR Creator Hub"
 				title={footage.name}
@@ -115,8 +114,7 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 					images: [
 						{
 							url: footage.preview,
-							alt: footage.name,
-							secureUrl: footage.preview
+							alt: footage.name
 						}
 					]
 				}}

@@ -201,7 +201,7 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 							const download = values.downloads[0].file;
 							const downloadUrl = await new Promise<string>((resolve, reject) => {
 								const uploader = new HugeUploader({
-									endpoint: process.env.NEXT_PUBLIC_CDN_UPLOAD_CHUNK as string,
+									endpoint: (process.env.NEXT_PUBLIC_CDN_UPLOAD_CHUNK as string) || "https://cdn.scrcreate.app/api/upload-chunk",
 									file: download,
 									postParams: { type: download.type },
 									headers: {
