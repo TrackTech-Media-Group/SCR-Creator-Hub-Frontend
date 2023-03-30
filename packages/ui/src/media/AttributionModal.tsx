@@ -17,7 +17,7 @@ export const AttributionModal: React.FC<Props> = (props) => {
 	return (
 		<Modal {...props}>
 			<div className="max-w-[675px]">
-				<h1 className="text-3xl leading-10 mb-4">Thanks for downloading an asset!</h1>
+				<h1 className="text-3xl leading-10 my-4">Thanks for downloading an asset!</h1>
 				<p className="text-base">Remember to put the appropriate credits in the description or subtitle under the image.</p>
 			</div>
 			<div className="max-w-[675px]">
@@ -43,7 +43,7 @@ export const AttributionModal: React.FC<Props> = (props) => {
 				</div>
 			</div>
 			<div className="max-w-[675px] flex items-center justify-center mt-4">
-				<SecondaryButton type="button" onClick={props.onClick} className="bg-[#6F7FFF] hover:bg-[#6F7FFF50]">
+				<SecondaryButton type="button" onClick={props.onClick} className="!bg-[#6F7FFF] hover:!bg-[#6F7FFF50]">
 					Understood
 				</SecondaryButton>
 			</div>
