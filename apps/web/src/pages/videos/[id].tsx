@@ -113,7 +113,7 @@ const VideoDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 				{!showFullImage && (
 					<>
 						<PrimaryButton type="button" onClick={() => setShowFullImage(true)} className="absolute bottom-2 z-10">
-							Show full image
+							Show full video
 						</PrimaryButton>
 						<div className="bg-gradient-to-t from-main absolute bottom-0 w-full h-full" />
 					</>
