@@ -1,5 +1,5 @@
 import { PrimaryButton, TransparentButton, WhiteButton } from "@creatorhub/buttons";
-import { MediaDetailsLayout } from "@creatorhub/ui";
+import { AttributionModal, MediaDetailsLayout } from "@creatorhub/ui";
 import axios, { AxiosError } from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import type { GetServerSideProps, NextPage } from "next";
@@ -59,6 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean }> = ({ footage, csrf: _initCsrf, loggedIn }) => {
 	const [showFullImage, setShowFullImage] = useState(false);
+	const [attributionReminder, setAttributionReminder] = useState(false);
 	const [csrf, setCsrf] = useState(_initCsrf);
 	const [marked, setMarked] = useState(footage.marked);
 
@@ -101,6 +102,7 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 
 	return (
 		<MediaDetailsLayout isLoggedIn={loggedIn}>
+			<AttributionModal isOpen={attributionReminder} onClick={() => setAttributionReminder(false)} toast={toast.info} />
 			<title>Creator Hub - {footage.name}</title>
 			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl max-md:hidden`}>
 				<img loading="lazy" src={footage.downloads[0].url} alt={footage.name} className="rounded-xl w-full" />
@@ -152,6 +154,7 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 							key={k}
 							type="link"
 							target="_blank"
+							onClick={() => setAttributionReminder(true)}
 							href={`${d.url}?download=true`}
 							className="border-white-400 border hover:border-white-800"
 						>
