@@ -10,7 +10,7 @@ interface BaseProps {
 
 type Props = BaseProps;
 
-export const UserCard: React.FC<Props> = ({ src, name, href, type }) => {
+export const UserCard: React.FC<Props> = ({ src, name, href }) => {
 	return (
 		<div className="relative z-[0]">
 			<Link href={href}>
@@ -18,11 +18,7 @@ export const UserCard: React.FC<Props> = ({ src, name, href, type }) => {
 					tabIndex={0}
 					className="w-80 rounded-lg overflow-hidden relative cursor-pointer outline outline-transparent hover:outline-white transition-all z-10"
 				>
-					{type === "image" ? (
-						<img loading="lazy" src={src} alt={name} className="" />
-					) : (
-						<video disablePictureInPicture controls={false} src={src} muted />
-					)}
+					<img loading="lazy" src={src} alt={name} className="" />
 					<p className="absolute bottom-0 left-0 w-full p-2 text-base bg-gradient-to-t from-black-800 to-transparent">{name}</p>
 				</div>
 			</Link>

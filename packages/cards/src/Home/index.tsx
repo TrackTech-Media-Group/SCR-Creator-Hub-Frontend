@@ -28,11 +28,7 @@ export const HomeCard: React.FC<Props> = ({ type, src, alt, href }) => {
 				>
 					<i className={`fa-solid fa-magnifying-glass ${isHovering ? "opacity-100" : "opacity-0"} transition-opacity`} />
 				</div>
-				{type === "image" ? (
-					<img loading="lazy" src={src} alt={alt} className="" />
-				) : (
-					<video disablePictureInPicture controls={false} src={src} muted />
-				)}
+				<img loading="lazy" src={src} alt={alt} className="" />
 				<Label type={type} />
 			</div>
 		</Link>
