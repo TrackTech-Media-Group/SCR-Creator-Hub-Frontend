@@ -7,6 +7,7 @@ import axios, { AxiosError } from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import type { GetServerSideProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
@@ -160,7 +161,7 @@ const UserAtMe: NextPage<Props> = ({ csrf: _initCsrf }) => {
 
 	return (
 		<div className="min-h-screen bg-user_blob bg-repeat bg-center">
-			<title>Creator Hub - {user.name}</title>
+			<NextSeo title={user.name} />
 			<UserNavbar />
 			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={deleteSessionsFn} />
 			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={deleteUserFn} />

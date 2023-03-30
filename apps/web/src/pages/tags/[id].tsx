@@ -4,6 +4,7 @@ import { TagLayout } from "@creatorhub/ui";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import type { GetServerSideProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -61,7 +62,7 @@ const TagsHome: NextPage<Props> = ({ loggedIn, id, type: _type }) => {
 
 	return (
 		<TagLayout tag={id} isLoggedIn={loggedIn} type={type} setType={setType} page={page} pages={pages} setPage={setPage}>
-			<title>Creator Hub - {id}</title>
+			<NextSeo title={id} />
 			<div className="flex flex-wrap gap-2 justify-center pb-8">
 				{footage.map((f) => (
 					<MediaCard key={f.id} type={type as any} src={f.preview} href={`/${type}s/${f.id}`} name={f.name} />

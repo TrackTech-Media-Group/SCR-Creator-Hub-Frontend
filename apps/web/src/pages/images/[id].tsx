@@ -3,6 +3,7 @@ import { AttributionModal, MediaDetailsLayout } from "@creatorhub/ui";
 import axios, { AxiosError } from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import type { GetServerSideProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -104,6 +105,22 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 		<MediaDetailsLayout isLoggedIn={loggedIn}>
 			<AttributionModal isOpen={attributionReminder} onClick={() => setAttributionReminder(false)} toast={toast.info} />
 			<title>Creator Hub - {footage.name}</title>
+			<NextSeo
+				titleTemplate="%s on SCR Creator Hub"
+				title={footage.name}
+				openGraph={{
+					siteName: "SCR Creator Hub",
+					title: `${footage.name} on SCR Creator Hub`,
+					description: "The future of SCR Content Creation",
+					images: [
+						{
+							url: footage.preview,
+							alt: footage.name,
+							secureUrl: footage.preview
+						}
+					]
+				}}
+			/>
 			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl max-md:hidden`}>
 				<img loading="lazy" src={footage.downloads[0].url} alt={footage.name} className="rounded-xl w-full" />
 				{!showFullImage && (

@@ -3,6 +3,7 @@ import { DisplaySection, MediaLayout } from "@creatorhub/ui";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import type { GetServerSideProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -43,7 +44,7 @@ const VideosHome: NextPage<Props> = ({ loggedIn }) => {
 
 	return (
 		<MediaLayout isLoggedIn={loggedIn}>
-			<title>Creator Hub - Video</title>
+			<NextSeo title="Videos" />
 			<div className="flex flex-col items-center justify-center gap-y-32 pb-8">
 				{tags.map((tag) => (
 					<DisplaySection key={tag.id} tag={tag.name} id={tag.id} type="video" />

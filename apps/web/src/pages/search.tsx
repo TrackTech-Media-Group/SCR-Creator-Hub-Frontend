@@ -4,6 +4,7 @@ import { MediaLayout, PageSelector } from "@creatorhub/ui";
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import type { GetServerSideProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -62,7 +63,7 @@ const Search: NextPage<Props> = ({ loggedIn, searchQuery, tag }) => {
 
 	return (
 		<MediaLayout returnButton isLoggedIn={loggedIn} searchQuery={searchQuery} tag={tag} className="max-xl:px-16 max-md:px-8 max-sm:px-2">
-			<title>Creator Hub - Search</title>
+			<NextSeo title="Searching for SCR content" />
 			<div className="flex flex-wrap justify-center w-full pb-8 gap-2">
 				{footage.map((footage, key) => (
 					<MediaCard key={key} type={footage.type} src={footage.preview} name={footage.name} href={`/${footage.type}s/${footage.id}`} />

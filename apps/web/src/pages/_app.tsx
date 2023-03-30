@@ -7,12 +7,15 @@ import { withPasswordProtect } from "next-password-protect";
 import { Footer } from "@creatorhub/footer";
 import { SwrWrapper } from "@creatorhub/swr";
 import { ToastContainer } from "react-toastify";
+import { NextSeo } from "next-seo";
+import nextSeo from "../../next-seo.config";
 
 const publicSans = Public_Sans({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
 
 const App = ({ Component, pageProps }: AppProps) => {
 	return (
 		<SwrWrapper>
+			<NextSeo {...nextSeo} />
 			<ToastContainer position="top-right" theme="dark" bodyStyle={publicSans.style} />
 			<main className={`bg-bg-dark min-h-screen min-w-full ${publicSans.className}`}>
 				<Component {...pageProps} />

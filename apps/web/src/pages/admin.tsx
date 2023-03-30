@@ -5,6 +5,7 @@ import axios from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import type { FormikHelpers } from "formik";
 import type { GetServerSideProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import HugeUploader from "../lib/HugeUpload";
@@ -340,6 +341,7 @@ const Admin: NextPage<Props> = ({ csrf: _initCsrf }) => {
 
 	return (
 		<div className="min-h-screen">
+			<NextSeo title="Admin Dashboard" />
 			<ItemCreateModal isOpen={createItem} onClick={() => setCreateItem(false)} tags={tags ?? []} onSubmit={createItemFn} />
 			<TagCreateModal isOpen={createTag} onClick={() => setCreateTag(false)} onSubmit={createTagFn} />
 			<AdminNavbar

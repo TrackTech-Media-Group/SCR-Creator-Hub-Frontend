@@ -5,6 +5,7 @@ import { PulseLoader } from "react-spinners";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 
 const variants: Variants = {
 	init: {
@@ -67,6 +68,7 @@ const Callback: NextPage<Props> = ({ code, state }) => {
 
 	return (
 		<div className="h-screen grid place-items-center">
+			<NextSeo title="Logging in..." />
 			<AnimatePresence mode="wait">
 				{error ? (
 					<motion.div id="0a" variants={variants} initial="init" animate="animate" exit="exit" className="grid place-items-center">
