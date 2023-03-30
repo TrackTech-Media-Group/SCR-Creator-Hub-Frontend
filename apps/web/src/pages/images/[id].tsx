@@ -122,7 +122,9 @@ const ImageDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 					{loggedIn && (
 						<TransparentButton type="button" onClick={bookmark}>
 							<i
-								className={`${marked ? "fa-solid" : "fa-regular"} fa-bookmark text-3xl max-lg:text-2xl max-md:text-xl max-sm:text-lg`}
+								className={`${
+									marked ? "fa-solid" : "fa-regular"
+								} fa-bookmark text-3xl max-lg:text-2xl max-md:text-xl max-sm:text-lg !font-normal`}
 							/>
 						</TransparentButton>
 					)}
