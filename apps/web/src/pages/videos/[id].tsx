@@ -179,24 +179,18 @@ const VideoDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 				<div className="mt-4">
 					<h3 className="text-lg">Description</h3>
 					<div className="bg-grey p-2 rounded-xl relative mt-1">
-						<p className="text-base pr-12">Some content in this post/video was provided by SCR Creators Hub: https://scrcreate.app/</p>
+						<p className="text-base pr-12">
+							Some content in this video was provided by SCR Creator Hub, a stock image/footage site for SCR Creators.
+							https://scrcreate.app
+						</p>
 						<TransparentButton
 							type="button"
 							className="absolute top-0 right-0"
-							onClick={() => copyText("Some content in this post/video was provided by SCR Creators Hub: https://scrcreate.app/")}
-						>
-							<i className="fa-solid fa-copy" />
-						</TransparentButton>
-					</div>
-				</div>
-				<div className="mt-4">
-					<h3 className="text-lg">Other</h3>
-					<div className="bg-grey p-2 rounded-xl relative mt-1">
-						<p className="text-base pr-12">Content from SCR Creators Hub: https://scrcreate.app/</p>
-						<TransparentButton
-							type="button"
-							className="absolute top-0 right-0"
-							onClick={() => copyText("Content from SCR Creators Hub: https://scrcreate.app/")}
+							onClick={() =>
+								copyText(
+									"Some content in this video was provided by SCR Creator Hub, a stock image/footage site for SCR Creators. https://scrcreate.app"
+								)
+							}
 						>
 							<i className="fa-solid fa-copy" />
 						</TransparentButton>
