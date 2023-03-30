@@ -113,14 +113,11 @@ const VideoDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 			/>
 			<AttributionModal isOpen={attributionReminder} onClick={() => setAttributionReminder(false)} toast={toast.info} />
 			<div className={`relative w-full overflow-hidden ${showFullImage ? "h-auto" : "h-96"} grid place-items-center rounded-xl max-md:hidden`}>
-				<video
-					src={footage.preview}
-					controls={showFullImage}
-					muted
-					autoPlay={showFullImage}
-					disablePictureInPicture={!showFullImage}
-					className="rounded-xl"
-				/>
+				{showFullImage ? (
+					<video src={footage.downloads[0].url} controls muted autoPlay className="rounded-xl" />
+				) : (
+					<img src={footage.preview} alt={footage.id} className="rounded-xl" />
+				)}
 				{!showFullImage && (
 					<>
 						<PrimaryButton type="button" onClick={() => setShowFullImage(true)} className="absolute bottom-2 z-10">
@@ -131,7 +128,7 @@ const VideoDetail: NextPage<{ footage: Footage; csrf: string; loggedIn: boolean 
 				)}
 			</div>
 			<div className="rounded-xl max-md:block md:hidden">
-				<video src={footage.preview} controls muted autoPlay={false} className="rounded-xl" />
+				<video src={footage.downloads[0].url} controls muted autoPlay={false} className="rounded-xl" />
 			</div>
 			<div className="w-full flex flex-col justify-center gap-2">
 				<div className="flex justify-between items-center mt-8 max-md:-mt-4">
