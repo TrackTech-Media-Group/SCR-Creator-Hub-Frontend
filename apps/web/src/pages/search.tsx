@@ -8,9 +8,11 @@ import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const { q: _q, tag: _tag } = ctx.query;
+	const { q: _q, tag: _tag, type: __type } = ctx.query;
 	const searchQuery = typeof _q === "string" ? _q : Array.isArray(_q) ? _q[0] : "";
 	const tag = typeof _tag === "string" ? _tag : Array.isArray(_tag) ? _tag[0] : "";
+	const _type = typeof __type === "string" ? __type : Array.isArray(__type) ? __type[0] : "";
+	const type = ["image", "video", "both"].includes(_type) ? _type : "both";
 
 	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
 	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
@@ -19,7 +21,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			props: {
 				loggedIn: false,
 				searchQuery,
-				tag
+				tag,
+				type
 			}
 		};
 
@@ -31,12 +34,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			props: {
 				loggedIn: false,
 				searchQuery,
-				tag
+				tag,
+				type
 			}
 		};
 
 	return {
-		props: { loggedIn: true, searchQuery, tag }
+		props: { loggedIn: true, searchQuery, tag, type }
 	};
 };
 
@@ -44,16 +48,17 @@ interface Props {
 	loggedIn: boolean;
 	searchQuery: string;
 	tag: string;
+	type: "video" | "image" | "both";
 }
 
-const Search: NextPage<Props> = ({ loggedIn, searchQuery, tag }) => {
+const Search: NextPage<Props> = ({ loggedIn, searchQuery, tag, type }) => {
 	const [page, setPage] = useState(0);
 	const [pages, setPages] = useState(0);
 	const [footage, setFootage] = useState<{ id: string; name: string; preview: string; type: "video" | "image" }[]>([]);
 	const { data: footageData } = useSwrWithUpdates<{
 		entries: { id: string; name: string; preview: string; type: "video" | "image" }[];
 		pages: number;
-	}>(`/search?query=${encodeURIComponent(searchQuery)}&page=${page}&tag=${tag}`);
+	}>(`/search?query=${encodeURIComponent(searchQuery)}&page=${page}&tag=${tag}&type=${type}`);
 	useEffect(() => {
 		if (footageData) {
 			setPages(footageData.pages);

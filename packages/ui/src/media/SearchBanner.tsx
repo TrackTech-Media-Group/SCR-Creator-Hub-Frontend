@@ -8,10 +8,11 @@ import { useEffect, useState } from "react";
 interface Props {
 	searchQuery?: string;
 	tag?: string;
+	type?: string;
 	returnButton?: boolean;
 }
 
-const SearchBanner: React.FC<Props> = ({ searchQuery = "", tag = "", returnButton }) => {
+const SearchBanner: React.FC<Props> = ({ searchQuery = "", tag = "", type = "", returnButton }) => {
 	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
 	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/admin/tags");
 	useEffect(() => {
@@ -22,7 +23,7 @@ const SearchBanner: React.FC<Props> = ({ searchQuery = "", tag = "", returnButto
 	const [search, setSearch] = useState(searchQuery);
 	const searchItem = (bool: boolean) => {
 		if (!bool) return;
-		void router.push(`/search?q=${encodeURIComponent(search)}&tag=${tag}`);
+		void router.push(`/search?q=${encodeURIComponent(search)}&tag=${tag}&type=${type}`);
 	};
 
 	const goBack = () => void router.back();

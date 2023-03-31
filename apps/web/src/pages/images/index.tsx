@@ -43,7 +43,7 @@ const ImagesHome: NextPage<Props> = ({ loggedIn }) => {
 	}, [tagData]);
 
 	return (
-		<MediaLayout isLoggedIn={loggedIn}>
+		<MediaLayout isLoggedIn={loggedIn} type="image">
 			<NextSeo title="Images" />
 			<div className="flex flex-col items-center justify-center gap-y-32 pb-8">
 				{tags.map((tag) => (

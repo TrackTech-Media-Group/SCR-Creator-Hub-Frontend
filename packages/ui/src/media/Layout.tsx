@@ -6,15 +6,16 @@ interface Props {
 	isLoggedIn: boolean;
 	searchQuery?: string;
 	tag?: string;
+	type?: string;
 	returnButton?: boolean;
 	className?: string;
 }
 
-export const MediaLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, isLoggedIn, returnButton, searchQuery, tag, className }) => {
+export const MediaLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, isLoggedIn, returnButton, searchQuery, tag, className, type }) => {
 	return (
 		<>
 			<Navbar loggedIn={isLoggedIn} />
-			<SearchBanner returnButton={returnButton} searchQuery={searchQuery} tag={tag} />
+			<SearchBanner returnButton={returnButton} searchQuery={searchQuery} tag={tag} type={type} />
 			<div className={`px-32 max-md:px-16 max-sm:px-4 ${className}`}>{children}</div>
 		</>
 	);
