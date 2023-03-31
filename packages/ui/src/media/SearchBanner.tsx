@@ -58,7 +58,7 @@ const SearchBanner: React.FC<Props> = ({ searchQuery = "", tag = "", type = "", 
 						<TransparentButton
 							key={key}
 							type="link"
-							href={`/tags/${tag.id}`}
+							href={`/tags/${tag.id}?type=${type}`}
 							className="glass transition-colors border-2 border-transparent hover:border-white-400 hover:text-white"
 						>
 							<p className="flex gap-1">
