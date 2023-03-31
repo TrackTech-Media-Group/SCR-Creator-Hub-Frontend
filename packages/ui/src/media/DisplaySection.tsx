@@ -21,7 +21,7 @@ export const DisplaySection: React.FC<Props> = ({ tag, id, type }) => {
 		<div>
 			<div className="flex items-center justify-center gap-2">
 				<h1 className="text-3xl mb-4">{tag}</h1>
-				<TransparentButton type="link" href={`/tags/${id}?type=video`} className="pt-0">
+				<TransparentButton type="link" href={`/tags/${id}?type=${type}`} className="pt-0">
 					<i className="fa-solid fa-arrow-right-long text-2xl" />
 				</TransparentButton>
 			</div>
