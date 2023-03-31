@@ -53,7 +53,7 @@ const Home: NextPage<Props> = ({ footage }) => {
 	return (
 		<>
 			<HomeNavbar />
-			<NextSeo title="The future of SCR Content Creation" />
+			<NextSeo title="The future of SCR Content Creation" openGraph={{ title: "SCR Creator Hub" }} />
 			<div className="px-32 max-md:px-4 min-h-screen bg-home_header bg-no-repeat bg-[right_top] max-lg:bg-home_header_lg max-md:bg-home_header_md flex flex-col justify-center items-center">
 				<div className="py-[232px] flex flex-col gap-20 max-md:py-[146px] mr-auto">
 					<div>

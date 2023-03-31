@@ -5,13 +5,18 @@ const config: DefaultSeoProps = {
 		type: "website",
 		locale: "en_IE",
 		url: "https://scrcreate.app/",
-		siteName: "SCR Creator Hub"
+		images: [
+			{
+				url: "https://scrcreate.app/logo/logo.png",
+				alt: "SCR Creator Hub logo"
+			}
+		]
 	},
 	defaultTitle: "SCR Creator Hub",
 	themeColor: "#060922",
 	description: "The future of SCR Content Creation",
 	titleTemplate: "%s • SCR Creator Hub",
-	twitter: { site: "SCR Creator Hub" }
+	twitter: { cardType: "summary" }
 };
 
 export default config;
