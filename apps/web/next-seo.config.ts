@@ -16,6 +16,8 @@ const config: DefaultSeoProps = {
 	themeColor: "#060922",
 	description: "The future of SCR Content Creation",
 	titleTemplate: "%s • SCR Creator Hub",
+	dangerouslySetAllPagesToNoFollow: false,
+	dangerouslySetAllPagesToNoIndex: false,
 	twitter: { cardType: "summary" }
 };
 
