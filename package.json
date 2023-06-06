@@ -15,7 +15,7 @@
 		"postinstall": "is-ci || husky install"
 	},
 	"resolutions": {
-		"@typescript-eslint/eslint-plugin": "^5.58.0"
+		"@typescript-eslint/eslint-plugin": "^5.59.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.1",
@@ -23,20 +23,20 @@
 		"@sapphire/eslint-config": "^4.4.1",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/ts-config": "^4.0.0",
-		"@types/node": "18.15.11",
-		"@typescript-eslint/eslint-plugin": "^5.58.0",
-		"@typescript-eslint/parser": "^5.58.0",
+		"@types/node": "18.16.1",
+		"@typescript-eslint/eslint-plugin": "^5.59.1",
+		"@typescript-eslint/parser": "^5.59.1",
 		"autoprefixer": "^10.4.14",
-		"eslint": "^8.38.0",
-		"eslint-config-next": "13.3.0",
+		"eslint": "^8.39.0",
+		"eslint-config-next": "13.3.1",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"husky": "^8.0.3",
 		"is-ci": "^3.0.1",
 		"lint-staged": "^13.2.1",
-		"postcss": "^8.4.21",
-		"tailwindcss": "^3.3.1",
-		"turbo": "^1.9.1",
+		"postcss": "^8.4.23",
+		"tailwindcss": "^3.3.2",
+		"turbo": "^1.9.3",
 		"typescript": "5.0.4"
 	},
 	"engines": {

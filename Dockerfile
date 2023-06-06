@@ -1,4 +1,4 @@
-FROM node:19-alpine as builder
+FROM node:20-alpine as builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /creatorhub
 
@@ -6,7 +6,7 @@ RUN yarn global add turbo
 COPY . .
 RUN turbo prune --scope=web --docker
 
-FROM node:19-alpine as installer
+FROM node:20-alpine as installer
 RUN apk add --no-cache libc6-compat
 WORKDIR /creatorhub
 
@@ -21,7 +21,7 @@ COPY tsconfig.json tsconfig.next.json tsconfig.base.json yarn.lock postcss.confi
 RUN yarn turbo run build --filter=web
 RUN yarn build
 
-FROM node:19-alpine as runner
+FROM node:20-alpine as runner
 RUN apk add --no-cache libc6-compat
 WORKDIR /creatorhub
 
