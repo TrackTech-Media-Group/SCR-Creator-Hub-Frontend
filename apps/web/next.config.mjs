@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/unbound-method */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { readdirSync } = require("node:fs");
-const { join } = require("node:path");
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
+
 const packages = readdirSync(join("..", "..", "packages"));
 
 /** @type {import('next').NextConfig} */
-module.exports = {
+const config = {
 	reactStrictMode: false,
 	transpilePackages: packages,
 	images: {
@@ -43,3 +42,5 @@ module.exports = {
 		NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL ?? "https://beta-api.scrcreate.app"
 	}
 };
+
+export default config;
