@@ -1,59 +1,36 @@
-import { SecondaryButton } from "@creatorhub/buttons";
-import { HomeCard } from "@creatorhub/cards";
+import type React from "react";
+import type { Metadata } from "next";
 import { HomeNavbar } from "@creatorhub/navbar";
-import axios from "axios";
-import { getCookie } from "cookies-next";
-import type { GetServerSideProps, NextPage } from "next";
-import { NextSeo } from "next-seo";
+import { SecondaryButton } from "@creatorhub/buttons";
 import Marquee from "react-fast-marquee";
+import { HomeCard } from "@creatorhub/cards";
+import axios from "axios";
+import { Content } from "../lib/types";
 
-interface Footage {
-	name: string;
-	id: string;
-	preview: string;
-	type: "video" | "image";
-}
+export const metadata: Metadata = {
+	title: "The future of SCR Content Creation • SCR Creator Hub",
+	openGraph: { title: "SCR Creator Hub" }
+};
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
-
-	const { data: footage } = await axios
-		.get<Footage[]>(`${apiUrl}/home`, {
+/**
+ * Fetches preview content from the api
+ */
+async function getPreviewContent(): Promise<Content[]> {
+	const { data: content } = await axios
+		.get<Content[]>(`${process.env.API_URL}/v1/home`, {
 			headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}` }
 		})
 		.catch(() => ({ data: [] }));
 
-	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
-	if (!userSession)
-		return {
-			props: { footage }
-		};
-
-	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
-		headers: { Authorization: `User ${userSession}` }
-	});
-	if (csrf.data.token.length)
-		return {
-			props: {},
-			redirect: {
-				destination: "/images"
-			}
-		};
-
-	return {
-		props: { footage }
-	};
-};
-
-interface Props {
-	footage: Footage[];
+	return content;
 }
 
-const Home: NextPage<Props> = ({ footage }) => {
+const Page = async () => {
+	const content = await getPreviewContent();
+
 	return (
 		<>
 			<HomeNavbar />
-			<NextSeo title="The future of SCR Content Creation" openGraph={{ title: "SCR Creator Hub" }} />
 			<div className="px-32 max-md:px-4 min-h-screen bg-home_header bg-no-repeat bg-[right_top] max-lg:bg-home_header_lg max-md:bg-home_header_md flex flex-col justify-center items-center">
 				<div className="py-[232px] flex flex-col gap-20 max-md:py-[146px] mr-auto">
 					<div>
@@ -72,13 +49,13 @@ const Home: NextPage<Props> = ({ footage }) => {
 				<div className="mt-24 flex flex-col justify-center items-center gap-8">
 					<h1 className="text-3xl w-fit">Explore Popular Content</h1>
 					<div className="flex flex-wrap gap-4 justify-center">
-						{footage.map((footage, key) => (
+						{content.map((content, key) => (
 							<HomeCard
 								key={key}
-								type={footage.type}
-								alt={footage.name}
-								src={footage.preview}
-								href={`/${footage.type}s/${footage.id}`}
+								type={content.type}
+								alt={content.name}
+								src={content.preview}
+								href={`/${content.type}/${content.id}`}
 							/>
 						))}
 					</div>
@@ -164,4 +141,4 @@ const Home: NextPage<Props> = ({ footage }) => {
 	);
 };
 
-export default Home;
+export default Page;

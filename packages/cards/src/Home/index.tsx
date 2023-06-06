@@ -1,6 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import React, { useState } from "react";
-import { Label, LabelProps } from "./Label";
+import { Label, type LabelProps } from "./Label";
 
 interface BaseProps {
 	src: string;
