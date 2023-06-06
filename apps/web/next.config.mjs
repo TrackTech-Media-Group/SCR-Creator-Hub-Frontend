@@ -1,12 +1,9 @@
-import { readdirSync } from "node:fs";
-import { join } from "node:path";
-
-const transpilePackages = readdirSync(join("..", "..", "packages"));
+const transpilePackages = ["buttons", "cards", "footer", "modal", "navbar", "swr", "ui"];
 
 /** @type {import('next').NextConfig} */
 const config = {
 	reactStrictMode: false,
-	transpilePackages,
+	transpilePackages: transpilePackages.map((pkg) => `@creatorhub/${pkg}`),
 	images: {
 		domains: ["cdn.scrcreate.app", "creatorhub-cdn-dev.dnkl.xyz"]
 	},
@@ -37,10 +34,6 @@ const config = {
 			permanent: false
 		}
 	],
-	i18n: {
-		defaultLocale: "en",
-		locales: ["en"]
-	},
 	env: {
 		PASSWORD_PROTECT: false,
 		NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL ?? "https://beta-api.scrcreate.app"

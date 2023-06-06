@@ -5,8 +5,8 @@ import { SecondaryButton } from "@creatorhub/buttons";
 import Marquee from "react-fast-marquee";
 import { HomeCard } from "@creatorhub/cards";
 import axios from "axios";
-import { Content } from "../lib/types";
-import { LANDING_MARQUEE_TEXT } from "../lib/constants";
+import { Content } from "../../lib/types";
+import { LANDING_MARQUEE_TEXT } from "../../lib/constants";
 
 export const metadata: Metadata = {
 	title: "The future of SCR Content Creation • SCR Creator Hub",
