@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import { HomeCard } from "@creatorhub/cards";
 import axios from "axios";
 import { Content } from "../lib/types";
+import { LANDING_MARQUEE_TEXT } from "../lib/constants";
 
 export const metadata: Metadata = {
 	title: "The future of SCR Content Creation • SCR Creator Hub",
@@ -62,14 +63,14 @@ const Page = async () => {
 				</div>
 				<div className="w-[calc(100vw-1.1rem)] overflow-hidden my-48">
 					<Marquee className="h-28" gradient={false} direction="left">
-						{["images", "time", "grow", "quality", "free", "videos", "library"].map((str, key) => (
+						{LANDING_MARQUEE_TEXT.map((str, key) => (
 							<p className="text-8xl font-semibold mx-8" key={key}>
 								{str}
 							</p>
 						))}
 					</Marquee>
 					<Marquee className="h-28" gradient={false} direction="right">
-						{["images", "time", "grow", "quality", "free", "videos", "library"].map((str, key) => (
+						{LANDING_MARQUEE_TEXT.map((str, key) => (
 							<p className="text-8xl font-semibold mx-8" key={key}>
 								{str}
 							</p>
