@@ -5,7 +5,15 @@
 		"button": "Bekijk het aanbod"
 	},
 	"explore_title": "Ondek Populaire Content",
-	"marquee": ["foto's", "tijd", "groei", "kwaliteit", "gratis", "videos", "library"],
+	"marquee": [
+		"foto's",
+		"tijd",
+		"groei",
+		"kwaliteit",
+		"gratis",
+		"videos",
+		"library"
+	],
 	"reasons": {
 		"title": "Werk slimmer, niet langer",
 		"0": {
