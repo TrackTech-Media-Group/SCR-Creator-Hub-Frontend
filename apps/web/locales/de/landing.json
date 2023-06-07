@@ -1,40 +1,40 @@
 {
 	"hero-section": {
-		"welcome": "You’re in the right place.",
-		"subtitle": "Hundreds of assets, accessible in <0>seconds</0>",
-		"button": "Get started"
+		"welcome": "Hier sind Sie genau richtig.",
+		"subtitle": "Hunderte von Ressourcen, erreichbar in <0>Sekunden</0>",
+		"button": "Legen sie jetzt los"
 	},
-	"explore_title": "Explore Popular Content",
+	"explore_title": "Entdecken Sie beliebte Medien",
 	"marquee": [
-		"images",
-		"time",
-		"grow",
-		"quality",
-		"free",
-		"videos",
-		"library"
+		"Bilder",
+		"Zeit",
+		"wachsen",
+		"Qualität",
+		"kostenlos",
+		"Videos",
+		"Bibliothek"
 	],
 	"reasons": {
-		"title": "Work smarter, not harder",
+		"title": "Arbeite schlauer, nicht härter.",
 		"0": {
-			"title": "Save Time",
-			"description": "Forget hours of recording footage and searching for the perfect image. With SCR Creator Hub, you can find all you need and more in seconds."
+			"title": "Sparen Sie Zeit.",
+			"description": "Vergessen Sie Stunden der Aufzeichnung und suchen Sie nach dem perfekten Bild. Mit SCR Creator Hub finden Sie alles, was Sie brauchen und mehr in nur ein paar Sekunden."
 		},
 		"1": {
-			"title": "Ensure Quality",
-			"description": "We record all our footage on a cutting edge system so everyone can enjoy smooth framerates with beautiful full graphic settings."
+			"title": "Qualität gewährleisten",
+			"description": "Wir nehmen alle unsere Aufnahmen auf einem Schneidsystem auf, sodass jeder eine glatte Framerate mit schönen grafischen Einstellungen genießen kann."
 		},
 		"2": {
-			"title": "Adaptable",
-			"description": "Our footage is made to be adaptable to your specific needs. Did you know we have pre-blured videos for video essay backgrounds?"
+			"title": "anpassungsfähig",
+			"description": "Unser Filmmaterial ist für die Anpassung an Ihre speziellen Bedürfnisse konzipiert. Wussten Sie, dass wir bereits Videos für Video-Essay-Hintergründe haben?"
 		},
 		"3": {
-			"title": "Free Forever",
-			"description": "No subscriptions. No hidden fees. No sneaky business practices. We want to help you, the community, not our pockets."
+			"title": "Für immer kostenlos",
+			"description": "Keine Abonnements. Keine versteckten Gebühren. Keine schleichenden Geschäftspraktiken. Wir wollen dir und der Community helfen und nicht unseren Taschen."
 		}
 	},
 	"conclusion": {
-		"title": "The new way of content creation.",
-		"description": "Make everything less boring, focus on the important stuff. Login with your Discord account and get access to hundreds of assets."
+		"title": "Die neue Art der Content-Erstellung.",
+		"description": "Mache alles weniger langweilig, konzentriere dich auf die wichtigen Sachen. Melde dich mit deinem Discord Account an und erhalte Zugriff auf Hunderte von Medien."
 	}
 }
