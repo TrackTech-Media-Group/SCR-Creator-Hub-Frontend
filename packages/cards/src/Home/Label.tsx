@@ -6,7 +6,8 @@ export interface LabelProps {
 
 const LabelTypes = {
 	image: "fa-solid fa-image",
-	video: "fa-solid fa-video"
+	video: "fa-solid fa-video",
+	music: "fa-solid fa-music"
 };
 
 export const Label: React.FC<LabelProps> = ({ type }) => {

@@ -1,147 +1,103 @@
-import { SecondaryButton } from "@creatorhub/buttons";
-import { HomeCard } from "@creatorhub/cards";
+import type React from "react";
 import { HomeNavbar } from "@creatorhub/navbar";
-import axios from "axios";
-import { getCookie } from "cookies-next";
-import type { GetServerSideProps, NextPage } from "next";
-import { NextSeo } from "next-seo";
+import { SecondaryButton } from "@creatorhub/buttons";
 import Marquee from "react-fast-marquee";
+import { HomeCard } from "@creatorhub/cards";
+import axios from "axios";
+import { Content } from "../lib/types";
+import { LANDING_REASON_KEYS } from "../lib/constants";
+import { serverSidePropsWithLogin } from "../lib/utils";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
+import { NextSeo } from "next-seo";
 
-interface Footage {
-	name: string;
-	id: string;
-	preview: string;
-	type: "video" | "image";
-}
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
-
-	const { data: footage } = await axios
-		.get<Footage[]>(`${apiUrl}/home`, {
+/**
+ * Fetches preview content from the api
+ */
+async function getPreviewContent(): Promise<Content[]> {
+	const { data: content } = await axios
+		.get<Content[]>(`${process.env.API_URL}/v1/home`, {
 			headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}` }
 		})
 		.catch(() => ({ data: [] }));
 
-	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
-	if (!userSession)
-		return {
-			props: { footage }
-		};
-
-	const csrf = await axios.post<{ state: string; token: string }>(`${apiUrl}/user/state`, undefined, {
-		headers: { Authorization: `User ${userSession}` }
-	});
-	if (csrf.data.token.length)
-		return {
-			props: {},
-			redirect: {
-				destination: "/images"
-			}
-		};
-
-	return {
-		props: { footage }
-	};
-};
-
-interface Props {
-	footage: Footage[];
+	return content;
 }
 
-const Home: NextPage<Props> = ({ footage }) => {
+export const getServerSideProps = serverSidePropsWithLogin(async () => {
+	const content = await getPreviewContent();
+	return {
+		props: { content }
+	};
+});
+
+interface Props {
+	content: Content[];
+}
+
+const Page: React.FC<Props> = ({ content }) => {
+	const { t } = useTranslation();
+	const marqueeData = t("landing:marquee", undefined, { returnObjects: true }) as string[];
+
 	return (
 		<>
 			<HomeNavbar />
-			<NextSeo title="The future of SCR Content Creation" openGraph={{ title: "SCR Creator Hub" }} />
+			<NextSeo title={t(`common:branding.slogan`)} openGraph={{ title: "SCR Creator Hub" }} />
 			<div className="px-32 max-md:px-4 min-h-screen bg-home_header bg-no-repeat bg-[right_top] max-lg:bg-home_header_lg max-md:bg-home_header_md flex flex-col justify-center items-center">
 				<div className="py-[232px] flex flex-col gap-20 max-md:py-[146px] mr-auto">
 					<div>
 						<h1 className="text-title max-md:text-subtitle max-md:!font-bold">SCR Creators,</h1>
-						<h2 className="text-subtitle max-md:text-4xl">You’re in the right place.</h2>
+						<h2 className="text-subtitle max-md:text-4xl">{t("landing:hero-section.welcome")}</h2>
 					</div>
 					<div className="flex flex-col gap-7">
 						<h2 className="text-subtitle max-w-xl max-md:text-4xl">
-							Hundreds of assets, accessible in <strong className="text-highlight font-semibold">seconds</strong>
+							<Trans
+								i18nKey="landing:hero-section.subtitle"
+								components={[<strong key="0" className="text-highlight font-semibold" />]}
+							/>
 						</h2>
 						<SecondaryButton type="link" href="/login" className="w-fit">
-							Get Started
+							{t("landing:hero-section.button")}
 						</SecondaryButton>
 					</div>
 				</div>
 				<div className="mt-24 flex flex-col justify-center items-center gap-8">
-					<h1 className="text-3xl w-fit">Explore Popular Content</h1>
+					<h1 className="text-3xl w-fit">{t("landing:explore_title")}</h1>
 					<div className="flex flex-wrap gap-4 justify-center">
-						{footage.map((footage, key) => (
+						{content.map((content, key) => (
 							<HomeCard
 								key={key}
-								type={footage.type}
-								alt={footage.name}
-								src={footage.preview}
-								href={`/${footage.type}s/${footage.id}`}
+								type={content.type}
+								alt={content.name}
+								src={content.preview}
+								href={`/${content.type}/${content.id}`}
 							/>
 						))}
 					</div>
 				</div>
 				<div className="w-[calc(100vw-1.1rem)] overflow-hidden my-48">
-					<Marquee className="h-28" gradient={false} direction="left">
-						{["images", "time", "grow", "quality", "free", "videos", "library"].map((str, key) => (
-							<p className="text-8xl font-semibold mx-8" key={key}>
-								{str}
-							</p>
-						))}
-					</Marquee>
-					<Marquee className="h-28" gradient={false} direction="right">
-						{["images", "time", "grow", "quality", "free", "videos", "library"].map((str, key) => (
-							<p className="text-8xl font-semibold mx-8" key={key}>
-								{str}
-							</p>
-						))}
-					</Marquee>
+					{(["left", "right"] as const).map((direction) => (
+						<Marquee key={direction} className="h-28 overflow-hidden" autoFill gradient={false} direction={direction}>
+							{marqueeData.map((str, key) => (
+								<p className="text-8xl font-semibold mx-8" key={key}>
+									{str}
+								</p>
+							))}
+						</Marquee>
+					))}
 				</div>
 				<div className="max-w-[68rem] flex flex-col justify-center items-center">
-					<h1 className="text-3xl w-fit mb-4">Work smarter, not harder</h1>
+					<h1 className="text-3xl w-fit mb-4">{t("landing:reasons.title")}</h1>
 					<ul className="columns-2 max-lg:columns-1">
-						<li className="max-w-[32rem] flex justify-between items-center gap-8 mb-4">
-							<i className="fa-solid fa-clock text-title" />
-							<div>
-								<h1 className="text-xl">Save Time</h1>
-								<p className="text-base">
-									Forget hours of recording footage and searching for the perfect image. With SCR Creator Hub, you can find all you
-									need and more in seconds.
-								</p>
-							</div>
-						</li>
-						<li className="max-w-[32rem] flex justify-between items-center gap-8">
-							<i className="fa-solid fa-signal text-title" />
-							<div>
-								<h1 className="text-xl">Ensure Quality</h1>
-								<p className="text-base">
-									We record all our footage on a cutting edge system so everyone can enjoy smooth framerates with beautiful full
-									graphic settings.
-								</p>
-							</div>
-						</li>
-						<li className="max-w-[32rem] flex justify-between items-center gap-8 mb-4">
-							<i className="fa-solid fa-box-open text-title" />
-							<div>
-								<h1 className="text-xl">Adaptable</h1>
-								<p className="text-base">
-									Our footage is made to be adaptable to your specific needs. Did you know we have pre-blured videos for video essay
-									backgrounds?
-								</p>
-							</div>
-						</li>
-						<li className="max-w-[32rem] flex justify-between items-center gap-8">
-							<i className="fa-solid fa-circle-dollar-to-slot text-title" />
-							<div>
-								<h1 className="text-xl">Free Forever</h1>
-								<p className="text-base">
-									No subscriptions. No hidden fees. No sneaky business practices. We want to help you, the community, not our
-									pockets.
-								</p>
-							</div>
-						</li>
+						{LANDING_REASON_KEYS.map((key, idx) => (
+							<li key={idx} className="max-w-[32rem] flex justify-between items-center gap-8 odd:mb-4">
+								<i className={`${key} text-title`} />
+								<div>
+									<h1 className="text-xl">{t(`landing:reasons.${idx}.title`)}</h1>
+									<p className="text-base">{t(`landing:reasons.${idx}.description`)}</p>
+								</div>
+							</li>
+						))}
 					</ul>
 				</div>
 				<div className="w-full my-24">
@@ -149,13 +105,10 @@ const Home: NextPage<Props> = ({ footage }) => {
 						<img className="min-h-[38rem] w-fit object-cover" src="/backgrounds/home_conclusion_image.png" alt="conclusion background" />
 					</div>
 					<div className="mt-[38rem] flex flex-col justify-center items-center">
-						<h1 className="text-3xl text-center leading-10 mb-4">The new way of content creation.</h1>
-						<p className="text-base max-w-[38rem] text-center">
-							Make everything less boring, focus on the important stuff. Login with your Discord account and get access to hundreds of
-							assets.
-						</p>
+						<h1 className="text-3xl text-center leading-10 mb-4">{t("landing:conclusion.title")}</h1>
+						<p className="text-base max-w-[38rem] text-center">{t("landing:conclusion.description")}</p>
 						<SecondaryButton type="link" href="/login" className="rounded-full mt-8">
-							Sign in <i className="fa-solid fa-arrow-right-long ml-4" />
+							{t("common:buttons.sign_in")} <i className="fa-solid fa-arrow-right-long ml-4" />
 						</SecondaryButton>
 					</div>
 				</div>
@@ -164,4 +117,4 @@ const Home: NextPage<Props> = ({ footage }) => {
 	);
 };
 
-export default Home;
+export default Page;

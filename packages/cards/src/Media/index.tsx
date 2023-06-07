@@ -1,6 +1,7 @@
 import { WhiteButton } from "@creatorhub/buttons";
 import Link from "next/link";
 import type React from "react";
+import { Image } from "../Image";
 
 interface BaseProps {
 	src: string;
@@ -20,7 +21,7 @@ export const MediaCard: React.FC<Props> = ({ src, name, href }) => {
 					tabIndex={0}
 					className="w-80 rounded-lg overflow-hidden relative cursor-pointer outline outline-transparent hover:outline-white transition-all z-10"
 				>
-					<img loading="lazy" src={src} alt={name} className="" />
+					<Image loading="lazy" width={320} height={180} src={src} alt={name} />
 					<p className="absolute bottom-0 left-0 w-full text-base bg-gradient-to-t from-black-900 to-transparent p-2">{name}</p>
 					<div className="absolute top-3 right-2">
 						<WhiteButton

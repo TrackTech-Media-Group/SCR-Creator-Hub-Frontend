@@ -1,12 +1,10 @@
-import { readdirSync } from "node:fs";
-import { join } from "node:path";
-
-const packages = readdirSync(join("..", "..", "packages"));
+import nextTranslate from "next-translate-plugin";
+const transpilePackages = ["buttons", "cards", "footer", "modal", "navbar", "swr", "ui"];
 
 /** @type {import('next').NextConfig} */
 const config = {
 	reactStrictMode: false,
-	transpilePackages: packages,
+	transpilePackages: transpilePackages.map((pkg) => `@creatorhub/${pkg}`),
 	images: {
 		domains: ["cdn.scrcreate.app", "creatorhub-cdn-dev.dnkl.xyz"]
 	},
@@ -43,4 +41,4 @@ const config = {
 	}
 };
 
-export default config;
+export default nextTranslate(config);

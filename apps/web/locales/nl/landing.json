@@ -1,0 +1,32 @@
+{
+	"hero-section": {
+		"welcome": "Je bent op de juiste plek.",
+		"subtitle": "Beeld en geluid materiaal, toegankelijk binnen <0>seconden</0>",
+		"button": "Bekijk het aanbod"
+	},
+	"explore_title": "Ondek Populaire Content",
+	"marquee": ["foto's", "tijd", "groei", "kwaliteit", "gratis", "videos", "library"],
+	"reasons": {
+		"title": "Werk slimmer, niet langer",
+		"0": {
+			"title": "Bespaar Tijd",
+			"description": "Vergeet uren aan het opnemen van video's en naar het zoeken van perfecte foto's. Met SCR Creator Hub kan je alles wat je nodig hebt binnen secondes vinden."
+		},
+		"1": {
+			"title": "Oog voor Kwaliteit",
+			"description": "We nemen onze video's met de nieuwste technologie op zodat iedereen van goeie frame-rates en verbazingwekkende kwaliteit van genieten."
+		},
+		"2": {
+			"title": "Aanpasbaar",
+			"description": "Onze video's zijn aanpasbaar aan jou eisen. Wist je dat we daarom ook pre-blured videos voor jou op voorraad hebben?"
+		},
+		"3": {
+			"title": "Gratis Voor Altijd",
+			"description": "Geen abonnementen. Geen verstopte kosten. Geen geheimzinnig gedrag. We willen jou helpen, de community, niet onze zakken."
+		}
+	},
+	"conclusion": {
+		"title": "Die nieuwe manier om content te maken.",
+		"description": "Maak alles minder saai, focus op wat echt nodig is. Login met jou Discord account and krijg toegang to onze hele voorraad aan content."
+	}
+}

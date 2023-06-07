@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "react-toastify/ReactToastify.css";
+import "nprogress/nprogress.css";
 
 import type { AppProps } from "next/app";
 import { Public_Sans } from "next/font/google";
@@ -9,10 +10,30 @@ import { SwrWrapper } from "@creatorhub/swr";
 import { ToastContainer } from "react-toastify";
 import { NextSeo } from "next-seo";
 import nextSeo from "../../next-seo.config";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import nProgress from "nprogress";
 
 const publicSans = Public_Sans({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
+nProgress.configure({ showSpinner: false });
 
 const App = ({ Component, pageProps }: AppProps) => {
+	const { events } = useRouter();
+	useEffect(() => {
+		const handleRouteStart = () => nProgress.start();
+		const handleRouteDone = () => nProgress.done();
+
+		events.on("routeChangeStart", handleRouteStart);
+		events.on("routeChangeComplete", handleRouteDone);
+		events.on("routeChangeError", handleRouteDone);
+
+		return () => {
+			events.off("routeChangeStart", handleRouteStart);
+			events.off("routeChangeComplete", handleRouteDone);
+			events.off("routeChangeError", handleRouteDone);
+		};
+	}, []);
+
 	return (
 		<SwrWrapper>
 			<NextSeo {...nextSeo} />
@@ -31,7 +52,7 @@ const WithPasswordProtect = process.env.PASSWORD_PROTECT
 			loginApiUrl: "/api/staging/login",
 			loginComponentProps: {
 				logo: "/logo/logo.png",
-				buttonBackgroundColor: "#060823",
+				buttonBackgroundColor: nextSeo.themeColor,
 				buttonColor: "#fff"
 			}
 	  })
