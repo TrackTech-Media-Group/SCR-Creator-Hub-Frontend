@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import nProgress from "nprogress";
 
 const publicSans = Public_Sans({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
+nProgress.configure({ showSpinner: false });
 
 const App = ({ Component, pageProps }: AppProps) => {
 	const { events } = useRouter();
