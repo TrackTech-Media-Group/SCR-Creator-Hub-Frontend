@@ -1,40 +1,40 @@
 {
 	"hero-section": {
-		"welcome": "You’re in the right place.",
-		"subtitle": "Hundreds of assets, accessible in <0>seconds</0>",
-		"button": "Get started"
+		"welcome": "Je bent op de juiste plek.",
+		"subtitle": "Beeld en geluid materiaal, toegankelijk binnen <0>seconden</0>",
+		"button": "Bekijk het aanbod"
 	},
-	"explore_title": "Explore Popular Content",
+	"explore_title": "Ondek Populaire Content",
 	"marquee": [
-		"images",
-		"time",
-		"grow",
-		"quality",
-		"free",
+		"foto's",
+		"tijd",
+		"groei",
+		"kwaliteit",
+		"gratis",
 		"videos",
 		"library"
 	],
 	"reasons": {
-		"title": "Work smarter, not harder",
+		"title": "Werk slimmer, niet langer",
 		"0": {
-			"title": "Save Time",
-			"description": "Forget hours of recording footage and searching for the perfect image. With SCR Creator Hub, you can find all you need and more in seconds."
+			"title": "Bespaar Tijd",
+			"description": "Vergeet uren aan het opnemen van video's en naar het zoeken van perfecte foto's. Met SCR Creator Hub kan je alles wat je nodig hebt binnen secondes vinden."
 		},
 		"1": {
-			"title": "Ensure Quality",
-			"description": "We record all our footage on a cutting edge system so everyone can enjoy smooth framerates with beautiful full graphic settings."
+			"title": "Oog voor Kwaliteit",
+			"description": "We nemen onze video's met de nieuwste technologie op zodat iedereen van goeie frame-rates en verbazingwekkende kwaliteit van genieten."
 		},
 		"2": {
-			"title": "Adaptable",
-			"description": "Our footage is made to be adaptable to your specific needs. Did you know we have pre-blured videos for video essay backgrounds?"
+			"title": "Aanpasbaar",
+			"description": "Onze video's zijn aanpasbaar aan jou eisen. Wist je dat we daarom ook pre-blured videos voor jou op voorraad hebben?"
 		},
 		"3": {
-			"title": "Free Forever",
-			"description": "No subscriptions. No hidden fees. No sneaky business practices. We want to help you, the community, not our pockets."
+			"title": "Gratis Voor Altijd",
+			"description": "Geen abonnementen. Geen verstopte kosten. Geen geheimzinnig gedrag. We willen jou helpen, de community, niet onze zakken."
 		}
 	},
 	"conclusion": {
-		"title": "The new way of content creation.",
-		"description": "Make everything less boring, focus on the important stuff. Login with your Discord account and get access to hundreds of assets."
+		"title": "Die nieuwe manier om content te maken.",
+		"description": "Maak alles minder saai, focus op wat echt nodig is. Login met jou Discord account and krijg toegang to onze hele voorraad aan content."
 	}
 }
