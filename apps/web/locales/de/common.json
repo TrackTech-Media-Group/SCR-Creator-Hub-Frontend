@@ -1,15 +1,15 @@
 {
 	"branding": {
-		"slogan": "The future of SCR Content Creation"
+		"slogan": "Die Zukunft der SCR-Content-Erstellung"
 	},
 	"buttons": {
-		"sign_in": "Sign in"
+		"sign_in": "Einloggen"
 	},
-	"page": "page",
+	"page": "Seite",
 	"content_types": {
-		"music": "music",
-		"video": "video",
-		"image": "image",
-		"all": "all"
+		"music": "Musik",
+		"video": "Video",
+		"image": "Bild",
+		"all": "alles"
 	}
 }
