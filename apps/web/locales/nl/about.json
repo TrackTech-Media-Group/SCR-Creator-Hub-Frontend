@@ -1,15 +1,15 @@
 {
-	"title": "Over Ons",
-	"description": "Wij zijn TrackTech en ons doel is om aan alle creators zo veel mogelijk eerlijke kansen te geven om zonder geld problemen, tijd of andere dingen te kunnen ontwikkelen. Onze services zijn 100% gratis. Geen verstopte kosten en geen premium abonnementen.<0/>We verstrekken services in veel verschillende content creation sectoren, van grafische ontwerpen tot videos. Veel van ons werk is bedoelt voor ROBLOX.",
+	"title": "About Us",
+	"description": "We're TrackTech, and our goal is to provide content creators of all types equal opportunities to express themselves freely, without the limitation of money, time, etc. All our services are 100% free. No hidden costs, no premium.<0/>We provide services in many sectors of content creation, from graphic design to videos. The majority of our work is Roblox related.",
 	"team": {
 		"title": "Meat the team",
 		"0": {
-			"role": "CEO en Oprichter",
-			"description": "Oprichter van TrackTech in 2018 (voorheen bekend als OneTrackBots) en is de sindsdien het leidende bedrijf.<0 />Hij heeft oog voor iedereen om hun volle vermogen te laten zien zonder zorgen te maken over tijd of geld.<0 />OneTrackMinded heeft ervaring in grafische ontwerpen, community managment, HTML, CSS, BDScript en project management."
+			"role": "CEO and Founder",
+			"description": "Founder of TrackTech in 2018 (previously known as OneTrackBots). and has been leading the company forward ever since.<0 />He has a vision to allow anyone to express their full creative potential without the worry of money.<0 />OneTrackMinded has experience in graphics design, community management, HTML, CSS, BDScript and project management."
 		},
 		"1": {
 			"role": "Leading Developer",
-			"description": "Daan is sinds begin 2020 al bezig met code. Hij is nu een full-stack developer en werkt voor TrackTech als Leading developer.<0 />Hij heeft JavaScript, TypeScript en veel andere talen en tools onder de knie om het beste uit elke applicatie te halen."
+			"description": "Daan has been dabaling around in coding since early 2020. He is now a full stack developer, and works as TrackTech's lead developer.<0 />He has mastered JavaScript, TypeScript and many other languages and tools to get the best experience out of every application."
 		}
 	}
 }
