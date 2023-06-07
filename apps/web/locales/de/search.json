@@ -1,10 +1,10 @@
 {
-	"title": "Searching for SCR content",
+	"title": "Suchen nach SCR Inhalten",
 	"search": {
-		"title": "Explore our library",
-		"description": "Use the search bar or select one of the many tags to get more specific results.",
-		"search_bar": "I am looking for...",
-		"button": "Return to library",
-		"content_type_title": "Content type"
+		"title": "Entdecken Sie unsere Bibliothek",
+		"description": "Benutzen Sie die Suchleiste oder wählen Sie eines der vielen Schlagwörter, um genauere Ergebnisse zu erhalten.",
+		"search_bar": "Ich suche nach...",
+		"button": "Zur Bibliothek zurückkehren",
+		"content_type_title": "Medienart"
 	}
 }
