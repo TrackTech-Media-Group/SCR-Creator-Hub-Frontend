@@ -2,12 +2,13 @@ import { WhiteButton } from "@creatorhub/buttons";
 import Link from "next/link";
 import type React from "react";
 import { Image } from "../Image";
+import type { Type } from "@creatorhub/utils";
 
 interface BaseProps {
 	src: string;
 	name: string;
 	href: string;
-	type: "video" | "image";
+	type: Type;
 }
 
 type Props = BaseProps;

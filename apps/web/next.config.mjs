@@ -1,5 +1,5 @@
 import nextTranslate from "next-translate-plugin";
-const transpilePackages = ["buttons", "cards", "footer", "modal", "navbar", "swr", "ui"];
+const transpilePackages = ["buttons", "cards", "footer", "modal", "navbar", "swr", "ui", "hooks", "utils"];
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -37,7 +37,7 @@ const config = {
 	],
 	env: {
 		PASSWORD_PROTECT: false,
-		NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL ?? "https://beta-api.scrcreate.app"
+		NEXT_PUBLIC_API_URL: process.env.API_URL ?? "https://beta-api.scrcreate.app"
 	}
 };
 
