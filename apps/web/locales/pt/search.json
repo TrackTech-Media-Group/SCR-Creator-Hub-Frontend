@@ -1,0 +1,10 @@
+{
+	"title": "Pesquisando por conteúdo",
+	"search": {
+		"title": "Explora o nosso conteúdo",
+		"description": "Usa a barra de pesquisa ou seleciona uma das várias categorias para obter resultados mais específicos.",
+		"search_bar": "Estou à procura de...",
+		"button": "Voltar à biblioteca",
+		"content_type_title": "Tipo de conteúdo"
+	}
+}
