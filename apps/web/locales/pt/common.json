@@ -1,0 +1,15 @@
+{
+	"branding": {
+		"slogan": "O futuro da criação de conteúdo sobre SCR"
+	},
+	"buttons": {
+		"sign_in": "Entrar"
+	},
+	"page": "página",
+	"content_types": {
+		"music": "música",
+		"video": "vídeo",
+		"image": "imagem",
+		"all": "todos"
+	}
+}
