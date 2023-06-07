@@ -1,5 +1,3 @@
-"use client";
-
 import { WhiteButton } from "@creatorhub/buttons";
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";

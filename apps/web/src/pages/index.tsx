@@ -108,7 +108,7 @@ const Page: React.FC<Props> = ({ content }) => {
 						<h1 className="text-3xl text-center leading-10 mb-4">{t("landing:conclusion.title")}</h1>
 						<p className="text-base max-w-[38rem] text-center">{t("landing:conclusion.description")}</p>
 						<SecondaryButton type="link" href="/login" className="rounded-full mt-8">
-							{t("landing:conclusion.button")} <i className="fa-solid fa-arrow-right-long ml-4" />
+							{t("common:buttons.sign_in")} <i className="fa-solid fa-arrow-right-long ml-4" />
 						</SecondaryButton>
 					</div>
 				</div>

@@ -1,5 +1,3 @@
-"use client";
-
 import { TransparentButton, WhiteButton } from "@creatorhub/buttons";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";

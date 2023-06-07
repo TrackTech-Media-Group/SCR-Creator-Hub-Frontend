@@ -1,6 +1,6 @@
 import type { DefaultSeoProps } from "next-seo";
 
-const config: DefaultSeoProps = {
+const config = {
 	openGraph: {
 		type: "website",
 		locale: "en_IE",
@@ -19,6 +19,6 @@ const config: DefaultSeoProps = {
 	dangerouslySetAllPagesToNoFollow: false,
 	dangerouslySetAllPagesToNoIndex: false,
 	twitter: { cardType: "summary" }
-};
+} satisfies DefaultSeoProps;
 
 export default config;

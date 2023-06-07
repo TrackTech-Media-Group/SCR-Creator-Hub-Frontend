@@ -31,7 +31,7 @@ const WithPasswordProtect = process.env.PASSWORD_PROTECT
 			loginApiUrl: "/api/staging/login",
 			loginComponentProps: {
 				logo: "/logo/logo.png",
-				buttonBackgroundColor: "#060823",
+				buttonBackgroundColor: nextSeo.themeColor,
 				buttonColor: "#fff"
 			}
 	  })

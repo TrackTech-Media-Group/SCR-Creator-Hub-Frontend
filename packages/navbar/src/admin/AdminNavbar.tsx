@@ -1,5 +1,3 @@
-"use client";
-
 import { WhiteButton } from "@creatorhub/buttons";
 import React, { useEffect, useState } from "react";
 import MenuButton from "../MenuButton";
