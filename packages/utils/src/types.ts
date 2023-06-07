@@ -27,3 +27,10 @@ export enum Type {
 	Video = "video",
 	Music = "music"
 }
+
+export interface CsrfToken {
+	state: string;
+	token: string;
+}
+
+export const SearchTypes = ["music", "video", "image", "all"] as const;
