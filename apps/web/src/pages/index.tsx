@@ -4,9 +4,8 @@ import { SecondaryButton } from "@creatorhub/buttons";
 import Marquee from "react-fast-marquee";
 import { HomeCard } from "@creatorhub/cards";
 import axios from "axios";
-import { Content } from "../lib/types";
 import { LANDING_REASON_KEYS } from "../lib/constants";
-import { serverSidePropsWithLogin } from "../lib/utils";
+import { serverSidePropsWithCookieLogin, type Content } from "@creatorhub/utils";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
 import { NextSeo } from "next-seo";
@@ -24,7 +23,7 @@ async function getPreviewContent(): Promise<Content[]> {
 	return content;
 }
 
-export const getServerSideProps = serverSidePropsWithLogin(async () => {
+export const getServerSideProps = serverSidePropsWithCookieLogin(async () => {
 	const content = await getPreviewContent();
 	return {
 		props: { content }

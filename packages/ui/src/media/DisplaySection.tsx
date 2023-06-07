@@ -1,13 +1,14 @@
 import { TransparentButton } from "@creatorhub/buttons";
 import { MediaCard } from "@creatorhub/cards";
 import { useSwr } from "@creatorhub/swr";
+import type { Type } from "@creatorhub/utils";
 import type React from "react";
 import { useEffect, useState } from "react";
 
 interface Props {
 	tag: string;
 	id: string;
-	type: "image" | "video";
+	type: Type;
 }
 
 export const DisplaySection: React.FC<Props> = ({ tag, id, type }) => {

@@ -1,5 +1,6 @@
 import type React from "react";
 import Link from "next/link";
+import type { Url } from "next/dist/shared/lib/router/router";
 
 interface ButtonPropsColor {
 	type: "button";
@@ -13,7 +14,7 @@ interface ButtonPropsColor {
 
 interface LinkPropsColor {
 	type: "link";
-	href: string;
+	href: Url;
 	onClick?: () => void;
 	target?: string;
 	color: Colors;

@@ -1,6 +1,7 @@
 import type React from "react";
 import { TransparentButton } from "@creatorhub/buttons";
-import { SelectMenu, SelectOption } from "@creatorhub/forms";
+import { SelectMenu, type SelectOption } from "@creatorhub/forms";
+import useTranslation from "next-translate/useTranslation";
 
 interface Props {
 	page: number;
@@ -9,9 +10,11 @@ interface Props {
 }
 
 export const PageSelector: React.FC<Props> = ({ page, pages, setPage }) => {
+	const { t } = useTranslation();
+
 	const pageOptions = Array(pages)
 		.fill(null)
-		.map((_, k) => ({ label: `Page ${k + 1}`, value: k }));
+		.map((_, k) => ({ label: `${t("common:page")} ${k + 1}`, value: k }));
 
 	const previousPage = () => {
 		if (page <= 0) return;
@@ -30,9 +33,10 @@ export const PageSelector: React.FC<Props> = ({ page, pages, setPage }) => {
 					<i className="fa-solid fa-arrow-left-long" />
 				</TransparentButton>
 				<SelectMenu
+					menuPlacement="top"
 					type="primary"
 					options={pageOptions}
-					value={{ label: `Page ${page + 1}`, value: page }}
+					value={{ label: `${t("common:page")} ${page + 1}`, value: page }}
 					className="w-fit"
 					onChange={(opt) => setPage((opt as SelectOption).value)}
 				/>

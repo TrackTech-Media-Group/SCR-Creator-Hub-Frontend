@@ -4,6 +4,7 @@
 	"pages": {
 		"*": ["common"],
 		"/": ["landing"],
-		"/about": ["about"]
+		"/about": ["about"],
+		"/search": ["search"]
 	}
 }
