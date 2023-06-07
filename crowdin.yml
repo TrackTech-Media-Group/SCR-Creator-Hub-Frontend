@@ -1,6 +1,6 @@
 files:
   - source: /apps/web/locales/en/*.json
-    translation: /apps/web/locales/%two_letters_code%/%original_file_name%.json
+    translation: /apps/web/locales/%two_letters_code%/%original_file_name%
 commit_message: "chore(Crowdin): new translations for %original_file_name% (%language%)"
 pull_request_title: "chore(Crowdin): new translations"
 append_commit_message: false
