@@ -29,6 +29,15 @@ module.exports = {
 				media_search_banner: "1440px",
 				user_blob: "75%"
 			},
+			keyframes: {
+				skeleton: {
+					"0%, 100%": { backgroundColor: "rgba(255, 255, 255, .1)" },
+					"50%": { backgroundColor: "rgba(255, 255, 255, .2)" }
+				}
+			},
+			animation: {
+				skeleton: "skeleton 3s ease-in-out infinite"
+			},
 			colors: {
 				// main
 				"main-100": "rgba(6,8,35,0.1)",
