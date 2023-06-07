@@ -1,0 +1,40 @@
+{
+	"hero-section": {
+		"welcome": "Está no lugar certo.",
+		"subtitle": "Centenas de conteúdo, acessível em <0>segundos</0>",
+		"button": "Começar"
+	},
+	"explore_title": "Explorar Conteúdo Popular",
+	"marquee": [
+		"imagens",
+		"time",
+		"crescer",
+		"qualidade",
+		"grátis",
+		"vídeos",
+		"biblioteca"
+	],
+	"reasons": {
+		"title": "Work smarter, not harder",
+		"0": {
+			"title": "Poupe Tempo",
+			"description": "Esquece horas de gravação e procura a imagem perfeita. Com o SCR Creator Hub, pode encontrar tudo o que precisas e não só em segundos."
+		},
+		"1": {
+			"title": "Garanta a Qualidade",
+			"description": "Nós gravamos todo o conteúdo num sistema de ponta para que todos possam desfrutar de framerates suaves com belas configurações gráficas."
+		},
+		"2": {
+			"title": "Adaptável",
+			"description": "O nosso conteúdo é adaptável para as suas necessidades, Sabia que temos vídeos pré-desfocados para planos de fundo de vídeos com discursos?"
+		},
+		"3": {
+			"title": "Grátis para sempre",
+			"description": "Sem subscrições. Sem taxas escondidas. Sem ações duvidosas. Nós queremos ajudar a comunidade, não os nossos bolsos."
+		}
+	},
+	"conclusion": {
+		"title": "A nova forma de criar conteúdo.",
+		"description": "Faz tudo menos aborrecido, foque-se nas coisas importantes. Inicie sessão com a sua conta do Discord e tenha acesso a centenas de conteúdo."
+	}
+}
