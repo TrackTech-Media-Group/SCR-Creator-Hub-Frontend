@@ -4,5 +4,12 @@
 	},
 	"buttons": {
 		"sign_in": "Sign in"
+	},
+	"page": "page",
+	"content_types": {
+		"music": "music",
+		"video": "video",
+		"image": "image",
+		"all": "all"
 	}
 }
