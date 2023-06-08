@@ -67,6 +67,16 @@ export const handleOauth2Request = async (code: string, state: string, stateToke
 };
 
 /**
+ * Destroys an user session
+ * @param session The user session to destroy
+ */
+export const handleLogout = async (session: string) => {
+	await axios.delete(`${process.env.API_URL}/v1/auth/logout`, {
+		headers: { Authorization: `User ${session}` }
+	});
+};
+
+/**
  * Verifies whether or not a session exists
  * @param session The user session
  */
