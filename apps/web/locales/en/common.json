@@ -11,5 +11,15 @@
 		"video": "video",
 		"image": "image",
 		"all": "all"
-	}
+	},
+	"navigation": {
+		"products": "products",
+		"resources": "resources",
+		"image": "images",
+		"about": "about us",
+		"support": "support",
+		"tos": "terms of service",
+		"privacy": "privacy policy"
+	},
+	"footer": {}
 }
