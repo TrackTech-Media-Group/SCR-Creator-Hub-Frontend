@@ -71,7 +71,7 @@ export const handleOauth2Request = async (code: string, state: string, stateToke
  * @param session The user session
  */
 export const verifySession = async (session: string) => {
-	const sessionVerification = await axios.post<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/user/verify`, undefined, {
+	const sessionVerification = await axios.get<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/verify`, {
 		headers: { Authorization: `User ${session}` }
 	});
 
