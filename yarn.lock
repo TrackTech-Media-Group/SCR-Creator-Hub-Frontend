@@ -628,8 +628,10 @@ __metadata:
   resolution: "@creatorhub/navbar@workspace:packages/navbar"
   dependencies:
     "@creatorhub/buttons": "*"
+    "@creatorhub/utils": "*"
     "@types/react": ^18.2.8
     "@types/react-dom": ^18.2.4
+    cookies-next: ^2.1.1
     eslint: ^8.42.0
     framer-motion: ^10.12.16
     next: 13.4.4
@@ -687,6 +689,7 @@ __metadata:
   dependencies:
     "@types/react": ^18.2.8
     "@types/react-dom": ^18.2.4
+    cookies-next: ^2.1.1
     eslint: ^8.42.0
     next: 13.4.4
     typescript: ^5.1.3
