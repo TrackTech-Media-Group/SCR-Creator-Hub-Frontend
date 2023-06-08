@@ -1,0 +1,15 @@
+{
+	"title": "Quem Somos",
+	"description": "Nós somos TrackTech e o nosso objetivo é fornecer todas as oportunidades para os criadores de conteúdo se poderem expressar livremente, sem a limitação do custo, tempo, etc. Os nossos serviços são 100% grátis. Sem custos ocultos e sem subscrições/premium. <0/>Nós fornecemos serviços em muitos setores de criação de conteúdo, desde design gráfico até vídeos. A maioria do nosso trabalho está relacionada com Roblox.",
+	"team": {
+		"title": "A nossa equipa",
+		"0": {
+			"role": "CEO e Fundador",
+			"description": "Fundador da TrackTech em 2018 (antigamente conhecida como OneTrackBots) e líder desta empresa desde a sua fundação. <0/>Ele tem pretende que qualquer um seja capaz de se expremir com o máximo potencial criativo, sem se preocupar com custos. <0/>OneTrackMinded tem experiência em design gráfico, gerência de comunidades, programação em HTML, CSS e BDScript e gerência de projetos."
+		},
+		"1": {
+			"role": "Líder de Desenvolvimento",
+			"description": "Daan tem andado a experimentar com programação desde o início de 2020. Ele é agora um full stack developer e trabalha como Líder de Desenvolvimento da TrackTech. <0/> Ele domina JavaScript, TypeScript e muitas outras linguagens de programação e ferramentas para ter a melhor experiência em cada aplicação."
+		}
+	}
+}

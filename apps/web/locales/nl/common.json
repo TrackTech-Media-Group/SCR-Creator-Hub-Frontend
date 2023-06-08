@@ -5,11 +5,11 @@
 	"buttons": {
 		"sign_in": "Log in"
 	},
-	"page": "page",
+	"page": "pagina",
 	"content_types": {
-		"music": "music",
+		"music": "muziek",
 		"video": "video",
-		"image": "image",
-		"all": "all"
+		"image": "afbeelding",
+		"all": "alles"
 	}
 }
