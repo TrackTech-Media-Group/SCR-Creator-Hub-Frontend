@@ -1,0 +1,29 @@
+{
+	"branding": {
+		"slogan": "The future of SCR Content Creation"
+	},
+	"buttons": {
+		"sign_in": "Sign in",
+		"logout": "logout"
+	},
+	"page": "page",
+	"content_types": {
+		"music": "music",
+		"video": "video",
+		"image": "image",
+		"all": "all"
+	},
+	"navigation": {
+		"products": "products",
+		"company": "company",
+		"resources": "resources",
+		"profile": "profile",
+		"image": "images",
+		"about": "about us",
+		"image_license": "image license",
+		"support": "support",
+		"tos": "terms of service",
+		"privacy": "privacy policy",
+		"contact": "contact us"
+	}
+}
