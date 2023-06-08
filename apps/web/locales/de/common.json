@@ -3,7 +3,8 @@
 		"slogan": "Die Zukunft der SCR-Content-Erstellung"
 	},
 	"buttons": {
-		"sign_in": "Einloggen"
+		"sign_in": "Einloggen",
+		"logout": "logout"
 	},
 	"page": "Seite",
 	"content_types": {
@@ -11,5 +12,16 @@
 		"video": "Video",
 		"image": "Bild",
 		"all": "alles"
-	}
+	},
+	"navigation": {
+		"products": "products",
+		"resources": "resources",
+		"profile": "profile",
+		"image": "images",
+		"about": "about us",
+		"support": "support",
+		"tos": "terms of service",
+		"privacy": "privacy policy"
+	},
+	"footer": {}
 }
