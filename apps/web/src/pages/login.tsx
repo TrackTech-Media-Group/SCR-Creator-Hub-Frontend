@@ -3,7 +3,7 @@ import { getOauth2, setCookie } from "@creatorhub/utils";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const data = await getOauth2();
-	setCookie("XSRF-STATE-TOKEN", data.token, {
+	setCookie("XSRF-STATE-TOKEN", data.cookie, {
 		req: ctx.req,
 		res: ctx.res
 	});
