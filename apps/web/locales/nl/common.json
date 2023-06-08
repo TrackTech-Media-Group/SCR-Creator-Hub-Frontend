@@ -3,7 +3,8 @@
 		"slogan": "De toekomst van SCR content creaties"
 	},
 	"buttons": {
-		"sign_in": "Log in"
+		"sign_in": "Log in",
+		"logout": "logout"
 	},
 	"page": "pagina",
 	"content_types": {
@@ -11,5 +12,16 @@
 		"video": "video",
 		"image": "afbeelding",
 		"all": "alles"
-	}
+	},
+	"navigation": {
+		"products": "products",
+		"resources": "resources",
+		"profile": "profile",
+		"image": "images",
+		"about": "about us",
+		"support": "support",
+		"tos": "terms of service",
+		"privacy": "privacy policy"
+	},
+	"footer": {}
 }
