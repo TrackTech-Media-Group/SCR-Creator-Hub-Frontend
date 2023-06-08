@@ -17,7 +17,7 @@ interface Props {
 export const TagLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, isLoggedIn, ...props }) => {
 	return (
 		<>
-			<Navbar loggedIn={isLoggedIn} />
+			<Navbar />
 			<TagBanner {...props} />
 			<div className="px-32 max-md:px-16 max-sm:px-4">{children}</div>
 			<PageSelector {...props} />

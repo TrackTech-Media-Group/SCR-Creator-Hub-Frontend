@@ -1,5 +1,5 @@
 import type React from "react";
-import { HomeNavbar } from "./HomeNavbar";
+import { HomeNavbar } from "./Home";
 import { UserNavbar } from "./UserNavbar";
 import { useEffect, useState } from "react";
 import { getCookie } from "cookies-next";
