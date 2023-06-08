@@ -15,15 +15,15 @@
 	},
 	"navigation": {
 		"products": "producten",
-		"company": "company",
+		"company": "bedrijf",
 		"resources": "informatie",
 		"profile": "profiel",
 		"image": "afbeeldingen",
 		"about": "over ons",
-		"image_license": "image license",
+		"image_license": "foto licensie",
 		"support": "ondersteuning",
 		"tos": "gebruikersvoorwaarden",
 		"privacy": "privacybeleid",
-		"contact": "contact us"
+		"contact": "contacteer ons"
 	}
 }
