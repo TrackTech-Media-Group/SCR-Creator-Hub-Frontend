@@ -15,26 +15,26 @@
 		"bibliotek"
 	],
 	"reasons": {
-		"title": "Work smarter, not harder",
+		"title": "Jobb smartere, ikke vanskligere",
 		"0": {
-			"title": "Save Time",
-			"description": "Forget hours of recording footage and searching for the perfect image. With SCR Creator Hub, you can find all you need and more in seconds."
+			"title": "Spar tid",
+			"description": "Glem timer med opptak og isted søk etter det perfekte bildet. Med SCR Creator Hub, kan du finne alle dine behov og mer om sekunder."
 		},
 		"1": {
-			"title": "Ensure Quality",
-			"description": "We record all our footage on a cutting edge system so everyone can enjoy smooth framerates with beautiful full graphic settings."
+			"title": "Sikre kvaliteten",
+			"description": "Vi filmer alle våre opptak på et fantastisk system så alle kan nyte glatte bilder med vakre fullgrafiske instillinger."
 		},
 		"2": {
-			"title": "Adaptable",
-			"description": "Our footage is made to be adaptable to your specific needs. Did you know we have pre-blured videos for video essay backgrounds?"
+			"title": "Tilpassbar",
+			"description": "Våre opptak er laget for å være tipasset til dine behov. Visste du at vi har forhåndspurret videoer for videoessaybakgrunn?"
 		},
 		"3": {
-			"title": "Free Forever",
-			"description": "No subscriptions. No hidden fees. No sneaky business practices. We want to help you, the community, not our pockets."
+			"title": "Gratis for alltid",
+			"description": "Ingen abonnementer. Ingen skjulte avgifter. Ingen snikende forretningsøvelser. Vi ønsker å hjelpe deg, samfunnet og ikke våre lommer."
 		}
 	},
 	"conclusion": {
-		"title": "The new way of content creation.",
-		"description": "Make everything less boring, focus on the important stuff. Login with your Discord account and get access to hundreds of assets."
+		"title": "Den nye måten å skape innhold på.",
+		"description": "Gjør alt mindre kjedelig, fokuser på de viktige tingene. Logg in med din Discord konto og få tilgang til hundrevis av ressurser."
 	}
 }
