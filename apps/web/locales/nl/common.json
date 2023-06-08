@@ -4,7 +4,7 @@
 	},
 	"buttons": {
 		"sign_in": "Log in",
-		"logout": "logout"
+		"logout": "afmelden"
 	},
 	"page": "pagina",
 	"content_types": {
@@ -14,14 +14,16 @@
 		"all": "alles"
 	},
 	"navigation": {
-		"products": "products",
-		"resources": "resources",
-		"profile": "profile",
-		"image": "images",
-		"about": "about us",
-		"support": "support",
-		"tos": "terms of service",
-		"privacy": "privacy policy"
-	},
-	"footer": {}
+		"products": "producten",
+		"company": "company",
+		"resources": "informatie",
+		"profile": "profiel",
+		"image": "afbeeldingen",
+		"about": "over ons",
+		"image_license": "image license",
+		"support": "ondersteuning",
+		"tos": "gebruikersvoorwaarden",
+		"privacy": "privacybeleid",
+		"contact": "contact us"
+	}
 }
