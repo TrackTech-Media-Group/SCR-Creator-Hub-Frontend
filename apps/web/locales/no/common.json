@@ -1,0 +1,29 @@
+{
+	"branding": {
+		"slogan": "Fremtiden for SCR innholdsoppretting"
+	},
+	"buttons": {
+		"sign_in": "Logg inn",
+		"logout": "logg ut"
+	},
+	"page": "side",
+	"content_types": {
+		"music": "musikk",
+		"video": "video",
+		"image": "bilde",
+		"all": "alle"
+	},
+	"navigation": {
+		"products": "produkter",
+		"company": "selskap",
+		"resources": "ressurser",
+		"profile": "profil",
+		"image": "bilder",
+		"about": "om oss",
+		"image_license": "bilde lisens",
+		"support": "støtte",
+		"tos": "tjenestevilkår",
+		"privacy": "personvern",
+		"contact": "kontakt oss"
+	}
+}
