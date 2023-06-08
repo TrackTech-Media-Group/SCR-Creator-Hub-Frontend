@@ -33,4 +33,9 @@ export interface CsrfToken {
 	token: string;
 }
 
+export interface Oauth2Data {
+	cookie: string;
+	url: string;
+}
+
 export const SearchTypes = ["music", "video", "image", "all"] as const;
