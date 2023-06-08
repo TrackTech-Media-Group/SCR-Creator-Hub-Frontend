@@ -1,0 +1,40 @@
+{
+	"hero-section": {
+		"welcome": "Du er på rett sted.",
+		"subtitle": "Hundrevis av eiendeler, tilgjengelig i sekunder",
+		"button": "Kom i gang"
+	},
+	"explore_title": "Utforsk populært innhold",
+	"marquee": [
+		"bilder",
+		"tid",
+		"vokse",
+		"kvalitet",
+		"gratis",
+		"videoer",
+		"bibliotek"
+	],
+	"reasons": {
+		"title": "Jobb smartere, ikke vanskligere",
+		"0": {
+			"title": "Spar tid",
+			"description": "Glem timer med opptak og isted søk etter det perfekte bildet. Med SCR Creator Hub, kan du finne alle dine behov og mer om sekunder."
+		},
+		"1": {
+			"title": "Sikre kvaliteten",
+			"description": "Vi filmer alle våre opptak på et fantastisk system så alle kan nyte glatte bilder med vakre fullgrafiske instillinger."
+		},
+		"2": {
+			"title": "Tilpassbar",
+			"description": "Våre opptak er laget for å være tipasset til dine behov. Visste du at vi har forhåndspurret videoer for videoessaybakgrunn?"
+		},
+		"3": {
+			"title": "Gratis for alltid",
+			"description": "Ingen abonnementer. Ingen skjulte avgifter. Ingen snikende forretningsøvelser. Vi ønsker å hjelpe deg, samfunnet og ikke våre lommer."
+		}
+	},
+	"conclusion": {
+		"title": "Den nye måten å skape innhold på.",
+		"description": "Gjør alt mindre kjedelig, fokuser på de viktige tingene. Logg in med din Discord konto og få tilgang til hundrevis av ressurser."
+	}
+}

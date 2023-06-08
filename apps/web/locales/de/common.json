@@ -4,7 +4,7 @@
 	},
 	"buttons": {
 		"sign_in": "Einloggen",
-		"logout": "logout"
+		"logout": "Abmelden"
 	},
 	"page": "Seite",
 	"content_types": {
@@ -14,16 +14,16 @@
 		"all": "alles"
 	},
 	"navigation": {
-		"products": "products",
-		"company": "company",
-		"resources": "resources",
-		"profile": "profile",
-		"image": "images",
-		"about": "about us",
-		"image_license": "image license",
-		"support": "support",
-		"tos": "terms of service",
-		"privacy": "privacy policy",
-		"contact": "contact us"
+		"products": "Produkte",
+		"company": "Unternehmen",
+		"resources": "Ressourcen",
+		"profile": "Profil",
+		"image": "Bilder",
+		"about": "Über uns",
+		"image_license": "Bildlizenz",
+		"support": "Support",
+		"tos": "Nutzungsbedingungen",
+		"privacy": "Datenschutzrichtlinie",
+		"contact": "Kontakt"
 	}
 }
