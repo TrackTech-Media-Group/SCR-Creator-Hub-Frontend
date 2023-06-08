@@ -15,13 +15,15 @@
 	},
 	"navigation": {
 		"products": "products",
+		"company": "company",
 		"resources": "resources",
 		"profile": "profile",
 		"image": "images",
 		"about": "about us",
+		"image_license": "image license",
 		"support": "support",
 		"tos": "terms of service",
-		"privacy": "privacy policy"
-	},
-	"footer": {}
+		"privacy": "privacy policy",
+		"contact": "contact us"
+	}
 }
