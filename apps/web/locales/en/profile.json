@@ -13,5 +13,15 @@
 		"disclaimer": "Deleting your account is a permanent action and cannot be undone.",
 		"delete_account": "delete account",
 		"delete_sessions": "logout of all sessions"
+	},
+	"delete_account": {
+		"promise": "Shredding train tickets...",
+		"error": "Unable to destroy the train tickets :(",
+		"success": "Tickets destroyed."
+	},
+	"delete_sessions": {
+		"promise": "Shredding train seat...",
+		"error": "Unable to destroy the train seat :(",
+		"success": "Train seat destroyed."
 	}
 }

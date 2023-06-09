@@ -9,7 +9,8 @@ import { UserCard } from "@creatorhub/cards";
 import { DangerBorderButton, DangerButton, TransparentButton } from "@creatorhub/buttons";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
-import { getCsrfToken, setCookie } from "@creatorhub/utils";
+import { destoryUser, destorySessions, getCsrfToken, setCookie } from "@creatorhub/utils";
+import { toast } from "react-toastify";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const userSession = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
@@ -23,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		};
 
 	const csrfToken = await getCsrfToken();
-	setCookie("XSRF-TOKEN", csrfToken.token);
+	setCookie("XSRF-TOKEN", csrfToken.token, { req: ctx.req, res: ctx.res });
 
 	return {
 		props: {
@@ -49,11 +50,43 @@ const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> 
 		return <div className="min-h-screen"></div>;
 	}
 
+	const onError = (error: any) => {
+		console.error("[ERROR LOGGER]", error);
+	};
+
+	const destroyUserFn = () => {
+		toast
+			.promise(destoryUser(csrf), {
+				pending: t("profile:delete_account.promise"),
+				error: t("profile:delete_account.error"),
+				success: t("profile:delete_account.success")
+			})
+			.then(() => void router.push("/"))
+			.catch((err) => {
+				setDeleteUser(false);
+				onError(err);
+			});
+	};
+
+	const destroySessionsFn = () => {
+		toast
+			.promise(destorySessions(csrf), {
+				pending: t("profile:delete_sessions.promise"),
+				error: t("profile:delete_sessions.error"),
+				success: t("profile:delete_sessions.success")
+			})
+			.then(() => void router.push("/"))
+			.catch((err) => {
+				setDeleteSessions(false);
+				onError(err);
+			});
+	};
+
 	return (
 		<WithLoading loading={loading}>
 			<NextSeo title={`${user?.username}'s profile`} />
-			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={() => void 0} />
-			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={() => void 0} />
+			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={destroySessionsFn} />
+			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={destroyUserFn} />
 			<UserNavbar />
 			<div className="px-32 pt-32 flex flex-col gap-16 max-lg:px-16 max-md:px-8 max-sm:px-4 pb-8">
 				<div className="pt-12">

@@ -1,5 +1,5 @@
 import axios, { HttpStatusCode } from "axios";
-import { getCookie, setCookie as SetCookieNext } from "cookies-next";
+import { deleteCookie, getCookie, setCookie as SetCookieNext } from "cookies-next";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
 import type { CsrfToken, Oauth2Data, User } from "./types";
 import type { OptionsType as CookiesNextOptions } from "cookies-next/lib/types";
@@ -91,11 +91,39 @@ export const verifySession = async (session: string) => {
  */
 export const getUser = async () => {
 	const session = getCookie("CH-SESSION");
-	const sessionVerification = await axios.get<User>(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/@me`, {
+	const userData = await axios.get<User>(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/@me`, {
 		headers: { Authorization: `User ${session}` }
 	});
 
-	return sessionVerification.data;
+	return userData.data;
+};
+
+/**
+ * Deletes the user from the server
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const destoryUser = async (csrf: string) => {
+	const session = getCookie("CH-SESSION");
+	await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/@me`, {
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
+
+	deleteCookie("CH-SESSION");
+};
+
+/**
+ * Deletes all the user sessions from the server
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const destorySessions = async (csrf: string) => {
+	const session = getCookie("CH-SESSION");
+	await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/sessions`, {
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
+
+	deleteCookie("CH-SESSION");
 };
 
 export const setCookie = (key: string, value: any, options?: CookiesNextOptions) => {
