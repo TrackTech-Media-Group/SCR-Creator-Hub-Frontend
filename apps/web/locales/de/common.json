@@ -4,7 +4,8 @@
 	},
 	"buttons": {
 		"sign_in": "Einloggen",
-		"logout": "Abmelden"
+		"logout": "Abmelden",
+		"continue": "continue"
 	},
 	"page": "Seite",
 	"content_types": {
@@ -25,5 +26,14 @@
 		"tos": "Nutzungsbedingungen",
 		"privacy": "Datenschutzrichtlinie",
 		"contact": "Kontakt"
+	},
+	"modals": {
+		"confirm": {
+			"title": "Are you sure?",
+			"description": "You are about to do something dangerous, you can still go back!"
+		}
+	},
+	"errors": {
+		"unknown": "Unknown error, please try again later."
 	}
 }

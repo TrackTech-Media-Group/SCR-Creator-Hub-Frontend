@@ -4,7 +4,8 @@
 	},
 	"buttons": {
 		"sign_in": "Log in",
-		"logout": "afmelden"
+		"logout": "afmelden",
+		"continue": "continue"
 	},
 	"page": "pagina",
 	"content_types": {
@@ -25,5 +26,14 @@
 		"tos": "gebruikersvoorwaarden",
 		"privacy": "privacybeleid",
 		"contact": "contacteer ons"
+	},
+	"modals": {
+		"confirm": {
+			"title": "Are you sure?",
+			"description": "You are about to do something dangerous, you can still go back!"
+		}
+	},
+	"errors": {
+		"unknown": "Unknown error, please try again later."
 	}
 }
