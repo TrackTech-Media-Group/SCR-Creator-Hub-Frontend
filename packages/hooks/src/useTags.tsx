@@ -1,9 +1,10 @@
 import { useSwrWithUpdates } from "@creatorhub/swr";
+import type { Tag, Type } from "@creatorhub/utils";
 import { useEffect, useState } from "react";
 
-export const useTags = () => {
-	const [tags, setTags] = useState<{ id: string; name: string }[]>([]);
-	const { data: tagData } = useSwrWithUpdates<{ id: string; name: string }[]>("/v1/tags");
+export const useTags = (type?: Type) => {
+	const [tags, setTags] = useState<Tag[]>([]);
+	const { data: tagData } = useSwrWithUpdates<Tag[]>(`/v1/tags?type=${type || "all"}`);
 	useEffect(() => {
 		if (tagData) setTags(tagData);
 	}, [tagData]);
