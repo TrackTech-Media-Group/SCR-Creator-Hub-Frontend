@@ -33,8 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	};
 };
 
-const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ csrf: _initCsrf }) => {
-	const [csrf, setCsrf] = useState(_initCsrf);
+const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ csrf }) => {
 	const [deleteSessions, setDeleteSessions] = useState(false);
 	const [deleteUser, setDeleteUser] = useState(false);
 
