@@ -132,3 +132,7 @@ export const setCookie = (key: string, value: any, options?: CookiesNextOptions)
 
 	SetCookieNext(key, value, { ...options, domain });
 };
+
+export const parseQuery = (query: string | string[] | undefined) => {
+	return typeof query === "string" ? query : query?.[0];
+};
