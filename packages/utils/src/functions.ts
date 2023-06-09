@@ -1,7 +1,7 @@
 import axios, { HttpStatusCode } from "axios";
 import { getCookie, setCookie as SetCookieNext } from "cookies-next";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
-import type { CsrfToken, Oauth2Data } from "./types";
+import type { CsrfToken, Oauth2Data, User } from "./types";
 import type { OptionsType as CookiesNextOptions } from "cookies-next/lib/types";
 import { HTTP_REGEX } from "./regex";
 
@@ -27,13 +27,11 @@ export const serverSidePropsWithCookieLogin = (fn: GetServerSideProps) => {
 
 /**
  * Returns a valid CSRF-Token which can be used to make post requests
- * @param session The user session
  */
-export const getCsrfToken = async (session: string) => {
-	const csrf = await axios.post<CsrfToken>(`${process.env.API_URL}/v1/auth/csrf`, undefined, {
-		headers: { Authorization: `User ${session}` }
+export const getCsrfToken = async () => {
+	const csrf = await axios.get<CsrfToken>(`${process.env.API_URL}/v1/auth/csrf`, {
+		headers: { Authorization: `Bearer: ${process.env.INTERNAL_API_KEY}` }
 	});
-
 	return csrf.data;
 };
 
@@ -82,6 +80,18 @@ export const handleLogout = async (session: string) => {
  */
 export const verifySession = async (session: string) => {
 	const sessionVerification = await axios.get<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/verify`, {
+		headers: { Authorization: `User ${session}` }
+	});
+
+	return sessionVerification.data;
+};
+
+/**
+ * Returns the user object from the API
+ */
+export const getUser = async () => {
+	const session = getCookie("CH-SESSION");
+	const sessionVerification = await axios.get<User>(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/@me`, {
 		headers: { Authorization: `User ${session}` }
 	});
 
