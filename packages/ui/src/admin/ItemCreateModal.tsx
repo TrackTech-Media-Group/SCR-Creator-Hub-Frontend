@@ -2,7 +2,7 @@ import { Modal } from "@creatorhub/modal";
 import type React from "react";
 import { Formik, Form } from "formik";
 import { array, object, string } from "yup";
-import { Input, SelectMenu, SelectOption } from "@creatorhub/forms";
+import { Input, SelectMenu, type SelectOption } from "@creatorhub/forms";
 import { PrimaryButton } from "@creatorhub/buttons";
 import { PulseLoader } from "react-spinners";
 import { FileEntry } from "./FileEntry";

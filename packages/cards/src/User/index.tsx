@@ -6,7 +6,6 @@ interface BaseProps {
 	src: string;
 	name: string;
 	href: string;
-	type: "video" | "image";
 }
 
 type Props = BaseProps;

@@ -57,11 +57,11 @@ const Colors = {
 		hoverBg: "hover:text-white-500"
 	},
 	danger: {
-		bg: "bg-red-600",
+		bg: "bg-red-600 disabled:!bg-red-500/40",
 		hoverBg: "hover:bg-opacity-50"
 	},
 	dangerBorder: {
-		bg: "border-2 border-red-600",
+		bg: "border-2 border-red-600 disabled:!bg-red-500/40",
 		hoverBg: "hover:bg-red-500"
 	}
 };

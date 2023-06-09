@@ -22,5 +22,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 	const cookie = await handleOauth2Request(code, state, stateToken.toString());
 	setCookie("CH-SESSION", cookie, { req, res });
-	res.redirect("/users/@me");
+	res.redirect("/profile");
 }

@@ -1,3 +1,12 @@
+export interface User {
+	bookmarks: Content[];
+	recent: Content[];
+
+	createdAt: Date;
+	userId: string;
+	username: string;
+}
+
 export interface Content {
 	id: string;
 	name: string;

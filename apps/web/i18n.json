@@ -1,10 +1,11 @@
 {
-	"locales": ["en", "nl", "de"],
+	"locales": ["en", "nl", "de", "no", "pt", "pl"],
 	"defaultLocale": "en",
 	"pages": {
 		"*": ["common"],
 		"/": ["landing"],
 		"/about": ["about"],
-		"/search": ["search"]
+		"/search": ["search"],
+		"/profile": ["profile"]
 	}
 }
