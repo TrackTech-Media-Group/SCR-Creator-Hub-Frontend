@@ -67,7 +67,7 @@ const SearchBanner: React.FC<Props> = ({ searchQuery = "", returnButton }) => {
 							key={key}
 							type="button"
 							onClick={() => onUpdateTag(tag.id)}
-							className="glass transition-colors border-2 border-transparent hover:border-white-400 hover:text-white"
+							className="glass transition-colors border-2 border-transparent hover:border-white-400 hover:!text-white"
 						>
 							<p className="flex gap-1">
 								<span className="text-highlight">#</span> {tag.name}

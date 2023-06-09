@@ -1,9 +1,8 @@
 import { TransparentButton } from "@creatorhub/buttons";
 import { MediaCard } from "@creatorhub/cards";
-import { useSwr } from "@creatorhub/swr";
+import { useContentList } from "@creatorhub/hooks";
 import type { Type } from "@creatorhub/utils";
 import type React from "react";
-import { useEffect, useState } from "react";
 
 interface Props {
 	tag: string;
@@ -12,11 +11,7 @@ interface Props {
 }
 
 export const DisplaySection: React.FC<Props> = ({ tag, id, type }) => {
-	const [footage, setFootage] = useState<{ id: string; name: string; preview: string }[]>([]);
-	const { data: footageData } = useSwr<{ id: string; name: string; preview: string }[]>(`/tags/${id}?preview=true&type=${type}`);
-	useEffect(() => {
-		if (footageData) setFootage(footageData);
-	}, [footageData]);
+	const contentList = useContentList({ tag: id, type });
 
 	return (
 		<div>
@@ -27,8 +22,8 @@ export const DisplaySection: React.FC<Props> = ({ tag, id, type }) => {
 				</TransparentButton>
 			</div>
 			<div className="flex flex-wrap gap-4 justify-center">
-				{footage.map((footage) => (
-					<MediaCard key={footage.id} type={type} name={footage.name} src={footage.preview} href={`/${type}s/${footage.id}`} />
+				{contentList.map((content) => (
+					<MediaCard key={content.id} type={type} name={content.name} src={content.preview} href={`/${type}/${content.id}`} />
 				))}
 			</div>
 		</div>
