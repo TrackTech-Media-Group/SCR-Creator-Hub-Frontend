@@ -53,7 +53,7 @@ export const UserNavbar: React.FC = () => {
 						</div>
 						<div className="bg-gray-700 w-full h-[2px] my-2 max-sm:block sm:hidden" />
 						<div className="flex flex-col gap-y-0">
-							<TransparentButton type="link" href="/users/@me" className="!py-0" onClick={() => setMenu(false)}>
+							<TransparentButton type="link" href="/profile" className="!py-0" onClick={() => setMenu(false)}>
 								<p className="capitalize">{t("common:navigation.profile")}</p>
 							</TransparentButton>
 							<TransparentButton type="link" href="/logout" className="!py-0" onClick={() => setMenu(false)}>
