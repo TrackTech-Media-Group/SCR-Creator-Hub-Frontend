@@ -4,8 +4,11 @@ import { CONTENT_TYPES, Type, parseQuery } from "@creatorhub/utils";
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { NextSeo } from "next-seo";
 
-export const getStaticPaths: GetStaticPaths = () => {
-	return { fallback: false, paths: CONTENT_TYPES.map((content) => ({ params: { content } })) };
+export const getStaticPaths: GetStaticPaths = (ctx) => {
+	const basePaths = CONTENT_TYPES.map((content) => ({ params: { content } }));
+	const languagePaths = (ctx.locales ?? []).map((locale) => basePaths.map((path) => ({ ...path, locale }))).reduce((a, b) => [...a, ...b]);
+
+	return { fallback: false, paths: [...languagePaths, ...basePaths] };
 };
 
 export const getStaticProps: GetStaticProps<{ type: Type }> = (ctx) => {

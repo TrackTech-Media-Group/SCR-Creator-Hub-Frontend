@@ -13,12 +13,19 @@ import nextSeo from "../../next-seo.config";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import nProgress from "nprogress";
+import { useCookies } from "react-cookie";
 
 const publicSans = Public_Sans({ weight: ["300", "400", "500", "600", "700", "800", "900"], subsets: ["latin"], display: "swap" });
 nProgress.configure({ showSpinner: false });
 
 const App = ({ Component, pageProps }: AppProps) => {
-	const { events } = useRouter();
+	const { locale, route, asPath, push, events } = useRouter();
+	const [cookie] = useCookies(["NEXT_LOCALE"]);
+
+	useEffect(() => {
+		if (cookie.NEXT_LOCALE && locale !== cookie.NEXT_LOCALE) void push(route, asPath, { locale: cookie.NEXT_LOCALE });
+	}, [cookie]);
+
 	useEffect(() => {
 		const handleRouteStart = () => nProgress.start();
 		const handleRouteDone = () => nProgress.done();
