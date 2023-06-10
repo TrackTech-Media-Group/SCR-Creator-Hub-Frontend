@@ -16,7 +16,9 @@
 	},
 	"dependencies": {
 		"@creatorhub/buttons": "*",
+		"@creatorhub/hooks": "*",
 		"next": "^13.4.4",
-		"react": "^18.2.0"
+		"react": "^18.2.0",
+		"react-cookie": "4.1.1"
 	}
 }
