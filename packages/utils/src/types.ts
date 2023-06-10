@@ -49,3 +49,7 @@ export interface Oauth2Data {
 
 export const SearchTypes = ["music", "video", "image", "all"] as const;
 export const CONTENT_TYPES = ["music", "video", "image"] as const;
+
+export const LanguageExceptionFlags: Record<string, string> = {
+	en: "https://flagcdn.com/gb.svg"
+};

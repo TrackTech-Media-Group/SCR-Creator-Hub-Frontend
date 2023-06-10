@@ -20,7 +20,7 @@ export const isLoggedIn = (ctx: GetServerSidePropsContext): boolean => {
  */
 export const serverSidePropsWithCookieLogin = (fn: GetServerSideProps) => {
 	return (ctx: GetServerSidePropsContext) => {
-		if (isLoggedIn(ctx)) return { redirect: { destination: "/images", statusCode: HttpStatusCode.TemporaryRedirect } };
+		if (isLoggedIn(ctx)) return { redirect: { destination: "/image", statusCode: HttpStatusCode.TemporaryRedirect } };
 		return fn(ctx);
 	};
 };
