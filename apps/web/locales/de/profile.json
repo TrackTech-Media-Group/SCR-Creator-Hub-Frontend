@@ -1,27 +1,27 @@
 {
-	"welcome": "Welcome back {{user}}",
-	"description": "Change your settings, continue where you left off or visit one of your bookmarked items here.",
+	"welcome": "Willkommen zurück, {{user}}",
+	"description": "Ändern Sie Ihre Einstellungen, fahren Sie dort fort, wo Sie aufgehört haben oder besuchen Sie hier eines Ihrer Lesezeichen.",
 	"recent": {
-		"title": "recently viewed"
+		"title": "Vor Kurzem angesehen"
 	},
 	"bookmarks": {
-		"title": "bookmarks"
+		"title": "Lesezeichen"
 	},
 	"settings": {
-		"title": "settings",
-		"description": "We value your privacy, we will always be open about the content we store about you. Request all of your data below or delete your account if you want everything removed.",
-		"disclaimer": "Deleting your account is a permanent action and cannot be undone.",
-		"delete_account": "delete account",
-		"delete_sessions": "logout of all sessions"
+		"title": "Einstellungen",
+		"description": "Wir schätzen Ihre Privatsphäre, wir sind immer offen über die Inhalte, die wir über Sie speichern. Fordern Sie alle Ihre Daten unten an oder löschen Sie Ihr Konto, wenn Sie alles entfernen möchten.",
+		"disclaimer": "Die Kontolöschung ist permanent und kann nicht rückgängig gemacht werden.",
+		"delete_account": "Konto löschen",
+		"delete_sessions": "Aus allen Sitzungen abmelden"
 	},
 	"delete_account": {
-		"promise": "Shredding train tickets...",
-		"error": "Unable to destroy the train tickets :(",
-		"success": "Tickets destroyed."
+		"promise": "Zugfahrkarten zerstören...",
+		"error": "Die Zugtickets konnten nicht zerstört werden :(",
+		"success": "Tickets zerstört."
 	},
 	"delete_sessions": {
-		"promise": "Shredding train seat...",
-		"error": "Unable to destroy the train seat :(",
-		"success": "Train seat destroyed."
+		"promise": "Der Zugsitz wird zerstört...",
+		"error": "Der Zugsitz konnte nicht zerstört werden :(",
+		"success": "Zugsitz zerstört."
 	}
 }

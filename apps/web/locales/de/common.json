@@ -5,7 +5,7 @@
 	"buttons": {
 		"sign_in": "Einloggen",
 		"logout": "Abmelden",
-		"continue": "continue"
+		"continue": "Fortfahren"
 	},
 	"page": "Seite",
 	"content_types": {
@@ -29,11 +29,11 @@
 	},
 	"modals": {
 		"confirm": {
-			"title": "Are you sure?",
-			"description": "You are about to do something dangerous, you can still go back!"
+			"title": "Sind Sie sicher?",
+			"description": "Du bist dabei, etwas Gefährliches zu tun, du kannst immer noch zurückgehen!"
 		}
 	},
 	"errors": {
-		"unknown": "Unknown error, please try again later."
+		"unknown": "Unbekannter Fehler, bitte versuchen Sie es später erneut."
 	}
 }
