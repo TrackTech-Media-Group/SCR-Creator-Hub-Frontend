@@ -21,7 +21,7 @@
 	},
 	"delete_sessions": {
 		"promise": "Trein stoel kapot aan het maken...",
-		"error": "Unable to destroy the train seat :(",
-		"success": "Train seat destroyed."
+		"error": "Niet mogelijk om jou trein stoel te vernietigen :(",
+		"success": "Trein stoel vernietigd."
 	}
 }
