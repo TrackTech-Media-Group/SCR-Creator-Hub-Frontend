@@ -61,6 +61,7 @@ const FooterComponent: React.FC = () => {
 					className="w-fit"
 					instanceId="language-select"
 					options={options}
+					isSearchable={false}
 					menuPlacement="top"
 					value={selectedLanguage}
 					onChange={onSelectChange as any}

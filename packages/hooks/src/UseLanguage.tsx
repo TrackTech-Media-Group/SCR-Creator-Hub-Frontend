@@ -16,7 +16,7 @@ export interface SelectOption {
 const LanguageValue: React.FC<LanguageValueProps> = ({ language, icon }) => {
 	return (
 		<p aria-label={language} className="flex items-center">
-			<img className="w-8 h-8 rounded-lg mr-3" src={icon} alt={language} />
+			<img className="rounded-sm mr-3" width={32} height={32} src={icon} alt={language} />
 			{language}
 		</p>
 	);
