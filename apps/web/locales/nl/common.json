@@ -5,7 +5,7 @@
 	"buttons": {
 		"sign_in": "Log in",
 		"logout": "afmelden",
-		"continue": "continue"
+		"continue": "doorgaan"
 	},
 	"page": "pagina",
 	"content_types": {
@@ -29,11 +29,11 @@
 	},
 	"modals": {
 		"confirm": {
-			"title": "Are you sure?",
-			"description": "You are about to do something dangerous, you can still go back!"
+			"title": "Weet je het zeker?",
+			"description": "You bent in staat iets gevaarlijks te doen, je kan nu nog teruggaan!"
 		}
 	},
 	"errors": {
-		"unknown": "Unknown error, please try again later."
+		"unknown": "Onbekende fout, probeer het later opnieuw."
 	}
 }
