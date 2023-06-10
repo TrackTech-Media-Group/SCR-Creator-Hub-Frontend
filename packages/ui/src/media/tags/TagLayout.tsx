@@ -4,17 +4,16 @@ import TagBanner from "./TagBanner";
 import { PageSelector } from "../PageSelector";
 
 interface Props {
-	isLoggedIn: boolean;
 	tag: string;
 	type: string;
-	setType: (type: string) => void;
+	setType: (type: any) => void;
 
 	page: number;
 	pages: number;
 	setPage: (page: number) => void;
 }
 
-export const TagLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, isLoggedIn, ...props }) => {
+export const TagLayout: React.FC<React.PropsWithChildren<Props>> = ({ children, ...props }) => {
 	return (
 		<>
 			<Navbar />
