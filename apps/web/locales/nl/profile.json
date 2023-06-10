@@ -1,26 +1,26 @@
 {
-	"welcome": "Welcome back {{user}}",
-	"description": "Change your settings, continue where you left off or visit one of your bookmarked items here.",
+	"welcome": "Welkom terug {{user}}",
+	"description": "Verander je instellingen, ga verder waar je gebleven was of bezoek een van de bladwijzers hier.",
 	"recent": {
-		"title": "recently viewed"
+		"title": "recentelijk bekeken"
 	},
 	"bookmarks": {
-		"title": "bookmarks"
+		"title": "bladwijzers"
 	},
 	"settings": {
-		"title": "settings",
-		"description": "We value your privacy, we will always be open about the content we store about you. Request all of your data below or delete your account if you want everything removed.",
-		"disclaimer": "Deleting your account is a permanent action and cannot be undone.",
-		"delete_account": "delete account",
-		"delete_sessions": "logout of all sessions"
+		"title": "instellingen",
+		"description": "Wij waarderen jou privacy, we zijn altijd open over de informatie die wij over jou opslaan. Vraag al jou opgeslagen data aan of verwijder jou account om al jou informatie van onze servers te halen.",
+		"disclaimer": "Het verwijderen van jou account is een permanente actie en kan niet worden terug gedraaid.",
+		"delete_account": "verwijder je account",
+		"delete_sessions": "afmelden van alle sessies"
 	},
 	"delete_account": {
-		"promise": "Shredding train tickets...",
-		"error": "Unable to destroy the train tickets :(",
-		"success": "Tickets destroyed."
+		"promise": "Trein tickets verscheuren...",
+		"error": "Niet mogelijk om jou trein tickets te verscheuren :(",
+		"success": "Tickets verscheurd."
 	},
 	"delete_sessions": {
-		"promise": "Shredding train seat...",
+		"promise": "Trein stoel kapot aan het maken...",
 		"error": "Unable to destroy the train seat :(",
 		"success": "Train seat destroyed."
 	}
