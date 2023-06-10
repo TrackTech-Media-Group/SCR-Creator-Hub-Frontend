@@ -43,11 +43,11 @@ export const useLanguage = () => {
 	});
 
 	const onSelectChange = (option: SelectOption | null) => {
-		if (option) {
-			setCookie("NEXT_LOCALE", option.value);
-			setSelectedLanguage(option);
-			void push(route, asPath, { locale: option.value });
-		}
+		if (!option) return;
+
+		setSelectedLanguage(option);
+		setCookie("NEXT_LOCALE", option.value, { path: "/" });
+		void push(route, asPath, { locale: option.value });
 	};
 
 	useEffect(() => {

@@ -19,11 +19,11 @@ const publicSans = Public_Sans({ weight: ["300", "400", "500", "600", "700", "80
 nProgress.configure({ showSpinner: false });
 
 const App = ({ Component, pageProps }: AppProps) => {
-	const { locale, route, asPath, push, events } = useRouter();
+	const { locale, route, asPath, replace, events } = useRouter();
 	const [cookie] = useCookies(["NEXT_LOCALE"]);
 
 	useEffect(() => {
-		if (cookie.NEXT_LOCALE && locale !== cookie.NEXT_LOCALE) void push(route, asPath, { locale: cookie.NEXT_LOCALE });
+		if (cookie.NEXT_LOCALE && locale !== cookie.NEXT_LOCALE) void replace(route, asPath, { locale: cookie.NEXT_LOCALE });
 	}, [cookie]);
 
 	useEffect(() => {
