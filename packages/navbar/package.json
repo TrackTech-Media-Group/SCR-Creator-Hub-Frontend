@@ -20,7 +20,7 @@
 		"@creatorhub/utils": "*",
 		"cookies-next": "^2.1.1",
 		"framer-motion": "^10.12.16",
-		"next": "13.4.4",
+		"next": "13.4.5",
 		"next-translate": "2.0.6",
 		"react": "^18.2.0"
 	}
