@@ -1,17 +1,17 @@
 {
-	"welcome": "Welcome back {{user}}",
-	"description": "Change your settings, continue where you left off or visit one of your bookmarked items here.",
+	"welcome": "Bem-vindo de volta {{user}}",
+	"description": "Mude as suas preferências, continue onde estava ou visite um dos seus itens favoritos.",
 	"recent": {
-		"title": "recently viewed"
+		"title": "vistos recentemente"
 	},
 	"bookmarks": {
-		"title": "bookmarks"
+		"title": "favoritos"
 	},
 	"settings": {
-		"title": "settings",
-		"description": "We value your privacy, we will always be open about the content we store about you. Request all of your data below or delete your account if you want everything removed.",
-		"disclaimer": "Deleting your account is a permanent action and cannot be undone.",
-		"delete_account": "delete account",
+		"title": "preferências",
+		"description": "Nós valorizamos a sua privacidade, estaremos sempre abertos sobre o conteúdo que guardamos sobre você. Solicite todos os seus dados abaixo ou apague a sua conta se quiser que tudo seja removido.",
+		"disclaimer": "Apagar a sua conta e permanente e não dá para voltar atrás.",
+		"delete_account": "apagar conta",
 		"delete_sessions": "logout of all sessions"
 	},
 	"delete_account": {
