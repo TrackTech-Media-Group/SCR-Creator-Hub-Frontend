@@ -1,4 +1,4 @@
-import { HomeNavbar } from "@creatorhub/navbar";
+import { Navbar } from "@creatorhub/navbar";
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import Trans from "next-translate/Trans";
@@ -18,7 +18,7 @@ const AboutPage: NextPage = () => {
 
 	return (
 		<>
-			<HomeNavbar />
+			<Navbar />
 			<NextSeo title={t("about:title")} description={t("about:description").replace("<0 />", "")} />
 			<div className="px-32 pt-40 max-lg:p-16 max-md:px-4 min-h-screen flex flex-col justify-center items-center">
 				<div className="max-w-[920px] px-4 flex flex-col gap-32 max-lg:max-w-full">
