@@ -5,7 +5,7 @@ import { ConfirmModal, WithLoading } from "@creatorhub/ui";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { UserNavbar } from "@creatorhub/navbar";
-import { UserCard } from "@creatorhub/cards";
+import { ProgressiveImage, UserCard } from "@creatorhub/cards";
 import { DangerBorderButton, DangerButton, TransparentButton } from "@creatorhub/buttons";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
@@ -109,7 +109,14 @@ const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> 
 							{user?.bookmarks.map((bookmark, key) => (
 								<div key={key} className="p-4 flex justify-between items-center gap-2">
 									<div className="flex items-center gap-4">
-										<img loading="lazy" src={bookmark.preview} alt={bookmark.name} className="h-12 rounded-md" />
+										<ProgressiveImage
+											height={48}
+											width=""
+											loading="lazy"
+											src={bookmark.preview}
+											alt={bookmark.name}
+											className="h-12 rounded-md"
+										/>
 										<p className="text-base">{bookmark.name}</p>
 									</div>
 									<div className="flex items-center gap-2">
