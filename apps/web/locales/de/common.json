@@ -8,6 +8,7 @@
 		"continue": "Fortfahren"
 	},
 	"page": "Seite",
+	"copied_clipboard": "Copied to clipboard",
 	"content_types": {
 		"music": "Musik",
 		"video": "Video",
@@ -31,6 +32,9 @@
 		"confirm": {
 			"title": "Sind Sie sicher?",
 			"description": "Du bist dabei, etwas Gefährliches zu tun, du kannst immer noch zurückgehen!"
+		},
+		"contribution": {
+			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/"
 		}
 	},
 	"errors": {
