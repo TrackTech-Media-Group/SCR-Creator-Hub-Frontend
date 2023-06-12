@@ -113,7 +113,12 @@ const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> 
 										<p className="text-base">{bookmark.name}</p>
 									</div>
 									<div className="flex items-center gap-2">
-										<p className="text-base">{bookmark.tags.slice(0, 5).join(" • ")}</p>
+										<p className="text-base">
+											{bookmark.tags
+												.slice(0, 5)
+												.map((tag) => tag.name)
+												.join(" • ")}
+										</p>
 									</div>
 									<TransparentButton type="link" href={`/${bookmark.type}/${bookmark.id}`} target="_blank">
 										<i className="fa-solid fa-arrow-up-right-from-square" />
