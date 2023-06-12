@@ -1,0 +1,31 @@
+{
+	"video_button": "Show full video",
+	"image_button": "Show full image",
+	"metadata": {
+		"title": "{{title}} on SCR Creator Hub",
+		"description": "The future of SCR Content Creation"
+	},
+	"downloads": {
+		"title": "downloads"
+	},
+	"use_cases": {
+		"title": "use cases"
+	},
+	"contribution": {
+		"title": "contribution",
+		"description": "To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the description of your video/post:",
+		"description_title": "description"
+	},
+	"bookmark": {
+		"marked": {
+			"pending": "Cancelling reservation...",
+			"error": "The train seat does not exist.",
+			"success": "Reservation cancelled."
+		},
+		"unmarked": {
+			"pending": "Reserving train seat...",
+			"error": "The train seat is already occupied.",
+			"success": "Train seat reserved."
+		}
+	}
+}

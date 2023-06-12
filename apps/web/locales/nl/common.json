@@ -8,6 +8,7 @@
 		"continue": "doorgaan"
 	},
 	"page": "pagina",
+	"copied_clipboard": "Copied to clipboard",
 	"content_types": {
 		"music": "muziek",
 		"video": "video",
@@ -31,6 +32,9 @@
 		"confirm": {
 			"title": "Weet je het zeker?",
 			"description": "You bent in staat iets gevaarlijks te doen, je kan nu nog teruggaan!"
+		},
+		"contribution": {
+			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/"
 		}
 	},
 	"errors": {
