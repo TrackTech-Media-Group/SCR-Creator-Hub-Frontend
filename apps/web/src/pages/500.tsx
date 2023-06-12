@@ -16,9 +16,14 @@ const NotFoundPage: NextPage = () => {
 				<h1 className="flex items-center gap-2 font-semibold leading-none text-[12rem] max-md:hidden">500</h1>
 				<h1 className="md:hidden text-[96px] flex items-center gap-2 font-semibold leading-none">500</h1>
 				<h2 className="text-9 md:text-[52px]">{t("error:text")}</h2>
-				<PrimaryButton type="link" href="/">
-					{t("notfound:button")}
-				</PrimaryButton>
+				<div className="flex items-center gap-2">
+					<PrimaryButton type="link" href="/">
+						{t("notfound:button")}
+					</PrimaryButton>
+					<PrimaryButton type="link" href="/status">
+						{t("notfound:status")}
+					</PrimaryButton>
+				</div>
 			</div>
 		</>
 	);

@@ -1,5 +1,6 @@
 {
 	"title": "404 - page not found",
 	"notfound": "Not found.",
-	"button": "Take me back"
+	"button": "Take me back",
+	"status": "Severs down?"
 }

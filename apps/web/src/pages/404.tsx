@@ -20,9 +20,14 @@ const NotFoundPage: NextPage = () => {
 					4<img src="/logo/logo.png" alt="SCR Creator Hub logo" width={96} height={96} />4
 				</h1>
 				<h2 className="text-9 md:text-[52px]">{t("notfound:notfound")}</h2>
-				<PrimaryButton type="link" href="/">
-					{t("notfound:button")}
-				</PrimaryButton>
+				<div className="flex items-center gap-2">
+					<PrimaryButton type="link" href="/">
+						{t("notfound:button")}
+					</PrimaryButton>
+					<PrimaryButton type="link" href="/status">
+						{t("notfound:status")}
+					</PrimaryButton>
+				</div>
 			</div>
 		</>
 	);
