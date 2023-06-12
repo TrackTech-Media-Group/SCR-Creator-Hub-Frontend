@@ -64,7 +64,7 @@ const SearchBanner: React.FC<Props> = ({ searchQuery = "", returnButton }) => {
 				</div>
 				<div className="flex flex-wrap gap-2">
 					{tags.map((tag, key) => (
-						<TagButton {...tag} key={key} onClick={onUpdateTag} />
+						<TagButton {...tag} key={key} onClick={() => onUpdateTag(tag.id)} />
 					))}
 				</div>
 				<div>
