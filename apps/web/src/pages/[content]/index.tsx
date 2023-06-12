@@ -5,7 +5,7 @@ import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage 
 import { NextSeo } from "next-seo";
 
 export const getStaticPaths: GetStaticPaths = (ctx) => {
-	const basePaths = CONTENT_TYPES.map((content) => ({ params: { content } }));
+	const basePaths = ["video", "image"].map((content) => ({ params: { content } }));
 	const languagePaths = (ctx.locales ?? []).map((locale) => basePaths.map((path) => ({ ...path, locale }))).reduce((a, b) => [...a, ...b]);
 
 	return { fallback: false, paths: [...languagePaths, ...basePaths] };

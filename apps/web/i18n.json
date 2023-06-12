@@ -8,6 +8,7 @@
 		"/search": ["search"],
 		"/profile": ["profile"],
 		"/[content]": ["search"],
+		"/[content]/[id]": ["content"],
 		"/tags/[id]": ["search"]
 	}
 }
