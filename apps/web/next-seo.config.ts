@@ -7,8 +7,8 @@ const config = {
 		url: "https://scrcreate.app/",
 		images: [
 			{
-				url: "https://scrcreate.app/logo/logo.png",
-				alt: "SCR Creator Hub logo"
+				url: "https://scrcreate.app/banner.png",
+				alt: "SCR Creator Hub banner"
 			}
 		]
 	},
@@ -18,7 +18,7 @@ const config = {
 	titleTemplate: "%s • SCR Creator Hub",
 	dangerouslySetAllPagesToNoFollow: false,
 	dangerouslySetAllPagesToNoIndex: false,
-	twitter: { cardType: "summary" }
+	twitter: { cardType: "summary_large_image" }
 } satisfies DefaultSeoProps;
 
 export default config;
