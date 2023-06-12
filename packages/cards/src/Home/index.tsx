@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Label, type LabelProps } from "./Label";
-import { Image } from "../Image";
+import { ProgressiveImage } from "../Image";
 
 interface BaseProps {
 	src: string;
@@ -17,7 +17,7 @@ export const HomeCard: React.FC<Props> = ({ type, src, alt, href }) => {
 			<div className="absolute grid place-items-center text-title w-full h-full group-hover:bg-black-500 bg-transparent transition-colors">
 				<i className="fa-solid fa-magnifying-glass group-hover:opacity-100 opacity-0 transition-opacity" />
 			</div>
-			<Image loading="lazy" src={src} alt={alt} width={320} height={180} />
+			<ProgressiveImage loading="lazy" src={src} alt={alt} width={320} height={180} />
 			<Label type={type} />
 		</Link>
 	);

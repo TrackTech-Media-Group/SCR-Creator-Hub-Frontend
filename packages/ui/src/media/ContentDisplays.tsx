@@ -1,4 +1,5 @@
 import { PrimaryButton } from "@creatorhub/buttons";
+import { ProgressiveImage } from "@creatorhub/cards";
 import { Type } from "@creatorhub/utils";
 import useTranslation from "next-translate/useTranslation";
 import React from "react";
@@ -39,11 +40,11 @@ const ImageDisplay: React.FC<Props> = ({ name, preview, showFull, setShowFull })
 				aria-expanded={showFull}
 				className="relative w-full overflow-hidden aria-expanded:h-auto h-96 grid place-items-center rounded-xl max-md:hidden"
 			>
-				<img loading="lazy" src={preview} alt={name} className="rounded-xl w-full" />
+				<ProgressiveImage width="100%" height="100%" loading="lazy" src={preview} alt={name} className="rounded-xl w-full" />
 				{!showFull && <ShowButton buttonText={t("content:image_button")} setShowFull={setShowFull} />}
 			</div>
 			<div className="rounded-xl max-md:block md:hidden">
-				<img loading="lazy" src={preview} alt={name} className="rounded-xl w-full" />
+				<ProgressiveImage width="100%" height="100%" loading="lazy" src={preview} alt={name} className="rounded-xl w-full" />
 			</div>
 		</>
 	);
