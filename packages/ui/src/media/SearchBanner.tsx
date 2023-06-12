@@ -6,6 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import type React from "react";
 import { useState } from "react";
+import { TagButton } from "./tags/TagButton";
 
 interface Props {
 	searchQuery?: string;
@@ -63,16 +64,7 @@ const SearchBanner: React.FC<Props> = ({ searchQuery = "", returnButton }) => {
 				</div>
 				<div className="flex flex-wrap gap-2">
 					{tags.map((tag, key) => (
-						<TransparentButton
-							key={key}
-							type="button"
-							onClick={() => onUpdateTag(tag.id)}
-							className="glass transition-colors border-2 border-transparent hover:border-white-400 hover:!text-white"
-						>
-							<p className="flex gap-1">
-								<span className="text-highlight">#</span> {tag.name}
-							</p>
-						</TransparentButton>
+						<TagButton {...tag} key={key} onClick={onUpdateTag} />
 					))}
 				</div>
 				<div>

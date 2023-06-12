@@ -8,6 +8,7 @@
 		"continue": "continue"
 	},
 	"page": "page",
+	"copied_clipboard": "Copied to clipboard",
 	"content_types": {
 		"music": "music",
 		"video": "video",
@@ -31,6 +32,9 @@
 		"confirm": {
 			"title": "Are you sure?",
 			"description": "You are about to do something dangerous, you can still go back!"
+		},
+		"contribution": {
+			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/"
 		}
 	},
 	"errors": {

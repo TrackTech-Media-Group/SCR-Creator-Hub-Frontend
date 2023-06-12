@@ -126,6 +126,22 @@ export const destorySessions = async (csrf: string) => {
 	deleteCookie("CH-SESSION");
 };
 
+/**
+ * Toggles the bookmark for a content item
+ * @param contentId The content item to (un)bookmark
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const toggleBookmark = async (contentId: string, csrf: string) => {
+	const session = getCookie("CH-SESSION");
+
+	const { data } = await axios.post<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/content/${contentId}`, undefined, {
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
+
+	return data;
+};
+
 export const setCookie = (key: string, value: any, options?: CookiesNextOptions) => {
 	const [ext, domainName] = process.env.API_URL!.replace(HTTP_REGEX, "").split(".").reverse();
 	const domain = process.env.NODE_ENV === "development" ? undefined : `.${domainName}.${ext}`;
