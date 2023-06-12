@@ -23,7 +23,7 @@ interface UseContentApiResponse {
 
 export const useContent = (id: string) => {
 	const [content, setContent] = useState<Content>();
-	const [marked, setMarked] = useState<boolean | null>(false);
+	const [marked, setMarked] = useState<boolean | null>(null);
 	const [loading, setLoading] = useState(true);
 
 	const [showFull, setShowFull] = useState(false);
@@ -37,7 +37,9 @@ export const useContent = (id: string) => {
 
 		const cookie = getCookie("CH-SESSION");
 		axios
-			.get<UseContentApiResponse>(`${process.env.NEXT_PUBLIC_API_URL}/v1/content/${id}`, { headers: { "X-USER-TOKEN": cookie } })
+			.get<UseContentApiResponse>(`${process.env.NEXT_PUBLIC_API_URL}/v1/content/${id}`, {
+				headers: { "X-USER-TOKEN": cookie, Authorization: `User ${cookie}` }
+			})
 			.then(({ data }) => processData(data))
 			.catch(() => void 0)
 			.finally(() => setLoading(false));
