@@ -12,7 +12,7 @@ export const BaseNavbar: React.FC<React.PropsWithChildren<Props>> = ({ children,
 
 	return (
 		<nav
-			className={`fixed z-[100] w-screen h-24 py-4 px-8 flex justify-between items-center ${
+			className={`fixed z-[100] top-0 w-screen h-24 py-4 px-8 flex justify-between items-center ${
 				showBackground ? "bg-main" : "bg-transparent"
 			} transition-colors`}
 		>

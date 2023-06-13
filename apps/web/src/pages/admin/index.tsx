@@ -11,6 +11,7 @@ import { useState } from "react";
 import { FormikHelpers } from "formik";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import { AdminNavbar } from "@creatorhub/navbar";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const session = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
@@ -81,8 +82,9 @@ const AdminDashboardPage: NextPage<Props> = ({ csrf }) => {
 	};
 
 	return (
-		<main className="min-h-screen px-32 pb-32 max-lg:p-16 max-md:px-4 flex flex-col justify-center items-center">
+		<main className="min-h-screen px-32 py-32 max-lg:p-16 max-md:px-4 flex flex-col justify-center items-center">
 			<NextSeo title="Admin Dashboard" />
+			<AdminNavbar />
 			<TagCreateModal isOpen={tagModal} onClick={closeTagModal} onSubmit={tagCreateOnClick} />
 
 			<div>
