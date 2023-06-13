@@ -52,6 +52,21 @@ export interface Oauth2Response {
 	expire: string;
 }
 
+export interface ApiUploadCredentials {
+	endpoint: string;
+	authorization: string;
+}
+
+export interface ContentCreateItem {
+	name: string;
+
+	tags: Tag[];
+	type: Type;
+
+	useCases: string[];
+	downloads: Omit<Download, "contentId" | "id">[];
+}
+
 export const SearchTypes = ["music", "video", "image", "all"] as const;
 export const CONTENT_TYPES = ["music", "video", "image"] as const;
 

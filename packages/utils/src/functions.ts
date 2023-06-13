@@ -1,7 +1,7 @@
 import axios, { HttpStatusCode } from "axios";
 import { deleteCookie, getCookie, setCookie as SetCookieNext } from "cookies-next";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
-import type { CsrfToken, Oauth2Data, Oauth2Response, User } from "./types";
+import type { ApiUploadCredentials, ContentCreateItem, CsrfToken, Oauth2Data, Oauth2Response, User } from "./types";
 import type { OptionsType as CookiesNextOptions } from "cookies-next/lib/types";
 import { HTTP_REGEX } from "./regex";
 
@@ -23,6 +23,24 @@ export const serverSidePropsWithCookieLogin = (fn: GetServerSideProps) => {
 		if (isLoggedIn(ctx)) return { redirect: { destination: "/image", statusCode: HttpStatusCode.TemporaryRedirect } };
 		return fn(ctx);
 	};
+};
+
+/**
+ * GetServerSideProps function for /admin/* pages
+ */
+export const getServerSidePropsAdmin: GetServerSideProps = async (ctx) => {
+	const session = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
+	if (!session)
+		return {
+			redirect: { destination: `/login?return=${encodeURIComponent("/admin")}`, permanent: false }
+		};
+
+	const isAdmin = await verifyAdminSession(session as string);
+	if (!isAdmin) return { notFound: true };
+
+	const csrfToken = await getCsrfToken();
+	setCookie("XSRF-TOKEN", csrfToken.token, { req: ctx.req, res: ctx.res });
+	return { props: { csrf: csrfToken.state } };
 };
 
 /**
@@ -181,6 +199,33 @@ export const deleteTag = async (id: string, csrf: string) => {
 		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
 		withCredentials: true
 	});
+};
+
+/**
+ * Retrieves the upload credentials from the API
+ */
+export const getUploadCredentials = async () => {
+	const session = getCookie("CH-SESSION");
+
+	const { data } = await axios.get<ApiUploadCredentials>(`${process.env.NEXT_PUBLIC_API_URL}/v1/admin/credentials`, {
+		headers: { Authorization: `User ${session}` }
+	});
+	return data;
+};
+
+/**
+ * Creates a new content item
+ * @param content Object containing all the data required to create a content item
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const createContentItem = async (content: ContentCreateItem, csrf: string) => {
+	const session = getCookie("CH-SESSION");
+
+	const { data } = await axios.post<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/admin/upload`, content, {
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
+	return data;
 };
 
 export const setCookie = (key: string, value: any, options?: CookiesNextOptions) => {

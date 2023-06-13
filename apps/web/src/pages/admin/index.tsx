@@ -1,8 +1,7 @@
 import type React from "react";
-import { createTag, deleteTag, getCsrfToken, verifyAdminSession } from "@creatorhub/utils";
+import { createTag, deleteTag, getServerSidePropsAdmin } from "@creatorhub/utils";
 import { NextSeo } from "next-seo";
-import { getCookie, setCookie } from "cookies-next";
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
 import { AdminDashoardTagsResponse, useAdminServerStats, useAdminTagStats } from "@creatorhub/hooks";
 import { PrimaryButton } from "@creatorhub/buttons";
 import ms from "ms";
@@ -13,20 +12,7 @@ import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { AdminNavbar } from "@creatorhub/navbar";
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const session = getCookie("CH-SESSION", { req: ctx.req, res: ctx.res });
-	if (!session)
-		return {
-			redirect: { destination: `/login?return=${encodeURIComponent("/admin")}`, permanent: false }
-		};
-
-	const isAdmin = await verifyAdminSession(session as string);
-	if (!isAdmin) return { notFound: true };
-
-	const csrfToken = await getCsrfToken();
-	setCookie("XSRF-TOKEN", csrfToken.token, { req: ctx.req, res: ctx.res });
-	return { props: { csrf: csrfToken.state } };
-};
+export const getServerSideProps = getServerSidePropsAdmin;
 
 interface Props {
 	csrf: string;
