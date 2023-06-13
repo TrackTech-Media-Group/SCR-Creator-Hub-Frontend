@@ -21,7 +21,7 @@ const config = {
 		},
 		{
 			source: "/license",
-			destination: "/image-license.pdf",
+			destination: "/content-license.pdf",
 			permanent: true
 		},
 		{
