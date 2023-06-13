@@ -1,7 +1,7 @@
 import axios, { HttpStatusCode } from "axios";
 import { deleteCookie, getCookie, setCookie as SetCookieNext } from "cookies-next";
 import type { GetServerSideProps, GetServerSidePropsContext } from "next";
-import type { CsrfToken, Oauth2Data, User } from "./types";
+import type { CsrfToken, Oauth2Data, Oauth2Response, User } from "./types";
 import type { OptionsType as CookiesNextOptions } from "cookies-next/lib/types";
 import { HTTP_REGEX } from "./regex";
 
@@ -53,7 +53,7 @@ export const getOauth2 = async () => {
  * @param stateToken The state token from the cookies
  */
 export const handleOauth2Request = async (code: string, state: string, stateToken: string) => {
-	const oauth2 = await axios.post<string>(
+	const oauth2 = await axios.post<Oauth2Response>(
 		`${process.env.API_URL}/v1/auth/callback`,
 		{ code, state, stateToken },
 		{
@@ -80,6 +80,18 @@ export const handleLogout = async (session: string) => {
  */
 export const verifySession = async (session: string) => {
 	const sessionVerification = await axios.get<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/verify`, {
+		headers: { Authorization: `User ${session}` }
+	});
+
+	return sessionVerification.data;
+};
+
+/**
+ * Verifies whether or not a session is an admin session
+ * @param session The user session
+ */
+export const verifyAdminSession = async (session: string) => {
+	const sessionVerification = await axios.get<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/admin/verify`, {
 		headers: { Authorization: `User ${session}` }
 	});
 
@@ -140,6 +152,35 @@ export const toggleBookmark = async (contentId: string, csrf: string) => {
 	});
 
 	return data;
+};
+
+/**
+ * Creates a tag
+ * @param body The object containing the name and id of the tag
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const createTag = async (body: { name: string; id: string }, csrf: string) => {
+	const session = getCookie("CH-SESSION");
+
+	await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/v1/admin/tags`, body, {
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
+};
+
+/**
+ * Deletes a tag
+ * @param id The id of the tag
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const deleteTag = async (id: string, csrf: string) => {
+	const session = getCookie("CH-SESSION");
+
+	await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/v1/admin/tags`, {
+		data: { id },
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
 };
 
 export const setCookie = (key: string, value: any, options?: CookiesNextOptions) => {

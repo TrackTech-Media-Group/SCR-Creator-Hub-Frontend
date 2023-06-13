@@ -47,6 +47,11 @@ export interface Oauth2Data {
 	url: string;
 }
 
+export interface Oauth2Response {
+	cookie: string;
+	expire: string;
+}
+
 export const SearchTypes = ["music", "video", "image", "all"] as const;
 export const CONTENT_TYPES = ["music", "video", "image"] as const;
 

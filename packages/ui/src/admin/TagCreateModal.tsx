@@ -33,8 +33,8 @@ export const TagCreateModal: React.FC<Props> = ({ isOpen, onClick, onSubmit }) =
 								className="w-full"
 								value={formik.values.name}
 								onChange={(ev) => {
-									formik.setFieldValue("name", ev.currentTarget.value);
-									formik.setFieldValue("id", ev.currentTarget.value.replace(/ +/g, "-").toLowerCase());
+									void formik.setFieldValue("name", ev.currentTarget.value);
+									void formik.setFieldValue("id", ev.currentTarget.value.replace(/ +/g, "-").toLowerCase());
 								}}
 							/>
 							<p className="text-red-500 text-base">{formik.errors.name && `* ${formik.errors.name}`}&#8203;</p>
