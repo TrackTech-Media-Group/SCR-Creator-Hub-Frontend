@@ -1,5 +1,5 @@
 import { handleOauth2Request, setCookie } from "@creatorhub/utils";
-import { getCookie } from "cookies-next";
+import { deleteCookie, getCookie } from "cookies-next";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const getValuesFromQuery = (query: NextApiRequest["query"]) => {
@@ -20,7 +20,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const stateToken = getCookie("XSRF-STATE-TOKEN", { req, res });
 	if (!stateToken) throw new Error("Missing XRSF-STATE-TOKEN in cookies");
 
-	const cookie = await handleOauth2Request(code, state, stateToken.toString());
-	setCookie("CH-SESSION", cookie, { req, res });
-	res.redirect("/profile");
+	const { cookie, expire } = await handleOauth2Request(code, state, stateToken.toString());
+	const expires = new Date(expire);
+
+	setCookie("CH-SESSION", cookie, { req, res, expires });
+
+	const returnPath = getCookie("LOGIN_RETURN_PATH", { req, res });
+	if (returnPath) deleteCookie("LOGIN_RETURN_PATH", { req, res });
+
+	res.redirect(typeof returnPath === "string" ? returnPath : "/profile");
 }
