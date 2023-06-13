@@ -1,15 +1,16 @@
-import { Input, SelectMenu, SelectOption } from "@creatorhub/forms";
+import { Input, SelectMenu, type SelectOption } from "@creatorhub/forms";
+import type { Type } from "@creatorhub/utils";
 import type React from "react";
 import { useEffect, useState } from "react";
 
 interface Props {
 	pages: number;
 	page: number;
-	type: string;
+	type: Type;
 
 	setSearch: (str: string) => void;
 	setPage: (page: number) => void;
-	setType: (type: string) => void;
+	setType: (type: Type) => void;
 }
 
 export const FilterBar: React.FC<Props> = ({ setSearch, setPage, setType, page, pages, type }) => {
@@ -50,7 +51,8 @@ export const FilterBar: React.FC<Props> = ({ setSearch, setPage, setType, page, 
 				type="primary"
 				options={[
 					{ label: "Image", value: "image" },
-					{ label: "Video", value: "video" }
+					{ label: "Video", value: "video" },
+					{ label: "Music", value: "music" }
 				]}
 				value={{ label: `${type.charAt(0).toUpperCase()}${type.slice(1)}`, value: type }}
 				onChange={(opt) => setType((opt as SelectOption).value)}
