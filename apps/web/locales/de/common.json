@@ -5,7 +5,8 @@
 	"buttons": {
 		"sign_in": "Einloggen",
 		"logout": "Abmelden",
-		"continue": "Fortfahren"
+		"continue": "Fortfahren",
+		"understood": "understood"
 	},
 	"page": "Seite",
 	"copied_clipboard": "In die Zwischenablage kopiert",
@@ -34,7 +35,11 @@
 			"description": "Du bist dabei, etwas Gefährliches zu tun, du kannst immer noch zurückgehen!"
 		},
 		"contribution": {
-			"contribution_text": "Einige Inhalte in diesem Video wurden von SCR Creator Hub bereitgestellt, einer Bild/Video Seite für SCR Creatoren. https://scrcreate.app/"
+			"contribution_text": "Einige Inhalte in diesem Video wurden von SCR Creator Hub bereitgestellt, einer Bild/Video Seite für SCR Creatoren. https://scrcreate.app/",
+			"disclaimer": "By downloading this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
+			"title": "Thanks for downloading an asset!",
+			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
+			"description_title": "description"
 		}
 	},
 	"errors": {
