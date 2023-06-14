@@ -17,7 +17,7 @@ type FormikHelper = FormikProps<{
 
 interface Props {
 	setDownloads: (downloads: DownloadDetails[]) => void;
-	downloads: DownloadDetails[] | undefined;
+	downloads?: DownloadDetails[] | undefined;
 	type: Type;
 }
 
