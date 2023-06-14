@@ -1,9 +1,9 @@
 import type React from "react";
-import { ContentCreateItem, Tag, Type, createContentItem, deleteContentItem, getServerSidePropsAdmin } from "@creatorhub/utils";
+import { ContentCreateItem, Tag, Type, deleteContentItem, getServerSidePropsAdmin, updateContentItem } from "@creatorhub/utils";
 import { NextSeo } from "next-seo";
 import { GetServerSideProps, NextPage } from "next";
 import { ConfirmModal, ContentDetailsForm, ContentDownloadsForm, CreateDetails, DownloadDetails, WithLoading } from "@creatorhub/ui";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AdminNavbar } from "@creatorhub/navbar";
 import { useContent, useTags } from "@creatorhub/hooks";
 import NotFoundPage from "../404";
@@ -43,8 +43,8 @@ interface EditComponentProps {
 	setDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
 	deleteContent: () => void;
 
-	setDetails: React.Dispatch<React.SetStateAction<CreateDetails | undefined>>;
-	setDownloads: React.Dispatch<React.SetStateAction<DownloadDetails[]>>;
+	setDetails: React.Dispatch<CreateDetails>;
+	setDownloads: React.Dispatch<DownloadDetails[]>;
 }
 
 const EditComponent: React.FC<EditComponentProps> = ({
@@ -86,37 +86,32 @@ const EditComponent: React.FC<EditComponentProps> = ({
 			{editDetails ? (
 				<ContentDetailsForm tags={tags} setDetails={setDetails} details={details} />
 			) : (
-				<ContentDownloadsForm type={Type.Image} setDownloads={setDownloads} downloads={downloads} />
+				<ContentDownloadsForm type={details.type} setDownloads={setDownloads} downloads={downloads} />
 			)}
 		</>
 	);
 };
 
 const AdminEditPage: NextPage<Props> = ({ id, csrf }) => {
-	const { content, loading } = useContent(id);
+	const { content, loading, refetch } = useContent(id);
 	const tags = useTags();
 	const router = useRouter();
 
-	const [details, setDetails] = useState<CreateDetails>();
-	const [downloads, setDownloads] = useState<DownloadDetails[]>([]);
 	const [isUploading, setIsUploading] = useState(false);
 	const [deleteModal, setDeleteModal] = useState(false);
 
-	const uploadItem = async () => {
+	const updateItem = async (contentChanges: Partial<ContentCreateItem>) => {
 		setIsUploading(true);
 
-		if (!details || !downloads.length) return;
-		const content: ContentCreateItem = { ...details, downloads };
 		await toast
-			.promise(createContentItem(content, csrf), {
-				error: "Unable to upload the content 😔",
-				pending: "Uploading the content",
-				success: "Content uploaded!"
+			.promise(updateContentItem(contentChanges, content!.id, csrf), {
+				error: "Unable to update the content 😔",
+				pending: "Updating the content",
+				success: "Content updated!"
 			})
 			.catch(console.log);
 
-		setDetails(undefined);
-		setDownloads([]);
+		refetch();
 		setIsUploading(false);
 	};
 
@@ -139,14 +134,26 @@ const AdminEditPage: NextPage<Props> = ({ id, csrf }) => {
 		if (!failed) void router.push("/admin/content");
 	};
 
-	useEffect(() => {
-		if (downloads.length && details && !isUploading) void uploadItem();
-	}, [downloads, details, isUploading]);
+	const onDownloadsChange = (downloads: DownloadDetails[]) => {
+		void updateItem({ downloads });
+	};
+
+	const onDetailsChange = (details: CreateDetails) => {
+		if (!content) return;
+
+		const changes: Partial<CreateDetails> = {};
+		if (details.name !== content.name) changes.name = details.name;
+		if (details.type !== content.type) changes.type = details.type;
+		if (details.useCases.join(",") !== content.useCases.join(",")) changes.useCases = details.useCases;
+		if (details.tags.map((tag) => tag.id).join(",") !== content.tags.map((tag) => tag.id).join(",")) changes.tags = details.tags;
+
+		void updateItem(changes);
+	};
 
 	if (!loading && !content) return <NotFoundPage />;
 
 	return (
-		<WithLoading loading={loading} className="px-32 py-32 max-lg:p-16 max-md:px-4 flex flex-col justify-center items-center">
+		<WithLoading loading={loading || isUploading} className="px-32 py-32 max-lg:p-16 max-md:px-4 flex flex-col justify-center items-center">
 			<NextSeo title={`Editing ${content?.name}`} />
 			<AdminNavbar />
 			{content && (
@@ -162,8 +169,8 @@ const AdminEditPage: NextPage<Props> = ({ id, csrf }) => {
 							url: download.url,
 							isPreview: false
 						}))}
-						setDetails={setDetails}
-						setDownloads={setDownloads}
+						setDetails={onDetailsChange}
+						setDownloads={onDownloadsChange}
 						tags={tags}
 					/>
 				</>

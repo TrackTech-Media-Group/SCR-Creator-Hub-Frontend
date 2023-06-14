@@ -229,6 +229,22 @@ export const createContentItem = async (content: ContentCreateItem, csrf: string
 };
 
 /**
+ * Update a new content item
+ * @param content Object containing all the changes made to a content item
+ * @param id The id of the content item to update
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const updateContentItem = async (content: Partial<ContentCreateItem>, id: string, csrf: string) => {
+	const session = getCookie("CH-SESSION");
+
+	const { data } = await axios.put<boolean>(`${process.env.NEXT_PUBLIC_API_URL}/v1/admin/content/${id}`, content, {
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
+	return data;
+};
+
+/**
  * Deletes a new content item
  * @param id The id of the item to delete
  * @param csrf The CSRF-TOKEN which is required to make this request

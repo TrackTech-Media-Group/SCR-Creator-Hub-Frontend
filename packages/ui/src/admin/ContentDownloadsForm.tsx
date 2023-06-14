@@ -62,8 +62,10 @@ export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, downloads,
 	const [files, setFiles] = useState<Record<string, File | PartialFile>>(getFiles(downloads));
 
 	const removeDownload = (formik: FormikHelper, idx: number) => {
-		const updatedFiles = { ...files };
-		delete updatedFiles[idx];
+		delete files[idx];
+		const updatedFiles = Object.keys(files)
+			.map((key, idx) => ({ [idx]: files[key] }))
+			.reduce((a, b) => ({ ...a, ...b }));
 		setFiles(updatedFiles);
 
 		const downloads = formik.values.downloads.filter((_, key) => key !== idx);
@@ -88,7 +90,10 @@ export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, downloads,
 
 		for await (const download of data.downloads) {
 			const file = files[idx];
-			if (!file || !("size" in file)) continue;
+			if (!file || !("size" in file)) {
+				idx++;
+				continue;
+			}
 
 			const cdnFileUrl = await new Promise<string | null>((resolve) => {
 				const uploader = new HugeUploader({
@@ -113,7 +118,7 @@ export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, downloads,
 	};
 
 	return (
-		<Formik onSubmit={onSubmit} initialValues={{ downloads: downloads || placeholderDownloads }}>
+		<Formik onSubmit={onSubmit} initialValues={{ downloads: downloads || placeholderDownloads }} enableReinitialize>
 			{(formik) => (
 				<WithLoading loading={formik.isSubmitting} className="w-full">
 					<Form className="w-full">

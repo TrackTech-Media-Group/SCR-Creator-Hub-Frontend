@@ -37,7 +37,7 @@ export const ContentDetailsForm: React.FC<Props> = ({ setDetails, tags, details 
 	});
 
 	return (
-		<Formik onSubmit={onSubmit} validationSchema={validationSchema} initialValues={details}>
+		<Formik onSubmit={onSubmit} validationSchema={validationSchema} initialValues={details} enableReinitialize>
 			{(formik) => (
 				<Form className="w-full">
 					<h1 className="text-3xl font-bold">Step 1: Content Details</h1>

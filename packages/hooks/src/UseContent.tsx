@@ -28,8 +28,7 @@ export const useContent = (id: string) => {
 
 	const [showFull, setShowFull] = useState(false);
 	const [attributionReminder, setAttributionReminder] = useState(false);
-
-	useEffect(() => {
+	const fetchData = () => {
 		const processData = (data: UseContentApiResponse) => {
 			setContent(data.content);
 			setMarked(data.marked);
@@ -43,7 +42,10 @@ export const useContent = (id: string) => {
 			.then(({ data }) => processData(data))
 			.catch(() => void 0)
 			.finally(() => setLoading(false));
-	}, []);
+	};
 
-	return { content, setMarked, marked, loading, showFull, setShowFull, attributionReminder, setAttributionReminder };
+	useEffect(fetchData, []);
+	const refetch = () => fetchData();
+
+	return { content, setMarked, marked, loading, showFull, setShowFull, attributionReminder, setAttributionReminder, refetch };
 };
