@@ -1,5 +1,5 @@
 import type React from "react";
-import { ContentCreateItem, Tag, Type, deleteContentItem, getServerSidePropsAdmin, updateContentItem } from "@creatorhub/utils";
+import { ContentCreateItem, Tag, deleteContentItem, getServerSidePropsAdmin, updateContentItem } from "@creatorhub/utils";
 import { NextSeo } from "next-seo";
 import { GetServerSideProps, NextPage } from "next";
 import { ConfirmModal, ContentDetailsForm, ContentDownloadsForm, CreateDetails, DownloadDetails, WithLoading } from "@creatorhub/ui";
