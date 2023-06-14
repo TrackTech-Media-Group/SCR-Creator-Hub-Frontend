@@ -1,0 +1,205 @@
+import { EventEmitter } from "events";
+
+export class HugeUploader extends EventEmitter {
+	public start: number;
+	public retriesCount: number;
+	public delayBeforeRetry: number;
+	public retries: number;
+	public file: File;
+	public endpoint: string;
+	public postParams: Record<string, any>;
+	public headers: Record<string, any>;
+
+	public chunk: Blob | null;
+	public chunkCount: number;
+	public chunkSize: number;
+	public totalChunks: number;
+
+	public offline: boolean;
+	public paused: boolean;
+
+	private _reader: FileReader;
+
+	public constructor(options: UploaderOptions) {
+		super();
+
+		this.endpoint = options.endpoint;
+		this.file = options.file;
+		this.headers = options.headers || {};
+		this.postParams = options.postParams ?? {};
+		this.chunkSize = options.chunkSize || 10;
+		this.retries = options.retries || 5;
+		this.delayBeforeRetry = options.delayBeforeRetry || 5;
+
+		this.start = 0;
+		this.chunk = null;
+		this.chunkCount = 0;
+		this.totalChunks = Math.ceil(this.file.size / (this.chunkSize * 1000 * 1000));
+		this.retriesCount = 0;
+		this.offline = false;
+		this.paused = false;
+
+		this.headers["uploader-file-id"] = this._uniqid();
+		this.headers["uploader-chunks-total"] = this.totalChunks;
+
+		this._reader = new FileReader();
+
+		this._validateParams();
+		this._sendChunks();
+
+		// restart sync when back online
+		// trigger events when offline/back online
+		window.addEventListener("online", () => {
+			if (!this.offline) return;
+
+			this.offline = false;
+			this.emit("online");
+			this._sendChunks();
+		});
+
+		window.addEventListener("offline", () => {
+			this.offline = true;
+			this.emit("online");
+		});
+	}
+
+	/**
+	 * Subscribe to an event
+	 */
+	public override on(event: "error", listener: (err: Error) => void | Promise<void>): this;
+	public override on(event: "progress", listener: (progress: number) => void | Promise<void>): this;
+	public override on(event: "offline" | "online", listener: () => void | Promise<void>): this;
+	public override on(event: "finish", listener: (data: { body: string }) => void | Promise<void>): this;
+	public override on(event: "fileRetry", listener: (err: { chunk: number; message: string; retriesLeft: number }) => void | Promise<void>): this;
+
+	public override on(event: string, listener: (...props: any) => void): this {
+		super.on(event, listener);
+		return this;
+	}
+
+	public togglePause() {
+		this.paused = !this.paused;
+
+		if (!this.paused) this._sendChunks();
+	}
+
+	/**
+	 * Validate params and throw error if not of the right type
+	 */
+	private _validateParams() {
+		if (!this.endpoint || !this.endpoint.length) throw new TypeError("endpoint must be defined");
+		if (!(this.file instanceof File)) throw new TypeError("file must be a File object");
+		if (this.headers && typeof this.headers !== "object") throw new TypeError("headers must be null or an object");
+		if (this.postParams && typeof this.postParams !== "object") throw new TypeError("postParams must be null or an object");
+		if (this.chunkSize && (typeof this.chunkSize !== "number" || this.chunkSize === 0))
+			throw new TypeError("chunkSize must be a positive number");
+		if (this.retries && (typeof this.retries !== "number" || this.retries === 0)) throw new TypeError("retries must be a positive number");
+		if (this.delayBeforeRetry && typeof this.delayBeforeRetry !== "number") throw new TypeError("delayBeforeRetry must be a positive number");
+	}
+
+	/**
+	 * Generate uniqid based on file size, date & pseudo random number generation
+	 */
+	private _uniqid() {
+		return Math.floor(Math.random() * 100000000) + Date.now() + this.file.size;
+	}
+
+	/**
+	 * Get portion of the file of x bytes corresponding to chunkSize
+	 */
+	private _getChunk() {
+		return new Promise((resolve) => {
+			const length = this.totalChunks === 1 ? this.file.size : this.chunkSize * 1000 * 1000;
+			const start = length * this.chunkCount;
+
+			this._reader.onload = () => {
+				this.chunk = new Blob([this._reader.result!], { type: "application/octet-stream" });
+				resolve(null);
+			};
+
+			this._reader.readAsArrayBuffer(this.file.slice(start, start + length));
+		});
+	}
+
+	/**
+	 * Send chunk of the file with appropriate headers and add post parameters if it's last chunk
+	 */
+	private _sendChunk() {
+		const form = new FormData();
+
+		// send post fields on last request
+		if (this.chunkCount + 1 === this.totalChunks && this.postParams)
+			Object.keys(this.postParams).forEach((key) => form.append(key, this.postParams[key]));
+
+		form.append("file", this.chunk!);
+		this.headers["uploader-chunk-number"] = this.chunkCount;
+
+		return fetch(this.endpoint, { method: "POST", headers: this.headers, body: form });
+	}
+
+	/**
+	 * Called on net failure. If retry counter !== 0, retry after delayBeforeRetry
+	 */
+	private _manageRetries() {
+		if (this.retriesCount++ < this.retries) {
+			setTimeout(() => this._sendChunks(), this.delayBeforeRetry * 1000);
+			this.emit("fileRetry", {
+				message: `An error occured uploading chunk ${this.chunkCount}. ${this.retries - this.retriesCount} retries left`,
+				chunk: this.chunkCount,
+				retriesLeft: this.retries - this.retriesCount
+			});
+			return;
+		}
+
+		this.emit("error", { detail: `An error occured uploading chunk ${this.chunkCount}. No more retries, stopping upload` });
+	}
+
+	/**
+	 * Manage the whole upload by calling getChunk & sendChunk
+	 * handle errors & retries and dispatch events
+	 */
+	private _sendChunks() {
+		if (this.paused || this.offline) return;
+
+		this._getChunk()
+			.then(() => this._sendChunk())
+			.then((res) => {
+				if (res.status === 200 || res.status === 201 || res.status === 204) {
+					if (++this.chunkCount < this.totalChunks) this._sendChunks();
+					else {
+						void res.text().then((body) => {
+							this.emit("finish", { body });
+						});
+					}
+
+					const percentProgress = Math.round((100 / this.totalChunks) * this.chunkCount);
+					this.emit("progress", percentProgress);
+				}
+
+				// errors that might be temporary, wait a bit then retry
+				else if ([408, 502, 503, 504].includes(res.status)) {
+					if (this.paused || this.offline) return;
+					this._manageRetries();
+				} else {
+					if (this.paused || this.offline) return;
+					this.emit("error", res);
+				}
+			})
+			.catch((err) => {
+				if (this.paused || this.offline) return;
+
+				// this type of error can happen after network disconnection on CORS setup
+				this._manageRetries();
+			});
+	}
+}
+
+export interface UploaderOptions {
+	endpoint: string;
+	file: File;
+	headers?: Record<string, any>;
+	postParams?: Record<string, any>;
+	chunkSize?: number;
+	retries?: number;
+	delayBeforeRetry?: number;
+}
