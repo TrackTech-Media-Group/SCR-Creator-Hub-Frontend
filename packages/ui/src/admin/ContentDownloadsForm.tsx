@@ -7,17 +7,59 @@ import Dropzone from "react-dropzone";
 import { WithLoading } from "../global";
 
 export type DownloadDetails = Omit<Download, "contentId" | "id"> & { isPreview: boolean };
+export interface PartialFile {
+	name: string;
+}
+
 type FormikHelper = FormikProps<{
 	downloads: DownloadDetails[];
 }>;
 
 interface Props {
 	setDownloads: (downloads: DownloadDetails[]) => void;
+	downloads: DownloadDetails[] | undefined;
 	type: Type;
 }
 
-export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, type }) => {
-	const [files, setFiles] = useState<Record<string, File>>({});
+const placeholderDownloads = [{ name: "", url: "", isPreview: true }];
+
+const createAcceptObject = (type: Type): Record<string, string[]> => {
+	switch (type) {
+		case Type.Image:
+			return {
+				"image/jpeg": [".jpeg", ".jpg"],
+				"image/png": [".png"],
+				"image/bmp": [".bmp"],
+				"image/gif": [".gif"]
+			};
+
+		case Type.Video:
+			return {
+				"video/x-flv": [".flv"],
+				"video/mp4": [".mp4"],
+				"video/quicktime": [".mov"],
+				"video/x-msvideo": [".avi"],
+				"video/x-ms-wmv": [".wmv"],
+				"video/mpeg": [".mpeg", ".mpg"]
+			};
+
+		case Type.Music:
+			return {
+				"audio/mpeg": [".mp2", ".mp3"],
+				"audio/vnd.wav": [".wav"]
+			};
+	}
+};
+
+const getFiles = (downloads: DownloadDetails[] | undefined): Record<string, PartialFile | File> => {
+	if (!downloads) return {};
+
+	const files = downloads.map((download, idx) => ({ [idx]: { name: download.url } }));
+	return files.reduce((a, b) => ({ ...a, ...b })) as Record<string, PartialFile | File>;
+};
+
+export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, downloads, type }) => {
+	const [files, setFiles] = useState<Record<string, File | PartialFile>>(getFiles(downloads));
 
 	const removeDownload = (formik: FormikHelper, idx: number) => {
 		const updatedFiles = { ...files };
@@ -39,42 +81,14 @@ export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, type }) =>
 		void formik.setFieldValue("downloads", downloads);
 	};
 
-	const createAcceptObject = (): Record<string, string[]> => {
-		switch (type) {
-			case Type.Image:
-				return {
-					"image/jpeg": [".jpeg", ".jpg"],
-					"image/png": [".png"],
-					"image/bmp": [".bmp"],
-					"image/gif": [".gif"]
-				};
-
-			case Type.Video:
-				return {
-					"video/x-flv": [".flv"],
-					"video/mp4": [".mp4"],
-					"video/quicktime": [".mov"],
-					"video/x-msvideo": [".avi"],
-					"video/x-ms-wmv": [".wmv"],
-					"video/mpeg": [".mpeg", ".mpg"]
-				};
-
-			case Type.Music:
-				return {
-					"audio/mpeg": [".mp2", ".mp3"],
-					"audio/vnd.wav": [".wav"]
-				};
-		}
-	};
-
-	const accept: Record<string, string[]> = createAcceptObject();
+	const accept: Record<string, string[]> = createAcceptObject(type);
 	const onSubmit = async (data: { downloads: DownloadDetails[] }) => {
 		let idx = 0;
 		const credentials = await getUploadCredentials();
 
 		for await (const download of data.downloads) {
 			const file = files[idx];
-			if (!file) continue;
+			if (!file || !("size" in file)) continue;
 
 			const cdnFileUrl = await new Promise<string | null>((resolve) => {
 				const uploader = new HugeUploader({
@@ -99,10 +113,10 @@ export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, type }) =>
 	};
 
 	return (
-		<Formik onSubmit={onSubmit} initialValues={{ downloads: [{ name: "", url: "", isPreview: true }] as DownloadDetails[] }}>
+		<Formik onSubmit={onSubmit} initialValues={{ downloads: downloads || placeholderDownloads }}>
 			{(formik) => (
-				<WithLoading loading={formik.isSubmitting}>
-					<Form>
+				<WithLoading loading={formik.isSubmitting} className="w-full">
+					<Form className="w-full">
 						<div>
 							<h1 className="text-3xl font-bold">Step 2: Downloads</h1>
 							<p className="text-[12px] mb-4">🚀 = preview, 📦 = not preview</p>
@@ -137,6 +151,7 @@ export const ContentDownloadsForm: React.FC<Props> = ({ setDownloads, type }) =>
 										type="primary"
 										placeholder="The content name"
 										className="w-full text-base"
+										value={download.name}
 										onChange={(ev) => updateDownload(formik, idx, { name: ev.currentTarget.value })}
 									/>
 									{files[idx] ? (
