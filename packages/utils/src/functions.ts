@@ -228,6 +228,22 @@ export const createContentItem = async (content: ContentCreateItem, csrf: string
 	return data;
 };
 
+/**
+ * Deletes a new content item
+ * @param id The id of the item to delete
+ * @param csrf The CSRF-TOKEN which is required to make this request
+ */
+export const deleteContentItem = async (id: string, csrf: string) => {
+	const session = getCookie("CH-SESSION");
+
+	await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/v1/admin/content/${id}`, {
+		headers: { Authorization: `User ${session}`, "XSRF-TOKEN": csrf },
+		withCredentials: true
+	});
+
+	return true;
+};
+
 export const setCookie = (key: string, value: any, options?: CookiesNextOptions) => {
 	const [ext, domainName] = process.env.API_URL!.replace(HTTP_REGEX, "").split(".").reverse();
 	const domain = process.env.NODE_ENV === "development" ? undefined : `.${domainName}.${ext}`;

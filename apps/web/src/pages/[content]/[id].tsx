@@ -9,6 +9,7 @@ import { OpenGraph } from "next-seo/lib/types";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import NotFoundPage from "../404";
 
 export const getServerSideProps: GetServerSideProps<{ csrf: string; id: string; type: Type }> = async (ctx) => {
 	const type = ctx.params!.content as Type;
@@ -32,7 +33,7 @@ const ContentDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideP
 	const { t } = useTranslation();
 	const markedIsBoolean = typeof marked === "boolean";
 
-	if (!loading && !content) return <div></div>; // TODO: return 404 page;
+	if (!loading && !content) return <NotFoundPage />;
 	if (!loading && content && content.type !== type) {
 		void router.push(`/${content.type}/${content.id}`);
 		return <div></div>;
