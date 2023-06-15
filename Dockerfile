@@ -17,7 +17,7 @@ RUN yarn install --immutable
 
 # Build the project
 COPY --from=builder /creatorhub/out/full/ .
-COPY tsconfig.json tsconfig.next.json tsconfig.base.json yarn.lock postcss.config.cjs tailwind.config.cjs ./
+COPY tsconfig.json yarn.lock postcss.config.cjs tailwind.config.cjs ./
 RUN yarn turbo run build --filter=web
 RUN yarn build
 
