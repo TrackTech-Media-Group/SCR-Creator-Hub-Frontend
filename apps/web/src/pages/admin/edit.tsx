@@ -65,7 +65,7 @@ const EditComponent: React.FC<EditComponentProps> = ({
 				<TransparentButton
 					type="button"
 					data-active={editDetails}
-					className="!px-0 !pb-0  data-[active=true]:text-indigo-900 text-indigo-700 rounded-none"
+					className="!px-0 !pb-0  data-[active=true]:!text-indigo-900 !text-indigo-700 rounded-none"
 					onClick={() => setEditDetails(true)}
 				>
 					Content Details
@@ -73,7 +73,7 @@ const EditComponent: React.FC<EditComponentProps> = ({
 				<TransparentButton
 					type="button"
 					data-active={!editDetails}
-					className="!px-0 !pb-0 data-[active=true]:text-indigo-900 text-indigo-700 rounded-none"
+					className="!px-0 !pb-0 data-[active=true]:!text-indigo-900 !text-indigo-700 rounded-none"
 					onClick={() => setEditDetails(false)}
 				>
 					Downloads
