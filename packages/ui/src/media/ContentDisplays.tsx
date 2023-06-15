@@ -8,6 +8,7 @@ interface Props {
 	showFull: boolean;
 	setShowFull: (...props: any) => void;
 
+	poster?: string;
 	preview: string;
 	name: string;
 	type: Type;
@@ -50,7 +51,7 @@ const ImageDisplay: React.FC<Props> = ({ name, preview, showFull, setShowFull })
 	);
 };
 
-const VideoDisplay: React.FC<Props> = ({ preview, showFull, setShowFull }) => {
+const VideoDisplay: React.FC<Props> = ({ preview, poster, showFull, setShowFull }) => {
 	const { t } = useTranslation();
 
 	return (
@@ -59,7 +60,7 @@ const VideoDisplay: React.FC<Props> = ({ preview, showFull, setShowFull }) => {
 				aria-expanded={showFull}
 				className="relative w-full overflow-hidden aria-expanded:h-auto h-96 grid place-items-center rounded-xl max-md:hidden"
 			>
-				<video controls={showFull} src={preview} className="rounded-xl w-full" />
+				<video controls={showFull} poster={poster} src={preview} className="rounded-xl w-full" />
 				{!showFull && <ShowButton buttonText={t("content:video_button")} setShowFull={setShowFull} />}
 			</div>
 			<div className="rounded-xl max-md:block md:hidden">
@@ -71,7 +72,7 @@ const VideoDisplay: React.FC<Props> = ({ preview, showFull, setShowFull }) => {
 
 const MusicDisplay: React.FC<Props> = ({ preview }) => {
 	return (
-		<div className="relative w-full overflow-hidden h-auto grid place-items-center rounded-xl max-md:hidden">
+		<div className="relative w-full overflow-hidden mt-8 -mb-8 h-auto grid place-items-center rounded-xl max-md:-mb-4">
 			<audio src={preview} controls className="rounded-xl w-full" />
 		</div>
 	);

@@ -91,6 +91,7 @@ const ContentDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideP
 					<NextSeo titleTemplate={t("content:metadata.title", { title: "%s" })} title={content.name} openGraph={getOpenGraph()} />
 					<ContentDisplays
 						name={content.name}
+						poster={content.preview}
 						preview={content.downloads[0].url}
 						setShowFull={setShowFull}
 						showFull={showFull}

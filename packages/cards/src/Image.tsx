@@ -38,7 +38,7 @@ export const ProgressiveImage: React.FC<Props> = (props) => {
 	}, []);
 
 	return isLoaded ? (
-		<img alt={props.alt} {...props} onLoad={() => setIsLoaded(true)} />
+		<img alt={props.alt} {...props} />
 	) : isError ? (
 		<div className="bg-primary-100 grid place-items-center" style={{ width: props.width, height: props.height }}>
 			<BrokenImageSvg />
