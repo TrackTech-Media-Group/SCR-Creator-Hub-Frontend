@@ -1,8 +1,7 @@
 import { TransparentButton, WhiteButton } from "@creatorhub/buttons";
 import { useContent } from "@creatorhub/hooks";
 import { AttributionModal, ContentDisplays, MediaDetailsLayout, TagButton, WithLoading } from "@creatorhub/ui";
-import { CONTENT_TYPES, Type, getCsrfToken, toggleBookmark } from "@creatorhub/utils";
-import { setCookie } from "cookies-next";
+import { CONTENT_TYPES, Type, getCsrfToken, setCookie, toggleBookmark } from "@creatorhub/utils";
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { OpenGraph } from "next-seo/lib/types";
