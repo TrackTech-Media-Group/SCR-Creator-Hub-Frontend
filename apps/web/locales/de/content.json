@@ -1,31 +1,31 @@
 {
-	"video_button": "Show full video",
-	"image_button": "Show full image",
+	"video_button": "Volles Video anzeigen",
+	"image_button": "Volles Bild anzeigen",
 	"metadata": {
-		"title": "{{title}} on SCR Creator Hub",
-		"description": "The future of SCR Content Creation"
+		"title": "{{title}} auf SCR-Creator-Hub",
+		"description": "Die Zukunft der SCR-Content-Erstellung"
 	},
 	"downloads": {
-		"title": "downloads"
+		"title": "Downloads"
 	},
 	"use_cases": {
-		"title": "use cases"
+		"title": "Anwendungsbeispiele"
 	},
 	"contribution": {
-		"title": "contribution",
-		"description": "To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the description of your video/post:",
-		"description_title": "description"
+		"title": "Beteiligung",
+		"description": "Um sicherzustellen, dass der SCR Creator Hub weiterhin läuft, bitten wir dich, den folgenden Text unter das Bild oder in die Beschreibung deines Videos/Beitrags zu setzen:",
+		"description_title": "Beschreibung"
 	},
 	"bookmark": {
 		"marked": {
-			"pending": "Cancelling reservation...",
-			"error": "The train seat does not exist.",
-			"success": "Reservation cancelled."
+			"pending": "Reservierung stornieren...",
+			"error": "Der Zugsitz existiert nicht.",
+			"success": "Reservierung storniert."
 		},
 		"unmarked": {
-			"pending": "Reserving train seat...",
-			"error": "The train seat is already occupied.",
-			"success": "Train seat reserved."
+			"pending": "Reservieren des Zugsitzes...",
+			"error": "Der Zugsitz ist bereits besetzt.",
+			"success": "Zugsitz reserviert."
 		}
 	}
 }

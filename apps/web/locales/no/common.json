@@ -5,7 +5,8 @@
 	"buttons": {
 		"sign_in": "Logg inn",
 		"logout": "logg ut",
-		"continue": "continue"
+		"continue": "continue",
+		"understood": "understood"
 	},
 	"page": "side",
 	"copied_clipboard": "Copied to clipboard",
@@ -34,7 +35,11 @@
 			"description": "You are about to do something dangerous, you can still go back!"
 		},
 		"contribution": {
-			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/"
+			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/",
+			"disclaimer": "By downloading this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
+			"title": "Thanks for downloading an asset!",
+			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
+			"description_title": "description"
 		}
 	},
 	"errors": {
