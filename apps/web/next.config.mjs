@@ -25,6 +25,11 @@ const config = {
 			permanent: true
 		},
 		{
+			source: "/status",
+			destination: "https://status.scrcreate.app/",
+			permanent: true
+		},
+		{
 			source: "/support/contact",
 			destination: "https://discord.scrcreate.app/",
 			permanent: true
