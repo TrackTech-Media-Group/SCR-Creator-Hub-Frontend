@@ -5,9 +5,10 @@ const config = {
 		type: "website",
 		locale: "en_IE",
 		url: "https://scrcreate.app/",
+
 		images: [
 			{
-				url: "https://scrcreate.app/banner.png",
+				url: "/banner.png",
 				alt: "SCR Creator Hub banner"
 			}
 		]
