@@ -15,10 +15,16 @@ const getValuesFromQuery = (query: NextApiRequest["query"]) => {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { code, state } = getValuesFromQuery(req.query);
-	if (!code || !state) throw new Error("Missing state or code in query");
+	if (!code || !state) {
+		res.status(400).send("Missing state or code in query");
+		return;
+	}
 
 	const stateToken = getCookie("XSRF-STATE-TOKEN", { req, res });
-	if (!stateToken) throw new Error("Missing XRSF-STATE-TOKEN in cookies");
+	if (!stateToken) {
+		res.status(400).send("Missing XRSF-STATE-TOKEN in cookies");
+		return;
+	}
 
 	const { cookie, expire } = await handleOauth2Request(code, state, stateToken.toString());
 	const expires = new Date(expire);

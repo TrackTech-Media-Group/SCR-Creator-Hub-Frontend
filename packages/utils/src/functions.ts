@@ -48,7 +48,7 @@ export const getServerSidePropsAdmin: GetServerSideProps = async (ctx) => {
  */
 export const getCsrfToken = async () => {
 	const csrf = await axios.get<CsrfToken>(`${process.env.API_URL}/v1/auth/csrf`, {
-		headers: { Authorization: `Bearer: ${process.env.INTERNAL_API_KEY}` }
+		headers: { Authorization: `Bearer ${process.env.INTERNAL_API_KEY}` }
 	});
 	return csrf.data;
 };

@@ -8,7 +8,7 @@
 		"/search": ["search"],
 		"/profile": ["profile"],
 		"/[content]": ["search"],
-		"/[content]/[id]": ["content"],
+		"/[content]/[id]": ["content", "notfound", "error"],
 		"/tags/[id]": ["search"],
 		"/404": ["notfound"],
 		"/500": ["error", "notfound"]
