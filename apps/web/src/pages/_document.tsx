@@ -11,6 +11,7 @@ export default function Document() {
 					crossOrigin="anonymous"
 					referrerPolicy="no-referrer"
 				/>
+				<meta property="twitter:image" content="/banner.png" />
 			</Head>
 
 			<body>
