@@ -42,7 +42,7 @@ const config = {
 	],
 	env: {
 		PASSWORD_PROTECT: false,
-		NEXT_PUBLIC_API_URL: process.env.API_URL ?? "https://beta-api.scrcreate.app"
+		NEXT_PUBLIC_API_URL: process.env.API_URL ?? "https://api.scrcreate.app"
 	}
 };
 
