@@ -36,10 +36,10 @@
 		},
 		"contribution": {
 			"contribution_text": "Einige Inhalte in diesem Video wurden von SCR Creator Hub bereitgestellt, einer Bild/Video Seite für SCR Creatoren. https://scrcreate.app/",
-			"disclaimer": "By downloading this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
-			"title": "Thanks for downloading an asset!",
-			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
-			"description_title": "description"
+			"disclaimer": "Mit dem Herunterladen dieses Videos/Bilds erklären Sie sich mit unseren Nutzungsbedingungen, Datenschutzrichtlinien und Inhaltslizenzen einverstanden",
+			"title": "Danke fürs Herunterladen des Videos/Bilds!",
+			"description": "Denken Sie daran, die entsprechenden Credits in der Beschreibung oder Untertitel unter das Bild zu setzen.",
+			"description_title": "Beschreibung"
 		}
 	},
 	"errors": {
