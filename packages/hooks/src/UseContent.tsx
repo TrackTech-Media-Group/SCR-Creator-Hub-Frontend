@@ -11,7 +11,7 @@ export const useContentList = ({ tag, type }: { tag: string; type: string }) => 
 			.get<Content[]>(`${process.env.NEXT_PUBLIC_API_URL}/v1/tags/${tag}?preview=true&type=${type}`)
 			.then(({ data }) => setContent(data))
 			.catch(() => void 0);
-	}, []);
+	}, [type]);
 
 	return content;
 };
