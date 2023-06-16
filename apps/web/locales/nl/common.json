@@ -6,10 +6,10 @@
 		"sign_in": "Log in",
 		"logout": "afmelden",
 		"continue": "doorgaan",
-		"understood": "understood"
+		"understood": "begrepen"
 	},
 	"page": "pagina",
-	"copied_clipboard": "Copied to clipboard",
+	"copied_clipboard": "Gekopieerd naar het klembord",
 	"content_types": {
 		"music": "muziek",
 		"video": "video",
@@ -35,11 +35,11 @@
 			"description": "You bent in staat iets gevaarlijks te doen, je kan nu nog teruggaan!"
 		},
 		"contribution": {
-			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/",
-			"disclaimer": "By using this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
-			"title": "Thanks for downloading an asset!",
-			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
-			"description_title": "description"
+			"contribution_text": "Een gedeelte van deze content word geleverd door de SCR Creator Hub, een stock image/content site voor SCR Creators. https://scrcreate.app/",
+			"disclaimer": "Door gebruik te maken van deze content gaat u automatisch akkoord met onze gebruikersvoorwaarden, privacybeleid en content licentie",
+			"title": "Bedankt voor het downloaden van deze content!",
+			"description": "Vergeet niet de juiste credits in de beschrijving of ondertitel te plaatsen.",
+			"description_title": "beschrijving"
 		}
 	},
 	"errors": {
