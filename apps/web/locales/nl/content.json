@@ -1,31 +1,31 @@
 {
-	"video_button": "Show full video",
-	"image_button": "Show full image",
+	"video_button": "Volledige video weergeven",
+	"image_button": "Volledige foto weergeven",
 	"metadata": {
-		"title": "{{title}} on SCR Creator Hub",
-		"description": "The future of SCR Content Creation"
+		"title": "{{title}} op SCR Creator Hub",
+		"description": "De toekomst van SCR content creaties"
 	},
 	"downloads": {
 		"title": "downloads"
 	},
 	"use_cases": {
-		"title": "use cases"
+		"title": "gebruiksvormen"
 	},
 	"contribution": {
-		"title": "contribution",
-		"description": "To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the description of your video/post:",
-		"description_title": "description"
+		"title": "bijdragen",
+		"description": "Om er voor te zorgen dat SCR Creators Hub blijft draaien, vragen wij jou vriendelijk om de volgende tekst onder de foto of in de beschrijving van jou video/post te plaatsen:",
+		"description_title": "beschrijving"
 	},
 	"bookmark": {
 		"marked": {
-			"pending": "Cancelling reservation...",
-			"error": "The train seat does not exist.",
-			"success": "Reservation cancelled."
+			"pending": "Reservering annuleren...",
+			"error": "De treinstoel bestaat niet.",
+			"success": "Reservering geannuleerd."
 		},
 		"unmarked": {
-			"pending": "Reserving train seat...",
-			"error": "The train seat is already occupied.",
-			"success": "Train seat reserved."
+			"pending": "Treinstoel reserveren...",
+			"error": "De treinstoel is al in gebruik.",
+			"success": "Treinstoel gereserveerd."
 		}
 	}
 }
