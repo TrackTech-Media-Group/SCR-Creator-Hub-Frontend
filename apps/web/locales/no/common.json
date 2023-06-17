@@ -5,11 +5,11 @@
 	"buttons": {
 		"sign_in": "Logg inn",
 		"logout": "logg ut",
-		"continue": "continue",
-		"understood": "understood"
+		"continue": "fortsett",
+		"understood": "forstått"
 	},
 	"page": "side",
-	"copied_clipboard": "Copied to clipboard",
+	"copied_clipboard": "Kopiert til utklippstavle",
 	"content_types": {
 		"music": "musikk",
 		"video": "video",
@@ -31,8 +31,8 @@
 	},
 	"modals": {
 		"confirm": {
-			"title": "Are you sure?",
-			"description": "You are about to do something dangerous, you can still go back!"
+			"title": "Er du sikker?",
+			"description": "Du er i ferd med å gjøre noe farlig, du kan fortsatt gå tilbake!"
 		},
 		"contribution": {
 			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/",
