@@ -1,7 +1,7 @@
 {
 	"hero-section": {
 		"welcome": "Du er på rett sted.",
-		"subtitle": "Hundrevis av eiendeler, tilgjengelig i sekunder",
+		"subtitle": "Hundrevis av eiendeler, tilgjengelig i <0>sekunder</0>",
 		"button": "Kom i gang"
 	},
 	"explore_title": "Utforsk populært innhold",
