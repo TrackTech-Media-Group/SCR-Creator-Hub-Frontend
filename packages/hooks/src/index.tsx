@@ -6,3 +6,4 @@ export * from "./UseContent";
 export * from "./UseLanguage";
 export * from "./UseTag";
 export * from "./UseAdminDashboard";
+export * from "./useMusic";
