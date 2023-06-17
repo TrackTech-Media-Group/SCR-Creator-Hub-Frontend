@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { type CardProps, BaseCard } from "./BaseCard";
 import { WhiteButton } from "@creatorhub/buttons";
 import type { Url } from "next/dist/shared/lib/router/router";
@@ -10,7 +10,6 @@ type Props = CardProps & { href: Url };
 export const MediaCard: React.FC<Props> = (props) => {
 	const isMusic = props.type === Type.Music;
 	const router = useRouter();
-	const [source] = useState(isMusic ? "music-thumbnail.png" : props.src);
 
 	const onOuterButtonClick = (ev: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 		if (ev.currentTarget.id === "card-download-button") return;
@@ -32,7 +31,7 @@ export const MediaCard: React.FC<Props> = (props) => {
 	return (
 		<div role="button" onClick={onOuterButtonClick} onFocus={onHoverStart} onMouseEnter={onHoverStart} onMouseLeave={onHoverEnd}>
 			{isMusic && <audio src={props.src} controls={false} aria-hidden ref={audioRef} />}
-			<BaseCard {...props} src={source}>
+			<BaseCard {...props}>
 				<div className="absolute top-3 right-2">
 					<WhiteButton
 						id="card-download-button"
