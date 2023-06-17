@@ -1,12 +1,12 @@
 {
-	"title": "Frequently Asked Questions",
+	"title": "FAQ",
 	"items": [
 		{
-			"question": "Where can I use the Creator Hub content?",
-			"answer": "You can use the Creator Hub content everywhere as long as you follow our [Content License]({{license_url}})."
+			"question": "Wo kann ich den Inhalt des Creator Hub benutzen?",
+			"answer": "Sie können den Inhalt des Creator Hubs überall verwenden, solange Sie unserer [Content License]({{license_url}}) folgen."
 		},
 		{
-			"question": "Do I need special permissions to use the Creator Hub content?",
+			"question": "Benötige ich spezielle Berechtigungen, um den Inhalt des Creator Hub zu benutzen?",
 			"answer": "No everyone can use the content that we provide, we only ask you to add a small text to your video/image description."
 		},
 		{
