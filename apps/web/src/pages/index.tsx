@@ -64,13 +64,7 @@ const Page: React.FC<Props> = ({ content }) => {
 					<h1 className="text-3xl w-fit">{t("landing:explore_title")}</h1>
 					<div className="flex flex-wrap gap-4 justify-center">
 						{content.map((content, key) => (
-							<HomeCard
-								key={key}
-								type={content.type}
-								alt={content.name}
-								src={content.preview}
-								href={`/${content.type}/${content.id}`}
-							/>
+							<HomeCard key={key} type={content.type} name="" src={content.preview} href={`/${content.type}/${content.id}`} />
 						))}
 					</div>
 				</div>

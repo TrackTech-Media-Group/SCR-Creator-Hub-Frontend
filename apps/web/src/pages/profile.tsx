@@ -9,7 +9,7 @@ import { ProgressiveImage, UserCard } from "@creatorhub/cards";
 import { DangerBorderButton, DangerButton, TransparentButton } from "@creatorhub/buttons";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
-import { destoryUser, destorySessions, getCsrfToken, setCookie } from "@creatorhub/utils";
+import { destoryUser, destorySessions, getCsrfToken, setCookie, Type } from "@creatorhub/utils";
 import { toast } from "react-toastify";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -97,7 +97,13 @@ const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> 
 						<h2 className="text-2xl capitalize">{t("profile:recent.title")}</h2>
 						<div className="flex items-center gap-2 overflow-x-auto">
 							{user?.recent.map((recent, key) => (
-								<UserCard key={key} name={recent.name} src={recent.preview} href={`/${recent.type}/${recent.id}`} />
+								<UserCard
+									key={key}
+									name={recent.name}
+									src={recent.preview}
+									type={recent.type}
+									href={`/${recent.type}/${recent.id}`}
+								/>
 							))}
 						</div>
 					</div>
@@ -113,7 +119,7 @@ const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> 
 											height={48}
 											width=""
 											loading="lazy"
-											src={bookmark.preview}
+											src={bookmark.type === Type.Music ? "music-thumbnail.png" : bookmark.preview}
 											alt={bookmark.name}
 											className="h-12 rounded-md"
 										/>
