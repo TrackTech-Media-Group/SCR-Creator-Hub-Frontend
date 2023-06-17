@@ -1,10 +1,28 @@
 import { Navbar } from "@creatorhub/navbar";
 import { MusicDurationSelector, MusicTypeSelector, MusicResults } from "@creatorhub/ui";
-import { NextPage } from "next";
+import { getServerSidePropsAdmin } from "@creatorhub/utils";
+import { GetServerSideProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+	const adminResponse = await getServerSidePropsAdmin(ctx);
+	if ("props" in adminResponse) {
+		const { type, duration } = ctx.query;
+		const getSingle = (x: string | string[] | undefined) => (Array.isArray(x) ? x[0] : x);
+
+		(adminResponse.props as Record<string, any>) = {
+			...adminResponse.props,
+			type: getSingle(type) || null,
+			duration: getSingle(duration) || null
+		};
+		return adminResponse;
+	}
+
+	return adminResponse;
+};
 
 interface Props {
 	duration: string | undefined;
@@ -42,11 +60,12 @@ const MusicPage: NextPage<Props> = ({ type: _type, duration: _duration }) => {
 	);
 };
 
-MusicPage.getInitialProps = (ctx) => {
-	const { type, duration } = ctx.query;
-	const getSingle = (x: string | string[] | undefined) => (Array.isArray(x) ? x[0] : x);
+// TODO: remove coments when feature is released
+// MusicPage.getInitialProps = (ctx) => {
+// 	const { type, duration } = ctx.query;
+// 	const getSingle = (x: string | string[] | undefined) => (Array.isArray(x) ? x[0] : x);
 
-	return { type: getSingle(type), duration: getSingle(duration) };
-};
+// 	return { type: getSingle(type), duration: getSingle(duration) };
+// };
 
 export default MusicPage;
