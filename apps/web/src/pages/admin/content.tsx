@@ -5,7 +5,7 @@ import { NextPage } from "next";
 import { FilterBar } from "@creatorhub/ui";
 import { useState } from "react";
 import { AdminNavbar } from "@creatorhub/navbar";
-import { AdminCard } from "@creatorhub/cards";
+import { UserCard } from "@creatorhub/cards";
 import { useSearch } from "@creatorhub/hooks";
 
 export const getServerSideProps = getServerSidePropsAdmin;
@@ -27,11 +27,10 @@ const AdminContentPage: NextPage<Props> = () => {
 				<FilterBar page={page} pages={pages} setPage={setPage} setSearch={setQuery} setType={setType} type={type} />
 				<div className="flex items-center justify-center gap-2 flex-wrap mt-4">
 					{content.map((content) => (
-						<AdminCard
+						<UserCard
 							key={content.id}
 							src={content.preview}
-							alt={content.name}
-							title={content.name}
+							name={content.name}
 							type={content.type}
 							href={`/admin/edit?id=${content.id}`}
 						/>

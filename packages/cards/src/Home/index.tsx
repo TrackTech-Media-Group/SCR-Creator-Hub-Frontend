@@ -1,24 +1,17 @@
 import Link from "next/link";
 import React from "react";
-import { Label, type LabelProps } from "./Label";
-import { ProgressiveImage } from "../Image";
+import { Label } from "./Label";
+import { BaseCard, type CardProps } from "../BaseCard";
+import type { Url } from "next/dist/shared/lib/router/router";
 
-interface BaseProps {
-	src: string;
-	alt: string;
-	href: string;
-}
+type Props = CardProps & { href: Url };
 
-type Props = BaseProps & LabelProps;
-
-export const HomeCard: React.FC<Props> = ({ type, src, alt, href }) => {
+export const HomeCard: React.FC<Props> = (props) => {
 	return (
-		<Link href={href} className="group w-80 rounded-lg overflow-hidden relative cursor-pointer">
-			<div className="absolute grid place-items-center text-title w-full h-full group-hover:bg-black-500 bg-transparent transition-colors">
-				<i className="fa-solid fa-magnifying-glass group-hover:opacity-100 opacity-0 transition-opacity" />
-			</div>
-			<ProgressiveImage loading="lazy" src={src} alt={alt} width={320} height={180} />
-			<Label type={type} />
+		<Link href={props.href}>
+			<BaseCard {...props}>
+				<Label type={props.type} />
+			</BaseCard>
 		</Link>
 	);
 };

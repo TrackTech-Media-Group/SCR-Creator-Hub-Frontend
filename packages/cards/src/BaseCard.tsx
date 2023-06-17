@@ -14,7 +14,7 @@ export interface CardProps {
 }
 
 export const BaseCard: React.FC<React.PropsWithChildren<CardProps>> = ({ src, name, type, children }) => {
-	const imageSrc = type === Type.Music ? "music-thumbnail.png" : src;
+	const imageSrc = type === Type.Music ? "/music-thumbnail.png" : src;
 
 	return (
 		<div className="w-80 rounded-lg overflow-hidden relative cursor-pointer outline outline-transparent hover:outline-white transition-all z-0">
