@@ -1,31 +1,31 @@
 {
-	"video_button": "Show full video",
-	"image_button": "Show full image",
+	"video_button": "Ver vídeo completo",
+	"image_button": "Ver imagem completa",
 	"metadata": {
-		"title": "{{title}} on SCR Creator Hub",
-		"description": "The future of SCR Content Creation"
+		"title": "{{title}} no SCR Creator Hub",
+		"description": "O futuro da criação de conteúdo sobre SCR"
 	},
 	"downloads": {
-		"title": "downloads"
+		"title": "descargas"
 	},
 	"use_cases": {
-		"title": "use cases"
+		"title": "utilizações"
 	},
 	"contribution": {
-		"title": "contribution",
-		"description": "To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the description of your video/post:",
-		"description_title": "description"
+		"title": "contribuições",
+		"description": "Para garantir que o SCR Creators Hub continue correndo, nós gentilmente pedimos que coloque o seguinte texto sob a imagem ou na descrição do seu vídeo:",
+		"description_title": "descrição"
 	},
 	"bookmark": {
 		"marked": {
-			"pending": "Cancelling reservation...",
-			"error": "The train seat does not exist.",
-			"success": "Reservation cancelled."
+			"pending": "Cancelando a reserva...",
+			"error": "O lugar do comboio não existe.",
+			"success": "Reserva cancelada."
 		},
 		"unmarked": {
-			"pending": "Reserving train seat...",
-			"error": "The train seat is already occupied.",
-			"success": "Train seat reserved."
+			"pending": "Reservando o lugar...",
+			"error": "O lugar já está ocupado.",
+			"success": "Lugar reservado."
 		}
 	}
 }
