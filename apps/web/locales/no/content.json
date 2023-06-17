@@ -3,29 +3,29 @@
 	"image_button": "Vis hele bildet",
 	"metadata": {
 		"title": "{{title}} på SCR Creator hub",
-		"description": "The future of SCR Content Creation"
+		"description": "Fremtiden for SCR innholdsoppretting"
 	},
 	"downloads": {
-		"title": "downloads"
+		"title": "nedlastinger"
 	},
 	"use_cases": {
-		"title": "use cases"
+		"title": "brukssaker"
 	},
 	"contribution": {
-		"title": "contribution",
-		"description": "To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the description of your video/post:",
-		"description_title": "description"
+		"title": "bidrag",
+		"description": "For å være sikker på at SCR Creator Hub fortsetter å kjøre så ber vi deg om å legge til følgende tekst under bildet eller i beskrivelsen av din video/innlegg:",
+		"description_title": "beskrivelse"
 	},
 	"bookmark": {
 		"marked": {
-			"pending": "Cancelling reservation...",
-			"error": "The train seat does not exist.",
-			"success": "Reservation cancelled."
+			"pending": "Kansellerer reservasjon...",
+			"error": "Togsetet eksisterer ikke.",
+			"success": "Reservasjon kansellert."
 		},
 		"unmarked": {
-			"pending": "Reserving train seat...",
-			"error": "The train seat is already occupied.",
-			"success": "Train seat reserved."
+			"pending": "Reserverer togsetet...",
+			"error": "Togsetet er allerede opptatt.",
+			"success": "Togsetet er resservert."
 		}
 	}
 }
