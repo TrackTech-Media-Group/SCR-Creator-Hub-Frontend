@@ -11,6 +11,7 @@
 		"/[content]/[id]": ["content", "notfound", "error"],
 		"/tags/[id]": ["search"],
 		"/404": ["notfound"],
-		"/500": ["error", "notfound"]
+		"/500": ["error", "notfound"],
+		"/music": ["music"]
 	}
 }
