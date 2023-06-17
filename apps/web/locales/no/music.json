@@ -1,12 +1,12 @@
 {
-	"title": "Music Discovery",
+	"title": "Musikk oppdagelse",
 	"type": {
-		"title": "What type of video are you making?"
+		"title": "Hva slags video lager du?"
 	},
 	"duration": {
-		"title": "How long should the song be?"
+		"title": "Hvor lang burde sangen være?"
 	},
 	"results": {
-		"title": "Here is some music we found that has a length of {{duration}}, for a {{type}} video."
+		"title": "Her er noe musikk vi har funnet som har en lengde på {{duration}}, for en {{type}} video."
 	}
 }
