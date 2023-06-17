@@ -7,27 +7,27 @@
 		},
 		{
 			"question": "Benötige ich spezielle Berechtigungen, um den Inhalt des Creator Hub zu benutzen?",
-			"answer": "No everyone can use the content that we provide, we only ask you to add a small text to your video/image description."
+			"answer": "Nein, jeder kann den Inhalt den wir bereitstellen nutzen. Wir bitten dich nur, einen kleinen Text zu deiner Video/Bild Beschreibung kopieren."
 		},
 		{
-			"question": "Am I allowed to monetise my posts?",
-			"answer": "Yes you can monetise your posts however you are not allowed to sell the post or our content."
+			"question": "Darf ich meine Videos/Bilder monetarisieren?",
+			"answer": "Ja, Sie können Ihre Videos/Bilder monetarisieren aber Sie sind nicht berechtigt, den Post oder unseren Inhalt zu verkaufen."
 		},
 		{
-			"question": "Do I need an account to get access to Creator Hub?",
-			"answer": "No, you can download content **with and without** an account. If you frequently use our service we recommend creating one so you can bookmark fravourite or frequently used content."
+			"question": "Benötige ich einen Account, um auf Creator Hub zugreifen zu können?",
+			"answer": "Nein, du kannst Inhalte **mit und ohne Account** herunterladen. Wenn Sie unseren Service häufig nutzen, empfehlen wir Ihnen, einen zu erstellen, damit Sie zu ihren beliebtesten oder häufig verwendete Inhalten Lesezeichen setzen können."
 		},
 		{
-			"question": "Why do I need a Discord account to login?",
-			"answer": "We use Discord as our main communication platform and because we do not want to store user credentials of our users we chose to use Discord as our main authentication method."
+			"question": "Warum brauche ich einen Discord Account, um mich anzumelden?",
+			"answer": "Wir verwenden Discord als Haupt-Kommunikationsplattform, und weil wir die Benutzerdaten unserer Nutzer nicht speichern wollen, haben wir Discord als Haupt-Authentifizierungsmethode gewählt."
 		},
 		{
-			"question": "Are we allowed to publish our own content?",
-			"answer": "No, Creator Hub is designed to serve high quality content to make content creation easier. To prevent spam and content that does not meet our requirements we have decided to only allow our admins to post content."
+			"question": "Dürfen wir unsere eigenen Inhalte veröffentlichen?",
+			"answer": "Nein, der Creator Hub ist so konzipiert, dass er qualitativ hochwertige Inhalte bereitstellt, um die Erstellung von Inhalten zu vereinfachen. Um Spam und Inhalte zu verhindern, die nicht unseren Anforderungen entsprechen, haben wir uns entschlossen, unseren Administratoren nur die Möglichkeit zu geben, Inhalte zu veröffentlichen."
 		},
 		{
-			"question": "Is my data safe on your servers?",
-			"answer": "Absolutely, we only store the bare minimum. Everything that is not needed is discarded right after we used it, this is to prevent account hijacking and attacks on our servers. Please refer to our [privacy policy]({{privacy_policy_url}}) for more information."
+			"question": "Sind meine Daten auf Ihren Servern sicher?",
+			"answer": "Selbstverständlich lagern wir nur das absolute Minimum. Alles, was nicht benötigt wird, wird verworfen, nachdem wir es verwendet haben, dies ist, um Kontoentführungen und Angriffe auf unsere Server zu verhindern. Weitere Informationen finden Sie in unserer [Datenschutzrichtlinie]({{privacy_policy_url}})."
 		}
 	]
 }

@@ -35,14 +35,14 @@
 			"description": "Du er i ferd med å gjøre noe farlig, du kan fortsatt gå tilbake!"
 		},
 		"contribution": {
-			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/",
-			"disclaimer": "By using this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
-			"title": "Thanks for downloading an asset!",
-			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
-			"description_title": "description"
+			"contribution_text": "Noe innhold i denne videoen ble gitt av SCR Creator Hub, ett arkivbilde/innhold for SCR Innholdskapere. https://scrcreate.app/",
+			"disclaimer": "Ved å bruke dette innholdet så samtykker du til våre vilkår for bruk, personvernerklæring og innholdstillatelse",
+			"title": "Takk for at du lastet ned innhold!",
+			"description": "Husk å sette passende kreditter i beskrivelsen eller under bildets undertittel.",
+			"description_title": "beskrivelse"
 		}
 	},
 	"errors": {
-		"unknown": "Unknown error, please try again later."
+		"unknown": "En ukjent feil har oppstått. Vennligst prøv igjen senere."
 	}
 }
