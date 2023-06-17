@@ -1,20 +1,20 @@
 {
-	"title": "Frequently Asked Questions",
+	"title": "Ofte Stilte Spørsmål",
 	"items": [
 		{
-			"question": "Where can I use the Creator Hub content?",
-			"answer": "You can use the Creator Hub content everywhere as long as you follow our [Content License]({{license_url}})."
+			"question": "Hvor kan jeg bruke Creator Hub innhold?",
+			"answer": "Du kan bruke Creator Hub innhold overalt så lenge du følger vår [Content License] ({{license_url}})."
 		},
 		{
-			"question": "Do I need special permissions to use the Creator Hub content?",
-			"answer": "No everyone can use the content that we provide, we only ask you to add a small text to your video/image description."
+			"question": "Trenger jeg spesielle tillatelser for å bruke innholdet fra Creator Hub?",
+			"answer": "Nei, alle kan bruke innholdet vi tilbyr, Vi spør kun at du legger til en liten tekst til din video/bildebeskrivelse."
 		},
 		{
-			"question": "Am I allowed to monetise my posts?",
-			"answer": "Yes you can monetise your posts however you are not allowed to sell the post or our content."
+			"question": "Har jeg lov til å tjene penger på mine innlegg?",
+			"answer": "Ja, du kan tjene penger på innleggene dine, men du har ikke lov til å selge innholdet vårt."
 		},
 		{
-			"question": "Do I need an account to get access to Creator Hub?",
+			"question": "Trenger jeg en konto for å få tilgang til Creator Hub?",
 			"answer": "No, you can download content **with and without** an account. If you frequently use our service we recommend creating one so you can bookmark fravourite or frequently used content."
 		},
 		{
