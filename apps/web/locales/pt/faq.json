@@ -1,0 +1,33 @@
+{
+	"title": "Frequently Asked Questions",
+	"items": [
+		{
+			"question": "Where can I use the Creator Hub content?",
+			"answer": "You can use the Creator Hub content everywhere as long as you follow our [Content License]({{license_url}})."
+		},
+		{
+			"question": "Do I need special permissions to use the Creator Hub content?",
+			"answer": "No everyone can use the content that we provide, we only ask you to add a small text to your video/image description."
+		},
+		{
+			"question": "Am I allowed to monetise my posts?",
+			"answer": "Yes you can monetise your posts however you are not allowed to sell the post or our content."
+		},
+		{
+			"question": "Do I need an account to get access to Creator Hub?",
+			"answer": "No, you can download content **with and without** an account. If you frequently use our service we recommend creating one so you can bookmark fravourite or frequently used content."
+		},
+		{
+			"question": "Why do I need a Discord account to login?",
+			"answer": "We use Discord as our main communication platform and because we do not want to store user credentials of our users we chose to use Discord as our main authentication method."
+		},
+		{
+			"question": "Are we allowed to publish our own content?",
+			"answer": "No, Creator Hub is designed to serve high quality content to make content creation easier. To prevent spam and content that does not meet our requirements we have decided to only allow our admins to post content."
+		},
+		{
+			"question": "Is my data safe on your servers?",
+			"answer": "Absolutely, we only store the bare minimum. Everything that is not needed is discarded right after we used it, this is to prevent account hijacking and attacks on our servers. Please refer to our [privacy policy]({{privacy_policy_url}}) for more information."
+		}
+	]
+}
