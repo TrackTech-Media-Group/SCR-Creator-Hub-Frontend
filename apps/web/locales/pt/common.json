@@ -4,12 +4,12 @@
 	},
 	"buttons": {
 		"sign_in": "Entrar",
-		"logout": "logout",
-		"continue": "continue",
-		"understood": "understood"
+		"logout": "terminar sessão",
+		"continue": "continuar",
+		"understood": "percebido"
 	},
 	"page": "página",
-	"copied_clipboard": "Copied to clipboard",
+	"copied_clipboard": "Copiado para a clipboard",
 	"content_types": {
 		"music": "música",
 		"video": "vídeo",
@@ -17,32 +17,32 @@
 		"all": "todos"
 	},
 	"navigation": {
-		"products": "products",
-		"company": "company",
-		"resources": "resources",
-		"profile": "profile",
-		"image": "images",
-		"about": "about us",
-		"image_license": "image license",
-		"support": "support",
-		"tos": "terms of service",
-		"privacy": "privacy policy",
-		"contact": "contact us"
+		"products": "produto",
+		"company": "empresa",
+		"resources": "recursos",
+		"profile": "perfil",
+		"image": "imagens",
+		"about": "quem somos",
+		"image_license": "licença de imagem",
+		"support": "suporte",
+		"tos": "termos de serviço",
+		"privacy": "política de privacidade",
+		"contact": "contacte-nos"
 	},
 	"modals": {
 		"confirm": {
-			"title": "Are you sure?",
-			"description": "You are about to do something dangerous, you can still go back!"
+			"title": "Tem a certeza?",
+			"description": "Está prestes a fazer algo perigoso, ainda pode retroceder!"
 		},
 		"contribution": {
 			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/",
-			"disclaimer": "By using this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
-			"title": "Thanks for downloading an asset!",
-			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
-			"description_title": "description"
+			"disclaimer": "Ao usar este recurso, concorda com os nossos Termos de Serviço, Política de Privacidade e Licença de Conteúdo",
+			"title": "Obrigado por baixar este conteúdo!",
+			"description": "Lembre-se de colocar os créditos apropriados na descrição ou legenda sob a imagem.",
+			"description_title": "descrição"
 		}
 	},
 	"errors": {
-		"unknown": "Unknown error, please try again later."
+		"unknown": "Erro desconhecido, por favor tente novamente mais tarde."
 	}
 }

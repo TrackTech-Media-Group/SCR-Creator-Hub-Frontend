@@ -1,12 +1,12 @@
 {
-	"title": "Music Discovery",
+	"title": "Descobrir música",
 	"type": {
-		"title": "What type of video are you making?"
+		"title": "Que tipo de vídeo está a fazer?"
 	},
 	"duration": {
-		"title": "How long should the song be?"
+		"title": "Quanto tempo deve durar a música?"
 	},
 	"results": {
-		"title": "Here is some music we found that has a length of {{duration}}, for a {{type}} video."
+		"title": "Aqui está alguma música que descobrimos com a duração de {{duration}}, para um vídeo {{type}}."
 	}
 }

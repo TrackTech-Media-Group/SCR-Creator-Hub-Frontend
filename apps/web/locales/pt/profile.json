@@ -12,16 +12,16 @@
 		"description": "Nós valorizamos a sua privacidade, estaremos sempre abertos sobre o conteúdo que guardamos sobre você. Solicite todos os seus dados abaixo ou apague a sua conta se quiser que tudo seja removido.",
 		"disclaimer": "Apagar a sua conta e permanente e não dá para voltar atrás.",
 		"delete_account": "apagar conta",
-		"delete_sessions": "logout of all sessions"
+		"delete_sessions": "sair de todas as sessões"
 	},
 	"delete_account": {
-		"promise": "Shredding train tickets...",
-		"error": "Unable to destroy the train tickets :(",
-		"success": "Tickets destroyed."
+		"promise": "Cortando os bilhetes...",
+		"error": "Não foi possível destruir os bilhetes :(",
+		"success": "Bilhetes destruídos."
 	},
 	"delete_sessions": {
-		"promise": "Shredding train seat...",
-		"error": "Unable to destroy the train seat :(",
-		"success": "Train seat destroyed."
+		"promise": "Cortando os assentos...",
+		"error": "Não foi possível destruir os assentos :(",
+		"success": "Assento destruído."
 	}
 }

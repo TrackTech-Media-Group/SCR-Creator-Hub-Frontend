@@ -1,8 +1,8 @@
 {
-	"video_button": "Show full video",
-	"image_button": "Show full image",
+	"video_button": "Vis hele videoen",
+	"image_button": "Vis hele bildet",
 	"metadata": {
-		"title": "{{title}} on SCR Creator Hub",
+		"title": "{{title}} på SCR Creator hub",
 		"description": "The future of SCR Content Creation"
 	},
 	"downloads": {
