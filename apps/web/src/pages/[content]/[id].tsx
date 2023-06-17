@@ -9,9 +9,11 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import NotFoundPage from "../404";
+import { useEffect } from "react";
 
-export const getServerSideProps: GetServerSideProps<{ csrf: string; id: string; type: Type }> = async (ctx) => {
+export const getServerSideProps: GetServerSideProps<{ csrf: string; id: string; type: Type; download: boolean }> = async (ctx) => {
 	const type = ctx.params!.content as Type;
+	const download = ctx.query.download === "true" ? true : false;
 	if (!CONTENT_TYPES.includes(type)) return { notFound: true };
 
 	const csrfToken = await getCsrfToken();
@@ -21,16 +23,24 @@ export const getServerSideProps: GetServerSideProps<{ csrf: string; id: string; 
 	});
 
 	return {
-		props: { csrf: csrfToken.state, type, id: ctx.params!.id as string }
+		props: { csrf: csrfToken.state, type, id: ctx.params!.id as string, download }
 	};
 };
 
-const ContentDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ csrf, id, type }) => {
+const ContentDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ csrf, id, type, download }) => {
 	const { attributionReminder, setAttributionReminder, showFull, setShowFull, marked, setMarked, loading, content } = useContent(id);
 
 	const router = useRouter();
 	const { t } = useTranslation();
 	const markedIsBoolean = typeof marked === "boolean";
+
+	useEffect(() => {
+		if (download && content) {
+			setAttributionReminder(true);
+			window.open(`${content.downloads[0].url}?download=true`, "_blank");
+			void router.replace(router.asPath.replace("download=true", ""));
+		}
+	}, [download, content]);
 
 	if (!loading && !content) return <NotFoundPage />;
 	if (!loading && content && content.type !== type) {
