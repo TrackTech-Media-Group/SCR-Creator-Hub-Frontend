@@ -12,6 +12,7 @@
 		"/tags/[id]": ["search"],
 		"/404": ["notfound"],
 		"/500": ["error", "notfound"],
-		"/music": ["music"]
+		"/music": ["music"],
+		"/support/faq": ["faq"]
 	}
 }

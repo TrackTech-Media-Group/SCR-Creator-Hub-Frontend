@@ -67,9 +67,16 @@ export interface ContentCreateItem {
 	downloads: Omit<Download, "contentId" | "id">[];
 }
 
+export interface FaqItem {
+	question: string;
+	answer: string;
+}
+
 export const SearchTypes = ["music", "video", "image", "all"] as const;
 export const CONTENT_TYPES = ["music", "video", "image"] as const;
 
 export const LanguageExceptionFlags: Record<string, string> = {
 	en: "https://flagcdn.com/gb.svg"
 };
+
+export const FaqQuery: Record<string, any> = { license_url: "/license", privacy_policy_url: "/privacy" };
