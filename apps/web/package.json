@@ -48,11 +48,11 @@
 		"@babel/core": "^7.22.5",
 		"@types/events": "^3.0.0",
 		"@types/ms": "^0.7.31",
-		"@types/node": "^18.16.17",
+		"@types/node": "^18.16.18",
 		"@types/nprogress": "^0.2.0",
-		"@types/react": "^18.2.11",
-		"@types/react-dom": "^18.2.4",
-		"eslint": "8.42.0",
+		"@types/react": "^18.2.12",
+		"@types/react-dom": "^18.2.5",
+		"eslint": "8.43.0",
 		"next-translate-plugin": "^2.0.5",
 		"typescript": "^5.1.3"
 	}
