@@ -15,8 +15,8 @@
 		"typescript": "^5.1.3"
 	},
 	"dependencies": {
-		"cookies-next": "^2.1.1",
+		"cookies-next": "^2.1.2",
 		"events": "3.3.0",
-		"next": "13.4.5"
+		"next": "13.4.6"
 	}
 }
