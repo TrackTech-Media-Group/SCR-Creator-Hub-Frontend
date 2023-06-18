@@ -1,33 +1,33 @@
 {
-	"title": "Frequently Asked Questions",
+	"title": "Ofte Stilte Spørsmål",
 	"items": [
 		{
-			"question": "Where can I use the Creator Hub content?",
-			"answer": "You can use the Creator Hub content everywhere as long as you follow our [Content License]({{license_url}})."
+			"question": "Hvor kan jeg bruke Creator Hub innhold?",
+			"answer": "Du kan bruke Creator Hub innhold overalt så lenge du følger vår [Content License] ({{license_url}})."
 		},
 		{
-			"question": "Do I need special permissions to use the Creator Hub content?",
-			"answer": "No everyone can use the content that we provide, we only ask you to add a small text to your video/image description."
+			"question": "Trenger jeg spesielle tillatelser for å bruke innholdet fra Creator Hub?",
+			"answer": "Nei, alle kan bruke innholdet vi tilbyr, Vi spør kun at du legger til en liten tekst til din video/bildebeskrivelse."
 		},
 		{
-			"question": "Am I allowed to monetise my posts?",
-			"answer": "Yes you can monetise your posts however you are not allowed to sell the post or our content."
+			"question": "Har jeg lov til å tjene penger på mine innlegg?",
+			"answer": "Ja, du kan tjene penger på innleggene dine, men du har ikke lov til å selge innholdet vårt."
 		},
 		{
-			"question": "Do I need an account to get access to Creator Hub?",
-			"answer": "No, you can download content **with and without** an account. If you frequently use our service we recommend creating one so you can bookmark fravourite or frequently used content."
+			"question": "Trenger jeg en konto for å få tilgang til Creator Hub?",
+			"answer": "Nei, du kan laste ned innhold **med og uten** en konto. Hvis du ofte bruker vår tjeneste anbefaler vi å opprette en slik at du kan legge til bokmerk favoritt eller ofte brukt innhold."
 		},
 		{
-			"question": "Why do I need a Discord account to login?",
-			"answer": "We use Discord as our main communication platform and because we do not want to store user credentials of our users we chose to use Discord as our main authentication method."
+			"question": "Hvorfor trenger jeg en Discord konto for å logge inn?",
+			"answer": "Vi bruker Discord som vår viktigste kommunikasjonsplattform og fordi vi vil ikke lagre brukerlegitimasjon hos brukerne våre, vi valgte å bruke Discord som hovedautentiseringsmetode."
 		},
 		{
-			"question": "Are we allowed to publish our own content?",
-			"answer": "No, Creator Hub is designed to serve high quality content to make content creation easier. To prevent spam and content that does not meet our requirements we have decided to only allow our admins to post content."
+			"question": "Har vi lov til å publisere vårt eget innhold?",
+			"answer": "Nei, Creator Hub er designet for å holde innhold av høy kvalitet for å gjøre innholdskapelse enklere. For å forhindre spam og innhold som ikke oppfyller våre krav, har vi valgt å bare tillate at våre administratorer legger ut innhold."
 		},
 		{
-			"question": "Is my data safe on your servers?",
-			"answer": "Absolutely, we only store the bare minimum. Everything that is not needed is discarded right after we used it, this is to prevent account hijacking and attacks on our servers. Please refer to our [privacy policy]({{privacy_policy_url}}) for more information."
+			"question": "Er min data trygg på deres servere?",
+			"answer": "Absolutt, vi lagrer bare det som er bare-minimum. Alt annet som ikke trengs er forkastet etter at vi har brukt den, dette er for å hindre kontopenging og angrep på serverne våre. Vennligst se våre [retningslinjer for personvern] ({{privacy_policy_url}}) for mer informasjon."
 		}
 	]
 }
