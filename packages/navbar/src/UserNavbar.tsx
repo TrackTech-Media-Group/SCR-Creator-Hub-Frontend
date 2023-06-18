@@ -17,9 +17,12 @@ export const UserNavbar: React.FC = () => {
 				<TransparentButton type="link" href="/video" className="max-sm:hidden capitalize">
 					{t("common:content_types.video")}
 				</TransparentButton>
-				<TransparentButton type="link" href="/music" className="max-sm:hidden capitalize">
-					{t("common:content_types.music")}
+				<TransparentButton type="button" className="max-sm:hidden capitalize rotate-12 bg-red-500 hover:!text-white">
+					Coming soon
 				</TransparentButton>
+				{/* <TransparentButton type="link" href="/music" className="max-sm:hidden capitalize">
+					{t("common:content_types.music")}
+				</TransparentButton> */}
 				<div className="relative">
 					<WhiteButton type="button" className="rounded-full h-fit" onClick={toggleMenu}>
 						<i className="fa-solid fa-user" />
@@ -42,14 +45,14 @@ export const UserNavbar: React.FC = () => {
 							>
 								{t("common:content_types.video")}
 							</TransparentButton>
-							<TransparentButton
+							{/* <TransparentButton
 								type="link"
 								href="/music"
 								className="max-sm:block sm:hidden !py-0 capitalize"
 								onClick={() => setMenu(false)}
 							>
 								{t("common:content_types.music")}
-							</TransparentButton>
+							</TransparentButton> */}
 						</div>
 						<div className="bg-gray-700 w-full h-[2px] my-2 max-sm:block sm:hidden" />
 						<div className="flex flex-col gap-y-0">
