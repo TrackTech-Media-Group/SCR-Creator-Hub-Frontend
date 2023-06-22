@@ -530,7 +530,7 @@ __metadata:
     "@types/react": ^18.2.12
     "@types/react-dom": ^18.2.5
     eslint: ^8.43.0
-    next: 13.4.6
+    next: 13.4.7
     react: ^18.2.0
     typescript: ^5.1.3
   languageName: unknown
@@ -546,8 +546,8 @@ __metadata:
     "@types/react-dom": ^18.2.5
     eslint: ^8.43.0
     framer-motion: 10.12.16
-    next: ^13.4.6
-    next-translate: 2.0.6
+    next: ^13.4.7
+    next-translate: 2.3.1
     react: ^18.2.0
     typescript: ^5.1.3
   languageName: unknown
@@ -562,7 +562,7 @@ __metadata:
     "@types/react": ^18.2.12
     "@types/react-dom": ^18.2.5
     eslint: ^8.43.0
-    next: ^13.4.6
+    next: ^13.4.7
     react: ^18.2.0
     react-cookie: 4.1.1
     typescript: ^5.1.3
@@ -593,7 +593,7 @@ __metadata:
     axios: ^1.4.0
     cookies-next: 2.1.2
     eslint: 8.43.0
-    next: 13.4.6
+    next: 13.4.7
     react: ^18.2.0
     react-cookie: 4.1.1
     typescript: ^5.1.3
@@ -609,7 +609,7 @@ __metadata:
     "@types/react-dom": ^18.2.5
     eslint: ^8.43.0
     framer-motion: ^10.12.16
-    next: 13.4.6
+    next: 13.4.7
     react: ^18.2.0
     typescript: ^5.1.3
   languageName: unknown
@@ -627,8 +627,8 @@ __metadata:
     cookies-next: ^2.1.2
     eslint: ^8.43.0
     framer-motion: ^10.12.16
-    next: 13.4.6
-    next-translate: 2.0.6
+    next: 13.4.7
+    next-translate: 2.3.1
     react: ^18.2.0
     typescript: ^5.1.3
   languageName: unknown
@@ -666,8 +666,8 @@ __metadata:
     eslint: ^8.43.0
     formik: 2.4.2
     framer-motion: ^10.12.16
-    next: 13.4.6
-    next-translate: ^2.0.6
+    next: 13.4.7
+    next-translate: ^2.3.1
     react: ^18.2.0
     react-dropzone: ^14.2.3
     react-spinners: ^0.13.8
@@ -686,7 +686,7 @@ __metadata:
     cookies-next: ^2.1.2
     eslint: ^8.43.0
     events: 3.3.0
-    next: 13.4.6
+    next: 13.4.7
     typescript: ^5.1.3
   languageName: unknown
   linkType: soft
@@ -1020,10 +1020,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/env@npm:13.4.6"
-  checksum: 65d6cfb68adf5067f5e42f339e46908aca5a14fbc78f1e42e0becec1617da108cf68621c98f5a2c2e18da5a7955e355e98d5c4a7894222401bb374b2ca1c08f4
+"@next/env@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/env@npm:13.4.7"
+  checksum: 5a2bba68fb8c80c87324025f10af7fe7319efdb15777247bfa8ff58e61bcc19b150bce4068396351e6c6df3344294cc06c03a2fb1bb0330659d230830a202c53
   languageName: node
   linkType: hard
 
@@ -1036,65 +1036,65 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-darwin-arm64@npm:13.4.6"
+"@next/swc-darwin-arm64@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-darwin-arm64@npm:13.4.7"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-darwin-x64@npm:13.4.6"
+"@next/swc-darwin-x64@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-darwin-x64@npm:13.4.7"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-linux-arm64-gnu@npm:13.4.6"
+"@next/swc-linux-arm64-gnu@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-linux-arm64-gnu@npm:13.4.7"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-linux-arm64-musl@npm:13.4.6"
+"@next/swc-linux-arm64-musl@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-linux-arm64-musl@npm:13.4.7"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-linux-x64-gnu@npm:13.4.6"
+"@next/swc-linux-x64-gnu@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-linux-x64-gnu@npm:13.4.7"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-linux-x64-musl@npm:13.4.6"
+"@next/swc-linux-x64-musl@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-linux-x64-musl@npm:13.4.7"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-win32-arm64-msvc@npm:13.4.6"
+"@next/swc-win32-arm64-msvc@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-win32-arm64-msvc@npm:13.4.7"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-win32-ia32-msvc@npm:13.4.6"
+"@next/swc-win32-ia32-msvc@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-win32-ia32-msvc@npm:13.4.7"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:13.4.6":
-  version: 13.4.6
-  resolution: "@next/swc-win32-x64-msvc@npm:13.4.6"
+"@next/swc-win32-x64-msvc@npm:13.4.7":
+  version: 13.4.7
+  resolution: "@next/swc-win32-x64-msvc@npm:13.4.7"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -6076,14 +6076,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-seo@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "next-seo@npm:6.0.0"
+"next-seo@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "next-seo@npm:6.1.0"
   peerDependencies:
     next: ^8.1.1-canary.54 || >=9.0.0
     react: ">=16.0.0"
     react-dom: ">=16.0.0"
-  checksum: aa986b3731386bc91408df6bca09a9edc0cdd8a7730bcdc331f283ab50803a6d60047b685eeec4b11bde1660dbb792e3737e81ef05a65682323d0d07fa9edd85
+  checksum: 5909d34d12dd8ac641d7fa96b6fe562470e1539f582c0a3f2b5e35f16b9b0e402d9f909a84393f80989bd96c034118712a5aecb520e5a45662e02fa23db7b656
   languageName: node
   linkType: hard
 
@@ -6115,30 +6115,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-translate@npm:2.0.6, next-translate@npm:^2.0.6":
-  version: 2.0.6
-  resolution: "next-translate@npm:2.0.6"
+"next-translate@npm:2.3.1, next-translate@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "next-translate@npm:2.3.1"
   peerDependencies:
-    next: ">= 10.0.0"
-    react: ">= 16.8.0"
-  checksum: f3995ce8210d66efe27485b15fb035f3cc774266bc9e5bddf83acd94fca29468cb9db6dab511893c1011f93c44797d43219022bfcc90a8e483b135f530d22f14
+    next: ">= 13.2.5"
+    react: ">= 18.0.0"
+  checksum: a02bd1cf83c445d012dd8598c2419ebd1e87f733a1c62030dda47ef3dbce2c1d76a250144730012cf827d18ec9fa87b2f43837cd92830b73a8b489ad617161e6
   languageName: node
   linkType: hard
 
-"next@npm:13.4.6, next@npm:^13.4.6":
-  version: 13.4.6
-  resolution: "next@npm:13.4.6"
+"next@npm:13.4.7, next@npm:^13.4.7":
+  version: 13.4.7
+  resolution: "next@npm:13.4.7"
   dependencies:
-    "@next/env": 13.4.6
-    "@next/swc-darwin-arm64": 13.4.6
-    "@next/swc-darwin-x64": 13.4.6
-    "@next/swc-linux-arm64-gnu": 13.4.6
-    "@next/swc-linux-arm64-musl": 13.4.6
-    "@next/swc-linux-x64-gnu": 13.4.6
-    "@next/swc-linux-x64-musl": 13.4.6
-    "@next/swc-win32-arm64-msvc": 13.4.6
-    "@next/swc-win32-ia32-msvc": 13.4.6
-    "@next/swc-win32-x64-msvc": 13.4.6
+    "@next/env": 13.4.7
+    "@next/swc-darwin-arm64": 13.4.7
+    "@next/swc-darwin-x64": 13.4.7
+    "@next/swc-linux-arm64-gnu": 13.4.7
+    "@next/swc-linux-arm64-musl": 13.4.7
+    "@next/swc-linux-x64-gnu": 13.4.7
+    "@next/swc-linux-x64-musl": 13.4.7
+    "@next/swc-win32-arm64-msvc": 13.4.7
+    "@next/swc-win32-ia32-msvc": 13.4.7
+    "@next/swc-win32-x64-msvc": 13.4.7
     "@swc/helpers": 0.5.1
     busboy: 1.6.0
     caniuse-lite: ^1.0.30001406
@@ -6180,7 +6180,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 1d28d4be184b1311c42f01ce12d3636e3439332aebcf211b0b554164966f053a609db529d7194824b68537256625767c5bc9f7655a9d42af72b8c7ce4c0d4104
+  checksum: 76026a5def68c00064bc4860cd15a5f292220ccc73ff24245b3658a90a46f66c290d3543a59e1cb91310145141d4ad1238d7cf652f41f47cdf434ab8705af7d1
   languageName: node
   linkType: hard
 
@@ -8695,11 +8695,11 @@ __metadata:
     formik: 2.4.2
     framer-motion: ^10.12.16
     ms: ^2.1.3
-    next: 13.4.6
+    next: 13.4.7
     next-password-protect: ^1.8.0
-    next-seo: ^6.0.0
+    next-seo: ^6.1.0
     next-sitemap: ^4.1.3
-    next-translate: ^2.0.6
+    next-translate: ^2.3.1
     next-translate-plugin: ^2.0.5
     nprogress: ^0.2.0
     react: ^18.2.0
