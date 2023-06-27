@@ -36,12 +36,16 @@ export const useSearch = ({ tag, type, query }: Props) => {
 };
 
 export const parseSearchQuery = (query: ParsedUrlQuery) => {
-	const { q: _q, tag: _tag, type: __type } = query;
+	const { q: _q, tag: _tag, type: __type, content: __content } = query;
 	const searchQuery = typeof _q === "string" ? _q : Array.isArray(_q) ? _q[0] : "";
 	const tag = typeof _tag === "string" ? _tag : Array.isArray(_tag) ? _tag[0] : "";
 
 	const _type = typeof __type === "string" ? __type : Array.isArray(__type) ? __type[0] : "";
-	const type = ["image", "video", "music", "all"].includes(_type) ? _type : "all";
+	let type = ["image", "video", "music", "all"].includes(_type) ? _type : "all";
+
+	const _content = typeof __content === "string" ? __content : Array.isArray(__content) ? __content[0] : "";
+	const content = ["image", "video", "music"].includes(_content) ? _content : undefined;
+	if (content) type = content;
 
 	return { query: searchQuery, tag, type: type as Type };
 };
