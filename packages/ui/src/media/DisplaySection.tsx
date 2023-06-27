@@ -23,7 +23,7 @@ export const DisplaySection: React.FC<Props> = ({ tag, id, type }) => {
 			</div>
 			<div className="flex flex-wrap gap-4 justify-center">
 				{contentList.map((content) => (
-					<MediaCard key={content.id} type={type} name={content.name} src={content.preview} href={`/${type}/${content.id}`} />
+					<MediaCard key={content.id} type={type} name={content.name} src={content.preview} href={`/${content.type}/${content.id}`} />
 				))}
 			</div>
 		</div>

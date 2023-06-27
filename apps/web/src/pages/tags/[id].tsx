@@ -25,7 +25,7 @@ const TagsHome: NextPage<Props> = ({ tag, type: _type }) => {
 			<NextSeo title={tag} />
 			<div className="flex flex-wrap gap-2 justify-center pb-8">
 				{content.map((item) => (
-					<MediaCard key={item.id} type={type} src={item.preview} href={`/${type}/${item.id}`} name={item.name} />
+					<MediaCard key={item.id} type={type} src={item.preview} href={`/${item.type}/${item.id}`} name={item.name} />
 				))}
 			</div>
 		</TagLayout>
