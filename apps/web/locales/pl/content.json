@@ -1,31 +1,31 @@
 {
-	"video_button": "Show full video",
-	"image_button": "Show full image",
+	"video_button": "Pokaż cały wideo",
+	"image_button": "Pokaż cały obraz",
 	"metadata": {
-		"title": "{{title}} on SCR Creator Hub",
-		"description": "The future of SCR Content Creation"
+		"title": "{{title}} na Centrum Twórcy SCR",
+		"description": "Przyszłość tworzenia treści SCR"
 	},
 	"downloads": {
-		"title": "downloads"
+		"title": "pobieranie"
 	},
 	"use_cases": {
-		"title": "use cases"
+		"title": "przykłady wykorzystania"
 	},
 	"contribution": {
-		"title": "contribution",
-		"description": "To make sure that SCR Creators Hub keeps running, we kindly ask you to put the following text under the image or in the description of your video/post:",
-		"description_title": "description"
+		"title": "wkład",
+		"description": "Aby upewnić się, że Centrum Tworzenia SCR nadal działa, prosimy o wkładanie tekstu pod obrazem lub w opisie filmu/posta:",
+		"description_title": "opis"
 	},
 	"bookmark": {
 		"marked": {
-			"pending": "Cancelling reservation...",
-			"error": "The train seat does not exist.",
-			"success": "Reservation cancelled."
+			"pending": "Anulowanie rezerwacji...",
+			"error": "Siedzenie na pociąg nie istnieje.",
+			"success": "Rezerwacja anulowana."
 		},
 		"unmarked": {
-			"pending": "Reserving train seat...",
-			"error": "The train seat is already occupied.",
-			"success": "Train seat reserved."
+			"pending": "Rezerwowanie miejsca dla pociągu...",
+			"error": "Siedzenie jest już zajęty.",
+			"success": "Siedzenie pociągu zarezerwowane."
 		}
 	}
 }
