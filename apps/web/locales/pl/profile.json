@@ -2,26 +2,26 @@
 	"welcome": "Witaj z powrotem, {{user}}",
 	"description": "Zmień ustawienia, kontynuuj tam, gdzie opuściłeś lub odwiedź tutaj jeden z zakładek.",
 	"recent": {
-		"title": "recently viewed"
+		"title": "ostatnio odwiedzane"
 	},
 	"bookmarks": {
-		"title": "bookmarks"
+		"title": "zakładki"
 	},
 	"settings": {
-		"title": "settings",
-		"description": "We value your privacy, we will always be open about the content we store about you. Request all of your data below or delete your account if you want everything removed.",
-		"disclaimer": "Deleting your account is a permanent action and cannot be undone.",
-		"delete_account": "delete account",
-		"delete_sessions": "logout of all sessions"
+		"title": "ustawienia",
+		"description": "Cenimy Twoją prywatność, zawsze będziemy otwarci na treści, które przechowujemy o Tobie. Poproś o wszystkie dane poniżej lub usuń swoje konto, jeśli chcesz, aby wszystko zostało usunięte.",
+		"disclaimer": "Usunięcie konta jest akcją stałą i nie może być cofnięte.",
+		"delete_account": "usuń konto",
+		"delete_sessions": "wyloguj się ze wszystkich sesji"
 	},
 	"delete_account": {
-		"promise": "Shredding train tickets...",
-		"error": "Unable to destroy the train tickets :(",
-		"success": "Tickets destroyed."
+		"promise": "Rozbijanie biletów pociągów...",
+		"error": "Nie można zniszczyć biletów pociągu :(",
+		"success": "Zgłoszenia zniszczone."
 	},
 	"delete_sessions": {
-		"promise": "Shredding train seat...",
-		"error": "Unable to destroy the train seat :(",
-		"success": "Train seat destroyed."
+		"promise": "Rozbijanie miejsca w pociągu...",
+		"error": "Nie można zniszczyć siedzenia pociągu :(",
+		"success": "Siedzenie pociągu zniszczone."
 	}
 }
