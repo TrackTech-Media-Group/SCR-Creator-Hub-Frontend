@@ -1,6 +1,6 @@
 {
-	"welcome": "Welcome back {{user}}",
-	"description": "Change your settings, continue where you left off or visit one of your bookmarked items here.",
+	"welcome": "Witaj z powrotem, {{user}}",
+	"description": "Zmień ustawienia, kontynuuj tam, gdzie opuściłeś lub odwiedź tutaj jeden z zakładek.",
 	"recent": {
 		"title": "recently viewed"
 	},
