@@ -1,6 +1,6 @@
 {
-	"title": "404 - page not found",
-	"notfound": "Not found.",
-	"button": "Take me back",
-	"status": "Servers down?"
+	"title": "404 - strona nieznaleziona",
+	"notfound": "Nie znaleziono.",
+	"button": "Powrót",
+	"status": "Serwery w dół?"
 }

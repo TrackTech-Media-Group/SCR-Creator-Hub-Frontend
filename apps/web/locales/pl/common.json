@@ -1,48 +1,48 @@
 {
 	"branding": {
-		"slogan": "The future of SCR Content Creation"
+		"slogan": "Przyszłość tworzenia treści SCR"
 	},
 	"buttons": {
-		"sign_in": "Sign in",
-		"logout": "logout",
-		"continue": "continue",
-		"understood": "understood"
+		"sign_in": "Zaloguj się",
+		"logout": "wyloguj się",
+		"continue": "kontynuuj",
+		"understood": "rozumiem"
 	},
-	"page": "page",
-	"copied_clipboard": "Copied to clipboard",
+	"page": "strona",
+	"copied_clipboard": "Skopiowano do schowka",
 	"content_types": {
-		"music": "music",
-		"video": "video",
-		"image": "image",
-		"all": "all"
+		"music": "muzyka",
+		"video": "wideo",
+		"image": "obraz",
+		"all": "wszystko"
 	},
 	"navigation": {
-		"products": "products",
-		"company": "company",
-		"resources": "resources",
-		"profile": "profile",
-		"image": "images",
-		"about": "about us",
-		"image_license": "image license",
-		"support": "support",
-		"tos": "terms of service",
-		"privacy": "privacy policy",
-		"contact": "contact us"
+		"products": "produkty",
+		"company": "firma",
+		"resources": "zasoby",
+		"profile": "profil",
+		"image": "obrazy",
+		"about": "o nas",
+		"image_license": "licencja obrazu",
+		"support": "pomoc",
+		"tos": "zasady i regulamin",
+		"privacy": "polityka prywatności",
+		"contact": "skontaktuj się z nami"
 	},
 	"modals": {
 		"confirm": {
-			"title": "Are you sure?",
-			"description": "You are about to do something dangerous, you can still go back!"
+			"title": "Jesteś pewny?",
+			"description": "Zamierzasz zrobić coś niebezpiecznego, nadal możesz wrócić!"
 		},
 		"contribution": {
 			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/",
-			"disclaimer": "By using this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
-			"title": "Thanks for downloading an asset!",
-			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
-			"description_title": "description"
+			"disclaimer": "Korzystając z tego zasobu, zgadzasz się na nasze Warunki Świadczenia Usług, Politykę Prywatności i Licencję Treści",
+			"title": "Dziękujemy za pobranie zasobu!",
+			"description": "Pamiętaj, aby umieścić odpowiednie punkty w opisie lub napisach pod obrazem.",
+			"description_title": "opis"
 		}
 	},
 	"errors": {
-		"unknown": "Unknown error, please try again later."
+		"unknown": "Nieznany błąd. Spróbuj ponownie."
 	}
 }
