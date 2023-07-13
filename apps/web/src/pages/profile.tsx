@@ -87,7 +87,7 @@ const Profile: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> 
 			<ConfirmModal isOpen={deleteSessions} cancel={() => setDeleteSessions(false)} confirm={destroySessionsFn} />
 			<ConfirmModal isOpen={deleteUser} cancel={() => setDeleteUser(false)} confirm={destroyUserFn} />
 			<UserNavbar />
-			<div className="px-32 pt-32 flex flex-col gap-16 max-lg:px-16 max-md:px-8 max-sm:px-4 pb-8">
+			<div className="px-32 pt-32 flex flex-col gap-16 max-lg:px-16 max-md:px-8 max-sm:px-4 pb-8 bg-[url(/backgrounds/profile.svg)] bg-cover min-h-screen">
 				<div className="pt-12">
 					<h1 className="text-3xl">{t("profile:welcome", { user: user?.username })}</h1>
 					<p className="text-base">{t("profile:description")}</p>
