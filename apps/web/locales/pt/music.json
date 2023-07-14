@@ -1,7 +1,7 @@
 {
 	"title": "Descobrir música",
 	"type": {
-		"title": "Que tipo de vídeo está a fazer?"
+		"title": "What genre of music are you looking for?"
 	},
 	"duration": {
 		"title": "Quanto tempo deve durar a música?"
