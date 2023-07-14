@@ -15,7 +15,7 @@ interface Props {
 }
 
 const AdminContentPage: NextPage<Props> = ({ csrf }) => {
-	const tags = useTags();
+	const tags = useTags("force");
 	const [details, setDetails] = useState<CreateDetails>();
 	const [downloads, setDownloads] = useState<DownloadDetails[]>([]);
 	const [isUploading, setIsUploading] = useState(false);

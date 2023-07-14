@@ -94,7 +94,7 @@ const EditComponent: React.FC<EditComponentProps> = ({
 
 const AdminEditPage: NextPage<Props> = ({ id, csrf }) => {
 	const { content, loading, refetch } = useContent(id);
-	const tags = useTags();
+	const tags = useTags("force");
 	const router = useRouter();
 
 	const [isUploading, setIsUploading] = useState(false);
