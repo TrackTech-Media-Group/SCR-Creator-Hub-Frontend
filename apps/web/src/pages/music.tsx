@@ -1,6 +1,5 @@
 import { Navbar } from "@creatorhub/navbar";
 import { MusicDurationSelector, MusicTypeSelector, MusicResults } from "@creatorhub/ui";
-import { getServerSidePropsAdmin } from "@creatorhub/utils";
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import useTranslation from "next-translate/useTranslation";
