@@ -6,7 +6,7 @@ import { Form, Formik } from "formik";
 import React from "react";
 import { array, object, string } from "yup";
 
-export type CreateDetails = Omit<Content, "downloads" | "id" | "preview">;
+export type CreateDetails = Omit<Content, "downloads" | "id" | "preview"> & { preview?: string };
 
 interface Props {
 	tags: Tag[];
@@ -24,6 +24,7 @@ export const ContentDetailsForm: React.FC<Props> = ({ setDetails, tags, details 
 
 	const validationSchema = object({
 		name: string().required("Name is required"),
+		preview: string().url().optional(),
 		tags: array(
 			object({
 				name: string().required(),
@@ -53,6 +54,18 @@ export const ContentDetailsForm: React.FC<Props> = ({ setDetails, tags, details 
 								onChange={formik.handleChange}
 							/>
 							{formik.errors.name && <p className="text-red-500">* {formik.errors.name}</p>}
+						</div>
+						<div>
+							<h2 className="text-xl font-medium mb-2">Preview (optional)</h2>
+							<Input
+								id="preview"
+								type="primary"
+								placeholder="Url to a thumbnail/preview"
+								className="w-full text-base"
+								value={formik.values.preview}
+								onChange={formik.handleChange}
+							/>
+							{formik.errors.preview && <p className="text-red-500">* {formik.errors.preview}</p>}
 						</div>
 						<div>
 							<h2 className="text-xl font-medium mb-2">Type</h2>

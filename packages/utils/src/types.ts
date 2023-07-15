@@ -64,6 +64,7 @@ export interface ContentCreateItem {
 	type: Type;
 
 	useCases: string[];
+	preview?: string;
 	downloads: Omit<Download, "contentId" | "id">[];
 }
 
