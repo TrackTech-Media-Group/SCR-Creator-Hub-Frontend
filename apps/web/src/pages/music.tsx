@@ -42,11 +42,10 @@ const MusicPage: NextPage<Props> = ({ type: _type, duration: _duration }) => {
 	);
 };
 
- MusicPage.getInitialProps = (ctx) => {
- 	const { type, duration } = ctx.query;
- 	const getSingle = (x: string | string[] | undefined) => (Array.isArray(x) ? x[0] : x);
-
- 	return { type: getSingle(type), duration: getSingle(duration) };
+MusicPage.getInitialProps = (ctx) => {
+ const { type, duration } = ctx.query;
+ const getSingle = (x: string | string[] | undefined) => (Array.isArray(x) ? x[0] : x);
+ return { type: getSingle(type), duration: getSingle(duration) };
 };
 
 export default MusicPage;
