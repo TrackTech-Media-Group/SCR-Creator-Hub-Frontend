@@ -166,7 +166,7 @@ const AdminEditPage: NextPage<Props> = ({ id, csrf }) => {
 						details={content}
 						downloads={content.downloads.map((download) => ({
 							name: download.name,
-							url: download.url,
+							url: download.url.replace("mpga", "mp3"),
 							isPreview: false
 						}))}
 						setDetails={onDetailsChange}

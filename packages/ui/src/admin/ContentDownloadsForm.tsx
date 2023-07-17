@@ -54,7 +54,7 @@ const createAcceptObject = (type: Type): Record<string, string[]> => {
 const getFiles = (downloads: DownloadDetails[] | undefined): Record<string, PartialFile | File> => {
 	if (!downloads) return {};
 
-	const files = downloads.map((download, idx) => ({ [idx]: { name: download.url } }));
+	const files = downloads.map((download, idx) => ({ [idx]: { name: download.url.replace("mpga", "mp3") } }));
 	return files.reduce((a, b) => ({ ...a, ...b })) as Record<string, PartialFile | File>;
 };
 
