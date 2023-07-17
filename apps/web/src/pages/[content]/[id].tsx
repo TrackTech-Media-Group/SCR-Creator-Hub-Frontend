@@ -135,7 +135,7 @@ const ContentDetails: NextPage<InferGetServerSidePropsType<typeof getServerSideP
 									type="link"
 									target="_blank"
 									onClick={() => setAttributionReminder(true)}
-									href={`${download.url}?download=true`}
+									href={`${download.url.replace("mpga", "mp3")}?download=true`}
 									className="border-white-400 border hover:border-white-800"
 								>
 									{download.name}
