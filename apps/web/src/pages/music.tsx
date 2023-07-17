@@ -28,7 +28,7 @@ const MusicPage: NextPage<Props> = ({ type: _type, duration: _duration }) => {
 	};
 
 	return (
-		<main className="min-h-screen grid place-items-center">
+		<main className="min-h-screen grid place-items-center bg-[url(/backgrounds/profile.svg)] bg-cover min-h-screen">
 			<Navbar />
 			<NextSeo title={t("music:title")} />
 			{duration ? (
