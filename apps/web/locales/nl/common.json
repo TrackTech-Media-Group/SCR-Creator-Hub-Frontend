@@ -6,7 +6,8 @@
 		"sign_in": "Log in",
 		"logout": "afmelden",
 		"continue": "doorgaan",
-		"understood": "begrepen"
+		"understood": "begrepen",
+		"back": "Go back"
 	},
 	"page": "pagina",
 	"copied_clipboard": "Gekopieerd naar het klembord",
