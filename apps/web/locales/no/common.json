@@ -6,7 +6,8 @@
 		"sign_in": "Logg inn",
 		"logout": "logg ut",
 		"continue": "fortsett",
-		"understood": "forstått"
+		"understood": "forstått",
+		"back": "Go back"
 	},
 	"page": "side",
 	"copied_clipboard": "Kopiert til utklippstavle",
