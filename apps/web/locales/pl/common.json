@@ -6,7 +6,8 @@
 		"sign_in": "Zaloguj się",
 		"logout": "wyloguj się",
 		"continue": "kontynuuj",
-		"understood": "rozumiem"
+		"understood": "rozumiem",
+		"back": "Go back"
 	},
 	"page": "strona",
 	"copied_clipboard": "Skopiowano do schowka",
