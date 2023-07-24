@@ -1,49 +1,49 @@
 {
 	"branding": {
-		"slogan": "The future of SCR Content Creation"
+		"slogan": "Будущее создания контента SCR"
 	},
 	"buttons": {
-		"sign_in": "Sign in",
-		"logout": "logout",
-		"continue": "continue",
-		"understood": "understood",
-		"back": "Go back"
+		"sign_in": "Войти",
+		"logout": "Выйти",
+		"continue": "Продолжать",
+		"understood": "Понял",
+		"back": "Возвращаться"
 	},
-	"page": "page",
-	"copied_clipboard": "Copied to clipboard",
+	"page": "страница",
+	"copied_clipboard": "Скопировано в буфер обмена",
 	"content_types": {
-		"music": "music",
-		"video": "video",
-		"image": "image",
-		"all": "all"
+		"music": "музыка",
+		"video": "видео",
+		"image": "изображение",
+		"all": "все"
 	},
 	"navigation": {
-		"products": "products",
-		"company": "company",
-		"resources": "resources",
-		"profile": "profile",
-		"image": "images",
-		"about": "about us",
-		"image_license": "image license",
-		"support": "support",
-		"tos": "terms of service",
-		"privacy": "privacy policy",
-		"contact": "contact us"
+		"products": "продукты",
+		"company": "компания",
+		"resources": "ресурсы",
+		"profile": "профиль",
+		"image": "изображений",
+		"about": "о нас",
+		"image_license": "Лицензия на изображение",
+		"support": "поддержка",
+		"tos": "Условия использования",
+		"privacy": "политика конфиденциальности",
+		"contact": "Связаться с нами"
 	},
 	"modals": {
 		"confirm": {
-			"title": "Are you sure?",
-			"description": "You are about to do something dangerous, you can still go back!"
+			"title": "Ты уверен?",
+			"description": "Вы собираетесь что-то опасное, вы все еще можете вернуться!"
 		},
 		"contribution": {
-			"contribution_text": "Some content in this video was provided by SCR Creator Hub, a stock image/content site for SCR Creators. https://scrcreate.app/",
-			"disclaimer": "By using this asset you agree to our Terms of Service, Privacy Policy, and Content Licence",
-			"title": "Thanks for downloading an asset!",
-			"description": "Remember to put the appropriate credits in the description or subtitle under the image.",
-			"description_title": "description"
+			"contribution_text": "Некоторое содержимое в этом видео было предоставлено SCR Creator Hub, склад image/content site для SCR Creators. https://scrcreate.app/",
+			"disclaimer": "Используя этот актив, вы соглашаетесь с нашими Условиями обслуживания, Политикой конфиденциальности и лицензией на контент",
+			"title": "Спасибо за загрузку актива!",
+			"description": "Не забудьте поместить соответствующие кредиты в описание или субтитры под изображением.",
+			"description_title": "описание"
 		}
 	},
 	"errors": {
-		"unknown": "Unknown error, please try again later."
+		"unknown": "Неизвестная ошибка, попробуйте еще раз."
 	}
 }
