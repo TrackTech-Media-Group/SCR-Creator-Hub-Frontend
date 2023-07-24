@@ -1,33 +1,33 @@
 {
-	"title": "Frequently Asked Questions",
+	"title": "Часто задаваемые вопросы",
 	"items": [
 		{
-			"question": "Where can I use the Creator Hub content?",
-			"answer": "You can use the Creator Hub content everywhere as long as you follow our [Content License]({{license_url}})."
+			"question": "Где я могу использовать содержимое центра создателя?",
+			"answer": "Вы можете использовать содержимое контента Создателя в любом месте, пока вы не следуете нашей [Контентной Лицензии]({{license_url}})."
 		},
 		{
-			"question": "Do I need special permissions to use the Creator Hub content?",
-			"answer": "No everyone can use the content that we provide, we only ask you to add a small text to your video/image description."
+			"question": "Нужны ли мне специальные разрешения для использования содержимого Creator Hub?",
+			"answer": "Ни один человек не может использовать контент, который мы предоставляем, мы просим вас добавить небольшой текст к описанию вашего видео/изображения."
 		},
 		{
-			"question": "Am I allowed to monetise my posts?",
-			"answer": "Yes you can monetise your posts however you are not allowed to sell the post or our content."
+			"question": "Можно ли монетизировать свои записи?",
+			"answer": "Да, вы можете монетизировать ваши сообщения, однако вы не можете продавать этот пост или наш контент."
 		},
 		{
-			"question": "Do I need an account to get access to Creator Hub?",
-			"answer": "No, you can download content **with and without** an account. If you frequently use our service we recommend creating one so you can bookmark fravourite or frequently used content."
+			"question": "Нужен ли мне аккаунт для доступа к Центру создателя?",
+			"answer": "Нет, вы можете скачать контент **с учетной записью** и без нее. Если вы часто пользуетесь нашим сервисом, мы рекомендуем создать его, чтобы вы могли закладки fravourite или часто используемые материалы."
 		},
 		{
-			"question": "Why do I need a Discord account to login?",
-			"answer": "We use Discord as our main communication platform and because we do not want to store user credentials of our users we chose to use Discord as our main authentication method."
+			"question": "Зачем нужна учётная запись Discord для входа?",
+			"answer": "Мы используем Discord в качестве основной коммуникационной платформы и потому что не хотим хранить учетные данные для наших пользователей, мы решили использовать Discord в качестве основного метода аутентификации."
 		},
 		{
-			"question": "Are we allowed to publish our own content?",
-			"answer": "No, Creator Hub is designed to serve high quality content to make content creation easier. To prevent spam and content that does not meet our requirements we have decided to only allow our admins to post content."
+			"question": "Разрешено ли нам публиковать наш контент?",
+			"answer": "Нет, Creator Hub разработан для предоставления высококачественного контента для облегчения создания контента. Чтобы предотвратить спам и контент, которые не соответствуют нашим требованиям, мы решили разрешить только нашим администраторам публиковать контент."
 		},
 		{
-			"question": "Is my data safe on your servers?",
-			"answer": "Absolutely, we only store the bare minimum. Everything that is not needed is discarded right after we used it, this is to prevent account hijacking and attacks on our servers. Please refer to our [privacy policy]({{privacy_policy_url}}) for more information."
+			"question": "Безопасны ли мои данные на ваших серверах?",
+			"answer": "Безусловно, мы храним только голый минимум. Все, что не нужно, отбрасывается сразу после того, как мы его используем, это предотвращает захват и атаку на наших серверах. Обратитесь к нашей [политике конфиденциальности]({{privacy_policy_url}}) для получения дополнительной информации."
 		}
 	]
 }
