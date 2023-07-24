@@ -1,40 +1,40 @@
 {
 	"hero-section": {
-		"welcome": "You’re in the right place.",
-		"subtitle": "Hundreds of assets, accessible in <0>seconds</0>",
-		"button": "Get started"
+		"welcome": "Вы оказались в правильном месте.",
+		"subtitle": "Сотни активов, доступные за <0>секунд</0>",
+		"button": "Начать работу"
 	},
-	"explore_title": "Explore Popular Content",
+	"explore_title": "Посмотреть Популярный контент",
 	"marquee": [
-		"images",
-		"time",
-		"grow",
-		"quality",
-		"free",
-		"videos",
-		"library"
+		"изображений",
+		"время",
+		"расти",
+		"качество",
+		"бесплатно",
+		"видео",
+		"библиотека"
 	],
 	"reasons": {
-		"title": "Work smarter, not harder",
+		"title": "Работай умом, а не усердием",
 		"0": {
-			"title": "Save Time",
-			"description": "Forget hours of recording footage and searching for the perfect image. With SCR Creator Hub, you can find all you need and more in seconds."
+			"title": "Сохранить Время",
+			"description": "Забыли часы записи и поиска идеального изображения. С SCR Creator Hub, вы можете найти все, что вам нужно и многое другое в секундах."
 		},
 		"1": {
-			"title": "Ensure Quality",
-			"description": "We record all our footage on a cutting edge system so everyone can enjoy smooth framerates with beautiful full graphic settings."
+			"title": "Обеспечить качество",
+			"description": "Мы записываем все наши кадры на современную систему, чтобы каждый мог наслаждаться гладкими рамками с красивой полной графической настройкой."
 		},
 		"2": {
-			"title": "Adaptable",
-			"description": "Our footage is made to be adaptable to your specific needs. Did you know we have pre-blured videos for video essay backgrounds?"
+			"title": "Адаптивный",
+			"description": "Наш фильм создан для того, чтобы приспосабливаться к вашим конкретным потребностям. Знаете ли вы, что мы предварительно сняли видео для видеоэссе фонов?"
 		},
 		"3": {
-			"title": "Free Forever",
-			"description": "No subscriptions. No hidden fees. No sneaky business practices. We want to help you, the community, not our pockets."
+			"title": "Бесплатно навсегда",
+			"description": "Нет подписки. Без скрытых комиссий. Без скрытых бизнес-практик. Мы хотим помочь вам, сообщество, а не наши карманы."
 		}
 	},
 	"conclusion": {
-		"title": "The new way of content creation.",
-		"description": "Make everything less boring, focus on the important stuff. Login with your Discord account and get access to hundreds of assets."
+		"title": "Новый способ создания контента.",
+		"description": "Сделайте все менее скучно, сосредоточитесь на важных веществах. Войдите в свою учётную запись Discord и получите доступ к сотням активов."
 	}
 }
