@@ -1,0 +1,10 @@
+{
+	"title": "Searching for SCR content",
+	"search": {
+		"title": "Explore our library",
+		"description": "Use the search bar or select one of the many tags to get more specific results.",
+		"search_bar": "I am looking for...",
+		"button": "Return to library",
+		"content_type_title": "Content type"
+	}
+}
