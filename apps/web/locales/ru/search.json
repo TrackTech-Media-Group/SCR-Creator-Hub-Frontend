@@ -1,10 +1,10 @@
 {
-	"title": "Searching for SCR content",
+	"title": "Поиск контента SCR",
 	"search": {
-		"title": "Explore our library",
-		"description": "Use the search bar or select one of the many tags to get more specific results.",
-		"search_bar": "I am looking for...",
-		"button": "Return to library",
-		"content_type_title": "Content type"
+		"title": "Изучите нашу библиотеку",
+		"description": "Используйте строку поиска или выберите одно из множества тегов, чтобы получить более конкретные результаты.",
+		"search_bar": "Я ищу...",
+		"button": "Вернуться в библиотеку",
+		"content_type_title": "Тип контента"
 	}
 }
