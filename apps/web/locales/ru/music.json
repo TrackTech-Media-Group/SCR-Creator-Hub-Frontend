@@ -1,0 +1,12 @@
+{
+	"title": "Music Discovery",
+	"type": {
+		"title": "What genre of music are you looking for?"
+	},
+	"duration": {
+		"title": "How long should the song be?"
+	},
+	"results": {
+		"title": "Here is some music we found that has a length of {{duration}}, for a {{type}} video."
+	}
+}
