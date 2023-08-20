@@ -19,6 +19,6 @@
 		"@creatorhub/hooks": "*",
 		"next": "^13.4.16",
 		"react": "^18.2.0",
-		"react-cookie": "4.1.1"
+		"react-cookie": "5.0.0"
 	}
 }
