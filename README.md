@@ -12,10 +12,13 @@
 </div>
 
 ---
+![Logo_text_darkmode-6](https://github.com/TrackTech-Media-Group/creatorhub/assets/120676221/3b913c7f-6930-4a06-93c7-3097733494e3)
 
 ## Information
 
-THis is the front-end of the Creator Hub application.
+This is the front-end of the SCR Creator Hub application.
+By using, modifiying, or publishing any code here, you agree that TrackTech Media Group has no inolvement or association in said uses. 
+![image-8-transformed-6-70hEw5MUM-transformed-2-3-3-2](https://github.com/TrackTech-Media-Group/creatorhub/assets/120676221/a7cf42ea-1620-4c30-84a9-4528449c1f95)
 
 ## Author
 
