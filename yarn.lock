@@ -562,7 +562,7 @@ __metadata:
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
     axios: ^1.5.0
-    cookies-next: 2.1.2
+    cookies-next: 3.0.0
     eslint: 8.48.0
     next: 13.4.19
     react: ^18.2.0
@@ -595,7 +595,7 @@ __metadata:
     "@creatorhub/utils": "*"
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    cookies-next: ^2.1.2
+    cookies-next: ^3.0.0
     eslint: ^8.48.0
     framer-motion: ^10.16.2
     next: 13.4.19
@@ -654,7 +654,7 @@ __metadata:
   dependencies:
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
-    cookies-next: ^2.1.2
+    cookies-next: ^3.0.0
     eslint: ^8.48.0
     events: 3.3.0
     next: 13.4.19
@@ -2517,14 +2517,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookies-next@npm:2.1.2, cookies-next@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "cookies-next@npm:2.1.2"
+"cookies-next@npm:3.0.0, cookies-next@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "cookies-next@npm:3.0.0"
   dependencies:
     "@types/cookie": ^0.4.1
     "@types/node": ^16.10.2
     cookie: ^0.4.0
-  checksum: 5c7bf4edf946f8955014417fa609a0426476a6cce7d5f4ae0e7d8309d997e55fd3e41b63dcbbb15d44f6db099f4cdada7144d3c40968deb19efb7f918f8ed7e4
+  checksum: e85d21a9959934d6b4edf83cde97562cdb325931918b712038dceeb1a9551847cc984241190595394b660634bfa58b8620a2ab742c82dc3ccb0f04359998b36a
   languageName: node
   linkType: hard
 
@@ -8546,7 +8546,7 @@ __metadata:
     "@types/react": ^18.2.21
     "@types/react-dom": ^18.2.7
     axios: ^1.5.0
-    cookies-next: ^2.1.2
+    cookies-next: ^3.0.0
     eslint: 8.48.0
     event-target-shim: ^6.0.2
     events: ^3.3.0

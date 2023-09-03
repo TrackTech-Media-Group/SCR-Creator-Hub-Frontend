@@ -18,7 +18,7 @@
 		"@creatorhub/buttons": "*",
 		"@creatorhub/hooks": "*",
 		"@creatorhub/utils": "*",
-		"cookies-next": "^2.1.2",
+		"cookies-next": "^3.0.0",
 		"framer-motion": "^10.16.2",
 		"next": "13.4.19",
 		"next-translate": "2.5.3",
