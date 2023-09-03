@@ -9,9 +9,9 @@
 		"lint": "TIMING=1 eslint"
 	},
 	"dependencies": {
-		"axios": "^1.4.0",
+		"axios": "^1.5.0",
 		"react": "^18.2.0",
-		"swr": "^2.2.1"
+		"swr": "^2.2.2"
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.21",
